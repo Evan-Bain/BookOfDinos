@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25384615384615383" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/book_icon.xml" value="0.24722222222222223" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/check_circle_grey.xml" value="0.25384615384615383" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/check_circle_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/check_cirlce_grey.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/circle_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_trex.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_trex_black.xml" value="0.25384615384615383" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/edit_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/home_icon.xml" value="0.1375" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_account_circle_black_24dp.xml" value="0.1375" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.25384615384615383" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_trexbadge.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_icon.xml" value="0.1375" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_recycler_border.xml" value="0.23055555555555557" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/quiz_shape.xml" value="0.2388888888888889" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_bottom_nav.xml" value="0.20742753623188406" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_dino_article.xml" value="0.1875" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_main.xml" value="0.20742753623188406" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_profile_edit.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/bottom_nav_host.xml" value="0.12135416666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/encyclopedia_recycler_layout.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_encyclopedia.xml" value="0.20742753623188406" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_home.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_profile_edit.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_quiz.xml" value="0.25" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_quiz_next.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/profile_edit_recycler_layout.xml" value="0.1948376353039134" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/profile_recycler_layout.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/search_options_menu.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1375" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2578125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

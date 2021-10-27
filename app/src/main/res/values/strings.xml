@@ -1,0 +1,52 @@
+<resources>
+
+    <string name="app_name">Book of Dinos</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="encyclopedia">Encyclopedia</string>
+    <string name="test">test</string>
+    <string name="search">Search</string>
+    <string name="TRexOverview">The Tyrannosaurus Rex, also more commonly known as T–Rex, is perhaps one of the most well known dinosaurs to walk the Earth. The first fossil found of the T–Rex was in 1902 within Hell Creek, Montana by the archaeologist Barnum Brown; by examining the fossil, it is believed the T–Rex lived during the late Cretaceous period (about 90 - 66 million years ago). During this period in time Western North America was an island continent called Laramidia, which is where the T-Rex roamed. On this island continent the T-Rex was an apex predator which may have preyed on other dinosaurs such as Edmontosaurus, Anatosaurus, and Triceratops; however, the T-Rex may have been a scavenger alongside being a carnivore. The T-Rex had many features which enabled it to be such a strong predator like its enormous size which could reach up to 40 feet in length and 13 feet in height (13 feet is more than two times the height of the average human male). Although the T-Rex was one of the largest dinosaurs, the real qualities of an apex predator were seen in its bone crushing skull. The skull of the T-Rex was massive reaching up to 6 feet long and 4 feet tall meaning that just the length of the skull could fit a whole human inside, and with a skull this big came the strongest bite force of an living thing to walk this earth: an astonishing bite force of 12,800 pounds. To put this bite force into perspective the animal with the highest bite force living today is the saltwater crocodile which reaches up to 3,700 pounds, that’s nowhere near the bite force of the T-Rex! Although the T-Rex has many features for an apex predator, this magnificent dinosaur lacked in its speed with a walking speed of 3 - 6 miles per hour and a max running speed of 10 miles per hour which means a human could easily outrun a T-Rex on a bad day. Due to this trait some archaeologists believe the T-Rex may have also been a scavenger, but most agree this dinosaur was both a top predator and a scavenger.</string>
+
+    <!--Dinosaur names-->
+    <string name="ankylosaurus">Ankylosaurus</string>
+    <string name="brontosaurus">Brontosaurus</string>
+    <string name="dilophosaurus">Dilophosaurus</string>
+    <string name="mosasaurus">Mosasaurus</string>
+    <string name="pterodactyl">Pterodactyl</string>
+    <string name="spinosaurus">Spinosaurus</string>
+    <string name="stegosaurus">Stegosaurus</string>
+    <string name="t_rex">T-Rex</string>
+    <string name="triceratops">Triceratops</string>
+    <string name="velociraptor">Velociraptor</string>
+    <!--Dinosaur names-->
+
+    <string name="dinosaur_image">dinosaur image</string>
+    <string name="answer">answer</string>
+    <string name="next">Next</string>
+    <string name="quiz">Quiz</string>
+    <string name="finish">finish</string>
+    <string name="you_passed">YOU PASSED</string>
+    <string name="you_failed">YOU FAILED</string>
+    <string name="quiz_percent">%1$d%%</string>
+    <string name="profile_default">Default</string>
+    <string name="select">Select</string>
+    <string name="experience_fraction">%1$d/100</string>
+
+    <string-array name="dinosaur_articles">
+
+        <item>Ankylosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Brontosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Dilophosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Mosasaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Pterodactyl fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Spinosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Stegosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Triceratops fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>T-Rex fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Velociraptor fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- layout for recycler view -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="position"
+            type="com.example.dinoappv2.bottomNav.EncyclopediaFragment" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Badge/image of dinosaur-->
+            <ImageView
+                android:id="@+id/dino_badge"
+                android:transitionName=""
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/dinosaur_image"
+                android:padding="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/circle_icon" />
+
+            <ImageView
+                android:id="@+id/dino_badge_check"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                android:layout_margin="8dp"
+                app:srcCompat="@drawable/check_circle_icon"
+                app:layout_constraintTop_toTopOf="@id/dino_badge"
+                app:layout_constraintEnd_toEndOf="@id/dino_badge"/>
+
+            <!--name of Dinosaur-->
+            <TextView
+                android:id="@+id/dino_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/test"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/dino_badge"
+                app:layout_constraintTop_toBottomOf="@id/dino_badge" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

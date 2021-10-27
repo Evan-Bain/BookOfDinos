@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.example.dinoappv2.DinoArticleActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:transitionName="shared_element"
+        android:transitionGroup="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="64dp"
+                tools:context=".DinoArticleActivity">
+
+                <ImageView
+                    android:id="@+id/dino_article_image"
+                    android:transitionName="dino_badge_transition"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/circle_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="contentDescription" />
+
+                <TextView
+                    android:id="@+id/dino_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fredoka_one"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/dino_article_image"
+                    app:layout_constraintBottom_toBottomOf="@id/dino_article_image"
+                    tools:text="@string/ankylosaurus" />
+
+                <TextView
+                    android:id="@+id/dino_article"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/thin_border"
+                    app:layout_constraintStart_toStartOf="@id/dino_title"
+                    app:layout_constraintTop_toBottomOf="@id/dino_article_image"
+                    tools:text="@string/TRexOverview"/>
+
+                <Button
+                    android:id="@+id/quiz_button"
+                    style="@style/classicButton"
+                    android:text="@string/quiz"
+                    android:onClick="@{() -> activity.quizOnClick()}"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/dino_article"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/quiz_nav_host"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/quiz_nav"
+            android:layout_width="304dp"
+            android:layout_height="320dp"
+            android:visibility="invisible"
+            android:background="@drawable/quiz_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

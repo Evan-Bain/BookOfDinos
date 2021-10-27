@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Book of Dinos</string>
+    <string name="profile">Profile</string>
+    <string name="encyclopedia">Encyclopedia</string>
+    <string name="test">test</string>
+    <string name="search">Search</string>
+
+    <!--Dinosaur names-->
+    <string name="ankylosaurus">Ankylosaurus</string>
+    <string name="brontosaurus">Brontosaurus</string>
+    <string name="dilophosaurus">Dilophosaurus</string>
+    <string name="mosasaurus">Mosasaurus</string>
+    <string name="pterodactyl">Pterodactyl</string>
+    <string name="spinosaurus">Spinosaurus</string>
+    <string name="stegosaurus">Stegosaurus</string>
+    <string name="t_rex">T-Rex</string>
+    <string name="triceratops">Triceratops</string>
+    <string name="velociraptor">Velociraptor</string>
+    <!--Dinosaur names-->
+
+    <string name="dinosaur_image">dinosaur image</string>
+    <string name="answer">answer</string>
+    <string name="next">Next</string>
+    <string name="quiz">Quiz</string>
+    <string name="finish">finish</string>
+    <string name="you_passed">YOU PASSED</string>
+    <string name="you_failed">YOU FAILED</string>
+    <string name="quiz_percent">%1$d%%</string>
+    <string name="profile_default">Default</string>
+    <string name="select">Select</string>
+    <string name="experience_fraction">%1$d/100</string>
+
+
+    <string-array name="dinosaur_articles">
+
+        <item>Ankylosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Brontosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Dilophosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Mosasaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Pterodactyl fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Spinosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Stegosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>T-Rex fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Triceratops fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <item>Velociraptor fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="classicButton" parent="Theme.MaterialComponents" >
+
+        <item name="cornerRadius">20dp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:letterSpacing">.1</item>
+
+    </style>
+
+</resources>
