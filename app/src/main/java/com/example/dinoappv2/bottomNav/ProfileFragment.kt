@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -18,6 +19,7 @@ import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.FragmentProfileBinding
 import com.example.dinoappv2.viewModels.BottomNavViewModel
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.transition.*
@@ -67,8 +69,8 @@ class ProfileFragment : Fragment() {
         }
 
         //sets experience count
-        binding.experienceRatio.text =
-            resources.getString(R.string.experience_fraction,dinoData.size*10)
+        /*binding.experienceRatio.text =
+            resources.getString(R.string.experience_fraction,dinoData.size*10)*/
 
         return binding.root
     }

@@ -25,7 +25,6 @@
             <!--Badge/image of dinosaur-->
             <ImageView
                 android:id="@+id/dino_badge"
-                android:transitionName=""
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_gravity="center_horizontal"
@@ -53,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="4dp"
+                android:fontFamily="@font/fredoka_one"
                 android:text="@string/test"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/dino_badge"

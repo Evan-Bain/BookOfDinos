@@ -6,6 +6,30 @@ import kotlinx.coroutines.launch
 
 class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewModel() {
 
+    private val _habitatDroppedDown = MutableLiveData<Boolean>()
+    val habitatDroppedDown: LiveData<Boolean>
+        get() = _habitatDroppedDown
+
+    fun habitatDropDownClicked() {
+        _habitatDroppedDown.value = !_habitatDroppedDown.value!!
+    }
+
+    private val _evolutionDroppedDown = MutableLiveData<Boolean>()
+    val evolutionDroppedDown: LiveData<Boolean>
+        get() = _evolutionDroppedDown
+
+    fun evolutionDropDownClicked() {
+        _evolutionDroppedDown.value = !_evolutionDroppedDown.value!!
+    }
+
+    private val _fossilDroppedDown = MutableLiveData<Boolean>()
+    val fossilDroppedDown: LiveData<Boolean>
+        get() = _fossilDroppedDown
+
+    fun fossilDropDownClicked() {
+        _fossilDroppedDown.value = !_fossilDroppedDown.value!!
+    }
+
     //used in data binding to determine what radio button was
     //clicked
     private val _radioButtonClicked = MutableLiveData<Int?>()
@@ -72,6 +96,9 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
 
     init {
         _articleBodyAlpha.value = true
+        _habitatDroppedDown.value = false
+        _evolutionDroppedDown.value = false
+        _fossilDroppedDown.value = false
     }
 
 }

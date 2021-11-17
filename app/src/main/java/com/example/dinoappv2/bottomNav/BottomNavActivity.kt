@@ -1,11 +1,22 @@
 package com.example.dinoappv2.bottomNav
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.dinoappv2.R
+import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databases.ProfileImageDatabase
 import com.example.dinoappv2.databinding.ActivityBottomNavBinding
@@ -15,6 +26,8 @@ import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
 class BottomNavActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBottomNavBinding
+
+    lateinit var menuItem: MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,15 +40,20 @@ class BottomNavActivity : AppCompatActivity() {
         val viewModelFactory = EncyclopediaViewModelFactory(dinoDatasource, profileDatasource)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(BottomNavViewModel::class.java)
-        //make home icon(middle icon) in bottom nav automatically selected
-        binding.bottomNav.selectedItemId = R.id.home_bottom_nav
-
         //setting up bottom nav with nav graph
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.bottom_nav_host) as NavHostFragment
         val navController = navHostFragment.navController
+        //make home icon(middle icon) in bottom nav automatically selected
+        if(CompanionObject.transitionToDictionary) {
+            navController.navigate(R.id.dictionary_bottom_nav)
+            binding.bottomNav.selectedItemId = R.id.dictionary_bottom_nav
+            CompanionObject.transitionToDictionary = false
+        } else {
+            binding.bottomNav.selectedItemId = R.id.home_bottom_nav
+        }
         binding.bottomNav.setupWithNavController(navController)
-
+        setSupportActionBar(binding.bottomNavToolbar)
     }
 
     //make view model visible to the 3 fragments correlated to the bottom navigation view

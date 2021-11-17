@@ -2,7 +2,6 @@ package com.example.dinoappv2.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +9,12 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
-import com.example.dinoappv2.databases.DinosaurEncyclopediaDao
-import com.example.dinoappv2.viewModels.BottomNavViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -25,7 +23,10 @@ class EncyclopediaAdapter(private val dinoData: ArrayList<DinosaurEncyclopedia>,
     RecyclerView.Adapter<EncyclopediaAdapter.ViewHolder>(), Filterable {
 
     //variable used to filter results in SearchView
-    var dinos: List<DinosaurEncyclopedia> = ArrayList(dinoData)
+    val dinos: List<DinosaurEncyclopedia> = ArrayList(dinoData)
+
+    //holds dino badge image views so they are visible outside of adapter
+    val dinosBadge = ArrayList<ImageView>()
 
     //holds value of the position of a view
     private val _positionClicked = MutableLiveData<Int>()
@@ -48,9 +49,13 @@ class EncyclopediaAdapter(private val dinoData: ArrayList<DinosaurEncyclopedia>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = context.getString(dinoData[position].dinosaurKey)
         holder.imageView.setImageResource(dinoData[position].badge)
+        ViewCompat.setTransitionName(holder.imageView,
+            context.getString(
+                R.string.dino_badge_position_transition, position))
         if(dinoData[position].activated) {
             holder.check.visibility = View.VISIBLE
         }
+        dinosBadge.add(holder.imageView)
         //when the image is clicked the positionClicked livedata changes to the position
         //that was clicked
         holder.imageView.setOnClickListener {

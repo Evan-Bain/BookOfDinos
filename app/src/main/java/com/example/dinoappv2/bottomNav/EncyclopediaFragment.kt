@@ -2,9 +2,13 @@ package com.example.dinoappv2.bottomNav
 
 import android.app.ActivityOptions
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.navGraphViewModels
@@ -16,6 +20,7 @@ import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.FragmentEncyclopediaBinding
 import com.example.dinoappv2.viewModels.BottomNavViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
 
 
@@ -59,7 +64,7 @@ class EncyclopediaFragment : Fragment() {
             CompanionObject.allDinos = viewModel.allDinos
             //tell viewModel what activity is being transitioned to
             val options = ActivityOptions.makeSceneTransitionAnimation(
-                activity, requireActivity().findViewById(R.id.dino_badge),
+                activity, adapter.dinosBadge[it],
                 "dino_badge_transition").toBundle()
             val intent = Intent(activity, DinoArticleActivity::class.java)
             startActivity(intent, options)
@@ -76,9 +81,24 @@ class EncyclopediaFragment : Fragment() {
     //creating SearchView widget
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_options_menu, menu)
-
         val searchItem: MenuItem = menu.findItem(R.id.search_menu_item)
         val searchView: SearchView = searchItem.actionView as SearchView
+        searchView.setIconifiedByDefault(false)
+        searchView.queryHint = "search..."
+
+        searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
+                activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
+                activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
+                return true
+            }
+
+        })
+
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false

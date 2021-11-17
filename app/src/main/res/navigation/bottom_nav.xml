@@ -35,4 +35,9 @@
             android:id="@+id/action_profileEditFragment_to_profile_bottom_nav"
             app:destination="@id/profile_bottom_nav" />
     </fragment>
+    <fragment
+        android:id="@+id/dictionary_bottom_nav"
+        android:name="com.example.dinoappv2.DictionaryFragment"
+        android:label="DictionaryFragment"
+        tools:layout="@layout/fragment_dictionary"/>
 </navigation>

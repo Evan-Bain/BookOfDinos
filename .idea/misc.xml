@@ -4,27 +4,61 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25384615384615383" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/back_button.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/background_air.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/background_land.xml" value="0.3" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/background_water.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/book_icon.xml" value="0.24722222222222223" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/check_circle_grey.xml" value="0.25384615384615383" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/check_circle_icon.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/check_cirlce_grey.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/circle_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_ankylosaurus.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_ankylosaurus_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_brontosaurus.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_brontosaurus_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_dilophosaurus.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_dilophosaurus_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_mosasaurus.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_mosasaurus_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_pterodactyl.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_pterodactyl_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_raptor.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_raptor_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_spinosaurus.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_spinosaurus_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_stegasaurus.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_stegasaurus_black.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_trex.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_trex_black.xml" value="0.25384615384615383" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_triceratops.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_triceratops_black.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/drop_down_arrow_down.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/drop_down_arrow_up.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/drop_down_right_icon.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/edit_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/filler_square_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/hamburger_icon.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/home_icon.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_account_circle_black_24dp.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.25384615384615383" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_trexbadge.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_icon.xml" value="0.1375" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_icon_full.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_recycler_border.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/quiz_shape.xml" value="0.2388888888888889" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/search_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/test_progress_exp.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/thin_border.xml" value="0.1375" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/trophy_icon.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_bottom_nav.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_dino_article.xml" value="0.1875" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_main.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_profile_edit.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/bottom_nav_host.xml" value="0.12135416666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/dictionary_recycler_layout.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/encyclopedia_recycler_layout.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_dictionary.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_encyclopedia.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_home.xml" value="0.22333333333333336" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_profile.xml" value="0.3333333333333333" />
@@ -35,6 +69,7 @@
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/profile_recycler_layout.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/search_options_menu.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/toolbar_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2578125" />
       </map>

@@ -10,13 +10,6 @@
         android:layout_height="match_parent"
         android:transitionName="shared_element_fab" >
 
-        <Toolbar
-            android:id="@+id/profile_edit_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/secondaryColor"
-            app:layout_constraintTop_toTopOf="parent"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/profile_edit_recycler_view"
             android:layout_width="0dp"

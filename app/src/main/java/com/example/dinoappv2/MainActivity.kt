@@ -8,6 +8,7 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.example.dinoappv2.bottomNav.BottomNavActivity
+import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        CompanionObject().companionSetters()
 
         //Going to main screen of app with bottom navigation view
         binding.startButton.setOnClickListener {

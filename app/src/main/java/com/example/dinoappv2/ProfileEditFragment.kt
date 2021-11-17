@@ -1,13 +1,20 @@
 package com.example.dinoappv2
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toolbar
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.content.res.AppCompatResources.getColorStateList
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.compose.ui.res.colorResource
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dinoappv2.adapters.ProfileEditAdapter
@@ -18,6 +25,7 @@ import com.example.dinoappv2.databases.ProfileImageDatabase
 import com.example.dinoappv2.databinding.FragmentProfileEditBinding
 import com.example.dinoappv2.viewModels.ProfileEditViewModel
 import com.example.dinoappv2.viewModels.ProfileEditViewModelFactory
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialContainerTransform
 import com.google.android.material.transition.MaterialSharedAxis
@@ -44,7 +52,13 @@ class ProfileEditFragment : Fragment() {
             container,
             false
         )
-        activity?.setActionBar(requireActivity().findViewById(R.id.profile_edit_toolbar))
+        activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.setNavigationIcon(
+            R.drawable.back_button
+        )
+        activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.setNavigationOnClickListener {
+            activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.navigationIcon = null
+            findNavController().navigateUp()
+        }
         //get all badges that have been activated after quiz completion
         val dinoData = ArrayList<DinosaurEncyclopedia>()
         for(i in CompanionObject.allDinos!!) {
@@ -96,6 +110,7 @@ class ProfileEditFragment : Fragment() {
             exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
             activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
                 ?.visibility = View.VISIBLE
+            activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.navigationIcon = null
             findNavController().navigate(ProfileEditFragmentDirections
                 .actionProfileEditFragmentToProfileBottomNav())
         }

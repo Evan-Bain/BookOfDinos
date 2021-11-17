@@ -33,6 +33,21 @@
     <string name="profile_default">Default</string>
     <string name="select">Select</string>
     <string name="experience_fraction">%1$d/100</string>
+    <string name="dino_badge_position_transition">dino_badge_transition%1$d</string>
+    <string name="back_button">back button</string>
+    <string name="search_button">search button</string>
+    <string name="overflow_menu">overflow menu</string>
+    <string name="habitat">Habitat</string>
+    <string name="crazy_evolution">Crazy Evolution</string>
+    <string name="fossil_history">Fossil History</string>
+    <string name="height_title">Height:</string>
+    <string name="weight_title">Weight:</string>
+    <string name="lived">Lived:</string>
+    <string name="speed_title">Speed:</string>
+    <string name="meaning_of_name">Meaning of Name:</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="dictionary_of_difficult_words">Dictionary of Difficult Words</string>
+    <string name="background">Background:</string>
 
     <string-array name="dinosaur_articles">
 
@@ -46,6 +61,12 @@
         <item>Triceratops fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
         <item>T-Rex fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
         <item>Velociraptor fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+
+    </string-array>
+
+    <string-array name="quick_facts">
+
+        <item>5.6 feet\n<b>Weight: </b>18,000 pounds\n<b>Lived: </b> 66 million years ago\n<b>Speed: </b>6 miles an hour\n<b>Meaning of Name: </b>Fused lizard</item>
 
     </string-array>
 
