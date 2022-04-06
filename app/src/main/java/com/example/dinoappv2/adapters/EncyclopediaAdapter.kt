@@ -1,105 +1,61 @@
 package com.example.dinoappv2.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.ViewCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
-import java.util.*
-import kotlin.collections.ArrayList
+import com.example.dinoappv2.databinding.EncyclopediaRecyclerLayoutBinding
 
-class EncyclopediaAdapter(private val dinoData: ArrayList<DinosaurEncyclopedia>,
-                          private val context: Context):
-    RecyclerView.Adapter<EncyclopediaAdapter.ViewHolder>(), Filterable {
+class EncyclopediaAdapter(val context: Context) : ListAdapter<DinosaurEncyclopedia,
+            EncyclopediaAdapter.ViewHolder>(EncyclopediaDiffCallback()) {
 
-    //variable used to filter results in SearchView
-    val dinos: List<DinosaurEncyclopedia> = ArrayList(dinoData)
+    inner class ViewHolder(val binding: EncyclopediaRecyclerLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    //holds dino badge image views so they are visible outside of adapter
-    val dinosBadge = ArrayList<ImageView>()
+            fun bind(data: DinosaurEncyclopedia) {
+                binding.dinoBadge.setImageResource(data.badge)
 
-    //holds value of the position of a view
-    private val _positionClicked = MutableLiveData<Int>()
-    val positionClicked: LiveData<Int>
-        get() = _positionClicked
+                //add check next to dino image depending on if quiz is completed
+                binding.dinoBadgeCheck.visibility = if(data.activated) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.dino_name)
-        val imageView: ImageView = view.findViewById(R.id.dino_badge)
-        val check: ImageView = view.findViewById(R.id.dino_badge_check)
+                binding.dinoName.text = context.getString(data.dinosaurKey)
+            }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.encyclopedia_recycler_layout, parent, false)
 
-        return ViewHolder(view)
+        //setting up view binding instead of findViewById
+         val binding = EncyclopediaRecyclerLayoutBinding
+             .inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = context.getString(dinoData[position].dinosaurKey)
-        holder.imageView.setImageResource(dinoData[position].badge)
-        ViewCompat.setTransitionName(holder.imageView,
-            context.getString(
-                R.string.dino_badge_position_transition, position))
-        if(dinoData[position].activated) {
-            holder.check.visibility = View.VISIBLE
-        }
-        dinosBadge.add(holder.imageView)
-        //when the image is clicked the positionClicked livedata changes to the position
-        //that was clicked
-        holder.imageView.setOnClickListener {
-            _positionClicked.value = position
-        }
+        holder.bind(getItem(position))
+    }
+}
+
+class EncyclopediaDiffCallback : DiffUtil.ItemCallback<DinosaurEncyclopedia>() {
+    override fun areItemsTheSame(
+        oldItem: DinosaurEncyclopedia,
+        newItem: DinosaurEncyclopedia
+    ): Boolean {
+        return oldItem.position == newItem.position
     }
 
-    override fun getItemCount(): Int = dinoData.size
-
-    //filter for SearchView
-    override fun getFilter(): Filter {
-        return object : Filter() {
-            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val filteredList = ArrayList<DinosaurEncyclopedia>()
-
-                //if nothing entered in SearchView return all items
-                if(constraint == null || constraint.isEmpty()) {
-                    filteredList.addAll(dinos)
-                } else {
-                    val filterPattern = constraint.toString().lowercase(Locale.getDefault()).trim()
-
-                    for(i in dinos) {
-                        if(context.getString(i.dinosaurKey).lowercase(Locale.getDefault())
-                                .startsWith(filterPattern)) {
-                            filteredList.add(i)
-                        }
-                    }
-                }
-
-                val results = object : FilterResults(){}
-                results.values = filteredList
-
-                return results
-            }
-
-            @SuppressLint("NotifyDataSetChanged")
-            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                dinoData.clear()
-                dinoData.addAll(results?.values as Collection<DinosaurEncyclopedia>)
-                notifyDataSetChanged()
-            }
-
-        }
+    override fun areContentsTheSame(
+        oldItem: DinosaurEncyclopedia,
+        newItem: DinosaurEncyclopedia
+    ): Boolean {
+        return oldItem == newItem
     }
-
 
 }

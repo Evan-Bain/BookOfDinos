@@ -4,6 +4,7 @@ data class DictionaryStrings(
     val word: String,
     val definition: String
 ) {
+    //adds the dictionary words to Dictionary Strings and sorts them alphabetically
     fun addStrings() {
         if(dictionaryStrings.size == 0) {
             val sortingArray = ArrayList<String>()
@@ -67,7 +68,9 @@ data class DictionaryStrings(
         }
 
     }
+
     companion object {
+        //variable used to get dictionary words in Dictionary Strings
         val dictionaryStrings = ArrayList<DictionaryStrings>()
     }
 }

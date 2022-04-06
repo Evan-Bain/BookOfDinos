@@ -11,13 +11,17 @@ class CompanionObject {
     companion object {
         //determine what recycler view item was pressed after BottomNavViewModel is destroyed
         var dinoArticleSelected: Int? = null
+
+        //variable that holds list of dinosaurs after viewModel has been destroyed
         var allDinos: List<DinosaurEncyclopedia>? = null
 
         //determine whether to show search icon in toolbar
         val searchVisibility = MutableLiveData<Boolean>()
 
+        //tells BottomNavActivity whether or not to open the dictionary immediately upon entering
         var transitionToDictionary = false
 
+        //determine whether a word in a dino article has been clicked
         var wordClicked: String? = null
     }
 

@@ -27,12 +27,11 @@ class BottomNavActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBottomNavBinding
 
-    lateinit var menuItem: MenuItem
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBottomNavBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(this)
             .dinosaurEncyclopediaDao
         val profileDatasource = ProfileImageDatabase.getInstance(this)
@@ -40,11 +39,14 @@ class BottomNavActivity : AppCompatActivity() {
         val viewModelFactory = EncyclopediaViewModelFactory(dinoDatasource, profileDatasource)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(BottomNavViewModel::class.java)
+
         //setting up bottom nav with nav graph
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.bottom_nav_host) as NavHostFragment
         val navController = navHostFragment.navController
-        //make home icon(middle icon) in bottom nav automatically selected
+
+        //if transition to dictionary is true immediately open dictionary fragment upon entering
+        //else set the home icon as checked
         if(CompanionObject.transitionToDictionary) {
             navController.navigate(R.id.dictionary_bottom_nav)
             binding.bottomNav.selectedItemId = R.id.dictionary_bottom_nav

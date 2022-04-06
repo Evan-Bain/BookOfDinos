@@ -1,25 +1,15 @@
 package com.example.dinoappv2.bottomNav
 
-import android.app.ActivityOptions
-import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.dinoappv2.DinoArticleActivity
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.EncyclopediaAdapter
-import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.FragmentEncyclopediaBinding
-import com.example.dinoappv2.viewModels.BottomNavViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
 
@@ -27,6 +17,9 @@ import com.google.android.material.transition.MaterialFadeThrough
 class EncyclopediaFragment : Fragment() {
 
     private val viewModel = BottomNavActivity.viewModel
+
+    private val dinosaurData = getAll()
+    private val dinosaurNames: MutableList<String> = mutableListOf()
 
     private lateinit var adapter: EncyclopediaAdapter
 
@@ -46,9 +39,9 @@ class EncyclopediaFragment : Fragment() {
             container,
             false
         )
-        adapter =
-            activity?.let { EncyclopediaAdapter(getAll() as ArrayList<DinosaurEncyclopedia>,
-                it.applicationContext) }!!
+
+        adapter = EncyclopediaAdapter(requireContext())
+        adapter.submitList(dinosaurData)
 
         setHasOptionsMenu(true)
 
@@ -56,19 +49,10 @@ class EncyclopediaFragment : Fragment() {
         binding.encyclopediaRecyclerView.adapter = adapter
         binding.encyclopediaRecyclerView.layoutManager = GridLayoutManager(context, 3)
 
-        //when an image is clicked an activity opens
-        adapter.positionClicked.observe(viewLifecycleOwner, {
-            //allow the app to access what recycle view item was pressed
-            CompanionObject.dinoArticleSelected = it
-            //allow the app the access the data in DinosaurEncyclopedia
-            CompanionObject.allDinos = viewModel.allDinos
-            //tell viewModel what activity is being transitioned to
-            val options = ActivityOptions.makeSceneTransitionAnimation(
-                activity, adapter.dinosBadge[it],
-                "dino_badge_transition").toBundle()
-            val intent = Intent(activity, DinoArticleActivity::class.java)
-            startActivity(intent, options)
-        })
+        //extracting dinosaur names so SearchView can search through the names
+        for(i in dinosaurData) {
+            dinosaurNames.add(requireContext().getString(i.dinosaurKey))
+        }
 
         return binding.root
     }
@@ -84,7 +68,7 @@ class EncyclopediaFragment : Fragment() {
         val searchItem: MenuItem = menu.findItem(R.id.search_menu_item)
         val searchView: SearchView = searchItem.actionView as SearchView
         searchView.setIconifiedByDefault(false)
-        searchView.queryHint = "search..."
+        searchView.queryHint = "Search dinosaurs"
 
         searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
@@ -106,13 +90,31 @@ class EncyclopediaFragment : Fragment() {
 
             //adding filter to SearchView
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.filter.filter(newText)
+                adapter.submitList(filterDinosaurData(newText))
                 return false
             }
 
         })
 
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    fun filterDinosaurData(text: String?): List<DinosaurEncyclopedia> {
+
+        //if there is nothing typed in display all the dinos
+        if(text == null || text == "") {
+            return dinosaurData
+        }
+
+        //return the dinos that match the start of the inputted text (not case sensitive)
+        val length = text.length
+        val newDinosaurData: MutableList<DinosaurEncyclopedia> = mutableListOf()
+        for((i, name) in dinosaurNames.withIndex()) {
+            if(name.take(length).lowercase() == text) {
+                newDinosaurData.add(dinosaurData[i])
+            }
+        }
+        return newDinosaurData
     }
 
 }

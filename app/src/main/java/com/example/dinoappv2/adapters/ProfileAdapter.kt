@@ -25,6 +25,7 @@ class ProfileAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        //if the quiz is complete display the check next to the badge
         if(dinoData[position].activated) {
             holder.imageView.setImageResource(dinoData[position].badge)
         } else {

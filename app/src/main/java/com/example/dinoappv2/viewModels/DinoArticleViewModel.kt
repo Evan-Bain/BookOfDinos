@@ -6,6 +6,7 @@ import kotlinx.coroutines.launch
 
 class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewModel() {
 
+    //holds value for whether or not the habitat info is displayed
     private val _habitatDroppedDown = MutableLiveData<Boolean>()
     val habitatDroppedDown: LiveData<Boolean>
         get() = _habitatDroppedDown
@@ -14,6 +15,7 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
         _habitatDroppedDown.value = !_habitatDroppedDown.value!!
     }
 
+    //holds value for whether or not the evolution info is displayed
     private val _evolutionDroppedDown = MutableLiveData<Boolean>()
     val evolutionDroppedDown: LiveData<Boolean>
         get() = _evolutionDroppedDown
@@ -22,6 +24,7 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
         _evolutionDroppedDown.value = !_evolutionDroppedDown.value!!
     }
 
+    //holds value for whether or not the fossil info is displayed
     private val _fossilDroppedDown = MutableLiveData<Boolean>()
     val fossilDroppedDown: LiveData<Boolean>
         get() = _fossilDroppedDown

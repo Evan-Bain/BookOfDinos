@@ -7,9 +7,7 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.text.toLowerCase
 import androidx.lifecycle.ViewModelProvider
 import com.example.dinoappv2.bottomNav.BottomNavActivity
 import com.example.dinoappv2.companionObjects.CompanionObject
@@ -63,18 +61,48 @@ class DinoArticleActivity : AppCompatActivity() {
             }
             if(habitatArticle.contains(word)) {
                 val first = habitatArticle.indexOf(word)
-                val last = word.length
-                habitatArticle.setSpan(clickableSpan, first, first+last, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                var whileLoop = true
+                var iterator = 0
+                while(whileLoop) {
+                    val newWord = habitatArticle[first + iterator].toString()
+                    if(newWord == " " || newWord == "." || newWord == ","
+                        || newWord == "!" || newWord == "?") {
+                        whileLoop = false
+                    } else {
+                        iterator++
+                    }
+                }
+                habitatArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             }
             if(evolutionArticle.contains(word)) {
                 val first = evolutionArticle.indexOf(word)
-                val last = word.length
-                evolutionArticle.setSpan(clickableSpan, first, first+last, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                var whileLoop = true
+                var iterator = 0
+                while(whileLoop) {
+                    val newWord = evolutionArticle[first + iterator].toString()
+                    if(newWord == " " || newWord == "." || newWord == ","
+                        || newWord == "!" || newWord == "?") {
+                        whileLoop = false
+                    } else {
+                        iterator++
+                    }
+                }
+                evolutionArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             }
             if(fossilArticle.contains(word)) {
                 val first = fossilArticle.indexOf(word)
-                val last = word.length
-                fossilArticle.setSpan(clickableSpan, first, first+last, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                var whileLoop = true
+                var iterator = 0
+                while(whileLoop) {
+                    val newWord = fossilArticle[first + iterator].toString()
+                    if(newWord == " " || newWord == "." || newWord == ","
+                        || newWord == "!" || newWord == "?") {
+                        whileLoop = false
+                    } else {
+                        iterator++
+                    }
+                }
+                fossilArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             }
         }
 

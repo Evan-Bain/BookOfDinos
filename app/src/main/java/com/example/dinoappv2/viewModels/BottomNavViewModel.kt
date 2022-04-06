@@ -53,7 +53,7 @@ class BottomNavViewModel(
     init {
         //DELETE LATER
         viewModelScope.launch {
-            //dinoDatabase.deleteAll()
+            dinoDatabase.deleteAll()
             //sets the default profile image for first time loading app
             profileDatabase.insertFirst(ProfileImage(0, R.drawable.profile_icon))
         }

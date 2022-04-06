@@ -2,6 +2,7 @@ package com.example.dinoappv2.dataClasses
 
 class DinosaurArticleStrings(val position: Int) {
 
+    //returns the proper data depending to the recycler view item that was clicked
     fun getDinoStrings(): HashMap<Int, List<String>> {
         return when(position) {
             0 -> getAnkylosaurusArticleStrings()
