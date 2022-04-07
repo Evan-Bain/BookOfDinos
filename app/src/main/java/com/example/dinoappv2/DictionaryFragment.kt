@@ -44,6 +44,7 @@ class DictionaryFragment : Fragment() {
         binding.recyclerViewDictionary.layoutManager = LinearLayoutManager(requireContext())
         setHasOptionsMenu(true)
 
+        //extract words from DictionaryStrings to be sorted
         for(i in DictionaryStrings.dictionaryStrings) {
             dictionaryWords.add(i.word)
         }

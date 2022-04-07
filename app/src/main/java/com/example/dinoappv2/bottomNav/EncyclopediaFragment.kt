@@ -1,13 +1,18 @@
 package com.example.dinoappv2.bottomNav
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.dinoappv2.DinoArticleActivity
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.EncyclopediaAdapter
+import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.FragmentEncyclopediaBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -40,7 +45,9 @@ class EncyclopediaFragment : Fragment() {
             false
         )
 
-        adapter = EncyclopediaAdapter(requireContext())
+        adapter = EncyclopediaAdapter(requireContext()) { model, imageView ->
+            model.onBadgeClicked(imageView)
+        }
         adapter.submitList(dinosaurData)
 
         setHasOptionsMenu(true)
@@ -117,4 +124,16 @@ class EncyclopediaFragment : Fragment() {
         return newDinosaurData
     }
 
+    fun DinosaurEncyclopedia.onBadgeClicked(dinoBadge: ImageView) {
+        //allow the app to access what recycle view item was pressed
+        CompanionObject.dinoArticleSelected = this.position
+        //allow the app the access the data in DinosaurEncyclopedia
+        CompanionObject.allDinos = viewModel.allDinos
+        //tell viewModel what activity is being transitioned to
+        val options = ActivityOptions.makeSceneTransitionAnimation(
+            activity, dinoBadge,
+            "dino_badge_transition").toBundle()
+        val intent = Intent(activity, DinoArticleActivity::class.java)
+        startActivity(intent, options)
+    }
 }

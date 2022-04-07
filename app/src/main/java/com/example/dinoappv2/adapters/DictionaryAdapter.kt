@@ -1,6 +1,7 @@
 package com.example.dinoappv2.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -14,9 +15,21 @@ class DictionaryAdapter :
     inner class ViewHolder(val binding: DictionaryRecyclerLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(data: DictionaryStrings) {
+            fun bind(data: DictionaryStrings, lastData: DictionaryStrings?) {
                 binding.dictionaryRecyclerDefinition.text = data.definition
                 binding.dictionaryRecyclerWordTitle.text = data.word
+
+                if(lastData != null) {
+                    if(lastData.word[0] != data.word[0]) {
+                        binding.letterTitle.text = data.word[0].toString()
+                        binding.letterTitle.visibility = View.VISIBLE
+                    } else {
+                        binding.letterTitle.visibility = View.GONE
+                    }
+                } else {
+                    binding.letterTitle.text = data.word[0].toString()
+                    binding.letterTitle.visibility = View.VISIBLE
+                }
             }
         }
 
@@ -29,7 +42,11 @@ class DictionaryAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        try {
+            holder.bind(getItem(position), getItem(position-1))
+        } catch(e: ArrayIndexOutOfBoundsException) {
+            holder.bind(getItem(position), null)
+        }
     }
 }
 
@@ -49,4 +66,3 @@ class DictionaryDiffCallback : DiffUtil.ItemCallback<DictionaryStrings>() {
     }
 
 }
-

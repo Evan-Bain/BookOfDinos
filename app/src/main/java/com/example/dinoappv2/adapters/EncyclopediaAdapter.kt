@@ -4,13 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.EncyclopediaRecyclerLayoutBinding
 
-class EncyclopediaAdapter(val context: Context) : ListAdapter<DinosaurEncyclopedia,
+class EncyclopediaAdapter(
+    val context: Context,
+    private val onBadgeClicked: (DinosaurEncyclopedia, ImageView) -> Unit) : ListAdapter<DinosaurEncyclopedia,
             EncyclopediaAdapter.ViewHolder>(EncyclopediaDiffCallback()) {
 
     inner class ViewHolder(val binding: EncyclopediaRecyclerLayoutBinding) :
@@ -27,6 +30,11 @@ class EncyclopediaAdapter(val context: Context) : ListAdapter<DinosaurEncycloped
                 }
 
                 binding.dinoName.text = context.getString(data.dinosaurKey)
+
+                //sets click listener on the dinosaur badge
+                binding.dinoBadge.setOnClickListener {
+                    onBadgeClicked(data, binding.dinoBadge)
+                }
             }
     }
 
@@ -41,6 +49,7 @@ class EncyclopediaAdapter(val context: Context) : ListAdapter<DinosaurEncycloped
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
 }
 
 class EncyclopediaDiffCallback : DiffUtil.ItemCallback<DinosaurEncyclopedia>() {

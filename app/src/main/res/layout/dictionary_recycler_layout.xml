@@ -10,16 +10,17 @@
         android:paddingBottom="16dp">
 
         <TextView
-            android:id="@+id/dictionary_title"
+            android:id="@+id/letter_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/fredoka_one"
             android:padding="16dp"
             android:textAlignment="center"
-            android:textSize="64sp"
+            android:textSize="48sp"
+            android:textColor="@color/secondaryColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/dictionary_of_difficult_words" />
+            tools:text="C" />
 
         <TextView
             android:id="@+id/dictionary_recycler_word_title"
@@ -29,10 +30,9 @@
             android:fontFamily="@font/fredoka_one"
             android:paddingBottom="16dp"
             android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Cretaceous"
-            tools:visibility="gone" />
+            app:layout_constraintStart_toStartOf="@id/letter_title"
+            app:layout_constraintTop_toBottomOf="@id/letter_title"
+            tools:text="Cretaceous" />
 
         <TextView
             android:id="@+id/dictionary_recycler_definition"
@@ -45,6 +45,6 @@
             app:layout_constraintStart_toStartOf="@id/dictionary_recycler_word_title"
             app:layout_constraintTop_toBottomOf="@id/dictionary_recycler_word_title"
             tools:text="The last period of the Mesozoic era, between the Jurassic and Tertiary periods, or the system of rocks deposited during it."
-            tools:visibility="gone" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
