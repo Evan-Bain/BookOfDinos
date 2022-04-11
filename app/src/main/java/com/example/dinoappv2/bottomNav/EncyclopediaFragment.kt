@@ -58,7 +58,7 @@ class EncyclopediaFragment : Fragment() {
 
         //extracting dinosaur names so SearchView can search through the names
         for(i in dinosaurData) {
-            dinosaurNames.add(requireContext().getString(i.dinosaurKey))
+            dinosaurNames.add(i.name)
         }
 
         return binding.root

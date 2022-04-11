@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
+import com.example.dinoappv2.dataClasses.DinosaurEncyclopediaTable
 
-@Database(entities = [DinosaurEncyclopedia::class], version = 5, exportSchema = false)
+@Database(entities = [DinosaurEncyclopediaTable::class], version = 6, exportSchema = false)
 abstract class DinosaurEncyclopediaDatabase: RoomDatabase() {
 
     abstract val dinosaurEncyclopediaDao: DinosaurEncyclopediaDao
@@ -23,7 +23,8 @@ abstract class DinosaurEncyclopediaDatabase: RoomDatabase() {
                         context.applicationContext,
                         DinosaurEncyclopediaDatabase::class.java,
                         "dinosaur_encyclopedia_database"
-                    ).fallbackToDestructiveMigration().build()
+                    ).createFromAsset("database/dinosaur_encyclopedia_table.db")
+                        .fallbackToDestructiveMigration().build()
                     INSTANCE = instance
                 }
                 return instance

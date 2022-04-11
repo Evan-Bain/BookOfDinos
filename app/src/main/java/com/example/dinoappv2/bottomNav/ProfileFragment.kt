@@ -54,16 +54,16 @@ class ProfileFragment : Fragment() {
             GridLayoutManager(requireActivity(), 3)
 
         //set profile image to the currently selected one
-        lifecycleScope.launchWhenCreated {
+        /*lifecycleScope.launchWhenCreated {
             binding.profileImage.setImageResource(
                 viewModel.profileDatabase.getImage()
             )
-        }
+        }*/
 
         //gets all activated badges
         val dinoData = ArrayList<DinosaurEncyclopedia>()
         for(i in CompanionObject.allDinos!!) {
-            if(i.activated) {
+            if(i.activated == true) {
                 dinoData.add(i)
             }
         }

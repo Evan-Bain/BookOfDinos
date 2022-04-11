@@ -62,7 +62,7 @@ class ProfileEditFragment : Fragment() {
         //get all badges that have been activated after quiz completion
         val dinoData = ArrayList<DinosaurEncyclopedia>()
         for(i in CompanionObject.allDinos!!) {
-            if(i.activated) {
+            if(i.activated == true) {
                 dinoData.add(i)
             }
         }
@@ -76,10 +76,10 @@ class ProfileEditFragment : Fragment() {
             viewModel.lastPositionClicked, viewModel.adapterRestarted
         )
 
-        adapter.positionChanged.observe(viewLifecycleOwner, {
+        adapter.positionChanged.observe(viewLifecycleOwner) {
             //set to survive configuration changes
             viewModel.lastPositionClicked = adapter.lastPositionClicked
-            if(adapter.currentSelected != null) {
+            if (adapter.currentSelected != null) {
                 viewModel.currentPosition = adapter.currentSelected!!
             }
             //if there is a current position selected make
@@ -88,7 +88,7 @@ class ProfileEditFragment : Fragment() {
                 viewModel.currentPosition != -1
             //sets viewModel variable for the rest of lifecycle
             viewModel.adapterRestarted = true
-        })
+        }
 
         //setting up recycler view
         binding.profileEditRecyclerView.adapter = adapter

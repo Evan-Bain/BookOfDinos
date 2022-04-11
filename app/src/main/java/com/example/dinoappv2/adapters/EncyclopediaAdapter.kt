@@ -23,13 +23,13 @@ class EncyclopediaAdapter(
                 binding.dinoBadge.setImageResource(data.badge)
 
                 //add check next to dino image depending on if quiz is completed
-                binding.dinoBadgeCheck.visibility = if(data.activated) {
+                binding.dinoBadgeCheck.visibility = if(data.activated == true) {
                     View.VISIBLE
                 } else {
                     View.GONE
                 }
 
-                binding.dinoName.text = context.getString(data.dinosaurKey)
+                binding.dinoName.text = data.name
 
                 //sets click listener on the dinosaur badge
                 binding.dinoBadge.setOnClickListener {

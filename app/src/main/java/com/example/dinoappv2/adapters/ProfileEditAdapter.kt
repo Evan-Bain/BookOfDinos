@@ -47,7 +47,7 @@ class ProfileEditAdapter(
         //otherwise set badges activated
         if(position > 0) {
             holder.imageView.setImageResource(dinoData[position - 1].badge)
-            holder.textView.text = context.getString(dinoData[position - 1].dinosaurKey)
+            holder.textView.text = dinoData[position - 1].name
         } else {
             holder.imageView.setImageResource(R.drawable.profile_icon)
             holder.textView.text = context.getText(R.string.profile_default)

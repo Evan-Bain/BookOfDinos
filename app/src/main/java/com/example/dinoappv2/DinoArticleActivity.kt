@@ -106,39 +106,39 @@ class DinoArticleActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.habitatDroppedDown.observe(this, {
-            if(it) {
+        viewModel.habitatDroppedDown.observe(this) {
+            if (it) {
                 binding.habitatText.visibility = View.VISIBLE
                 binding.habitatDropButton.setImageResource(R.drawable.drop_down_arrow_up)
             } else {
                 binding.habitatText.visibility = View.GONE
                 binding.habitatDropButton.setImageResource(R.drawable.drop_down_arrow_down)
             }
-        })
+        }
 
-        viewModel.evolutionDroppedDown.observe(this, {
-            if(it) {
+        viewModel.evolutionDroppedDown.observe(this) {
+            if (it) {
                 binding.crazyEvolutionText.visibility = View.VISIBLE
                 binding.crazyEvolutionDropButton.setImageResource(R.drawable.drop_down_arrow_up)
             } else {
                 binding.crazyEvolutionText.visibility = View.GONE
                 binding.crazyEvolutionDropButton.setImageResource(R.drawable.drop_down_arrow_down)
             }
-        })
+        }
 
-        viewModel.fossilDroppedDown.observe(this, {
-            if(it) {
+        viewModel.fossilDroppedDown.observe(this) {
+            if (it) {
                 binding.fossilHistoryText.visibility = View.VISIBLE
                 binding.fossilHistoryDropButton.setImageResource(R.drawable.drop_down_arrow_up)
             } else {
                 binding.fossilHistoryText.visibility = View.GONE
                 binding.fossilHistoryDropButton.setImageResource(R.drawable.drop_down_arrow_down)
             }
-        })
+        }
 
         //setting dino title to the correlating data from the recycler view item pressed
         val dino = CompanionObject.allDinos!![CompanionObject.dinoArticleSelected!!]
-        binding.dinoTitle.text = getString(dino.dinosaurKey)
+        binding.dinoTitle.text = dino.name
         binding.dinoArticleImage.setImageResource(dino.badge)
 
         //setting dino article to the correlating text for the dinosaur
@@ -164,18 +164,18 @@ class DinoArticleActivity : AppCompatActivity() {
             fossilHistoryText.movementMethod = LinkMovementMethod.getInstance()
         }
         //set quiz button enabled or not
-        viewModel.quizButtonEnabled.observe(this, {
+        viewModel.quizButtonEnabled.observe(this) {
             binding.quizButton.isEnabled = it
-        })
+        }
 
         //set whether or not quiz nav host is visible
-        viewModel.quizVisible.observe(this, {
-            binding.quizNavHost.visibility = if(it) {
-                 View.VISIBLE
+        viewModel.quizVisible.observe(this) {
+            binding.quizNavHost.visibility = if (it) {
+                View.VISIBLE
             } else {
                 View.INVISIBLE
             }
-        })
+        }
 
         /*viewModel.articleBodyAlpha.observe(this, {
             binding.quickFacts.alpha = if(it) {

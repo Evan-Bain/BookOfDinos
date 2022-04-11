@@ -15,6 +15,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.dinoappv2.BottomNavRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
@@ -22,6 +23,7 @@ import com.example.dinoappv2.databases.ProfileImageDatabase
 import com.example.dinoappv2.databinding.ActivityBottomNavBinding
 import com.example.dinoappv2.viewModels.BottomNavViewModel
 import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
+import kotlinx.coroutines.Dispatchers
 
 class BottomNavActivity : AppCompatActivity() {
 
@@ -34,9 +36,8 @@ class BottomNavActivity : AppCompatActivity() {
 
         val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(this)
             .dinosaurEncyclopediaDao
-        val profileDatasource = ProfileImageDatabase.getInstance(this)
-            .profileImageDao
-        val viewModelFactory = EncyclopediaViewModelFactory(dinoDatasource, profileDatasource)
+        val bottomNavRepository = BottomNavRepository(dinoDatasource, Dispatchers.IO)
+        val viewModelFactory = EncyclopediaViewModelFactory(bottomNavRepository)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(BottomNavViewModel::class.java)
 
