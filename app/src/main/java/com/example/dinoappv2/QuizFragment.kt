@@ -8,25 +8,27 @@ import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.dinoappv2.bottomNav.BottomNavActivity
 import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurQuizStrings
+import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.FragmentQuizBinding
 import com.example.dinoappv2.viewModels.DinoArticleViewModel
+import com.example.dinoappv2.viewModels.DinoArticleViewModelFactory
 
 class QuizFragment : Fragment() {
 
-    lateinit var viewModel: DinoArticleViewModel
+    private lateinit var viewModel: DinoArticleViewModel
 
-    lateinit var binding: FragmentQuizBinding
+    private lateinit var binding: FragmentQuizBinding
 
     private lateinit var quizStrings: HashMap<Int, List<String>>
 
     private lateinit var answerPosition: List<Int>
 
-    private val currentDino = DinosaurQuizStrings(
-        CompanionObject.dinoArticleSelected!!)
+    private val currentDino = DinosaurQuizStrings(0)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +40,12 @@ class QuizFragment : Fragment() {
             container,
             false
         )
-        viewModel = DinoArticleActivity.viewModel
+        
+        //creating viewModel
+        val viewModelFactory = DinoArticleViewModelFactory(
+            DinosaurEncyclopediaDatabase.getInstance(requireContext()).dinosaurEncyclopediaDao)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(
+            DinoArticleViewModel::class.java)
 
         binding.viewModel = viewModel
         binding.fragment = this
@@ -59,22 +66,24 @@ class QuizFragment : Fragment() {
 
         //if a radio button is clicked then the next question
         //button is enabled
-        viewModel.radioButtonClicked.observe(viewLifecycleOwner, {
+        viewModel.radioButtonClicked.observe(viewLifecycleOwner) {
             binding.quizFinishButton.isEnabled = true
-        })
+        }
 
         //when nextButton's value is changed (new quiz question)
         //the layout changes appropriately
-        viewModel.nextButtonClicked.observe(viewLifecycleOwner, {
-            if(it == 5) {
+        viewModel.nextButtonClicked.observe(viewLifecycleOwner) {
+            if (it == 5) {
                 //sets layout to display score and whether or not
                 //quiz was passed
                 val score = viewModel.answersCorrect.value!! * 25
                 binding.quizScore.text = resources.getString(R.string.quiz_percent, score)
-                if(score >= 70) {
+                if (score >= 70) {
                     binding.quizComment.text = resources.getString(R.string.you_passed)
-                    viewModel.updateActivated(true,
-                        CompanionObject.dinoArticleSelected!!)
+                    viewModel.updateActivated(
+                        true,
+                        CompanionObject.dinoArticleSelected!!
+                    )
                 } else {
                     binding.quizComment.text = resources.getString(R.string.you_failed)
                 }
@@ -90,7 +99,7 @@ class QuizFragment : Fragment() {
                 binding.quizRadioButton3.text = quizStrings[it]?.get(3) ?: "ERROR"
                 binding.quizFinishButton.isEnabled = false
             }
-        })
+        }
     }
 
     //function used in dataBinding that sets appropriate variables

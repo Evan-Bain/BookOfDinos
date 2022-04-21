@@ -1,25 +1,15 @@
 package com.example.dinoappv2
 
-import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.appcompat.content.res.AppCompatResources.getColorStateList
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.compose.ui.res.colorResource
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dinoappv2.adapters.ProfileEditAdapter
-import com.example.dinoappv2.bottomNav.BottomNavActivity
-import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.ProfileImageDatabase
 import com.example.dinoappv2.databinding.FragmentProfileEditBinding
@@ -27,7 +17,6 @@ import com.example.dinoappv2.viewModels.ProfileEditViewModel
 import com.example.dinoappv2.viewModels.ProfileEditViewModelFactory
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.transition.MaterialContainerTransform
 import com.google.android.material.transition.MaterialSharedAxis
 
 class ProfileEditFragment : Fragment() {
@@ -59,13 +48,15 @@ class ProfileEditFragment : Fragment() {
             activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.navigationIcon = null
             findNavController().navigateUp()
         }
+
+
         //get all badges that have been activated after quiz completion
         val dinoData = ArrayList<DinosaurEncyclopedia>()
-        for(i in CompanionObject.allDinos!!) {
+        /*for(i in CompanionObject.allDinos!!) {
             if(i.activated == true) {
                 dinoData.add(i)
             }
-        }
+        }*/
         //setting up viewModel
         val database = ProfileImageDatabase.getInstance(requireContext()).profileImageDao
         val viewModelFactory = ProfileEditViewModelFactory(database)

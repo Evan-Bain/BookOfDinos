@@ -1,39 +1,44 @@
 package com.example.dinoappv2.bottomNav
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.dinoappv2.ProfileEditFragment
+import com.example.dinoappv2.BottomNavRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.ProfileAdapter
-import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
+import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.FragmentProfileBinding
-import com.example.dinoappv2.viewModels.BottomNavViewModel
-import com.google.android.material.appbar.MaterialToolbar
+import com.example.dinoappv2.viewModels.EncyclopediaViewModel
+import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.transition.*
+import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
+import kotlinx.coroutines.Dispatchers
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
 
-    private lateinit var viewModel: BottomNavViewModel
+    private lateinit var viewModel: EncyclopediaViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
+
+        val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(requireContext())
+            .dinosaurEncyclopediaDao
+        val bottomNavRepository = BottomNavRepository(dinoDatasource, Dispatchers.IO)
+        val viewModelFactory = EncyclopediaViewModelFactory(bottomNavRepository)
+        viewModel = ViewModelProvider(requireActivity(), viewModelFactory)
+            .get(EncyclopediaViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -48,10 +53,22 @@ class ProfileFragment : Fragment() {
         )
         activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
             ?.visibility = View.VISIBLE
-        viewModel = BottomNavActivity.viewModel
-        binding.profileBadgesRecycler.adapter = ProfileAdapter(getDatabase())
+
         binding.profileBadgesRecycler.layoutManager =
             GridLayoutManager(requireActivity(), 3)
+
+        //gets all activated badges
+        val dinoData = ArrayList<DinosaurEncyclopedia>()
+        viewModel.allDinos.observe(viewLifecycleOwner) {
+
+            binding.profileBadgesRecycler.adapter = ProfileAdapter(it)
+
+            for(i in it) {
+                if(i.activated == true) {
+                    dinoData.add(i)
+                }
+            }
+        }
 
         //set profile image to the currently selected one
         /*lifecycleScope.launchWhenCreated {
@@ -59,14 +76,6 @@ class ProfileFragment : Fragment() {
                 viewModel.profileDatabase.getImage()
             )
         }*/
-
-        //gets all activated badges
-        val dinoData = ArrayList<DinosaurEncyclopedia>()
-        for(i in CompanionObject.allDinos!!) {
-            if(i.activated == true) {
-                dinoData.add(i)
-            }
-        }
 
         //sets experience count
         /*binding.experienceRatio.text =
@@ -88,9 +97,5 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(ProfileFragmentDirections
                 .actionProfileBottomNavToProfileEditFragment())
         }
-    }
-
-    private fun getDatabase(): List<DinosaurEncyclopedia> {
-        return viewModel.allDinos
     }
 }

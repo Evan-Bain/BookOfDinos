@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -38,14 +39,14 @@ android {
 
 dependencies {
 
-    implementation("androidx.room:room-runtime:2.3.0")
-    annotationProcessor("androidx.room:room-compiler:2.3.0")
+    implementation("androidx.room:room-runtime:2.4.2")
+    annotationProcessor("androidx.room:room-compiler:2.4.2")
 
     // To use Kotlin annotation processing tool (kapt)
-    kapt("androidx.room:room-compiler:2.3.0")
+    kapt("androidx.room:room-compiler:2.4.2")
 
     // optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:2.3.0")
+    implementation("androidx.room:room-ktx:2.4.2")
 
     // optional - RxJava2 support for Room
     //implementation("androidx.room:room-rxjava2.3.0:2")
@@ -54,13 +55,13 @@ dependencies {
     //implementation("androidx.room:room-rxjava3:2.3.0")
 
     // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation("androidx.room:room-guava:2.3.0")
+    implementation("androidx.room:room-guava:2.4.2")
 
     // optional - Test helpers
-    testImplementation("androidx.room:room-testing:2.3.0")
+    testImplementation("androidx.room:room-testing:2.4.2")
 
     // optional - Paging 3 Integration
-    implementation("androidx.room:room-paging:2.4.0-beta01")
+    implementation("androidx.room:room-paging:2.5.0-alpha01")
 
     // Java language implementation
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
@@ -69,6 +70,8 @@ dependencies {
     // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-alpha06"
 
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:2.3.5")

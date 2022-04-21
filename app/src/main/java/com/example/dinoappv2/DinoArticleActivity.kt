@@ -8,23 +8,26 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.example.dinoappv2.bottomNav.BottomNavActivity
 import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DictionaryStrings
 import com.example.dinoappv2.dataClasses.DinosaurArticleStrings
+import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.ActivityDinoArticleBinding
 import com.example.dinoappv2.viewModels.DinoArticleViewModel
 import com.example.dinoappv2.viewModels.DinoArticleViewModelFactory
+import kotlinx.coroutines.launch
 import java.util.*
 
 
 class DinoArticleActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityDinoArticleBinding
-
-    private val position = CompanionObject.dinoArticleSelected!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,8 @@ class DinoArticleActivity : AppCompatActivity() {
         binding.activity = this
 
         setSupportActionBar(binding.dinoArticleToolbar)
+
+        val dinoSelected = intent.extras?.get("dinoSelected") as DinosaurEncyclopedia
 
         binding.dinoArticleToolbar.setNavigationOnClickListener {
             onBackPressed()
@@ -45,65 +50,76 @@ class DinoArticleActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
 
-        val habitatArticle = SpannableString(DinosaurArticleStrings(position).getDinoStrings()[1]?.get(0))
-        val evolutionArticle = SpannableString(DinosaurArticleStrings(position).getDinoStrings()[2]?.get(0))
-        val fossilArticle = SpannableString(DinosaurArticleStrings(position).getDinoStrings()[3]?.get(0))
-        DictionaryStrings("","").addStrings()
+        val dinoPosition = dinoSelected.position
+        val habitatArticle = SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[1]?.get(0))
+        val evolutionArticle = SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[2]?.get(0))
+        val fossilArticle = SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[3]?.get(0))
 
-        for(i in 0 until DictionaryStrings.dictionaryStrings.size) {
-            val word = DictionaryStrings.dictionaryStrings[i].word.lowercase(Locale.getDefault())
-            val clickableSpan: ClickableSpan = object : ClickableSpan() {
-                override fun onClick(widget: View) {
-                    CompanionObject.transitionToDictionary = true
-                    CompanionObject.wordClicked = word
-                    startActivity(Intent(applicationContext, BottomNavActivity::class.java))
-                }
-            }
-            if(habitatArticle.contains(word)) {
-                val first = habitatArticle.indexOf(word)
-                var whileLoop = true
-                var iterator = 0
-                while(whileLoop) {
-                    val newWord = habitatArticle[first + iterator].toString()
-                    if(newWord == " " || newWord == "." || newWord == ","
-                        || newWord == "!" || newWord == "?") {
-                        whileLoop = false
-                    } else {
-                        iterator++
+        lifecycleScope.launch {
+            DictionaryStrings.getDictionaryStrings()
+                .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+                .collect {
+                    for(element in it) {
+                        val word = element.word.lowercase(Locale.getDefault())
+                        val clickableSpan: ClickableSpan = object : ClickableSpan() {
+                            override fun onClick(widget: View) {
+                                CompanionObject.transitionToDictionary = true
+                                CompanionObject.wordClicked = word
+                                startActivity(Intent(applicationContext, BottomNavActivity::class.java))
+                            }
+                        }
+                        if(habitatArticle.contains(word)) {
+                            val first = habitatArticle.indexOf(word)
+                            var whileLoop = true
+                            var iterator = 0
+                            while(whileLoop) {
+                                val newWord = habitatArticle[first + iterator].toString()
+                                if(newWord == " " || newWord == "." || newWord == ","
+                                    || newWord == "!" || newWord == "?") {
+                                    whileLoop = false
+                                } else {
+                                    iterator++
+                                }
+                            }
+                            habitatArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        }
+                        if(evolutionArticle.contains(word)) {
+                            val first = evolutionArticle.indexOf(word)
+                            var whileLoop = true
+                            var iterator = 0
+                            while(whileLoop) {
+                                val newWord = evolutionArticle[first + iterator].toString()
+                                if(newWord == " " || newWord == "." || newWord == ","
+                                    || newWord == "!" || newWord == "?") {
+                                    whileLoop = false
+                                } else {
+                                    iterator++
+                                }
+                            }
+                            evolutionArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        }
+                        if(fossilArticle.contains(word)) {
+                            val first = fossilArticle.indexOf(word)
+                            var whileLoop = true
+                            var iterator = 0
+                            while(whileLoop) {
+                                val newWord = fossilArticle[first + iterator].toString()
+                                if(newWord == " " || newWord == "." || newWord == ","
+                                    || newWord == "!" || newWord == "?") {
+                                    whileLoop = false
+                                } else {
+                                    iterator++
+                                }
+                            }
+                            fossilArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        }
+                    }
+                    with(binding) {
+                        habitatText.text = habitatArticle
+                        crazyEvolutionText.text = evolutionArticle
+                        fossilHistoryText.text = fossilArticle
                     }
                 }
-                habitatArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            }
-            if(evolutionArticle.contains(word)) {
-                val first = evolutionArticle.indexOf(word)
-                var whileLoop = true
-                var iterator = 0
-                while(whileLoop) {
-                    val newWord = evolutionArticle[first + iterator].toString()
-                    if(newWord == " " || newWord == "." || newWord == ","
-                        || newWord == "!" || newWord == "?") {
-                        whileLoop = false
-                    } else {
-                        iterator++
-                    }
-                }
-                evolutionArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            }
-            if(fossilArticle.contains(word)) {
-                val first = fossilArticle.indexOf(word)
-                var whileLoop = true
-                var iterator = 0
-                while(whileLoop) {
-                    val newWord = fossilArticle[first + iterator].toString()
-                    if(newWord == " " || newWord == "." || newWord == ","
-                        || newWord == "!" || newWord == "?") {
-                        whileLoop = false
-                    } else {
-                        iterator++
-                    }
-                }
-                fossilArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            }
         }
 
         viewModel.habitatDroppedDown.observe(this) {
@@ -137,30 +153,19 @@ class DinoArticleActivity : AppCompatActivity() {
         }
 
         //setting dino title to the correlating data from the recycler view item pressed
-        val dino = CompanionObject.allDinos!![CompanionObject.dinoArticleSelected!!]
-        binding.dinoTitle.text = dino.name
-        binding.dinoArticleImage.setImageResource(dino.badge)
-
-        //setting dino article to the correlating text for the dinosaur
-        val articlesArray: Array<out CharSequence> = resources.getTextArray(R.array.quick_facts)
-        //binding.quickFacts.text = articlesArray[position]
-        //ADD THIS ^^^
-        //binding.quickFacts.text = resources.getString(R.string.TRexOverview)
-        //DELETE THIS ^^^
+        binding.dinoTitle.text = dinoSelected.name
+        binding.dinoArticleImage.setImageResource(dinoSelected.badge)
 
         with(binding) {
-            val dinosaurStrings = DinosaurArticleStrings(position).getDinoStrings()
+            val dinosaurStrings = DinosaurArticleStrings(dinoPosition).getDinoStrings()
             heightFactText.text = dinosaurStrings[0]!![0]
             heightFactText.movementMethod = LinkMovementMethod.getInstance()
             weightFactText.text = dinosaurStrings[0]!![1]
             livedFactText.text = dinosaurStrings[0]!![2]
             speedFactText.text = dinosaurStrings[0]!![3]
             nameFactText.text = dinosaurStrings[0]!![4]
-            habitatText.text = habitatArticle
             habitatText.movementMethod = LinkMovementMethod.getInstance()
-            crazyEvolutionText.text = evolutionArticle
             crazyEvolutionText.movementMethod = LinkMovementMethod.getInstance()
-            fossilHistoryText.text = fossilArticle
             fossilHistoryText.movementMethod = LinkMovementMethod.getInstance()
         }
         //set quiz button enabled or not

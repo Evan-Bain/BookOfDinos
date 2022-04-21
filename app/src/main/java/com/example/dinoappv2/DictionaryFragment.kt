@@ -5,11 +5,14 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoappv2.adapters.DictionaryAdapter
+import com.example.dinoappv2.bottomNav.BottomNavActivity
 import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DictionaryStrings
 import com.example.dinoappv2.databinding.FragmentDictionaryBinding
+import com.example.dinoappv2.viewModels.DictionaryViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
 
@@ -17,7 +20,7 @@ class DictionaryFragment : Fragment() {
 
     private lateinit var binding: FragmentDictionaryBinding
 
-    private val dictionaryWords = mutableListOf<String>()
+    private val viewModel: DictionaryViewModel by viewModels()
 
     private val adapter = DictionaryAdapter()
 
@@ -38,16 +41,16 @@ class DictionaryFragment : Fragment() {
             false
         )
         //setting up recycler view
-        DictionaryStrings("", "").addStrings()
-        adapter.submitList(DictionaryStrings.dictionaryStrings)
+
         binding.recyclerViewDictionary.adapter = adapter
         binding.recyclerViewDictionary.layoutManager = LinearLayoutManager(requireContext())
+
+        viewModel.allWords.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
         setHasOptionsMenu(true)
 
-        //extract words from DictionaryStrings to be sorted
-        for(i in DictionaryStrings.dictionaryStrings) {
-            dictionaryWords.add(i.word)
-        }
         return binding.root
     }
 
@@ -82,7 +85,7 @@ class DictionaryFragment : Fragment() {
 
             //adding filter to SearchView
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.submitList(filterDictionaryStrings(newText))
+                viewModel.filterDictionaryData(newText)
                 return false
             }
 
@@ -98,23 +101,5 @@ class DictionaryFragment : Fragment() {
         }
 
         super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    fun filterDictionaryStrings(text: String?): List<DictionaryStrings> {
-
-        //if there is nothing typed in display all the words
-        if(text == null || text == "") {
-            return DictionaryStrings.dictionaryStrings
-        }
-
-        //return the words that match the start of the inputted text (not case sensitive)
-        val length = text.length
-        val newDictionaryData: MutableList<DictionaryStrings> = mutableListOf()
-        for((i, name) in dictionaryWords.withIndex()) {
-            if(name.take(length).lowercase() == text) {
-                newDictionaryData.add(DictionaryStrings.dictionaryStrings[i])
-            }
-        }
-        return newDictionaryData
     }
 }

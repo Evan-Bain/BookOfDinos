@@ -93,7 +93,9 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
     //calls database function to update activated value
     fun updateActivated(activated: Boolean, position: Int) {
         viewModelScope.launch {
-            database.updateActivated(activated, position)
+            database.updateActivated(
+                if(activated) 1 else 0,
+                position)
         }
     }
 

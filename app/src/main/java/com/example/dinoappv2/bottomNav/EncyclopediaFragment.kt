@@ -6,49 +6,65 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.dinoappv2.BottomNavRepository
 import com.example.dinoappv2.DinoArticleActivity
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.EncyclopediaAdapter
-import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
+import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.FragmentEncyclopediaBinding
+import com.example.dinoappv2.viewModels.EncyclopediaViewModel
+import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
+import kotlinx.coroutines.Dispatchers
 
 
 class EncyclopediaFragment : Fragment() {
 
-    private val viewModel = BottomNavActivity.viewModel
-
-    private val dinosaurData = getAll()
-    private val dinosaurNames: MutableList<String> = mutableListOf()
+    private lateinit var binding: FragmentEncyclopediaBinding
 
     private lateinit var adapter: EncyclopediaAdapter
+
+    private lateinit var viewModel: EncyclopediaViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
+
+        val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(requireContext())
+            .dinosaurEncyclopediaDao
+        val bottomNavRepository = BottomNavRepository(dinoDatasource, Dispatchers.IO)
+        val viewModelFactory = EncyclopediaViewModelFactory(bottomNavRepository)
+        viewModel = ViewModelProvider(requireActivity(), viewModelFactory)
+            .get(EncyclopediaViewModel::class.java)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentEncyclopediaBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_encyclopedia,
             container,
             false
         )
 
+        viewModel.allDinos.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
         adapter = EncyclopediaAdapter(requireContext()) { model, imageView ->
             model.onBadgeClicked(imageView)
         }
-        adapter.submitList(dinosaurData)
 
         setHasOptionsMenu(true)
 
@@ -56,17 +72,7 @@ class EncyclopediaFragment : Fragment() {
         binding.encyclopediaRecyclerView.adapter = adapter
         binding.encyclopediaRecyclerView.layoutManager = GridLayoutManager(context, 3)
 
-        //extracting dinosaur names so SearchView can search through the names
-        for(i in dinosaurData) {
-            dinosaurNames.add(i.name)
-        }
-
         return binding.root
-    }
-
-    //gets reference of all entities of each dinosaur
-    private fun getAll(): List<DinosaurEncyclopedia> {
-        return viewModel.allDinos
     }
 
     //creating SearchView widget
@@ -97,7 +103,7 @@ class EncyclopediaFragment : Fragment() {
 
             //adding filter to SearchView
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.submitList(filterDinosaurData(newText))
+                viewModel.filterDinosaurData(newText)
                 return false
             }
 
@@ -106,34 +112,15 @@ class EncyclopediaFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    fun filterDinosaurData(text: String?): List<DinosaurEncyclopedia> {
-
-        //if there is nothing typed in display all the dinos
-        if(text == null || text == "") {
-            return dinosaurData
-        }
-
-        //return the dinos that match the start of the inputted text (not case sensitive)
-        val length = text.length
-        val newDinosaurData: MutableList<DinosaurEncyclopedia> = mutableListOf()
-        for((i, name) in dinosaurNames.withIndex()) {
-            if(name.take(length).lowercase() == text) {
-                newDinosaurData.add(dinosaurData[i])
-            }
-        }
-        return newDinosaurData
-    }
-
-    fun DinosaurEncyclopedia.onBadgeClicked(dinoBadge: ImageView) {
-        //allow the app to access what recycle view item was pressed
-        CompanionObject.dinoArticleSelected = this.position
-        //allow the app the access the data in DinosaurEncyclopedia
-        CompanionObject.allDinos = viewModel.allDinos
-        //tell viewModel what activity is being transitioned to
+    /** logic for transiting to DinoArticleActivity **/
+    private fun DinosaurEncyclopedia.onBadgeClicked(dinoBadge: ImageView) {
         val options = ActivityOptions.makeSceneTransitionAnimation(
             activity, dinoBadge,
             "dino_badge_transition").toBundle()
-        val intent = Intent(activity, DinoArticleActivity::class.java)
+        val intent = Intent(activity, DinoArticleActivity::class.java).apply {
+            //sending data on the dinosaur that was selected over to DinoArticleActivity
+            putExtra("dinoSelected", this@onBadgeClicked)
+        }
         startActivity(intent, options)
     }
 }
