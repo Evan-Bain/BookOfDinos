@@ -1,16 +1,19 @@
-package com.example.dinoappv2
+package com.example.dinoappv2.bottomNav
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.DictionaryAdapter
-import com.example.dinoappv2.bottomNav.BottomNavActivity
 import com.example.dinoappv2.companionObjects.CompanionObject
-import com.example.dinoappv2.dataClasses.DictionaryStrings
 import com.example.dinoappv2.databinding.FragmentDictionaryBinding
 import com.example.dinoappv2.viewModels.DictionaryViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -40,8 +43,8 @@ class DictionaryFragment : Fragment() {
             container,
             false
         )
-        //setting up recycler view
 
+        //setting up recycler view
         binding.recyclerViewDictionary.adapter = adapter
         binding.recyclerViewDictionary.layoutManager = LinearLayoutManager(requireContext())
 
@@ -93,11 +96,10 @@ class DictionaryFragment : Fragment() {
 
         //shows a the definition of the word clicked in the dino article
         //without the keyboard up
-        if(CompanionObject.wordClicked != null) {
+        if(arguments?.get("selectedWord") != null) {
             searchItem.expandActionView()
-            searchView.setQuery(CompanionObject.wordClicked, true)
+            searchView.setQuery(requireArguments().get("selectedWord") as String, true)
             searchView.clearFocus()
-            CompanionObject.wordClicked = null
         }
 
         super.onCreateOptionsMenu(menu, inflater)

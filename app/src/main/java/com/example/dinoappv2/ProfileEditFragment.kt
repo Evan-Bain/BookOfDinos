@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dinoappv2.adapters.ProfileEditAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
@@ -15,8 +16,6 @@ import com.example.dinoappv2.databases.ProfileImageDatabase
 import com.example.dinoappv2.databinding.FragmentProfileEditBinding
 import com.example.dinoappv2.viewModels.ProfileEditViewModel
 import com.example.dinoappv2.viewModels.ProfileEditViewModelFactory
-import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialSharedAxis
 
 class ProfileEditFragment : Fragment() {
@@ -41,14 +40,6 @@ class ProfileEditFragment : Fragment() {
             container,
             false
         )
-        activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.setNavigationIcon(
-            R.drawable.back_button
-        )
-        activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.setNavigationOnClickListener {
-            activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.navigationIcon = null
-            findNavController().navigateUp()
-        }
-
 
         //get all badges that have been activated after quiz completion
         val dinoData = ArrayList<DinosaurEncyclopedia>()
@@ -99,22 +90,10 @@ class ProfileEditFragment : Fragment() {
                 }
             }
             exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
-            activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
-                ?.visibility = View.VISIBLE
-            activity?.findViewById<MaterialToolbar>(R.id.bottom_nav_toolbar)?.navigationIcon = null
             findNavController().navigate(ProfileEditFragmentDirections
                 .actionProfileEditFragmentToProfileBottomNav())
         }
         return binding.root
-    }
-
-    //hides the bottom navigation view when fragment is started
-    //put in onStart opposed to onCreate to keep hidden after leaving app
-    //and coming back
-    override fun onStart() {
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
-            ?.visibility = View.GONE
-        super.onStart()
     }
 
 }

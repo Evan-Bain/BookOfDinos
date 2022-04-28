@@ -39,7 +39,7 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
                 "Brontosaurus",
                 R.drawable.dino_badge_brontosaurus,
                 R.drawable.dino_badge_brontosaurus_black,
-                R.drawable.fb_ankylosaurus,
+                R.drawable.fb_brontosaurus,
                 value[1].activated != 0
             ),
             //#3
@@ -48,7 +48,7 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
                 "Dilophosaurus",
                 R.drawable.dino_badge_dilophosaurus,
                 R.drawable.dino_badge_dilophosaurus_black,
-                R.drawable.fb_ankylosaurus,
+                R.drawable.fb_dilophosaurus,
                 value[2].activated != 0
             ),
             //#4

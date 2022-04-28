@@ -17,7 +17,6 @@ import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.FragmentProfileBinding
 import com.example.dinoappv2.viewModels.EncyclopediaViewModel
 import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.coroutines.Dispatchers
@@ -51,8 +50,11 @@ class ProfileFragment : Fragment() {
             container,
             false
         )
-        activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)
-            ?.visibility = View.VISIBLE
+
+        if(findNavController().previousBackStackEntry?.destination?.id == R.id.profile_edit_fragment) {
+            enterTransition = MaterialFadeThrough()
+            exitTransition = MaterialFadeThrough()
+        }
 
         binding.profileBadgesRecycler.layoutManager =
             GridLayoutManager(requireActivity(), 3)
@@ -70,6 +72,14 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        //when fab selected navigate to the profile edit screen
+        binding.editProfileImageFab.setOnClickListener {
+            exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true)
+            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
+            findNavController().navigate(ProfileFragmentDirections
+                .actionProfileBottomNavToProfileEditFragment())
+        }
+
         //set profile image to the currently selected one
         /*lifecycleScope.launchWhenCreated {
             binding.profileImage.setImageResource(
@@ -82,20 +92,5 @@ class ProfileFragment : Fragment() {
             resources.getString(R.string.experience_fraction,dinoData.size*10)*/
 
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //when fab selected navigate to the profile edit screen
-        binding.editProfileImageFab.setOnClickListener {
-            enterTransition =
-                MaterialSharedAxis(MaterialSharedAxis.Z, false)
-            exitTransition =
-                MaterialSharedAxis(MaterialSharedAxis.Z,true)
-            reenterTransition =
-                MaterialSharedAxis(MaterialSharedAxis.Z,false)
-            findNavController().navigate(ProfileFragmentDirections
-                .actionProfileBottomNavToProfileEditFragment())
-        }
     }
 }

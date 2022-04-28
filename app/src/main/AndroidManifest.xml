@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DinoAppv2">
         <activity
-            android:name=".DinoArticleActivity"
+            android:name=".DinoArticleFragment"
             android:exported="false" />
         <activity
             android:name=".bottomNav.BottomNavActivity"

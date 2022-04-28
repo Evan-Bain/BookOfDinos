@@ -1,10 +1,7 @@
 package com.example.dinoappv2.bottomNav
 
-import android.app.ActivityOptions
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
@@ -13,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dinoappv2.BottomNavRepository
-import com.example.dinoappv2.DinoArticleActivity
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.EncyclopediaAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
@@ -23,6 +19,7 @@ import com.example.dinoappv2.viewModels.EncyclopediaViewModel
 import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.coroutines.Dispatchers
 
 
@@ -58,12 +55,17 @@ class EncyclopediaFragment : Fragment() {
             false
         )
 
+        if(findNavController().previousBackStackEntry?.destination?.id == R.id.dino_article_fragment) {
+            enterTransition = MaterialFadeThrough()
+            exitTransition = MaterialFadeThrough()
+        }
+
         viewModel.allDinos.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
 
-        adapter = EncyclopediaAdapter(requireContext()) { model, imageView ->
-            model.onBadgeClicked(imageView)
+        adapter = EncyclopediaAdapter(requireContext()) { model ->
+            model.onBadgeClicked()
         }
 
         setHasOptionsMenu(true)
@@ -112,15 +114,17 @@ class EncyclopediaFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    /** logic for transiting to DinoArticleActivity **/
-    private fun DinosaurEncyclopedia.onBadgeClicked(dinoBadge: ImageView) {
-        val options = ActivityOptions.makeSceneTransitionAnimation(
-            activity, dinoBadge,
-            "dino_badge_transition").toBundle()
-        val intent = Intent(activity, DinoArticleActivity::class.java).apply {
-            //sending data on the dinosaur that was selected over to DinoArticleActivity
+    /** logic for transiting to DinoArticleFragment **/
+    private fun DinosaurEncyclopedia.onBadgeClicked() {
+        /*val intent = Intent(activity, DinoArticleFragment::class.java).apply {
+            //sending data on the dinosaur that was selected over to DinoArticleFragment
             putExtra("dinoSelected", this@onBadgeClicked)
         }
-        startActivity(intent, options)
+
+        startActivity(intent)*/
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+        val bundle = bundleOf("dinoSelected" to this)
+        findNavController().navigate(R.id.dino_article_fragment, bundle)
     }
 }

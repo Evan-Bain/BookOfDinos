@@ -1,54 +1,68 @@
 package com.example.dinoappv2
 
-import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
+import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.core.os.bundleOf
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.example.dinoappv2.bottomNav.BottomNavActivity
+import androidx.navigation.fragment.findNavController
 import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DictionaryStrings
 import com.example.dinoappv2.dataClasses.DinosaurArticleStrings
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
-import com.example.dinoappv2.databinding.ActivityDinoArticleBinding
+import com.example.dinoappv2.databinding.FragmentDinoArticleBinding
 import com.example.dinoappv2.viewModels.DinoArticleViewModel
 import com.example.dinoappv2.viewModels.DinoArticleViewModelFactory
+import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.coroutines.launch
 import java.util.*
 
 
-class DinoArticleActivity : AppCompatActivity() {
+class DinoArticleFragment : Fragment() {
 
-    lateinit var binding: ActivityDinoArticleBinding
+    private lateinit var binding: FragmentDinoArticleBinding
+    private lateinit var viewModel: DinoArticleViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDinoArticleBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        binding.activity = this
-
-        setSupportActionBar(binding.dinoArticleToolbar)
-
-        val dinoSelected = intent.extras?.get("dinoSelected") as DinosaurEncyclopedia
-
-        binding.dinoArticleToolbar.setNavigationOnClickListener {
-            onBackPressed()
-        }
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
 
         //creating viewModel
         val viewModelFactory = DinoArticleViewModelFactory(
-            DinosaurEncyclopediaDatabase.getInstance(this).dinosaurEncyclopediaDao)
+            DinosaurEncyclopediaDatabase.getInstance(requireContext()).dinosaurEncyclopediaDao)
         viewModel = ViewModelProvider(this, viewModelFactory).get(DinoArticleViewModel::class.java)
+    }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_dino_article,
+            container,
+            false
+        )
         binding.viewModel = viewModel
+        binding.fragment = this
+
+        val dinoSelected = arguments?.get("dinoSelected") as DinosaurEncyclopedia
 
         val dinoPosition = dinoSelected.position
         val habitatArticle = SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[1]?.get(0))
@@ -63,9 +77,14 @@ class DinoArticleActivity : AppCompatActivity() {
                         val word = element.word.lowercase(Locale.getDefault())
                         val clickableSpan: ClickableSpan = object : ClickableSpan() {
                             override fun onClick(widget: View) {
-                                CompanionObject.transitionToDictionary = true
-                                CompanionObject.wordClicked = word
-                                startActivity(Intent(applicationContext, BottomNavActivity::class.java))
+                                val bundle = bundleOf("selectedWord" to word)
+                                findNavController().navigate(R.id.dictionary_bottom_nav, bundle)
+                            }
+
+                            override fun updateDrawState(ds: TextPaint) {
+                                super.updateDrawState(ds)
+                                ds.isUnderlineText = false
+                                ds.isFakeBoldText = true
                             }
                         }
                         if(habitatArticle.contains(word)) {
@@ -122,39 +141,60 @@ class DinoArticleActivity : AppCompatActivity() {
                 }
         }
 
-        viewModel.habitatDroppedDown.observe(this) {
-            if (it) {
-                binding.habitatText.visibility = View.VISIBLE
-                binding.habitatDropButton.setImageResource(R.drawable.drop_down_arrow_up)
-            } else {
-                binding.habitatText.visibility = View.GONE
-                binding.habitatDropButton.setImageResource(R.drawable.drop_down_arrow_down)
+        with(binding) {
+            habitatConstraintLayout.setOnClickListener {
+                viewModel?.habitatDropDownClicked()
+            }
+            evolutionConstraintLayout.setOnClickListener {
+                viewModel?.evolutionDropDownClicked()
+            }
+            fossilConstraintLayout.setOnClickListener {
+                viewModel?.fossilDropDownClicked()
             }
         }
 
-        viewModel.evolutionDroppedDown.observe(this) {
+        viewModel.habitatDroppedDown.observe(viewLifecycleOwner) {
             if (it) {
-                binding.crazyEvolutionText.visibility = View.VISIBLE
-                binding.crazyEvolutionDropButton.setImageResource(R.drawable.drop_down_arrow_up)
+                with(binding) {
+                    habitatMotionLayout.transitionToEnd()
+                    habitatDropButton.setImageResource(R.drawable.drop_down_arrow_up)
+                }
             } else {
-                binding.crazyEvolutionText.visibility = View.GONE
-                binding.crazyEvolutionDropButton.setImageResource(R.drawable.drop_down_arrow_down)
+                with(binding) {
+                    habitatMotionLayout.transitionToStart()
+                    habitatDropButton.setImageResource(R.drawable.drop_down_arrow_down)
+                }
             }
         }
 
-        viewModel.fossilDroppedDown.observe(this) {
+        viewModel.evolutionDroppedDown.observe(viewLifecycleOwner) {
             if (it) {
-                binding.fossilHistoryText.visibility = View.VISIBLE
-                binding.fossilHistoryDropButton.setImageResource(R.drawable.drop_down_arrow_up)
+                with(binding) {
+                    evolutionMotionLayout.transitionToEnd()
+                    crazyEvolutionDropButton.setImageResource(R.drawable.drop_down_arrow_up)
+                }
             } else {
-                binding.fossilHistoryText.visibility = View.GONE
-                binding.fossilHistoryDropButton.setImageResource(R.drawable.drop_down_arrow_down)
+                with(binding) {
+                    evolutionMotionLayout.transitionToStart()
+                    crazyEvolutionDropButton.setImageResource(R.drawable.drop_down_arrow_down)
+                }
             }
         }
 
-        //setting dino title to the correlating data from the recycler view item pressed
-        binding.dinoTitle.text = dinoSelected.name
-        binding.dinoArticleImage.setImageResource(dinoSelected.badge)
+        viewModel.fossilDroppedDown.observe(viewLifecycleOwner) {
+
+            if (it) {
+                with(binding) {
+                    fossilMotionLayout.transitionToEnd()
+                    fossilHistoryDropButton.setImageResource(R.drawable.drop_down_arrow_up)
+                }
+            } else {
+                with(binding) {
+                    fossilMotionLayout.transitionToStart()
+                    fossilHistoryDropButton.setImageResource(R.drawable.drop_down_arrow_down)
+                }
+            }
+        }
 
         with(binding) {
             val dinosaurStrings = DinosaurArticleStrings(dinoPosition).getDinoStrings()
@@ -169,18 +209,18 @@ class DinoArticleActivity : AppCompatActivity() {
             fossilHistoryText.movementMethod = LinkMovementMethod.getInstance()
         }
         //set quiz button enabled or not
-        viewModel.quizButtonEnabled.observe(this) {
+        viewModel.quizButtonEnabled.observe(viewLifecycleOwner) {
             binding.quizButton.isEnabled = it
         }
 
         //set whether or not quiz nav host is visible
-        viewModel.quizVisible.observe(this) {
+        /*viewModel.quizVisible.observe(viewLifecycleOwner) {
             binding.quizNavHost.visibility = if (it) {
                 View.VISIBLE
             } else {
                 View.INVISIBLE
             }
-        }
+        }*/
 
         /*viewModel.articleBodyAlpha.observe(this, {
             binding.quickFacts.alpha = if(it) {
@@ -189,6 +229,8 @@ class DinoArticleActivity : AppCompatActivity() {
                 .01F
             }
         })*/
+
+        return binding.root
     }
 
     //used in quiz button onClick data binding to display quiz and reset variables
@@ -201,6 +243,77 @@ class DinoArticleActivity : AppCompatActivity() {
             setQuizButton(false)
             setArticleBodyAlpha(false)
         }
+    }
+
+    private fun MotionLayout.setClickListener() {
+
+        with(binding) {
+            habitatConstraintLayout.setOnClickListener {
+                viewModel?.habitatDropDownClicked()
+            }
+            evolutionConstraintLayout.setOnClickListener {
+                viewModel?.evolutionDropDownClicked()
+            }
+            fossilConstraintLayout.setOnClickListener {
+                viewModel?.fossilDropDownClicked()
+            }
+        }
+
+        setTransitionListener(
+            object : MotionLayout.TransitionListener {
+                override fun onTransitionStarted(
+                    motionLayout: MotionLayout?,
+                    startId: Int,
+                    endId: Int
+                ) {
+                    with(binding) {
+                        habitatConstraintLayout.setOnClickListener(null)
+                        evolutionConstraintLayout.setOnClickListener(null)
+                        fossilConstraintLayout.setOnClickListener(null)
+                    }
+                }
+
+                override fun onTransitionChange(
+                    motionLayout: MotionLayout?,
+                    startId: Int,
+                    endId: Int,
+                    progress: Float
+                ) {
+                    with(binding) {
+                        habitatConstraintLayout.setOnClickListener(null)
+                        evolutionConstraintLayout.setOnClickListener(null)
+                        fossilConstraintLayout.setOnClickListener(null)
+                    }                }
+
+                override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                    with(binding) {
+                        habitatConstraintLayout.setOnClickListener {
+                            viewModel?.habitatDropDownClicked()
+                        }
+                        evolutionConstraintLayout.setOnClickListener {
+                            viewModel?.evolutionDropDownClicked()
+                        }
+                        fossilConstraintLayout.setOnClickListener {
+                            viewModel?.fossilDropDownClicked()
+                        }
+                    }
+                }
+
+                override fun onTransitionTrigger(
+                    motionLayout: MotionLayout?,
+                    triggerId: Int,
+                    positive: Boolean,
+                    progress: Float
+                ) {
+                    with(binding) {
+                        habitatConstraintLayout.setOnClickListener(null)
+                        evolutionConstraintLayout.setOnClickListener(null)
+                        fossilConstraintLayout.setOnClickListener(null)
+                    }
+                }
+
+            }
+        )
     }
 
     //viewModel visible to quizFragment

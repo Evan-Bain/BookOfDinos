@@ -2,19 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:transitionGroup="true"
-        android:id="@+id/fragment_encyclopedia_layout"
+        android:id="@+id/encyclopedia_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <!--Holds every dinosaur image/name with an onClickListener to coordinating
-            activity -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/encyclopedia_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize"/>
 </layout>

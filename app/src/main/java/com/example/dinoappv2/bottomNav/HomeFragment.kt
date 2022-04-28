@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.example.dinoappv2.R
 import com.example.dinoappv2.databinding.FragmentHomeBinding
 import com.google.android.material.transition.MaterialFadeThrough

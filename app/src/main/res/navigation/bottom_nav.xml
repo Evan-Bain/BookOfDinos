@@ -8,28 +8,32 @@
     <fragment
         android:id="@+id/home_bottom_nav"
         android:name="com.example.dinoappv2.bottomNav.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
+
         tools:layout="@layout/fragment_home" >
     </fragment>
     <fragment
         android:id="@+id/profile_bottom_nav"
         android:name="com.example.dinoappv2.bottomNav.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profile_bottom_nav_to_profileEditFragment"
-            app:destination="@id/profileEditFragment" />
+            app:destination="@id/profile_edit_fragment" />
     </fragment>
     <fragment
         android:id="@+id/encyclopedia_bottom_nav"
         android:name="com.example.dinoappv2.bottomNav.EncyclopediaFragment"
-        android:label="fragment_encyclopedia"
+        android:label="Encyclopedia"
         tools:layout="@layout/fragment_encyclopedia" >
+        <action
+            android:id="@+id/action_encyclopedia_bottom_nav_to_dinoArticleFragment"
+            app:destination="@id/dino_article_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileEditFragment"
+        android:id="@+id/profile_edit_fragment"
         android:name="com.example.dinoappv2.ProfileEditFragment"
-        android:label="fragment_profile_edit"
+        android:label="Badges"
         tools:layout="@layout/fragment_profile_edit" >
         <action
             android:id="@+id/action_profileEditFragment_to_profile_bottom_nav"
@@ -37,7 +41,11 @@
     </fragment>
     <fragment
         android:id="@+id/dictionary_bottom_nav"
-        android:name="com.example.dinoappv2.DictionaryFragment"
-        android:label="DictionaryFragment"
+        android:label="Dictionary"
+        android:name="com.example.dinoappv2.bottomNav.DictionaryFragment"
         tools:layout="@layout/fragment_dictionary"/>
+    <fragment
+        android:id="@+id/dino_article_fragment"
+        android:name="com.example.dinoappv2.DinoArticleFragment"
+        tools:layout="@layout/fragment_dino_article"/>
 </navigation>

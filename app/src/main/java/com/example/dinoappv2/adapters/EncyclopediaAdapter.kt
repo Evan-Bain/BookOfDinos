@@ -13,7 +13,7 @@ import com.example.dinoappv2.databinding.EncyclopediaRecyclerLayoutBinding
 
 class EncyclopediaAdapter(
     val context: Context,
-    private val onBadgeClicked: (DinosaurEncyclopedia, ImageView) -> Unit) : ListAdapter<DinosaurEncyclopedia,
+    private val onBadgeClicked: (DinosaurEncyclopedia) -> Unit) : ListAdapter<DinosaurEncyclopedia,
             EncyclopediaAdapter.ViewHolder>(EncyclopediaDiffCallback()) {
 
     inner class ViewHolder(val binding: EncyclopediaRecyclerLayoutBinding) :
@@ -33,7 +33,7 @@ class EncyclopediaAdapter(
 
                 //sets click listener on the dinosaur badge
                 binding.dinoBadge.setOnClickListener {
-                    onBadgeClicked(data, binding.dinoBadge)
+                    onBadgeClicked(data)
                 }
             }
     }
