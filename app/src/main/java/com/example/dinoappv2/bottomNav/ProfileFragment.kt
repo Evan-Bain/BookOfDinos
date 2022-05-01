@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -50,6 +51,8 @@ class ProfileFragment : Fragment() {
             container,
             false
         )
+
+        ViewCompat.setNestedScrollingEnabled(binding.profileBadgesRecycler, false)
 
         if(findNavController().previousBackStackEntry?.destination?.id == R.id.profile_edit_fragment) {
             enterTransition = MaterialFadeThrough()

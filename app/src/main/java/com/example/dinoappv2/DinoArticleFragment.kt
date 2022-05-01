@@ -1,17 +1,14 @@
 package com.example.dinoappv2
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -20,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DictionaryStrings
 import com.example.dinoappv2.dataClasses.DinosaurArticleStrings
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
@@ -65,6 +61,8 @@ class DinoArticleFragment : Fragment() {
         val dinoSelected = arguments?.get("dinoSelected") as DinosaurEncyclopedia
 
         val dinoPosition = dinoSelected.position
+
+        //set spannable strings for each section of info to allow difficult words to be pressed
         val habitatArticle = SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[1]?.get(0))
         val evolutionArticle = SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[2]?.get(0))
         val fossilArticle = SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[3]?.get(0))
@@ -77,16 +75,23 @@ class DinoArticleFragment : Fragment() {
                         val word = element.word.lowercase(Locale.getDefault())
                         val clickableSpan: ClickableSpan = object : ClickableSpan() {
                             override fun onClick(widget: View) {
+                                //navigate to the dictionary and display definition of the word
+                                exitTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+                                    duration = 750
+                                }
                                 val bundle = bundleOf("selectedWord" to word)
                                 findNavController().navigate(R.id.dictionary_bottom_nav, bundle)
                             }
 
                             override fun updateDrawState(ds: TextPaint) {
+                                //set style of clickable words to bolded with the secondary color
                                 super.updateDrawState(ds)
                                 ds.isUnderlineText = false
                                 ds.isFakeBoldText = true
                             }
                         }
+
+                        //find words that are in the dictionary in the info section
                         if(habitatArticle.contains(word)) {
                             val first = habitatArticle.indexOf(word)
                             var whileLoop = true
@@ -102,6 +107,8 @@ class DinoArticleFragment : Fragment() {
                             }
                             habitatArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                         }
+
+                        //find words that are in the dictionary in the info section
                         if(evolutionArticle.contains(word)) {
                             val first = evolutionArticle.indexOf(word)
                             var whileLoop = true
@@ -117,6 +124,8 @@ class DinoArticleFragment : Fragment() {
                             }
                             evolutionArticle.setSpan(clickableSpan, first, first+iterator, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                         }
+
+                        //find words that are in the dictionary in the info section
                         if(fossilArticle.contains(word)) {
                             val first = fossilArticle.indexOf(word)
                             var whileLoop = true
@@ -139,18 +148,6 @@ class DinoArticleFragment : Fragment() {
                         fossilHistoryText.text = fossilArticle
                     }
                 }
-        }
-
-        with(binding) {
-            habitatConstraintLayout.setOnClickListener {
-                viewModel?.habitatDropDownClicked()
-            }
-            evolutionConstraintLayout.setOnClickListener {
-                viewModel?.evolutionDropDownClicked()
-            }
-            fossilConstraintLayout.setOnClickListener {
-                viewModel?.fossilDropDownClicked()
-            }
         }
 
         viewModel.habitatDroppedDown.observe(viewLifecycleOwner) {
@@ -213,23 +210,6 @@ class DinoArticleFragment : Fragment() {
             binding.quizButton.isEnabled = it
         }
 
-        //set whether or not quiz nav host is visible
-        /*viewModel.quizVisible.observe(viewLifecycleOwner) {
-            binding.quizNavHost.visibility = if (it) {
-                View.VISIBLE
-            } else {
-                View.INVISIBLE
-            }
-        }*/
-
-        /*viewModel.articleBodyAlpha.observe(this, {
-            binding.quickFacts.alpha = if(it) {
-                1F
-            } else {
-                .01F
-            }
-        })*/
-
         return binding.root
     }
 
@@ -241,79 +221,7 @@ class DinoArticleFragment : Fragment() {
             setAnswersCorrect(0)
             setQuizVisible(true)
             setQuizButton(false)
-            setArticleBodyAlpha(false)
         }
-    }
-
-    private fun MotionLayout.setClickListener() {
-
-        with(binding) {
-            habitatConstraintLayout.setOnClickListener {
-                viewModel?.habitatDropDownClicked()
-            }
-            evolutionConstraintLayout.setOnClickListener {
-                viewModel?.evolutionDropDownClicked()
-            }
-            fossilConstraintLayout.setOnClickListener {
-                viewModel?.fossilDropDownClicked()
-            }
-        }
-
-        setTransitionListener(
-            object : MotionLayout.TransitionListener {
-                override fun onTransitionStarted(
-                    motionLayout: MotionLayout?,
-                    startId: Int,
-                    endId: Int
-                ) {
-                    with(binding) {
-                        habitatConstraintLayout.setOnClickListener(null)
-                        evolutionConstraintLayout.setOnClickListener(null)
-                        fossilConstraintLayout.setOnClickListener(null)
-                    }
-                }
-
-                override fun onTransitionChange(
-                    motionLayout: MotionLayout?,
-                    startId: Int,
-                    endId: Int,
-                    progress: Float
-                ) {
-                    with(binding) {
-                        habitatConstraintLayout.setOnClickListener(null)
-                        evolutionConstraintLayout.setOnClickListener(null)
-                        fossilConstraintLayout.setOnClickListener(null)
-                    }                }
-
-                override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
-                    with(binding) {
-                        habitatConstraintLayout.setOnClickListener {
-                            viewModel?.habitatDropDownClicked()
-                        }
-                        evolutionConstraintLayout.setOnClickListener {
-                            viewModel?.evolutionDropDownClicked()
-                        }
-                        fossilConstraintLayout.setOnClickListener {
-                            viewModel?.fossilDropDownClicked()
-                        }
-                    }
-                }
-
-                override fun onTransitionTrigger(
-                    motionLayout: MotionLayout?,
-                    triggerId: Int,
-                    positive: Boolean,
-                    progress: Float
-                ) {
-                    with(binding) {
-                        habitatConstraintLayout.setOnClickListener(null)
-                        evolutionConstraintLayout.setOnClickListener(null)
-                        fossilConstraintLayout.setOnClickListener(null)
-                    }
-                }
-
-            }
-        )
     }
 
     //viewModel visible to quizFragment

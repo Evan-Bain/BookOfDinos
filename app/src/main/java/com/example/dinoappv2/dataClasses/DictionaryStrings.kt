@@ -9,6 +9,7 @@ data class DictionaryStrings(
     val definition: String
 ) {
     companion object {
+        /** Returns words and correlating definitions for difficult words in the app **/
         fun getDictionaryStrings(): Flow<List<DictionaryStrings>> {
             //returns alphabetized list
             return flowOf(

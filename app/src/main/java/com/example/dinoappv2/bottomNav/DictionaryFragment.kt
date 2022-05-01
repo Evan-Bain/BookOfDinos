@@ -2,22 +2,21 @@ package com.example.dinoappv2.bottomNav
 
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.DictionaryAdapter
-import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.databinding.FragmentDictionaryBinding
 import com.example.dinoappv2.viewModels.DictionaryViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 
 class DictionaryFragment : Fragment() {
 
@@ -29,7 +28,16 @@ class DictionaryFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enterTransition = MaterialFadeThrough()
+
+        //if transitioned from DinoArticle (via clicked "difficult word" display slide right
+        //transition else perform normal fade transition
+        if(findNavController().previousBackStackEntry?.destination?.id == R.id.dino_article_fragment) {
+            enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
+                duration = 750
+            }
+        } else {
+            enterTransition = MaterialFadeThrough()
+        }
         exitTransition = MaterialFadeThrough()
     }
 
@@ -44,9 +52,20 @@ class DictionaryFragment : Fragment() {
             false
         )
 
+        //Disable nested scrolling to not activate collapsable toolbar
+        ViewCompat.setNestedScrollingEnabled(binding.recyclerViewDictionary, false)
+
         //setting up recycler view
         binding.recyclerViewDictionary.adapter = adapter
         binding.recyclerViewDictionary.layoutManager = LinearLayoutManager(requireContext())
+
+        //Disable automatic ListAdapter animations if transitioned from DinoArticle to avoid
+        //unnecessary motion
+        val argWord = arguments?.get("selectedWord")
+        if(argWord != null) {
+            viewModel.filterDictionaryData(argWord as String)
+            binding.recyclerViewDictionary.itemAnimator = null
+        }
 
         viewModel.allWords.observe(viewLifecycleOwner) {
             adapter.submitList(it)
@@ -64,10 +83,13 @@ class DictionaryFragment : Fragment() {
         val searchView: SearchView = searchItem.actionView as SearchView
         //adds hint to say what to type
         searchView.queryHint = "Search words"
-        searchView.setIconifiedByDefault(false)
 
         searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
+                //if animations are off turn on
+                if(binding.recyclerViewDictionary.itemAnimator == null) {
+                    binding.recyclerViewDictionary.itemAnimator = DefaultItemAnimator()
+                }
                 //hides bottom nav if searching for a word
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
                 return true
@@ -78,7 +100,6 @@ class DictionaryFragment : Fragment() {
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
                 return true
             }
-
         })
 
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
@@ -91,16 +112,7 @@ class DictionaryFragment : Fragment() {
                 viewModel.filterDictionaryData(newText)
                 return false
             }
-
         })
-
-        //shows a the definition of the word clicked in the dino article
-        //without the keyboard up
-        if(arguments?.get("selectedWord") != null) {
-            searchItem.expandActionView()
-            searchView.setQuery(requireArguments().get("selectedWord") as String, true)
-            searchView.clearFocus()
-        }
 
         super.onCreateOptionsMenu(menu, inflater)
     }

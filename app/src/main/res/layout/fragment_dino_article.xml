@@ -15,15 +15,21 @@
 
     </data>
 
+    <!-- Nested Scroll View removes certain bugs in motion layout -->
+    <androidx.core.widget.NestedScrollView
+        android:transitionGroup="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_article_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
-            android:transitionGroup="true"
             tools:context=".DinoArticleFragment">
 
+            <!-- Guidelines used to support smaller screen sizes -->
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/article_start_guideline"
                 android:layout_width="wrap_content"
@@ -38,6 +44,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent=".85"/>
 
+            <!-- HEIGHT FACT -->
             <TextView
                 android:id="@+id/height_fact_title"
                 android:layout_width="wrap_content"
@@ -56,7 +63,10 @@
                 tools:text="5.6 feet"
                 app:layout_constraintStart_toStartOf="@id/height_fact_title"
                 app:layout_constraintTop_toBottomOf="@id/height_fact_title" />
+            <!-- HEIGHT FACT -->
 
+
+            <!-- WEIGHT FACT -->
             <TextView
                 android:id="@+id/weight_fact_title"
                 android:layout_width="wrap_content"
@@ -76,7 +86,9 @@
                 tools:text="18,000 pounds"
                 app:layout_constraintStart_toStartOf="@id/weight_fact_title"
                 app:layout_constraintTop_toBottomOf="@id/weight_fact_title" />
+            <!-- WEIGHT FACT -->
 
+            <!-- YEARS AGO LIVED FACT -->
             <TextView
                 android:id="@+id/lived_fact_title"
                 android:layout_width="wrap_content"
@@ -96,7 +108,9 @@
                 tools:text="66 million years ago"
                 app:layout_constraintStart_toStartOf="@id/lived_fact_title"
                 app:layout_constraintTop_toBottomOf="@id/lived_fact_title" />
+            <!-- YEARS AGO LIVED FACT -->
 
+            <!-- SPEED FACT -->
             <TextView
                 android:id="@+id/speed_fact_title"
                 android:layout_width="wrap_content"
@@ -116,7 +130,9 @@
                 tools:text="6 miles per hour"
                 app:layout_constraintStart_toStartOf="@id/speed_fact_title"
                 app:layout_constraintTop_toBottomOf="@id/speed_fact_title" />
+            <!-- SPEED FACT -->
 
+            <!-- MEANING OF NAME FACT -->
             <TextView
                 android:id="@+id/name_fact_title"
                 android:layout_width="wrap_content"
@@ -136,7 +152,10 @@
                 tools:text="Fused lizard"
                 app:layout_constraintStart_toStartOf="@id/name_fact_title"
                 app:layout_constraintTop_toBottomOf="@id/name_fact_title" />
+            <!-- MEANING OF NAME FACT -->
 
+            <!-- Motion layout used to reveal the text of the article section with a top to bottom
+                 expanding transition (Habitat) -->
             <androidx.constraintlayout.motion.widget.MotionLayout
                 android:id="@+id/habitat_motion_layout"
                 android:layout_width="0dp"
@@ -148,6 +167,8 @@
                 app:layout_constraintTop_toBottomOf="@id/name_fact_text"
                 app:layout_constraintBottom_toTopOf="@id/evolution_motion_layout">
 
+                <!-- Frame layout used to allow clicks to register on the title and drop down
+                     button view -->
                 <FrameLayout
                     android:id="@+id/habitat_constraint_layout"
                     android:layout_width="match_parent"
@@ -175,6 +196,8 @@
 
                 </FrameLayout>
 
+                <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
+                     drop down animation played (previously cut off) -->
                 <FrameLayout
                     android:id="@+id/habitat_text_layout"
                     android:layout_width="match_parent"
@@ -191,6 +214,8 @@
                 </FrameLayout>
             </androidx.constraintlayout.motion.widget.MotionLayout>
 
+            <!-- Motion layout used to reveal the text of the article section with a top to bottom
+                 expanding transition (Crazy Evolution) -->
             <androidx.constraintlayout.motion.widget.MotionLayout
                 android:id="@+id/evolution_motion_layout"
                 android:layout_width="0dp"
@@ -201,6 +226,8 @@
                 app:layout_constraintTop_toBottomOf="@id/habitat_motion_layout"
                 app:layout_constraintBottom_toTopOf="@id/fossil_motion_layout">
 
+                <!-- Frame layout used to allow clicks to register on the title and drop down
+                     button view -->
                 <FrameLayout
                     android:id="@+id/evolution_constraint_layout"
                     android:layout_width="match_parent"
@@ -228,6 +255,8 @@
 
                 </FrameLayout>
 
+                <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
+                     drop down animation played (previously cut off) -->
                 <FrameLayout
                     android:id="@+id/crazy_evolution_text_layout"
                     android:layout_width="match_parent"
@@ -245,6 +274,8 @@
 
             </androidx.constraintlayout.motion.widget.MotionLayout>
 
+            <!-- Motion layout used to reveal the text of the article section with a top to bottom
+                 expanding transition (Fossil History) -->
             <androidx.constraintlayout.motion.widget.MotionLayout
                 android:id="@+id/fossil_motion_layout"
                 android:layout_width="0dp"
@@ -255,10 +286,13 @@
                 app:layout_constraintTop_toBottomOf="@id/evolution_motion_layout"
                 app:layout_constraintBottom_toTopOf="@id/quiz_button">
 
+                <!-- Frame layout used to allow clicks to register on the title and drop down
+                     button view -->
                 <FrameLayout
                     android:id="@+id/fossil_constraint_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.fossilDropDownClicked()}"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
@@ -281,6 +315,8 @@
 
                 </FrameLayout>
 
+                <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
+                     drop down animation played (previously cut off) -->
                 <FrameLayout
                     android:id="@+id/fossil_history_text_layout"
                     android:paddingBottom="16dp"
@@ -297,6 +333,7 @@
                 </FrameLayout>
             </androidx.constraintlayout.motion.widget.MotionLayout>
 
+            <!-- Button used to activate quiz for the app (CURRENTLY DOES NOTHING) -->
             <Button
                 android:id="@+id/quiz_button"
                 style="@style/classicButton"
@@ -310,5 +347,7 @@
                 app:layout_constraintTop_toBottomOf="@id/fossil_motion_layout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

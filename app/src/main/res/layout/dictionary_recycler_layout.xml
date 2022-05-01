@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="16dp">
 
+        <!-- Displayed when a word with a new letter at the start is present -->
         <TextView
             android:id="@+id/letter_title"
             android:layout_width="wrap_content"
@@ -22,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="C" />
 
+        <!-- Title of word -->
         <TextView
             android:id="@+id/dictionary_recycler_word_title"
             android:layout_width="wrap_content"
@@ -34,6 +36,7 @@
             app:layout_constraintTop_toBottomOf="@id/letter_title"
             tools:text="Cretaceous" />
 
+        <!-- Definition of word -->
         <TextView
             android:id="@+id/dictionary_recycler_definition"
             android:layout_width="0dp"

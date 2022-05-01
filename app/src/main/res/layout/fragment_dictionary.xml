@@ -6,6 +6,5 @@
         android:transitionGroup="true"
         android:id="@+id/recycler_view_dictionary"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="?attr/actionBarSize"/>
+        android:layout_height="match_parent" />
 </layout>

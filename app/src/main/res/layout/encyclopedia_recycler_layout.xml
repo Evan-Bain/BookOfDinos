@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- layout for recycler view -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <variable
-            name="position"
-            type="com.example.dinoappv2.bottomNav.EncyclopediaFragment" />
-
-    </data>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="4dp">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:padding="4dp">
 
             <!--Badge/image of dinosaur-->
             <ImageView
@@ -35,6 +21,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/circle_icon" />
 
+            <!-- Displayed if quiz for dinosaur has been completed -->
             <ImageView
                 android:id="@+id/dino_badge_check"
                 android:layout_width="30dp"
@@ -45,13 +32,17 @@
                 app:layout_constraintTop_toTopOf="@id/dino_badge"
                 app:layout_constraintEnd_toEndOf="@id/dino_badge"/>
 
-            <!--name of Dinosaur-->
+            <!--name of Dinosaur && Text resizes from a range of 12sp to 16sp to
+                remain compatible with smaller screen sizes-->
             <TextView
                 android:id="@+id/dino_name"
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:gravity="center"
                 app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeStepGranularity="2sp"
                 android:padding="4dp"
                 android:fontFamily="@font/fredoka_one"
                 android:text="@string/test"
@@ -60,7 +51,5 @@
                 app:layout_constraintTop_toBottomOf="@id/dino_badge" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
 
 </layout>

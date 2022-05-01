@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -36,6 +37,7 @@ class EncyclopediaFragment : Fragment() {
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
 
+        //setting up viewModel
         val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(requireContext())
             .dinosaurEncyclopediaDao
         val bottomNavRepository = BottomNavRepository(dinoDatasource, Dispatchers.IO)
@@ -55,6 +57,10 @@ class EncyclopediaFragment : Fragment() {
             false
         )
 
+        //Disable nested scrolling to not activate collapsable toolbar
+        ViewCompat.setNestedScrollingEnabled(binding.encyclopediaRecyclerView, false)
+
+        //Re-enable normal transitions after navigating away from DinoArticle
         if(findNavController().previousBackStackEntry?.destination?.id == R.id.dino_article_fragment) {
             enterTransition = MaterialFadeThrough()
             exitTransition = MaterialFadeThrough()
@@ -65,6 +71,7 @@ class EncyclopediaFragment : Fragment() {
         }
 
         adapter = EncyclopediaAdapter(requireContext()) { model ->
+            //pass click listener
             model.onBadgeClicked()
         }
 
@@ -82,16 +89,17 @@ class EncyclopediaFragment : Fragment() {
         inflater.inflate(R.menu.search_options_menu, menu)
         val searchItem: MenuItem = menu.findItem(R.id.search_menu_item)
         val searchView: SearchView = searchItem.actionView as SearchView
-        searchView.setIconifiedByDefault(false)
         searchView.queryHint = "Search dinosaurs"
 
         searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
+                //disable bottomNav if search is being performed
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
                 return true
             }
 
             override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
+                //enable bottomNav if search is done being performed
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
                 return true
             }
@@ -116,14 +124,11 @@ class EncyclopediaFragment : Fragment() {
 
     /** logic for transiting to DinoArticleFragment **/
     private fun DinosaurEncyclopedia.onBadgeClicked() {
-        /*val intent = Intent(activity, DinoArticleFragment::class.java).apply {
-            //sending data on the dinosaur that was selected over to DinoArticleFragment
-            putExtra("dinoSelected", this@onBadgeClicked)
-        }
-
-        startActivity(intent)*/
+        //change transitions before entering DinoArticle to a Z axis transition
         exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
         reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+
+        //Pass dinosaur clicked to DinoArticle
         val bundle = bundleOf("dinoSelected" to this)
         findNavController().navigate(R.id.dino_article_fragment, bundle)
     }

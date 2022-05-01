@@ -10,10 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DinoAppv2">
         <activity
-            android:name=".DinoArticleFragment"
-            android:exported="false" />
-        <activity
-            android:name=".bottomNav.BottomNavActivity"
+            android:name=".bottomNav.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

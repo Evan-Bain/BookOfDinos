@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.dinoappv2.bottomNav.BottomNavActivity
+import com.example.dinoappv2.bottomNav.MainActivity
 import com.example.dinoappv2.companionObjects.CompanionObject
 import com.example.dinoappv2.dataClasses.DinosaurQuizStrings
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
@@ -124,7 +124,7 @@ class QuizFragment : Fragment() {
     //function used in dataBinding of quiz score layout to
     //make the quiz disappear and navigate out of article
     fun finishButtonClicked() {
-        val intent = Intent(activity, BottomNavActivity::class.java)
+        val intent = Intent(activity, MainActivity::class.java)
         startActivity(intent)
         viewModel.setQuizVisible(false)
         viewModel.setQuizButton(true)

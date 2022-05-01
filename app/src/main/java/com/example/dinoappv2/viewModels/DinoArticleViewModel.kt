@@ -81,15 +81,6 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
         _quizVisible.value = visible
     }
 
-    //sets alpha value of the body of the article
-    private val _articleBodyAlpha = MutableLiveData<Boolean>()
-    val articleBodyAlpha: LiveData<Boolean>
-        get() = _articleBodyAlpha
-
-    fun setArticleBodyAlpha(visible: Boolean) {
-        _articleBodyAlpha.value = visible
-    }
-
     //calls database function to update activated value
     fun updateActivated(activated: Boolean, position: Int) {
         viewModelScope.launch {
@@ -100,7 +91,6 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
     }
 
     init {
-        _articleBodyAlpha.value = true
         _habitatDroppedDown.value = false
         _evolutionDroppedDown.value = false
         _fossilDroppedDown.value = false
