@@ -9,6 +9,8 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -150,6 +152,13 @@ class DinoArticleFragment : Fragment() {
                 }
         }
 
+        //Disables transitions when in the active state to avoid glitch
+        with(binding) {
+            habitatConstraintLayout.setTransitionListeners(habitatMotionLayout)
+            evolutionConstraintLayout.setTransitionListeners(evolutionMotionLayout)
+            fossilConstraintLayout.setTransitionListeners(fossilMotionLayout)
+        }
+
         viewModel.habitatDroppedDown.observe(viewLifecycleOwner) {
             if (it) {
                 with(binding) {
@@ -211,6 +220,43 @@ class DinoArticleFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    /** Disables transitions when in the active state **/
+    private fun FrameLayout.setTransitionListeners(motionLayout: MotionLayout) {
+        motionLayout.setTransitionListener(
+            object : MotionLayout.TransitionListener {
+                override fun onTransitionStarted(
+                    motionLayout: MotionLayout?,
+                    startId: Int,
+                    endId: Int
+                ) {
+                    isClickable = false
+                }
+
+                override fun onTransitionChange(
+                    motionLayout: MotionLayout?,
+                    startId: Int,
+                    endId: Int,
+                    progress: Float
+                ) {
+                    //NOTHING
+                }
+
+                override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                    isClickable = true
+                }
+
+                override fun onTransitionTrigger(
+                    motionLayout: MotionLayout?,
+                    triggerId: Int,
+                    positive: Boolean,
+                    progress: Float
+                ) {
+                    //NOTHING
+                }
+            }
+        )
     }
 
     //used in quiz button onClick data binding to display quiz and reset variables

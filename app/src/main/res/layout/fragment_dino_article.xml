@@ -15,7 +15,7 @@
 
     </data>
 
-    <!-- Nested Scroll View removes certain bugs in motion layout -->
+    <!-- Nested Scroll View is compatible with toolbar -->
     <androidx.core.widget.NestedScrollView
         android:transitionGroup="true"
         android:layout_width="match_parent"

@@ -60,13 +60,14 @@ class MainActivity : AppCompatActivity() {
 
             //determines if toolbar should be collapsable and sets the toolbar title for
             //DinoArticle to the Dinosaur clicked
-            if (destination.id == R.id.dino_article_fragment) {
-                disableAppBarDrag(behaviour, bundle, true)
-                binding.activityToolbarLayout.title =
+            binding.activityToolbarLayout.title =
+                if (destination.id == R.id.dino_article_fragment) {
+                    disableAppBarDrag(behaviour, bundle, true)
                     (bundle?.get("dinoSelected") as DinosaurEncyclopedia).name
-            } else {
-                disableAppBarDrag(behaviour, draggable = false)
-            }
+                } else {
+                    disableAppBarDrag(behaviour, draggable = false)
+                    destination.label
+                }
 
             //disables bottomNav and padding on fragments not connected to bottomNav layout
             binding.bottomNav.visibility = when (destination.id) {

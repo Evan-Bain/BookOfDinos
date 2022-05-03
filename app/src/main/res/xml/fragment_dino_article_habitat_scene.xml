@@ -7,7 +7,8 @@
         app:constraintSetEnd="@id/end_habitat"
         app:constraintSetStart="@id/start_habitat"
         app:duration="1000"
-        app:layoutDuringTransition="honorRequest" />
+        app:layoutDuringTransition="honorRequest" >
+    </Transition>
 
     <ConstraintSet android:id="@+id/start_habitat">
 

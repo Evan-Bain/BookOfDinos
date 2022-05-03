@@ -84,7 +84,7 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
                 "Stegosaurus",
                 R.drawable.dino_badge_stegasaurus,
                 R.drawable.dino_badge_stegasaurus_black,
-                R.drawable.fb_ankylosaurus,
+                R.drawable.fb_stegosaurus,
                 value[6].activated != 0
             ),
             //#8
@@ -93,7 +93,7 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
                 "Triceratops",
                 R.drawable.dino_badge_triceratops,
                 R.drawable.dino_badge_triceratops_black,
-                R.drawable.fb_ankylosaurus,
+                R.drawable.fb_triceratops,
                 value[7].activated != 0
             ),
             //#9
