@@ -1,37 +1,40 @@
 package com.example.dinoappv2.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
+import com.example.dinoappv2.databinding.ProfileRecyclerLayoutBinding
 
-class ProfileAdapter(
-    private val dinoData: List<DinosaurEncyclopedia>
-): RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
+class ProfileAdapter :
+    ListAdapter<DinosaurEncyclopedia, ProfileAdapter.ViewHolder>(AllDinosDiffCallback()) {
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val imageView: ImageView = view.findViewById(R.id.dino_badge_profile)
-    }
+    inner class ViewHolder(val binding: ProfileRecyclerLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.profile_recycler_layout, parent, false)
+        fun bind(data: DinosaurEncyclopedia) {
 
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //if the quiz is complete display the check next to the badge
-        if(dinoData[position].activated == true) {
-            holder.imageView.setImageResource(dinoData[position].badge)
-        } else {
-            holder.imageView.setImageResource((dinoData[position].blackBadge))
+            //sets image to black and white if quiz is not completed
+            if(data.activated == true) {
+                binding.dinoBadgeProfile.setImageResource(data.badge)
+            } else {
+                binding.dinoBadgeProfile.setImageResource(data.blackBadge)
+            }
         }
     }
 
-    override fun getItemCount() = dinoData.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ProfileRecyclerLayoutBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false)
+
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
 }
+

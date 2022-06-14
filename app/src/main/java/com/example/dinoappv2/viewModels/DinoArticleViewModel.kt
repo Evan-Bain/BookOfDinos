@@ -2,6 +2,7 @@ package com.example.dinoappv2.viewModels
 
 import androidx.lifecycle.*
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDao
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewModel() {
@@ -83,7 +84,7 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
 
     //calls database function to update activated value
     fun updateActivated(activated: Boolean, position: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             database.updateActivated(
                 if(activated) 1 else 0,
                 position)
@@ -102,7 +103,7 @@ class DinoArticleViewModelFactory(
     private val dataSource: DinosaurEncyclopediaDao
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DinoArticleViewModel::class.java)) {
             return DinoArticleViewModel(dataSource) as T
         }

@@ -1,6 +1,5 @@
 package com.example.dinoappv2.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,8 @@ import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.EncyclopediaRecyclerLayoutBinding
 
 class EncyclopediaAdapter(
-    val context: Context,
     private val onBadgeClicked: (DinosaurEncyclopedia) -> Unit) : ListAdapter<DinosaurEncyclopedia,
-            EncyclopediaAdapter.ViewHolder>(EncyclopediaDiffCallback()) {
+            EncyclopediaAdapter.ViewHolder>(AllDinosDiffCallback()) {
 
     inner class ViewHolder(val binding: EncyclopediaRecyclerLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -51,7 +49,7 @@ class EncyclopediaAdapter(
 
 }
 
-class EncyclopediaDiffCallback : DiffUtil.ItemCallback<DinosaurEncyclopedia>() {
+class AllDinosDiffCallback : DiffUtil.ItemCallback<DinosaurEncyclopedia>() {
     override fun areItemsTheSame(
         oldItem: DinosaurEncyclopedia,
         newItem: DinosaurEncyclopedia

@@ -3,6 +3,7 @@ package com.example.dinoappv2.viewModels
 import androidx.lifecycle.*
 import com.example.dinoappv2.BottomNavRepository
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class EncyclopediaViewModel (repository: BottomNavRepository): ViewModel() {
@@ -33,10 +34,10 @@ class EncyclopediaViewModel (repository: BottomNavRepository): ViewModel() {
     }
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             //getting data from flow
             repository.getDinosaurData().collect {
-                _allDinos.value = it
+                _allDinos.postValue(it)
                 originalDinoList = it
             }
         }
@@ -48,7 +49,7 @@ class EncyclopediaViewModelFactory(
     private val repository: BottomNavRepository
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(EncyclopediaViewModel::class.java)) {
             return EncyclopediaViewModel(repository) as T
         }

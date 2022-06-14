@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DinoAppv2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
@@ -10,9 +10,35 @@
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/open_sans_semibold</item>
         <item name="android:windowActivityTransitions">true</item>
     </style>
+
+    <style name="DefaultStyle" parent="AppBaseTheme" >
+
+    </style>
+
+    <style name="LandStyle" parent="AppBaseTheme" >
+
+        <item name="android:windowBackground">@drawable/background_land</item>
+    </style>
+
+    <style name="WaterStyle" parent="AppBaseTheme" >
+
+        <item name="android:windowBackground">@drawable/background_water</item>
+    </style>
+
+    <style name="SkyStyle" parent="AppBaseTheme" >
+
+        <item name="android:windowBackground">@drawable/background_air</item>
+    </style>
+
+    <style name="SplashScreen" parent="Theme.SplashScreen" >
+        <item name="windowSplashScreenBackground">@color/primaryLightColor</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/dino_badge_trex</item>
+        <item name="splashScreenIconSize">288dp</item>
+    </style>
+
 </resources>

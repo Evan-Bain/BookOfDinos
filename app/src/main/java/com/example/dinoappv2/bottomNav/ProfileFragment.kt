@@ -1,44 +1,61 @@
 package com.example.dinoappv2.bottomNav
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.view.ViewCompat
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dinoappv2.BottomNavRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.ProfileAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
+import com.example.dinoappv2.databases.ProfileImageDatabase
 import com.example.dinoappv2.databinding.FragmentProfileBinding
-import com.example.dinoappv2.viewModels.EncyclopediaViewModel
-import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
+import com.example.dinoappv2.viewModels.MainViewModel
+import com.example.dinoappv2.viewModels.ProfileViewModel
+import com.example.dinoappv2.viewModels.ProfileViewModelFactory
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var viewModel: ProfileViewModel
 
-    private lateinit var viewModel: EncyclopediaViewModel
+    //viewModel shared from the MainActivity
+    private val sharedViewModel: MainViewModel by activityViewModels()
+
+    //public to be used in dataBinding
+    val adapter = ProfileAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
 
+        //creating viewModelFactory
         val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(requireContext())
             .dinosaurEncyclopediaDao
-        val bottomNavRepository = BottomNavRepository(dinoDatasource, Dispatchers.IO)
-        val viewModelFactory = EncyclopediaViewModelFactory(bottomNavRepository)
-        viewModel = ViewModelProvider(requireActivity(), viewModelFactory)
-            .get(EncyclopediaViewModel::class.java)
+        val bottomNavRepository = BottomNavRepository(dinoDatasource)
+        val profileDataSource = ProfileImageDatabase.getInstance(requireContext())
+            .profileImageDao
+        val viewModelFactory = ProfileViewModelFactory(bottomNavRepository, profileDataSource)
+
+        //initializing ProfileViewModel
+        viewModel = ViewModelProvider(this, viewModelFactory)[ProfileViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -52,48 +69,87 @@ class ProfileFragment : Fragment() {
             false
         )
 
+        binding.viewModel = viewModel
+        binding.fragment = this
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        //disable nested scrolling to not activate collapsable toolbar
         ViewCompat.setNestedScrollingEnabled(binding.profileBadgesRecycler, false)
 
+        //re-enable normal transitions after navigating away from ProfileEditFragment
         if(findNavController().previousBackStackEntry?.destination?.id == R.id.profile_edit_fragment) {
             enterTransition = MaterialFadeThrough()
             exitTransition = MaterialFadeThrough()
         }
 
-        binding.profileBadgesRecycler.layoutManager =
-            GridLayoutManager(requireActivity(), 3)
-
-        //gets all activated badges
-        val dinoData = ArrayList<DinosaurEncyclopedia>()
-        viewModel.allDinos.observe(viewLifecycleOwner) {
-
-            binding.profileBadgesRecycler.adapter = ProfileAdapter(it)
-
-            for(i in it) {
-                if(i.activated == true) {
-                    dinoData.add(i)
+        lifecycleScope.launch {
+            sharedViewModel.backgroundImage.apply {
+                if(this != null) {
+                    //sets corresponding background preview depending on what background is
+                    //saved in BackgroundImageDatabase
+                    binding.backgroundImage.setImageResource(
+                        when(backgroundImage) {
+                            0 -> R.drawable.background_land
+                            1 -> R.drawable.background_water
+                            2 -> R.drawable.background_air
+                            else -> {
+                                binding.backgroundImage.visibility = View.GONE
+                                0
+                            }
+                        }
+                    )
+                } else {
+                    //displays default background preview if background has not been selected by
+                    //user yet
+                    binding.backgroundImage.visibility = View.GONE
                 }
             }
         }
 
-        //when fab selected navigate to the profile edit screen
-        binding.editProfileImageFab.setOnClickListener {
-            exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true)
-            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
-            findNavController().navigate(ProfileFragmentDirections
-                .actionProfileBottomNavToProfileEditFragment())
+        //navigates to SelectBackgroundImage when background image preview is selected
+        binding.backgroundImagePreview.setOnClickListener {
+            findNavController().navigate(R.id.select_background_fragment)
         }
 
-        //set profile image to the currently selected one
-        /*lifecycleScope.launchWhenCreated {
-            binding.profileImage.setImageResource(
-                viewModel.profileDatabase.getImage()
-            )
-        }*/
+        with(viewModel) {
+            //when data is retrieved from database, add the data to the recyclerView
+            allDinos.observe(viewLifecycleOwner) {
+                adapter.submitList(it)
+            }
+            //when data is retrieved from database, add the data to the profile image
+            profileImage.observe(viewLifecycleOwner) {
+                binding.profileImage.setImageResource(it)
+            }
+        }
 
-        //sets experience count
-        /*binding.experienceRatio.text =
-            resources.getString(R.string.experience_fraction,dinoData.size*10)*/
+        //when fab is selected navigate to the profile edit screen
+        binding.editProfileImageFab.setOnClickListener {
+            //change transition from MaterialFade
+            exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true)
+            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
+
+            //pass list of dinosaurs (plus default profile image) to ProfileEditFragment
+            //to prevent another creation and call from database
+            val bundle = Bundle()
+            val allDinos = ArrayList(viewModel.allDinos.value!!)
+            allDinos.add(0, DinosaurEncyclopedia(
+                -1,
+                "",
+                R.drawable.profile_icon,
+                0,
+                0,
+                true)
+            )
+            bundle.putParcelableArrayList("activatedDinos", allDinos as ArrayList<out Parcelable>)
+            findNavController().navigate(R.id.profile_edit_fragment, bundle)
+        }
 
         return binding.root
     }
 }
+
+@BindingAdapter("nextLevel")
+fun TextView.nextLevel(value: LiveData<Int>?) {
+    text = value?.value?.plus(1).toString()
+}
+

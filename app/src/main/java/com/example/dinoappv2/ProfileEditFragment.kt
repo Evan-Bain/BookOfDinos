@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dinoappv2.adapters.ProfileEditAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.ProfileImageDatabase
@@ -20,14 +19,20 @@ import com.google.android.material.transition.MaterialSharedAxis
 
 class ProfileEditFragment : Fragment() {
 
-    lateinit var binding: FragmentProfileEditBinding
-
-    lateinit var viewModel: ProfileEditViewModel
+    private lateinit var binding: FragmentProfileEditBinding
+    private lateinit var viewModel: ProfileEditViewModel
+    private lateinit var adapter: ProfileEditAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //setting up viewModel
+        val database = ProfileImageDatabase.getInstance(requireContext()).profileImageDao
+        val viewModelFactory = ProfileEditViewModelFactory(database)
+        viewModel = ViewModelProvider(this, viewModelFactory)[ProfileEditViewModel::class.java]
+
         enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true)
         returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
     }
 
     override fun onCreateView(
@@ -41,57 +46,32 @@ class ProfileEditFragment : Fragment() {
             false
         )
 
-        //get all badges that have been activated after quiz completion
-        val dinoData = ArrayList<DinosaurEncyclopedia>()
-        /*for(i in CompanionObject.allDinos!!) {
-            if(i.activated == true) {
-                dinoData.add(i)
-            }
-        }*/
-        //setting up viewModel
-        val database = ProfileImageDatabase.getInstance(requireContext()).profileImageDao
-        val viewModelFactory = ProfileEditViewModelFactory(database)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ProfileEditViewModel::class.java)
+        ViewCompat.setNestedScrollingEnabled(binding.profileEditRecyclerView, false)
 
-        val adapter = ProfileEditAdapter(
-            dinoData, requireContext(),
-            viewModel.lastPositionClicked, viewModel.adapterRestarted
-        )
-
-        adapter.positionChanged.observe(viewLifecycleOwner) {
-            //set to survive configuration changes
-            viewModel.lastPositionClicked = adapter.lastPositionClicked
-            if (adapter.currentSelected != null) {
-                viewModel.currentPosition = adapter.currentSelected!!
-            }
-            //if there is a current position selected make
-            //the select button visible
-            binding.selectProfileImage.isEnabled =
-                viewModel.currentPosition != -1
-            //sets viewModel variable for the rest of lifecycle
-            viewModel.adapterRestarted = true
+        viewModel.setDinoSelected(false)
+        viewModel.dinoSelected.observe(viewLifecycleOwner) {
+            binding.selectProfileImage.isEnabled = it
         }
 
-        //setting up recycler view
+        @Suppress("UNCHECKED_CAST")
+        val dinoData = arguments?.get("activatedDinos") as ArrayList<DinosaurEncyclopedia>
+
+        adapter = ProfileEditAdapter { dino, selected ->
+            viewModel.setCurrentDino(dino)
+            viewModel.setDinoSelected(selected)
+        }
+        adapter.submitList(dinoData)
+
         binding.profileEditRecyclerView.adapter = adapter
-        binding.profileEditRecyclerView.layoutManager =
-            GridLayoutManager(requireContext(), 3)
 
         //sets profile image to the position of the recycler view selected
         //and navigates back to the profile ui
         binding.selectProfileImage.setOnClickListener {
-            val position = viewModel.currentPosition
-            when {
-                position > 0 -> {
-                    viewModel.insertProfileImage(dinoData[position - 1].badge)
-                }
-                position == 0 -> {
-                    viewModel.insertProfileImage(R.drawable.profile_icon)
-                }
+            viewModel.currentDino?.let {
+                viewModel.insertProfileImage(it.position)
+                findNavController().navigate(ProfileEditFragmentDirections
+                    .actionProfileEditFragmentToProfileBottomNav())
             }
-            exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
-            findNavController().navigate(ProfileEditFragmentDirections
-                .actionProfileEditFragmentToProfileBottomNav())
         }
         return binding.root
     }

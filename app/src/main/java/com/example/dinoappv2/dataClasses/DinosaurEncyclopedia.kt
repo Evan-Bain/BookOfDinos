@@ -1,14 +1,13 @@
 package com.example.dinoappv2.dataClasses
 
-import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import android.util.Log
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.dinoappv2.R
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.parcelize.Parcelize
-import java.text.FieldPosition
 
 @Parcelize
 data class DinosaurEncyclopedia(
@@ -22,7 +21,6 @@ data class DinosaurEncyclopedia(
 
 /** returns names and images associated with each dino **/
 fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<DinosaurEncyclopedia>> {
-    Log.i("DinosaurEncyclopedia", this.toString())
     return this.map { value ->
         listOf(
             DinosaurEncyclopedia(
@@ -57,16 +55,16 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
                 "Mosasaurus",
                 R.drawable.dino_badge_mosasaurus,
                 R.drawable.dino_badge_mosasaurus_black,
-                R.drawable.fb_ankylosaurus,
+                R.drawable.fb_mosasaurus,
                 value[3].activated != 0
             ),
             //#5
             DinosaurEncyclopedia(
                 4,
-                "Pterodactyl",
-                R.drawable.dino_badge_pterodactyl,
-                R.drawable.dino_badge_pterodactyl_black,
-                R.drawable.fb_ankylosaurus,
+                "Pteranodon",
+                R.drawable.dino_badge_pteranodon,
+                R.drawable.dino_badge_pteranodon_black,
+                R.drawable.fb_pteranodon,
                 value[4].activated != 0
             ),
             //#6
@@ -75,7 +73,7 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
                 "Spinosaurus",
                 R.drawable.dino_badge_spinosaurus,
                 R.drawable.dino_badge_spinosaurus_black,
-                R.drawable.fb_ankylosaurus,
+                R.drawable.android_fb_spinosaurus,
                 value[5].activated != 0
             ),
             //#7
@@ -109,9 +107,9 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             DinosaurEncyclopedia(
                 9,
                 "Velociraptor",
-                R.drawable.dino_badge_raptor,
-                R.drawable.dino_badge_raptor_black,
-                R.drawable.fb_ankylosaurus,
+                R.drawable.dino_badge_velociraptor,
+                R.drawable.dino_badge_velociraptor_black,
+                R.drawable.fb_velociraptor,
                 value[9].activated != 0
             )
         )

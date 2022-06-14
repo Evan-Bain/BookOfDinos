@@ -21,7 +21,6 @@ import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
-import kotlinx.coroutines.Dispatchers
 
 
 class EncyclopediaFragment : Fragment() {
@@ -40,10 +39,10 @@ class EncyclopediaFragment : Fragment() {
         //setting up viewModel
         val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(requireContext())
             .dinosaurEncyclopediaDao
-        val bottomNavRepository = BottomNavRepository(dinoDatasource, Dispatchers.IO)
+        val bottomNavRepository = BottomNavRepository(dinoDatasource)
         val viewModelFactory = EncyclopediaViewModelFactory(bottomNavRepository)
-        viewModel = ViewModelProvider(requireActivity(), viewModelFactory)
-            .get(EncyclopediaViewModel::class.java)
+        viewModel =
+            ViewModelProvider(this, viewModelFactory)[EncyclopediaViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -70,7 +69,7 @@ class EncyclopediaFragment : Fragment() {
             adapter.submitList(it)
         }
 
-        adapter = EncyclopediaAdapter(requireContext()) { model ->
+        adapter = EncyclopediaAdapter { model ->
             //pass click listener
             model.onBadgeClicked()
         }

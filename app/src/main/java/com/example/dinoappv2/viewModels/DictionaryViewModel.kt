@@ -1,12 +1,13 @@
 package com.example.dinoappv2.viewModels
 
-import android.util.Log
-import androidx.lifecycle.*
-import com.example.dinoappv2.BottomNavRepository
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.dinoappv2.dataClasses.DictionaryStrings
 import kotlinx.coroutines.launch
 
-class DictionaryViewModel() : ViewModel() {
+class DictionaryViewModel : ViewModel() {
 
     private lateinit var originalWordList: List<DictionaryStrings>
 
@@ -37,7 +38,7 @@ class DictionaryViewModel() : ViewModel() {
     init {
         viewModelScope.launch {
             DictionaryStrings.getDictionaryStrings().collect {
-                _allWords.value = it
+                _allWords.postValue(it)
                 originalWordList = it
             }
         }
