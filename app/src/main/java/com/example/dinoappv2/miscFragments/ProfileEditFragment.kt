@@ -1,14 +1,18 @@
-package com.example.dinoappv2
+package com.example.dinoappv2.miscFragments
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.Button
 import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.ProfileEditAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.ProfileImageDatabase
@@ -50,7 +54,11 @@ class ProfileEditFragment : Fragment() {
 
         viewModel.setDinoSelected(false)
         viewModel.dinoSelected.observe(viewLifecycleOwner) {
-            binding.selectProfileImage.isEnabled = it
+            if(it) {
+                fadeIn(binding.selectProfileImage)
+            } else {
+                fadeOut(binding.selectProfileImage)
+            }
         }
 
         @Suppress("UNCHECKED_CAST")
@@ -76,4 +84,21 @@ class ProfileEditFragment : Fragment() {
         return binding.root
     }
 
+    private fun fadeIn(button: Button) {
+        button.isClickable = true
+        ObjectAnimator.ofFloat(button, "alpha", 1f).apply {
+            duration = 500
+            interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
+    }
+
+    private fun fadeOut(button: Button) {
+        button.isClickable = false
+        ObjectAnimator.ofFloat(button, "alpha", 0f).apply {
+            duration = 500
+            interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
+    }
 }

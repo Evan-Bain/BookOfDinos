@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/profile_edit_fragment"
-        android:name="com.example.dinoappv2.ProfileEditFragment"
+        android:name="com.example.dinoappv2.miscFragments.ProfileEditFragment"
         android:label="Badges"
         tools:layout="@layout/fragment_profile_edit" >
         <action
@@ -48,11 +48,11 @@
         tools:layout="@layout/fragment_dictionary"/>
     <fragment
         android:id="@+id/dino_article_fragment"
-        android:name="com.example.dinoappv2.DinoArticleFragment"
+        android:name="com.example.dinoappv2.miscFragments.DinoArticleFragment"
         tools:layout="@layout/fragment_dino_article"/>
     <fragment
         android:id="@+id/select_background_fragment"
-        android:name="com.example.dinoappv2.SelectBackgroundFragment"
+        android:name="com.example.dinoappv2.miscFragments.SelectBackgroundFragment"
         android:label="Background"
         tools:layout="@layout/select_background_fragment"/>
 </navigation>

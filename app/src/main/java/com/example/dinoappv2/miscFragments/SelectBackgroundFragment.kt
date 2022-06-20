@@ -1,4 +1,4 @@
-package com.example.dinoappv2
+package com.example.dinoappv2.miscFragments
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.dinoappv2.R
 import com.example.dinoappv2.databinding.SelectBackgroundFragmentBinding
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.example.dinoappv2.viewModels.SelectBackgroundViewModel

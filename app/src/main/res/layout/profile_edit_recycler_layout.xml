@@ -27,7 +27,7 @@
             android:id="@+id/profile_edit_check"
             android:layout_width="115dp"
             android:layout_height="115dp"
-            android:visibility="gone"
+            android:alpha="0"
             app:srcCompat="@drawable/check_circle_yellow"
             app:layout_constraintTop_toTopOf="@id/profile_edit_badge"
             app:layout_constraintEnd_toEndOf="@id/profile_edit_badge"

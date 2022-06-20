@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.ViewCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -21,13 +20,13 @@ import com.example.dinoappv2.adapters.ProfileAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databases.ProfileImageDatabase
+import com.example.dinoappv2.databases.WidgetDataDatabase
 import com.example.dinoappv2.databinding.FragmentProfileBinding
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.example.dinoappv2.viewModels.ProfileViewModel
 import com.example.dinoappv2.viewModels.ProfileViewModelFactory
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
@@ -37,9 +36,6 @@ class ProfileFragment : Fragment() {
 
     //viewModel shared from the MainActivity
     private val sharedViewModel: MainViewModel by activityViewModels()
-
-    //public to be used in dataBinding
-    val adapter = ProfileAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +48,9 @@ class ProfileFragment : Fragment() {
         val bottomNavRepository = BottomNavRepository(dinoDatasource)
         val profileDataSource = ProfileImageDatabase.getInstance(requireContext())
             .profileImageDao
-        val viewModelFactory = ProfileViewModelFactory(bottomNavRepository, profileDataSource)
+        val widgetDataSource = WidgetDataDatabase.getInstance(requireContext()).widgetImageDao
+        val viewModelFactory = ProfileViewModelFactory(
+            bottomNavRepository, profileDataSource, widgetDataSource)
 
         //initializing ProfileViewModel
         viewModel = ViewModelProvider(this, viewModelFactory)[ProfileViewModel::class.java]
@@ -70,11 +68,11 @@ class ProfileFragment : Fragment() {
         )
 
         binding.viewModel = viewModel
-        binding.fragment = this
         binding.lifecycleOwner = viewLifecycleOwner
 
-        //disable nested scrolling to not activate collapsable toolbar
-        ViewCompat.setNestedScrollingEnabled(binding.profileBadgesRecycler, false)
+        //recycleVview is not altered (improves performance)
+        binding.profileBadgesRecycler.setHasFixedSize(true)
+
 
         //re-enable normal transitions after navigating away from ProfileEditFragment
         if(findNavController().previousBackStackEntry?.destination?.id == R.id.profile_edit_fragment) {
@@ -113,9 +111,17 @@ class ProfileFragment : Fragment() {
 
         with(viewModel) {
             //when data is retrieved from database, add the data to the recyclerView
+            //SCREENSHOT MADE: consider switchMap
             allDinos.observe(viewLifecycleOwner) {
-                adapter.submitList(it)
+                allWidgets.observe(viewLifecycleOwner) { widgetData ->
+                    binding.profileBadgesRecycler.adapter = ProfileAdapter(
+                        it,
+                        widgetData,
+                        requireContext())
+                }
             }
+            //SCREENSHOT MADE: consider switchMap
+
             //when data is retrieved from database, add the data to the profile image
             profileImage.observe(viewLifecycleOwner) {
                 binding.profileImage.setImageResource(it)
@@ -143,6 +149,11 @@ class ProfileFragment : Fragment() {
             bundle.putParcelableArrayList("activatedDinos", allDinos as ArrayList<out Parcelable>)
             findNavController().navigate(R.id.profile_edit_fragment, bundle)
         }
+
+        //ADDED
+
+
+        //ADDED
 
         return binding.root
     }

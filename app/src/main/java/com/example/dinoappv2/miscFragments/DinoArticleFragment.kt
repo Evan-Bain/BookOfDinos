@@ -1,4 +1,4 @@
-package com.example.dinoappv2
+package com.example.dinoappv2.miscFragments
 
 import android.os.Bundle
 import android.text.SpannableString
@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DictionaryStrings
 import com.example.dinoappv2.dataClasses.DinosaurArticleStrings
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
@@ -44,7 +45,7 @@ class DinoArticleFragment : Fragment() {
         //creating viewModel
         val viewModelFactory = DinoArticleViewModelFactory(
             DinosaurEncyclopediaDatabase.getInstance(requireContext()).dinosaurEncyclopediaDao)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(DinoArticleViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory)[DinoArticleViewModel::class.java]
     }
 
     override fun onCreateView(

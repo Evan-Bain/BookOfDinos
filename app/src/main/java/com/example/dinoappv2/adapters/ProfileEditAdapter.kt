@@ -1,8 +1,9 @@
 package com.example.dinoappv2.adapters
 
+import android.animation.ObjectAnimator
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -43,16 +44,20 @@ class ProfileEditAdapter(
     }
 
     private fun addCheck(check: ImageView): Boolean {
+        val visible: Boolean
 
         when(lastClicked) {
             null -> {
-                 check.visibility = View.VISIBLE
+                fadeIn(check)
+                visible = true
             }
             check -> {
-                check.visibility = if(sameClicked) {
-                    View.VISIBLE
+                visible = if(sameClicked) {
+                    fadeIn(check)
+                    true
                 } else {
-                    View.GONE
+                    fadeOut(check)
+                    false
                 }
                 sameClicked = !sameClicked
             }
@@ -60,11 +65,28 @@ class ProfileEditAdapter(
                 if(sameClicked) {
                     sameClicked = false
                 }
-                lastClicked!!.visibility = View.GONE
-                check.visibility = View.VISIBLE
+                fadeOut(lastClicked!!)
+                fadeIn(check)
+                visible = true
             }
         }
         lastClicked = check
-        return check.visibility != View.GONE
+        return visible
+    }
+
+    private fun fadeIn(check: ImageView) {
+        ObjectAnimator.ofFloat(check, "alpha", 1f).apply {
+            duration = 500
+            interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
+    }
+
+    private fun fadeOut(check: ImageView) {
+        ObjectAnimator.ofFloat(check, "alpha", 0f).apply {
+            duration = 500
+            interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
     }
 }

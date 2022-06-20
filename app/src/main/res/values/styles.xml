@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="classicButton" parent="Theme.MaterialComponents" >
+    <style name="classicButton" parent="Theme.MaterialComponents">
 
         <item name="cornerRadius">20dp</item>
         <item name="textAllCaps">true</item>
         <item name="android:letterSpacing">.1</item>
 
+    </style>
+
+    <style name="Widget.DinoAppv2.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.DinoAppv2.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
 </resources>

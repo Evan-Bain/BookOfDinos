@@ -69,5 +69,9 @@
         <item>5.6 feet\n<b>Weight: </b>18,000 pounds\n<b>Lived: </b> 66 million years ago\n<b>Speed: </b>6 miles an hour\n<b>Meaning of Name: </b>Fused lizard</item>
 
     </string-array>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">Selected Dinosaur (select in app)</string>
+    <string name="remove_app_widget_description">Remove Widget</string>
 
 </resources>

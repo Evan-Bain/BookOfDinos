@@ -11,7 +11,11 @@ android {
 
     defaultConfig {
         applicationId "com.example.dinoappv2"
-        minSdk 21
+
+        //NOT SDK 21 TOO PROGRAMMATICALLY SET WIDGET
+        minSdk 26
+        //NOT SDK 21 TOO PROGRAMMATICALLY SET WIDGET
+
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -34,6 +38,7 @@ android {
     }
     buildFeatures {
         dataBinding true
+        viewBinding true
     }
 }
 

@@ -73,7 +73,7 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
                 "Spinosaurus",
                 R.drawable.dino_badge_spinosaurus,
                 R.drawable.dino_badge_spinosaurus_black,
-                R.drawable.android_fb_spinosaurus,
+                R.drawable.fb_spinosaurus,
                 value[5].activated != 0
             ),
             //#7

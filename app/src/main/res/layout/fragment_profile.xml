@@ -8,190 +8,203 @@
         <variable
             name="viewModel"
             type="com.example.dinoappv2.viewModels.ProfileViewModel" />
-        <variable
-            name="fragment"
-            type="com.example.dinoappv2.bottomNav.ProfileFragment" />
 
     </data>
 
-    <LinearLayout
-        android:transitionGroup="true"
-        android:orientation="vertical"
+    <!-- layout allows recyclerView to take up full screen on scroll -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:transitionGroup="true">
 
-        <HorizontalScrollView
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/fragment_profile_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingTop="16dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
-
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profile_icon" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/edit_profile_image_fab"
-                android:layout_width="wrap_content"
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/activity_toolbar_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/edit_icon"
-                android:transitionName="shared_element_fab"
-                app:fabSize="mini"
-                app:layout_constraintEnd_toEndOf="@id/profile_image"
-                app:layout_constraintTop_toTopOf="@id/profile_image" />
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
-            <TextView
-                android:id="@+id/level_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginBottom="-8dp"
-                android:fontFamily="@font/fredoka_one"
-                android:text="Level:"
-                android:textColor="@color/primaryColor"
-                app:layout_constraintBottom_toTopOf="@id/level_number"
-                app:layout_constraintStart_toEndOf="@id/profile_image" />
-
-            <TextView
-                android:id="@+id/level_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:fontFamily="@font/fredoka_one"
-                android:text="@{viewModel.currentLevel.toString()}"
-                tools:text="1"
-                android:textColor="@color/secondaryColor"
-                android:textSize="64sp"
-                app:layout_constraintBottom_toTopOf="@id/progress_bar"
-                app:layout_constraintStart_toEndOf="@id/profile_image" />
-
-            <ImageView
-                android:id="@+id/level_trophy_icon"
-                android:layout_width="64dp"
-                android:layout_height="0dp"
-                android:src="@drawable/trophy_icon"
-                app:layout_constraintBottom_toBottomOf="@id/level_number"
-                app:layout_constraintStart_toEndOf="@id/level_number"
-                app:layout_constraintTop_toTopOf="@id/level_number" />
-
-            <ImageView
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/test_progress_exp"
-                app:layout_constraintBottom_toBottomOf="@id/profile_image"
-                app:layout_constraintStart_toEndOf="@id/current_level_number" />
-
-            <TextView
-                android:id="@+id/current_level_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fredoka_one"
-                android:padding="4dp"
-                tools:text="1"
-                android:text="@{viewModel.currentLevel.toString()}"
-                android:textColor="@color/primaryColor"
-                app:layout_constraintBottom_toBottomOf="@id/progress_bar"
-                app:layout_constraintStart_toEndOf="@id/profile_image"
-                app:layout_constraintTop_toTopOf="@id/progress_bar" />
-
-            <TextView
-                android:id="@+id/next_level_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fredoka_one"
-                android:padding="4dp"
-                tools:text="2"
-                app:nextLevel="@{viewModel.currentLevel}"
-                android:textColor="@color/primaryColor"
-                app:layout_constraintBottom_toBottomOf="@id/progress_bar"
-                app:layout_constraintStart_toEndOf="@id/progress_bar"
-                app:layout_constraintTop_toTopOf="@id/progress_bar" />
-
-            <TextView
-                android:id="@+id/background_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fredoka_one"
-                android:text="@string/background"
-                android:textColor="@color/primaryColor"
-                app:layout_constraintBottom_toBottomOf="@id/level_text"
-                app:layout_constraintStart_toEndOf="@id/level_trophy_icon"
-                app:layout_constraintTop_toTopOf="@id/level_text" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/background_image_preview"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="8dp"
-                android:focusable="true"
-                android:clickable="true"
-                android:elevation="8dp"
-                app:layout_constraintBottom_toBottomOf="@id/level_trophy_icon"
-                app:layout_constraintStart_toEndOf="@id/level_trophy_icon"
-                app:layout_constraintTop_toBottomOf="@id/background_text"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:layout_marginStart="32dp">
-
-                <ImageView
-                    android:id="@+id/default_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/filler_square_icon" />
-
-                <ImageView
-                    android:id="@+id/background_image"
+                <!-- scroll right to view full layout on smaller screens -->
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/background_land"
-                    android:scaleType="centerCrop"/>
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/edit_icon" />
-            </androidx.cardview.widget.CardView>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fragment_profile_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingStart="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingEnd="16dp">
 
-            <!--<ImageView
-                android:id="@+id/background_image_preview"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/filler_square_icon"
-                app:layout_constraintBottom_toBottomOf="@id/level_trophy_icon"
-                app:layout_constraintEnd_toEndOf="@id/background_text"
-                app:layout_constraintStart_toEndOf="@id/level_trophy_icon"
-                app:layout_constraintTop_toBottomOf="@id/background_text" />-->
+                        <!-- (dino badge) image selected as profile image
+                             (default image is 'circle profile image icon')  -->
+                        <ImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/profile_icon" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        </HorizontalScrollView>
+                        <!-- in top left of profile image to signify profile image can be edited -->
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/edit_profile_image_fab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/edit_icon"
+                            app:fabSize="mini"
+                            app:layout_constraintEnd_toEndOf="@id/profile_image"
+                            app:layout_constraintTop_toTopOf="@id/profile_image" />
 
+                        <!-- defines concept of layout below (level) -->
+                        <TextView
+                            android:id="@+id/level_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginBottom="-8dp"
+                            android:fontFamily="@font/fredoka_one"
+                            android:text="Level:"
+                            android:textColor="@color/primaryColor"
+                            app:layout_constraintBottom_toTopOf="@id/level_number"
+                            app:layout_constraintStart_toEndOf="@id/profile_image" />
+
+                        <!-- current level (lowest at 0 & max at 3) -->
+                        <TextView
+                            android:id="@+id/level_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/fredoka_one"
+                            android:text="@{viewModel.currentLevel.toString()}"
+                            android:textColor="@color/secondaryColor"
+                            android:textSize="64sp"
+                            app:layout_constraintBottom_toTopOf="@id/progress_bar"
+                            app:layout_constraintStart_toEndOf="@id/profile_image"
+                            tools:text="1" />
+
+                        <!-- trophy icon next to current level -->
+                        <ImageView
+                            android:id="@+id/level_trophy_icon"
+                            android:layout_width="64dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/trophy_icon"
+                            app:layout_constraintBottom_toBottomOf="@id/level_number"
+                            app:layout_constraintStart_toEndOf="@id/level_number"
+                            app:layout_constraintTop_toTopOf="@id/level_number" />
+
+                        <!-- displays how close user is to the next level -->
+                        <ImageView
+                            android:id="@+id/progress_bar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/test_progress_exp"
+                            app:layout_constraintBottom_toBottomOf="@id/profile_image"
+                            app:layout_constraintStart_toEndOf="@id/current_level_number" />
+
+                        <!-- current level user is on -->
+                        <TextView
+                            android:id="@+id/current_level_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fredoka_one"
+                            android:padding="4dp"
+                            android:text="@{viewModel.currentLevel.toString()}"
+                            android:textColor="@color/primaryColor"
+                            app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+                            app:layout_constraintStart_toEndOf="@id/profile_image"
+                            app:layout_constraintTop_toTopOf="@id/progress_bar"
+                            tools:text="1" />
+
+                        <!-- next level user will be on -->
+                        <TextView
+                            android:id="@+id/next_level_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fredoka_one"
+                            android:padding="4dp"
+                            android:textColor="@color/primaryColor"
+                            app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+                            app:layout_constraintStart_toEndOf="@id/progress_bar"
+                            app:layout_constraintTop_toTopOf="@id/progress_bar"
+                            app:nextLevel="@{viewModel.currentLevel}"
+                            tools:text="2" />
+
+                        <!-- defines concept of layout below (background) -->
+                        <TextView
+                            android:id="@+id/background_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fredoka_one"
+                            android:text="@string/background"
+                            android:textColor="@color/primaryColor"
+                            app:layout_constraintBottom_toBottomOf="@id/level_text"
+                            app:layout_constraintStart_toEndOf="@id/level_trophy_icon"
+                            app:layout_constraintTop_toTopOf="@id/level_text" />
+
+                        <!-- cardView (layout) selected for visual appeal
+                             (rounded corners, elevation, 3D aspect, & clicking splash animation -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/background_image_preview"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="8dp"
+                            android:clickable="true"
+                            android:elevation="8dp"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            app:cardCornerRadius="8dp"
+                            app:layout_constraintBottom_toBottomOf="@id/level_trophy_icon"
+                            app:layout_constraintStart_toEndOf="@id/level_trophy_icon"
+                            app:layout_constraintTop_toBottomOf="@id/background_text">
+
+                            <!-- default 'background preview'
+                                 (separate imageView to adjust for icon's default padding) -->
+                            <ImageView
+                                android:id="@+id/default_image"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/filler_square_icon" />
+
+                            <!-- image of background that is currently selected -->
+                            <ImageView
+                                android:id="@+id/background_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/background_land" />
+
+                            <!-- signifies that cardView is selectable/editable -->
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/edit_icon" />
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- list to show unlocked dinosaurs and allows user to view (selected widgets)
+             and select widgets -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/profile_badges_recycler"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="16dp"
-            android:adapter="@{fragment.adapter}"
+            android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="3"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:itemCount="10"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/profile_recycler_layout"
-            tools:spanCount="3" />
-    </LinearLayout>
+            tools:listitem="@layout/profile_recycler_layout" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

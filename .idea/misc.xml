@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.1805" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.1805" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25384615384615383" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable-v29/check_box_gray.xml" value="0.18" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/Splash_screen_outline.xml" value="0.1805" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/aa_moo1.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/aa_moo3.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/back_button.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/background_air.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/background_land.xml" value="0.3" />
@@ -50,6 +55,7 @@
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/fb_mosasaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/fb_pteranodon.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/fb_spinosaurus.xml" value="0.3666666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/fb_stegosaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/fb_t_rex.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/fb_triceratops.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/fb_velociraptor.xml" value="0.1425" />
@@ -58,6 +64,16 @@
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/home_icon.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_account_circle_black_24dp.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.25384615384615383" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_moo6.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_part1.xml" value="1.3333333333333333" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_part2.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_part3.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_part4.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_part5.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_pt_idek2.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_pt_idek2fdf.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_pt_ugh6.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_pt_ugh7.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_pteranodon2.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_pteranodon3.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_round_check_box_24.xml" value="0.1425" />
@@ -65,6 +81,8 @@
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_spino4.xml" value="0.22333333333333336" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_test4.xml" value="0.25" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_trexbadge.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_zugh.xml" value="0.3666666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/ic_zugh3.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_icon.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_icon_full.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/profile_recycler_border.xml" value="0.23055555555555557" />
@@ -72,9 +90,22 @@
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/search_icon.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/splash_background.xml" value="0.1805" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/splash_gradient.xml" value="0.1805" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/splash_screen_outline.xml" value="0.1805" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/test_progress_exp.xml" value="0.2578125" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/thin_border.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/trophy_icon.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra1.xml" value="0.1155" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra2.xml" value="0.1155" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra3.xml" value="0.1155" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra4.xml" value="0.1155" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra5.xml" value="0.1155" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra6.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra7.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_extra8.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_part1.xml" value="0.3666666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_part2.xml" value="1.6666666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_part3.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable/z_part4.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout-v26/encyclopedia_recycler_layout.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_bottom_nav.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_dino_article.xml" value="0.1875" />
@@ -82,25 +113,31 @@
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_main.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_profile_edit.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/activity_splash_screen.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/ankylosaurus_fb_widget.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/badge_widget.xml" value="0.1852355072463768" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/bottom_nav_host.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/dictionary_recycler_layout.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/encyclopedia_recycler_layout.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fb_widget.xml" value="0.1852355072463768" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_dictionary.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_dino_article.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_encyclopedia.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_home.xml" value="0.22333333333333336" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_profile.xml" value="0.3" />
-        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_profile_edit.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_profile_edit.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_quiz.xml" value="0.25" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/fragment_quiz_next.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/profile_edit_recycler_layout.xml" value="0.1948376353039134" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/profile_recycler_layout.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/remove_widget.xml" value="0.1" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/layout/select_background_fragment.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/search_options_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/menu/toolbar_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1375" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2578125" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/xml/badge_widget_info.xml" value="0.1852355072463768" />
+        <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/xml/remove_widget_info.xml" value="0.103125" />
       </map>
     </option>
   </component>

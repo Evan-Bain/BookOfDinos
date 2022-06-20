@@ -7,7 +7,7 @@
 
         <variable
             name="fragment"
-            type="com.example.dinoappv2.DinoArticleFragment" />
+            type="com.example.dinoappv2.miscFragments.DinoArticleFragment" />
 
         <variable
             name="viewModel"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
-            tools:context=".DinoArticleFragment">
+            tools:context=".miscFragments.DinoArticleFragment">
 
             <!-- Guidelines used to support smaller screen sizes -->
             <androidx.constraintlayout.widget.Guideline

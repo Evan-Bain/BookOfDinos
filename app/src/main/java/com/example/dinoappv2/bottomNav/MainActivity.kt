@@ -1,13 +1,14 @@
 package com.example.dinoappv2.bottomNav
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -19,8 +20,6 @@ import com.example.dinoappv2.databinding.ActivityMainBinding
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.example.dinoappv2.viewModels.MainViewModelFactory
 import com.google.android.material.appbar.AppBarLayout
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,9 +35,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //sets app background depending on what is saved in database
         setBackground()
-        installSplashScreen()
+        val splashScreen = installSplashScreen()
+
+        //add fade animation when splashScreen is ready to exit
+        splashScreen.setOnExitAnimationListener { splash ->
+            ObjectAnimator.ofFloat(splash.view, "alpha", 0f).apply {
+                duration = 1000
+                interpolator = AccelerateDecelerateInterpolator()
+                this.doOnEnd {
+                    splash.remove()
+                }
+                start()
+            }
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -50,8 +60,10 @@ class MainActivity : AppCompatActivity() {
         //called when background is changed within SelectBackgroundFragment
         mainViewModel.backgroundChanged.observe(this) {
             if(mainViewModel.backgroundSet) {
+
                 //set false to prevent continuously recreating app
                 mainViewModel.setBackground(false)
+
                 //recreates fragment to reset the theme
                 finish()
                 overridePendingTransition(0,0)
@@ -74,6 +86,7 @@ class MainActivity : AppCompatActivity() {
 
         //set up navController with Toolbar and bottomNav
         binding.bottomNav.setupWithNavController(navController)
+
         setSupportActionBar(binding.activityToolbar)
         with(binding.activityToolbar) {
             setNavigationOnClickListener { navController.navigateUp() }
@@ -178,9 +191,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /** sets background of app depending on what style is currently selected **/
-    private fun setBackground() {
-        Log.i("setBackground", "started")
-        if(mainViewModel.backgroundSet) {
+    private fun setBackground(): Boolean {
+        return if(mainViewModel.backgroundSet) {
             //if background is changed while app is in runtime
             //retrieves data saved in mainViewModel
             theme.applyStyle(
@@ -191,25 +203,10 @@ class MainActivity : AppCompatActivity() {
                     else -> R.style.DefaultStyle
                 }, true
             )
+            true
         } else {
             //if app is first launched
             //retrieves data from BackgroundImageDatabase
-            /*lifecycleScope.launch(Dispatchers.IO) {
-                mainViewModel.backgroundImage.collect {
-                    //if no data is returned (null) background is not set (default background)
-                    it?.let { background ->
-                        theme.applyStyle(
-                            when(background.backgroundImage) {
-                                0 -> R.style.LandStyle
-                                1 -> R.style.WaterStyle
-                                2 -> R.style.SkyStyle
-                                else -> R.style.DefaultStyle
-                            }, true
-                        )
-                    }
-                }
-
-            }*/
             mainViewModel.backgroundImage?.let { background ->
                 theme.applyStyle(
                     when(background.backgroundImage) {
@@ -219,9 +216,11 @@ class MainActivity : AppCompatActivity() {
                         else -> R.style.DefaultStyle
                     }, true
                 )
+                return true
             }
+            theme.applyStyle(R.style.DefaultStyle, true)
+            false
         }
-        Log.i("setBackground", "finished")
     }
 
     private fun getViewModelFactory(): MainViewModelFactory {

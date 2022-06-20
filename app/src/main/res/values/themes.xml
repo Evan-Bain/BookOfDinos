@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="AppBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
@@ -16,29 +16,43 @@
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
-    <style name="DefaultStyle" parent="AppBaseTheme" >
+    <style name="DefaultStyle" parent="AppBaseTheme">
 
     </style>
 
-    <style name="LandStyle" parent="AppBaseTheme" >
+    <style name="LandStyle" parent="AppBaseTheme">
 
         <item name="android:windowBackground">@drawable/background_land</item>
     </style>
 
-    <style name="WaterStyle" parent="AppBaseTheme" >
+    <style name="WaterStyle" parent="AppBaseTheme">
 
         <item name="android:windowBackground">@drawable/background_water</item>
     </style>
 
-    <style name="SkyStyle" parent="AppBaseTheme" >
+    <style name="SkyStyle" parent="AppBaseTheme">
 
         <item name="android:windowBackground">@drawable/background_air</item>
     </style>
 
-    <style name="SplashScreen" parent="Theme.SplashScreen" >
+    <style name="SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/primaryLightColor</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/dino_badge_trex</item>
-        <item name="splashScreenIconSize">288dp</item>
+    </style>
+
+    <style name="SplashScreen.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="SplashScreen.AppWidgetContainer" parent="SplashScreen.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
     </style>
 
 </resources>

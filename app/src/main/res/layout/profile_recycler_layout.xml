@@ -1,21 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- layout to keep title (dino name) out of grouped images below -->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/dino_badge_profile"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-            android:layout_gravity="center_horizontal"
-            android:paddingBottom="16dp"
-            app:srcCompat="@drawable/circle_icon"
-            android:contentDescription="@string/dinosaur_image" />
+        <TextView
+            android:id="@+id/dino_name_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/fredoka_one"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ankylosaurus" />
 
-</LinearLayout>
+        <!-- layout for images -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/thin_border">
 
-    </layout>
+            <!-- dino badge image -->
+            <ImageView
+                android:id="@+id/dino_badge_profile"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/dino_fb_profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/dino_badge_ankylosaurus" />
+
+            <!-- mini fab on top right displaying if widget can be added or already is -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/dino_badge_profile_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:layout_constraintEnd_toEndOf="@id/dino_badge_profile"
+                app:layout_constraintTop_toTopOf="@id/dino_badge_profile" />
+
+
+            <!-- fb image -->
+            <ImageView
+                android:id="@+id/dino_fb_profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dino_badge_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/fb_ankylosaurus" />
+
+            <!-- mini fab (horizontally aligned with other fab) on top right
+                 displaying if widget can be added or already is -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/dino_fb_profile_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:layout_constraintEnd_toEndOf="@id/dino_fb_profile"
+                app:layout_constraintTop_toTopOf="@id/dino_badge_profile_fab" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

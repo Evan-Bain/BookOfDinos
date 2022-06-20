@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/app_widget_description"
+    android:initialKeyguardLayout="@layout/badge_widget"
+    android:initialLayout="@layout/badge_widget"
+    android:minWidth="100dp"
+    android:minHeight="100dp"
+    android:widgetFeatures="hide_from_picker"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />

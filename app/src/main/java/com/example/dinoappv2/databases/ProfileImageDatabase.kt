@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.dinoappv2.dataClasses.ProfileImage
 
 @Database(entities = [ProfileImage::class], version = 2, exportSchema = false)
-    abstract class ProfileImageDatabase: RoomDatabase() {
+    abstract class ProfileImageDatabase : RoomDatabase() {
 
         abstract val profileImageDao: ProfileImageDao
 
