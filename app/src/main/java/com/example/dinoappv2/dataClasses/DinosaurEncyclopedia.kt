@@ -1,7 +1,6 @@
 package com.example.dinoappv2.dataClasses
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.dinoappv2.R

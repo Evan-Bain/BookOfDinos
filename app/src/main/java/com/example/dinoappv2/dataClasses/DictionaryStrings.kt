@@ -1,7 +1,6 @@
 package com.example.dinoappv2.dataClasses
 
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 
 data class DictionaryStrings(

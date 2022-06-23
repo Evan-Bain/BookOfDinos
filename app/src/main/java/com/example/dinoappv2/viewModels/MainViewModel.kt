@@ -4,7 +4,6 @@ import androidx.lifecycle.*
 import com.example.dinoappv2.dataClasses.BackgroundImage
 import com.example.dinoappv2.databases.BackgroundImageDao
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class MainViewModel(
@@ -43,6 +42,24 @@ class MainViewModel(
                 BackgroundImage(background)
             )
         }
+    }
+
+    //set whether quiz is visible (in mainViewModel to override onNavigateUp & alter toolbar)
+    private val _quizVisible = MutableLiveData(false)
+    val quizVisible: LiveData<Boolean>
+        get() = _quizVisible
+
+    fun setQuizVisible(visible: Boolean) {
+        _quizVisible.value = visible
+    }
+
+    private var _dictionaryWordSelected = false
+    val dictionaryWordSelected: Boolean
+        get() = _dictionaryWordSelected
+
+    /** allows dictionary fragment to change enter transition **/
+    fun setDictionaryWord(set: Boolean) {
+        _dictionaryWordSelected = set
     }
 }
 

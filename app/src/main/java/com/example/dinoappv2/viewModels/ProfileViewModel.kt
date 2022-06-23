@@ -8,7 +8,6 @@ import com.example.dinoappv2.dataClasses.fromPosition
 import com.example.dinoappv2.databases.ProfileImageDao
 import com.example.dinoappv2.databases.WidgetDataDao
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ProfileViewModel(

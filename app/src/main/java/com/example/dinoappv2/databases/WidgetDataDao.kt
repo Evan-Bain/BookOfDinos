@@ -1,7 +1,6 @@
 package com.example.dinoappv2.databases
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.dinoappv2.dataClasses.WidgetData

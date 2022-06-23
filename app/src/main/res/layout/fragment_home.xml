@@ -4,23 +4,159 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".bottomNav.HomeFragment">
 
+    <!-- home layout (divided into 4 sections - weight) -->
+    <LinearLayout
+        android:id="@+id/fragment_home_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:transitionGroup="true"
+        android:padding="16dp"
+        android:weightSum="4">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:transitionGroup="true"
-            android:id="@+id/fragment_home_layout"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dinosaur_eras_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <ImageView
-                android:id="@+id/home_icon_filler"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/home_icon"
-                tools:ignore="contentDescription" />
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="16dp">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dinosaurs_today_image" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_card_outline"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/home_text_background"
+                android:fontFamily="@font/fredoka_one"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Dinosaur Eras"
+                android:textColor="#002517"
+                android:textSize="20sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/prehistoric_species_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp">
+
+            <ImageView
+                android:id="@+id/dinosaur_species_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/primaryColor"
+                android:src="@drawable/dinosaur_species" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_card_outline"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/home_text_background"
+                android:fontFamily="@font/fredoka_one"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Dinosaur Species"
+                android:textColor="#002517"
+                android:textSize="20sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dinosaur_extinction_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dinosaurs_today_image" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_card_outline"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/home_text_background"
+                android:fontFamily="@font/fredoka_one"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Dinosaur Extinction"
+                android:textColor="#002517"
+                android:textSize="20sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dinosaurs_today_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="14dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dinosaurs_today_image" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_card_outline"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/home_text_background"
+                android:fontFamily="@font/fredoka_one"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Dinosaurs in Today's World"
+                android:textColor="#002517"
+                android:textSize="20sp" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 
 </layout>

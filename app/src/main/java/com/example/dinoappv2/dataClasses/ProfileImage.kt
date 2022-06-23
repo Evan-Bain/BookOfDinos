@@ -2,7 +2,6 @@ package com.example.dinoappv2.dataClasses
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 import com.example.dinoappv2.R
 
 @Entity(tableName = "profile_image_table")

@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.example.dinoappv2.dataClasses.BackgroundImage
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BackgroundImageDao {

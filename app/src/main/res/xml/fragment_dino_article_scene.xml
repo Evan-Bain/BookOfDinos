@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- NOTE: ADD KEYFRAME FOR RESIZABLE VIEWS -->
+
+    <!-- default transition (next question) -->
+    <Transition
+        app:constraintSetStart="@id/start"
+        app:constraintSetEnd="@id/end"
+        app:duration="500"
+        app:motionInterpolator="@string/material_motion_easing_accelerated"  >
+
+        <!-- visibility is gone/visible depending on state -->
+        <KeyFrameSet>
+
+            <KeyAttribute
+                app:framePosition="1"
+                app:motionTarget="@id/quiz_finish_button" >
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="8"/>
+            </KeyAttribute>
+
+            <KeyAttribute
+                app:framePosition="99"
+                app:motionTarget="@id/quiz_finish_button">
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0"/>
+            </KeyAttribute>
+
+        </KeyFrameSet>
+
+    </Transition>
+
+    <!-- animate views from right to left -->
+    <Transition android:id="@+id/result_transition"
+        app:constraintSetStart="@id/result_start"
+        app:constraintSetEnd="@id/result_end"
+        app:duration="750"
+        app:motionInterpolator="bounce" >
+        <KeyFrameSet>
+
+            <!-- set result layout visible -->
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_congrats_text">
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_passed_text" >
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_percent_text" >
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_done_button">
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0" />
+            </KeyAttribute>
+
+            <!-- hides views from quiz layout at end
+                 (enables layout to reshape due to views being gone without user seeing views
+                 fly off in next transition) -->
+            <KeyAttribute
+                app:framePosition="100"
+                android:alpha="0"
+                app:motionTarget="@id/quiz_title" />
+            <KeyAttribute
+                app:framePosition="100"
+                android:alpha="0"
+                app:motionTarget="@id/quiz_question" />
+            <KeyAttribute
+                app:framePosition="100"
+                android:alpha="0"
+                app:motionTarget="@id/quiz_radio_group" />
+            <KeyAttribute
+                app:framePosition="100"
+                android:alpha="0"
+                app:motionTarget="@id/quiz_finish_button" />
+
+        </KeyFrameSet>
+    </Transition>
+
+    <!-- resize the layout -->
+    <Transition android:id="@+id/result_resize_transition"
+        app:constraintSetStart="@id/result_end"
+        app:constraintSetEnd="@id/result_resize"
+        app:duration="750"
+        app:motionInterpolator="@string/material_motion_easing_emphasized" >
+
+
+        <KeyFrameSet>
+
+            <!-- set quiz layout visibility to gone -->
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_title">
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="8"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_question" >
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="8"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_radio_group" >
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="8"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/quiz_finish_button">
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="8" />
+            </KeyAttribute>
+
+        </KeyFrameSet>
+    </Transition>
+
+    <!-- default start constraints -->
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint android:id="@id/quiz_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:visibility="visible"
+            app:visibilityMode="ignore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_question"/>
+
+        <Constraint android:id="@+id/quiz_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:visibility="visible"
+            app:visibilityMode="ignore"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_title"
+            app:layout_constraintBottom_toTopOf="@id/quiz_radio_group"/>
+
+        <Constraint android:id="@id/quiz_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:visibility="visible"
+            app:visibilityMode="ignore"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_question"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Constraint android:id="@id/quiz_finish_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:alpha="0"
+            app:visibilityMode="ignore"
+            android:visibility="gone"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"/>
+    </ConstraintSet>
+
+    <!-- default end constraints -->
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint android:id="@id/quiz_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:visibilityMode="ignore"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_question"/>
+
+        <Constraint android:id="@id/quiz_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:visibility="gone"
+            app:visibilityMode="ignore"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_title"
+            app:layout_constraintBottom_toTopOf="@id/quiz_radio_group"/>
+
+        <Constraint android:id="@id/quiz_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:visibilityMode="ignore"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_question"
+            app:layout_constraintBottom_toTopOf="@id/quiz_finish_button"/>
+
+        <Constraint android:id="@id/quiz_finish_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:alpha="1"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="visible"
+            app:visibilityMode="ignore"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_radio_group"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </ConstraintSet>
+
+    <!-- start of result layout animated in (from right to left) -->
+    <ConstraintSet android:id="@+id/result_start" >
+
+        <Constraint android:id="@id/quiz_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_question"/>
+
+        <Constraint android:id="@id/quiz_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_title"
+            app:layout_constraintBottom_toTopOf="@id/quiz_radio_group"/>
+
+        <Constraint android:id="@id/quiz_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_question"
+            app:layout_constraintBottom_toTopOf="@id/quiz_finish_button"/>
+
+        <Constraint android:id="@id/quiz_finish_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_radio_group"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Constraint
+            android:id="@id/quiz_congrats_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"/>
+
+        <Constraint
+            android:id="@id/quiz_passed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You Passed!"
+            android:fontFamily="@font/fredoka_one"
+            android:textSize="32sp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
+            android:textColor="#002517"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_percent_text"/>
+
+        <Constraint
+            android:id="@+id/quiz_percent_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/quiz_done_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_percent_text"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </ConstraintSet>
+
+    <!-- result layout constraints -->
+    <ConstraintSet android:id="@+id/result_end" >
+
+        <Constraint android:id="@id/quiz_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:alpha="0"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_question"/>
+
+        <Constraint android:id="@id/quiz_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:alpha="0"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_title"
+            app:layout_constraintBottom_toTopOf="@id/quiz_radio_group"/>
+
+        <Constraint android:id="@id/quiz_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:alpha="0"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_question"
+            app:layout_constraintBottom_toTopOf="@id/quiz_finish_button"/>
+
+        <Constraint android:id="@id/quiz_finish_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:alpha="0"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_radio_group"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Constraint
+            android:id="@id/quiz_congrats_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"/>
+
+        <Constraint
+            android:id="@id/quiz_passed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You Passed!"
+            android:fontFamily="@font/fredoka_one"
+            android:textSize="32sp"
+            android:textColor="#002517"
+            android:layout_marginBottom="8dp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_percent_text"/>
+
+        <Constraint
+            android:id="@+id/quiz_percent_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Constraint
+            android:id="@+id/quiz_done_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_percent_text"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </ConstraintSet>
+
+    <!-- resize result layout from quiz layout -->
+    <ConstraintSet android:id="@+id/result_resize" >
+
+        <Constraint android:id="@id/quiz_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_question"/>
+
+        <Constraint android:id="@id/quiz_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_title"
+            app:layout_constraintBottom_toTopOf="@id/quiz_radio_group"/>
+
+        <Constraint android:id="@id/quiz_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_question"
+            app:layout_constraintBottom_toTopOf="@id/quiz_finish_button"/>
+
+        <Constraint android:id="@id/quiz_finish_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_radio_group"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Constraint
+            android:id="@id/quiz_congrats_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"/>
+
+        <Constraint
+            android:id="@id/quiz_passed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You Passed!"
+            android:fontFamily="@font/fredoka_one"
+            android:textSize="32sp"
+            android:textColor="#002517"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/quiz_percent_text"/>
+
+        <Constraint
+            android:id="@+id/quiz_percent_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Constraint
+            android:id="@+id/quiz_done_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quiz_percent_text"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </ConstraintSet>
+</MotionScene>

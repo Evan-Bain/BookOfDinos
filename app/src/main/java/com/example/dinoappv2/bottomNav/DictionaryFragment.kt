@@ -6,14 +6,15 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.DictionaryAdapter
 import com.example.dinoappv2.databinding.FragmentDictionaryBinding
 import com.example.dinoappv2.viewModels.DictionaryViewModel
+import com.example.dinoappv2.viewModels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
@@ -23,6 +24,7 @@ class DictionaryFragment : Fragment() {
     private lateinit var binding: FragmentDictionaryBinding
 
     private val viewModel: DictionaryViewModel by viewModels()
+    private val sharedViewModel: MainViewModel by activityViewModels()
 
     private val adapter = DictionaryAdapter()
 
@@ -31,7 +33,7 @@ class DictionaryFragment : Fragment() {
 
         //if transitioned from DinoArticle (via clicked "difficult word" display slide right
         //transition else perform normal fade transition
-        if(findNavController().previousBackStackEntry?.destination?.id == R.id.dino_article_fragment) {
+        if(sharedViewModel.dictionaryWordSelected) {
             enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
                 duration = 750
             }
@@ -65,6 +67,7 @@ class DictionaryFragment : Fragment() {
         if(argWord != null) {
             viewModel.filterDictionaryData(argWord as String)
             binding.recyclerViewDictionary.itemAnimator = null
+            sharedViewModel.setDictionaryWord(false)
         }
 
         viewModel.allWords.observe(viewLifecycleOwner) {
@@ -115,5 +118,10 @@ class DictionaryFragment : Fragment() {
         })
 
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onStop() {
+        enterTransition = MaterialFadeThrough()
+        super.onStop()
     }
 }

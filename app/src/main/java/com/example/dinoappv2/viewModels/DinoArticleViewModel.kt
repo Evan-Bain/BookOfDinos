@@ -1,14 +1,17 @@
 package com.example.dinoappv2.viewModels
 
 import androidx.lifecycle.*
+import com.example.dinoappv2.R
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewModel() {
+class DinoArticleViewModel(
+    private val database: DinosaurEncyclopediaDao,
+    private val answers: List<Int>): ViewModel() {
 
     //holds value for whether or not the habitat info is displayed
-    private val _habitatDroppedDown = MutableLiveData<Boolean>()
+    private val _habitatDroppedDown = MutableLiveData(false)
     val habitatDroppedDown: LiveData<Boolean>
         get() = _habitatDroppedDown
 
@@ -17,7 +20,7 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
     }
 
     //holds value for whether or not the evolution info is displayed
-    private val _evolutionDroppedDown = MutableLiveData<Boolean>()
+    private val _evolutionDroppedDown = MutableLiveData(false)
     val evolutionDroppedDown: LiveData<Boolean>
         get() = _evolutionDroppedDown
 
@@ -26,7 +29,7 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
     }
 
     //holds value for whether or not the fossil info is displayed
-    private val _fossilDroppedDown = MutableLiveData<Boolean>()
+    private val _fossilDroppedDown = MutableLiveData(false)
     val fossilDroppedDown: LiveData<Boolean>
         get() = _fossilDroppedDown
 
@@ -34,53 +37,78 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
         _fossilDroppedDown.value = !_fossilDroppedDown.value!!
     }
 
-    //used in data binding to determine what radio button was
-    //clicked
-    private val _radioButtonClicked = MutableLiveData<Int?>()
-    val radioButtonClicked: LiveData<Int?>
-        get() = _radioButtonClicked
+    //used in data binding to determine what radio button was clicked
+    private val radioButtonClicked = MutableLiveData<Int?>(null)
 
     fun setRadioButtonClicked(position: Int) {
-        _radioButtonClicked.value = position
+        radioButtonClicked.value = when(position) {
+            R.id.quiz_radio_button_0 -> 0
+            R.id.quiz_radio_button_1 -> 1
+            R.id.quiz_radio_button_2 -> 2
+            R.id.quiz_radio_button_3 -> 3
+            else -> null
+        }
     }
 
-    //set whether the button to go to the next question is
-    //is enabled or not
-    private val _quizButtonEnabled = MutableLiveData<Boolean>()
-    val quizButtonEnabled: LiveData<Boolean>
-        get() = _quizButtonEnabled
-
-    fun setQuizButton(enabled: Boolean) {
-        _quizButtonEnabled.value = enabled
+    val nextButtonEnabled: LiveData<Boolean> = Transformations.map(radioButtonClicked) {
+        return@map it != null
     }
 
-    //determine what quiz question to display and the current question
-    //that is displayed
-    private val _nextButtonClicked = MutableLiveData<Int>()
+    //determine what quiz question to display
+    private val _nextButtonClicked = MutableLiveData(0)
     val nextButtonClicked: LiveData<Int>
         get() = _nextButtonClicked
 
-    fun setNextButtonClicked(position: Int) {
-        _nextButtonClicked.value = position
+
+    /** sets logic for when the user has selected an answer **/
+    fun nextButtonClicked() {
+
+        //removes what question was clicked to not appear on next question
+        radioButtonClicked.value = null
+
+        _nextButtonClicked.value?.let {
+
+            //if answer was correct
+            if(answers[it] == radioButtonClicked.value) {
+                answersCorrect++
+            }
+
+            //indicate user selected an answer
+            _nextButtonClicked.value = it + 1
+        }
+    }
+
+    //question and answers for quiz
+    private val quizStrings = MutableLiveData<List<String>>()
+
+    //all answers and question updated with dataBinding
+    val quizQuestion = Transformations.map(quizStrings) {
+        return@map it[0]
+    }
+
+    val firstAnswer = Transformations.map(quizStrings) {
+        return@map it[1]
+    }
+
+    val secondAnswer = Transformations.map(quizStrings) {
+        return@map it[2]
+    }
+
+    val thirdAnswer = Transformations.map(quizStrings) {
+        return@map it[3]
+    }
+
+    val fourthAnswer = Transformations.map(quizStrings) {
+        return@map it[4]
+    }
+
+    /** update question and answers through dataBinding **/
+    fun setQuizStringAnswers(list: List<String>) {
+        quizStrings.value = list
     }
 
     //holds the value of how many questions are answered correctly
-    private val _answersCorrect = MutableLiveData<Int>()
-    val answersCorrect: LiveData<Int>
-        get() = _answersCorrect
-
-    fun setAnswersCorrect(correct: Int) {
-        _answersCorrect.value = correct
-    }
-
-    //set whether quiz nav host is visible or not
-    private val _quizVisible = MutableLiveData<Boolean>()
-    val quizVisible: LiveData<Boolean>
-        get() = _quizVisible
-
-    fun setQuizVisible(visible: Boolean) {
-        _quizVisible.value = visible
-    }
+    private var answersCorrect: Int = 0
 
     //calls database function to update activated value
     fun updateActivated(activated: Boolean, position: Int) {
@@ -90,22 +118,16 @@ class DinoArticleViewModel(private val database: DinosaurEncyclopediaDao): ViewM
                 position)
         }
     }
-
-    init {
-        _habitatDroppedDown.value = false
-        _evolutionDroppedDown.value = false
-        _fossilDroppedDown.value = false
-    }
-
 }
 
 class DinoArticleViewModelFactory(
-    private val dataSource: DinosaurEncyclopediaDao
+    private val dataSource: DinosaurEncyclopediaDao,
+    private val answers: List<Int>
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DinoArticleViewModel::class.java)) {
-            return DinoArticleViewModel(dataSource) as T
+            return DinoArticleViewModel(dataSource, answers) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

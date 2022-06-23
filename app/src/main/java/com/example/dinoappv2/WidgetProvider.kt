@@ -4,14 +4,15 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.RemoteViews
 import com.example.dinoappv2.dataClasses.WidgetData
 import com.example.dinoappv2.dataClasses.toResourceId
 import com.example.dinoappv2.databases.WidgetDataDao
 import com.example.dinoappv2.databases.WidgetDataDatabase
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.fold
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 //lol this file is hell
 

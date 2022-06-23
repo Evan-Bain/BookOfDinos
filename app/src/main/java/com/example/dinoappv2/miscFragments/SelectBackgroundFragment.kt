@@ -194,15 +194,14 @@ class SelectBackgroundFragment : Fragment() {
     private fun CardView.animateCheckOut(checkView: ImageView) {
         //NOTE: Radius value in float is 3x dp (ex: 24f == 8dp)
         val cardCornersAnim =
-            ObjectAnimator.ofFloat(this, "radius", 24f).apply {
-                duration = 500
-            }
+            ObjectAnimator.ofFloat(this, "radius", 24f)
+
         val fadeCheckAnim =
-            ObjectAnimator.ofFloat(checkView, "alpha", 0f).apply {
-                duration = 500
-            }
+            ObjectAnimator.ofFloat(checkView, "alpha", 0f)
+
         AnimatorSet().apply {
             playTogether(listOf(cardCornersAnim, fadeCheckAnim))
+            duration = 500
             interpolator = AccelerateDecelerateInterpolator()
             start()
         }

@@ -2,6 +2,7 @@ package com.example.dinoappv2.bottomNav
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.activity.viewModels
@@ -20,10 +21,11 @@ import com.example.dinoappv2.databinding.ActivityMainBinding
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.example.dinoappv2.viewModels.MainViewModelFactory
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
     //enables layout to include more padding if there bottomNav is present (& vice versa)
@@ -104,14 +106,15 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, bundle ->
 
-            //determines if toolbar should be collapsable and sets the toolbar title for
-            //DinoArticle to the Dinosaur clicked
+            Log.i("MainActivity", "${destination.label}")
+
+            //sets the toolbar title for DinoArticle to the associated dinosaur
             binding.activityToolbarLayout.title =
                 if (destination.id == R.id.dino_article_fragment) {
-                    disableAppBarDrag(behaviour, bundle, true)
                     (bundle?.get("dinoSelected") as DinosaurEncyclopedia).name
                 } else {
-                    disableAppBarDrag(behaviour, draggable = false)
+                    mainViewModel.quizVisible.removeObservers(this)
+                    disableAppBarDrag(behaviour, draggable =  false)
                     destination.label
                 }
 
@@ -123,6 +126,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.dino_article_fragment -> {
                     binding.bottomNavHost.setMarginBottomNav(false)
+
+                    mainViewModel.quizVisible.observe(this) {
+                        if(it) {
+                            disableAppBarDrag(behaviour, draggable = false)
+                        } else {
+                            disableAppBarDrag(behaviour, bundle, true)
+                        }
+                    }
+
                     View.GONE
                 }
                 R.id.select_background_fragment -> {
@@ -226,6 +238,18 @@ class MainActivity : AppCompatActivity() {
     private fun getViewModelFactory(): MainViewModelFactory {
         val database = BackgroundImageDatabase.getInstance(this).backgroundImageDao
         return MainViewModelFactory(database)
+    }
+
+    override fun onBackPressed() {
+
+        //if quiz is visible disable back button and alert user when back button is pressed
+        if(mainViewModel.quizVisible.value == true) {
+            Snackbar.make(
+                binding.mainLayout, "Disabled during quiz", Snackbar.LENGTH_SHORT
+            ).show()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
 

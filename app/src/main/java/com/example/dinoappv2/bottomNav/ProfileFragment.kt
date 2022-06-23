@@ -70,7 +70,7 @@ class ProfileFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        //recycleVview is not altered (improves performance)
+        //recycleView is not altered (improves performance)
         binding.profileBadgesRecycler.setHasFixedSize(true)
 
 

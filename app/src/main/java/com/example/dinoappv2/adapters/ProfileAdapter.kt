@@ -5,26 +5,19 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dinoappv2.WidgetProvider
 import com.example.dinoappv2.CustomApplication
 import com.example.dinoappv2.R
+import com.example.dinoappv2.WidgetProvider
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.dataClasses.WidgetData
-import com.example.dinoappv2.databases.WidgetDataDatabase
 import com.example.dinoappv2.databinding.ProfileRecyclerLayoutBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class ProfileAdapter(
     private val data: List<DinosaurEncyclopedia>,

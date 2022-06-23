@@ -1,12 +1,8 @@
 package com.example.dinoappv2.viewModels
 
-import androidx.lifecycle.*
-import com.example.dinoappv2.dataClasses.BackgroundImage
-import com.example.dinoappv2.databases.BackgroundImageDao
-import com.example.dinoappv2.databases.BackgroundImageDatabase
-import com.example.dinoappv2.viewModels.EncyclopediaViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 class SelectBackgroundViewModel : ViewModel() {
 

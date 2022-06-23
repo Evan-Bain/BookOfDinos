@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="fragment"
-            type="com.example.dinoappv2.miscFragments.DinoArticleFragment" />
+            name="sharedViewModel"
+            type="com.example.dinoappv2.viewModels.MainViewModel" />
 
         <variable
             name="viewModel"
@@ -15,339 +15,532 @@
 
     </data>
 
-    <!-- Nested Scroll View is compatible with toolbar -->
-    <androidx.core.widget.NestedScrollView
-        android:transitionGroup="true"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/article_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:transitionGroup="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_article_layout"
+        <!-- Nested Scroll View is compatible with toolbar -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll_article_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_article_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                tools:context=".miscFragments.DinoArticleFragment">
+
+                <!-- Guidelines used to support smaller screen sizes -->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/article_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".15" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/article_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".85" />
+
+                <!-- HEIGHT FACT -->
+                <TextView
+                    android:id="@+id/height_fact_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@string/height_title"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/height_fact_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/height_fact_title"
+                    app:layout_constraintTop_toBottomOf="@id/height_fact_title"
+                    tools:text="5.6 feet" />
+                <!-- HEIGHT FACT -->
+
+
+                <!-- WEIGHT FACT -->
+                <TextView
+                    android:id="@+id/weight_fact_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@string/weight_title"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/height_fact_text" />
+
+                <TextView
+                    android:id="@+id/weight_fact_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/weight_fact_title"
+                    app:layout_constraintTop_toBottomOf="@id/weight_fact_title"
+                    tools:text="18,000 pounds" />
+                <!-- WEIGHT FACT -->
+
+                <!-- YEARS AGO LIVED FACT -->
+                <TextView
+                    android:id="@+id/lived_fact_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@string/lived"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/weight_fact_text" />
+
+                <TextView
+                    android:id="@+id/lived_fact_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/lived_fact_title"
+                    app:layout_constraintTop_toBottomOf="@id/lived_fact_title"
+                    tools:text="66 million years ago" />
+                <!-- YEARS AGO LIVED FACT -->
+
+                <!-- SPEED FACT -->
+                <TextView
+                    android:id="@+id/speed_fact_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@string/speed_title"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/lived_fact_text" />
+
+                <TextView
+                    android:id="@+id/speed_fact_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/speed_fact_title"
+                    app:layout_constraintTop_toBottomOf="@id/speed_fact_title"
+                    tools:text="6 miles per hour" />
+                <!-- SPEED FACT -->
+
+                <!-- MEANING OF NAME FACT -->
+                <TextView
+                    android:id="@+id/name_fact_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@string/meaning_of_name"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/speed_fact_text" />
+
+                <TextView
+                    android:id="@+id/name_fact_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/name_fact_title"
+                    app:layout_constraintTop_toBottomOf="@id/name_fact_title"
+                    tools:text="Fused lizard" />
+                <!-- MEANING OF NAME FACT -->
+
+                <!-- Motion layout used to reveal the text of the article section with a top to bottom
+                     expanding transition (Habitat) -->
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:id="@+id/habitat_motion_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layoutDescription="@xml/fragment_dino_article_habitat_scene"
+                    app:layout_constraintBottom_toTopOf="@id/evolution_motion_layout"
+                    app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/name_fact_text">
+
+                    <!-- Frame layout used to allow clicks to register on the title and drop down
+                         button view -->
+                    <FrameLayout
+                        android:id="@+id/habitat_constraint_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{() -> viewModel.habitatDropDownClicked()}"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/habitat_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/fredoka_one"
+                            android:text="@string/habitat"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/habitat_drop_button"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center|end"
+                            android:src="@drawable/drop_down_arrow_down" />
+
+                    </FrameLayout>
+
+                    <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
+                         drop down animation played (previously cut off) -->
+                    <FrameLayout
+                        android:id="@+id/habitat_text_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/habitat_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/thin_border"
+                            android:padding="16dp"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+
+                <!-- Motion layout used to reveal the text of the article section with a top to bottom
+                     expanding transition (Crazy Evolution) -->
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:id="@+id/evolution_motion_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layoutDescription="@xml/fragment_dino_article_evolution_scene"
+                    app:layout_constraintBottom_toTopOf="@id/fossil_motion_layout"
+                    app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/habitat_motion_layout">
+
+                    <!-- Frame layout used to allow clicks to register on the title and drop down
+                         button view -->
+                    <FrameLayout
+                        android:id="@+id/evolution_constraint_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{() -> viewModel.evolutionDropDownClicked()}"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/crazy_evolution_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/fredoka_one"
+                            android:text="@string/crazy_evolution"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/crazy_evolution_drop_button"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center|end"
+                            android:src="@drawable/drop_down_arrow_down" />
+
+                    </FrameLayout>
+
+                    <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
+                         drop down animation played (previously cut off) -->
+                    <FrameLayout
+                        android:id="@+id/crazy_evolution_text_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/crazy_evolution_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/thin_border"
+                            android:padding="16dp"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+
+                <View
+                    android:id="@+id/background_mask"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:clickable="true"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Motion layout used to reveal the text of the article section with a top to bottom
+                     expanding transition (Fossil History) -->
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:id="@+id/fossil_motion_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layoutDescription="@xml/fragment_dino_article_fossil_scene"
+                    app:layout_constraintBottom_toTopOf="@id/quiz_button"
+                    app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/evolution_motion_layout">
+
+                    <!-- Frame layout used to allow clicks to register on the title and drop down
+                         button view -->
+                    <FrameLayout
+                        android:id="@+id/fossil_constraint_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{() -> viewModel.fossilDropDownClicked()}"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/fossil_history_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/fredoka_one"
+                            android:text="@string/fossil_history"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/fossil_history_drop_button"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center|end"
+                            android:src="@drawable/drop_down_arrow_down" />
+
+                    </FrameLayout>
+
+                    <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
+                         drop down animation played (previously cut off) -->
+                    <FrameLayout
+                        android:id="@+id/fossil_history_text_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/fossil_history_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/thin_border"
+                            android:padding="16dp"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+
+                <!-- Button used to activate quiz for the app (CURRENTLY DOES NOTHING) -->
+                <Button
+                    android:id="@+id/quiz_button"
+                    style="@style/classicButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:onClick="@{() -> sharedViewModel.setQuizVisible(true)}"
+                    android:text="@string/quiz"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/fossil_motion_layout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- background/layout for quiz -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/quiz_card_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
-            tools:context=".miscFragments.DinoArticleFragment">
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/primaryLightColor"
+            app:cardCornerRadius="16dp">
 
-            <!-- Guidelines used to support smaller screen sizes -->
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/article_start_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".15"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/article_end_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent=".85"/>
-
-            <!-- HEIGHT FACT -->
-            <TextView
-                android:id="@+id/height_fact_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fredoka_one"
-                android:text="@string/height_title"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/height_fact_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="5.6 feet"
-                app:layout_constraintStart_toStartOf="@id/height_fact_title"
-                app:layout_constraintTop_toBottomOf="@id/height_fact_title" />
-            <!-- HEIGHT FACT -->
-
-
-            <!-- WEIGHT FACT -->
-            <TextView
-                android:id="@+id/weight_fact_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/fredoka_one"
-                android:text="@string/weight_title"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/height_fact_text" />
-
-            <TextView
-                android:id="@+id/weight_fact_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="18,000 pounds"
-                app:layout_constraintStart_toStartOf="@id/weight_fact_title"
-                app:layout_constraintTop_toBottomOf="@id/weight_fact_title" />
-            <!-- WEIGHT FACT -->
-
-            <!-- YEARS AGO LIVED FACT -->
-            <TextView
-                android:id="@+id/lived_fact_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/fredoka_one"
-                android:text="@string/lived"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/weight_fact_text" />
-
-            <TextView
-                android:id="@+id/lived_fact_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="66 million years ago"
-                app:layout_constraintStart_toStartOf="@id/lived_fact_title"
-                app:layout_constraintTop_toBottomOf="@id/lived_fact_title" />
-            <!-- YEARS AGO LIVED FACT -->
-
-            <!-- SPEED FACT -->
-            <TextView
-                android:id="@+id/speed_fact_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/fredoka_one"
-                android:text="@string/speed_title"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/lived_fact_text" />
-
-            <TextView
-                android:id="@+id/speed_fact_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="6 miles per hour"
-                app:layout_constraintStart_toStartOf="@id/speed_fact_title"
-                app:layout_constraintTop_toBottomOf="@id/speed_fact_title" />
-            <!-- SPEED FACT -->
-
-            <!-- MEANING OF NAME FACT -->
-            <TextView
-                android:id="@+id/name_fact_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/fredoka_one"
-                android:text="@string/meaning_of_name"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintTop_toBottomOf="@id/speed_fact_text" />
-
-            <TextView
-                android:id="@+id/name_fact_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                tools:text="Fused lizard"
-                app:layout_constraintStart_toStartOf="@id/name_fact_title"
-                app:layout_constraintTop_toBottomOf="@id/name_fact_title" />
-            <!-- MEANING OF NAME FACT -->
-
-            <!-- Motion layout used to reveal the text of the article section with a top to bottom
-                 expanding transition (Habitat) -->
+            <!-- motion layout for quiz -->
             <androidx.constraintlayout.motion.widget.MotionLayout
-                android:id="@+id/habitat_motion_layout"
-                android:layout_width="0dp"
+                android:id="@+id/quiz_motion_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layoutDescription="@xml/fragment_dino_article_habitat_scene"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
-                app:layout_constraintTop_toBottomOf="@id/name_fact_text"
-                app:layout_constraintBottom_toTopOf="@id/evolution_motion_layout">
+                app:layoutDescription="@xml/fragment_dino_article_scene">
 
-                <!-- Frame layout used to allow clicks to register on the title and drop down
-                     button view -->
-                <FrameLayout
-                    android:id="@+id/habitat_constraint_layout"
-                    android:layout_width="match_parent"
+                <!-- title of quiz (dino name + Quiz) -->
+                <TextView
+                    android:id="@+id/quiz_title"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{() -> viewModel.habitatDropDownClicked()}"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:textColor="#002517"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@id/quiz_question"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="T-Rex Quiz" />
 
-                    <TextView
-                        android:id="@+id/habitat_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/fredoka_one"
-                        android:text="@string/habitat"
-                        android:textSize="20sp" />
-
-                    <ImageView
-                        android:id="@+id/habitat_drop_button"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center|end"
-                        android:src="@drawable/drop_down_arrow_down" />
-
-                </FrameLayout>
-
-                <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
-                     drop down animation played (previously cut off) -->
-                <FrameLayout
-                    android:id="@+id/habitat_text_layout"
-                    android:layout_width="match_parent"
+                <!-- quiz question -->
+                <TextView
+                    android:id="@+id/quiz_question"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="16dp">
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="48dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@{viewModel.quizQuestion}"
+                    android:textColor="#002517"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@id/quiz_radio_group"
+                    app:layout_constraintStart_toStartOf="@id/quiz_title"
+                    app:layout_constraintTop_toBottomOf="@id/quiz_title"
+                    tools:text="How strong is the T-Rex's bite force?" />
 
-                    <TextView
-                        android:id="@+id/habitat_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/thin_border"
-                        android:padding="16dp"
-                        android:textSize="16sp" />
-                </FrameLayout>
-            </androidx.constraintlayout.motion.widget.MotionLayout>
-
-            <!-- Motion layout used to reveal the text of the article section with a top to bottom
-                 expanding transition (Crazy Evolution) -->
-            <androidx.constraintlayout.motion.widget.MotionLayout
-                android:id="@+id/evolution_motion_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layoutDescription="@xml/fragment_dino_article_evolution_scene"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
-                app:layout_constraintTop_toBottomOf="@id/habitat_motion_layout"
-                app:layout_constraintBottom_toTopOf="@id/fossil_motion_layout">
-
-                <!-- Frame layout used to allow clicks to register on the title and drop down
-                     button view -->
-                <FrameLayout
-                    android:id="@+id/evolution_constraint_layout"
-                    android:layout_width="match_parent"
+                <!-- quiz answers -->
+                <RadioGroup
+                    android:id="@+id/quiz_radio_group"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{() -> viewModel.evolutionDropDownClicked()}"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:onCheckedChanged="@{(v, i) -> viewModel.setRadioButtonClicked(i)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/quiz_question"
+                    app:layout_constraintTop_toBottomOf="@id/quiz_question">
 
-                    <TextView
-                        android:id="@+id/crazy_evolution_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/fredoka_one"
-                        android:text="@string/crazy_evolution"
-                        android:textSize="20sp" />
-
-                    <ImageView
-                        android:id="@+id/crazy_evolution_drop_button"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center|end"
-                        android:src="@drawable/drop_down_arrow_down" />
-
-                </FrameLayout>
-
-                <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
-                     drop down animation played (previously cut off) -->
-                <FrameLayout
-                    android:id="@+id/crazy_evolution_text_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="16dp">
-
-                    <TextView
-                        android:id="@+id/crazy_evolution_text"
+                    <RadioButton
+                        android:id="@+id/quiz_radio_button_0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/thin_border"
-                        android:padding="16dp"
-                        android:textSize="16sp" />
-                </FrameLayout>
-
-            </androidx.constraintlayout.motion.widget.MotionLayout>
-
-            <!-- Motion layout used to reveal the text of the article section with a top to bottom
-                 expanding transition (Fossil History) -->
-            <androidx.constraintlayout.motion.widget.MotionLayout
-                android:id="@+id/fossil_motion_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layoutDescription="@xml/fragment_dino_article_fossil_scene"
-                app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
-                app:layout_constraintTop_toBottomOf="@id/evolution_motion_layout"
-                app:layout_constraintBottom_toTopOf="@id/quiz_button">
-
-                <!-- Frame layout used to allow clicks to register on the title and drop down
-                     button view -->
-                <FrameLayout
-                    android:id="@+id/fossil_constraint_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{() -> viewModel.fossilDropDownClicked()}"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/fossil_history_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/fredoka_one"
-                        android:text="@string/fossil_history"
-                        android:textSize="20sp" />
+                        android:text="@{viewModel.firstAnswer}"
+                        android:textColor="#002517"
+                        tools:text="900 pounds" />
 
-                    <ImageView
-                        android:id="@+id/fossil_history_drop_button"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center|end"
-                        android:src="@drawable/drop_down_arrow_down" />
-
-                </FrameLayout>
-
-                <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
-                     drop down animation played (previously cut off) -->
-                <FrameLayout
-                    android:id="@+id/fossil_history_text_layout"
-                    android:paddingBottom="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/fossil_history_text"
+                    <RadioButton
+                        android:id="@+id/quiz_radio_button_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/thin_border"
-                        android:padding="16dp"
-                        android:textSize="16sp" />
-                </FrameLayout>
+                        android:fontFamily="@font/fredoka_one"
+                        android:text="@{viewModel.secondAnswer}"
+                        android:textColor="#002517"
+                        tools:text="12,800 pounds" />
+
+                    <RadioButton
+                        android:id="@+id/quiz_radio_button_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fredoka_one"
+                        android:text="@{viewModel.thirdAnswer}"
+                        android:textColor="#002517"
+                        tools:text="100,000 pounds" />
+
+                    <RadioButton
+                        android:id="@+id/quiz_radio_button_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fredoka_one"
+                        android:text="@{viewModel.fourthAnswer}"
+                        android:textColor="#002517"
+                        tools:text="55,600 pounds" />
+                </RadioGroup>
+
+                <!-- button to submit answer -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/quiz_finish_button"
+                    style="@style/classicButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:enabled="@{viewModel.nextButtonEnabled}"
+                    android:fontFamily="@font/fredoka_one"
+                    android:onClick="@{() -> viewModel.nextButtonClicked()}"
+                    android:text="@string/next"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+                <!-- quiz layout -->
+
+                <!-- result layout -->
+                <!-- header word -->
+                <TextView
+                    android:id="@+id/quiz_congrats_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:paddingTop="16dp"
+                    android:text="Congratulations"
+                    android:textColor="#002517"
+                    android:textSize="32sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"
+                    app:layout_constraintStart_toEndOf="parent" />
+
+                <!-- statement -->
+                <TextView
+                    android:id="@+id/quiz_passed_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="You Passed"
+                    android:textColor="#002517"
+                    android:textSize="32sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/quiz_percent_text"
+                    app:layout_constraintStart_toEndOf="parent" />
+
+                <!-- percent -->
+                <TextView
+                    android:id="@+id/quiz_percent_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="100%"
+                    android:textColor="#002517"
+                    android:textSize="32sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- button to close quiz -->
+                <Button
+                    android:id="@+id/quiz_done_button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="16dp"
+                    android:onClick="@{() -> sharedViewModel.setQuizVisible(false)}"
+                    android:text="Continue"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/quiz_percent_text" />
+                <!-- result layout -->
+
             </androidx.constraintlayout.motion.widget.MotionLayout>
-
-            <!-- Button used to activate quiz for the app (CURRENTLY DOES NOTHING) -->
-            <Button
-                android:id="@+id/quiz_button"
-                style="@style/classicButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:onClick="@{() -> fragment.quizOnClick()}"
-                android:text="@string/quiz"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
-                app:layout_constraintTop_toBottomOf="@id/fossil_motion_layout" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
+        </androidx.cardview.widget.CardView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
