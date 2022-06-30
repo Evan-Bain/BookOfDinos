@@ -76,7 +76,36 @@ fun getCorrectAnswers(position: Int): List<Int> {
             correctAnswers.add(2)
             correctAnswers.add(3)
         }
-
+        10 -> {
+            correctAnswers.add(1)
+            correctAnswers.add(0)
+            correctAnswers.add(2)
+            correctAnswers.add(3)
+        }
+        11 -> {
+            correctAnswers.add(1)
+            correctAnswers.add(0)
+            correctAnswers.add(2)
+            correctAnswers.add(3)
+        }
+        12 -> {
+            correctAnswers.add(1)
+            correctAnswers.add(0)
+            correctAnswers.add(2)
+            correctAnswers.add(3)
+        }
+        13 -> {
+            correctAnswers.add(1)
+            correctAnswers.add(0)
+            correctAnswers.add(2)
+            correctAnswers.add(3)
+        }
+        14 -> {
+            correctAnswers.add(1)
+            correctAnswers.add(0)
+            correctAnswers.add(2)
+            correctAnswers.add(3)
+        }
     }
     return correctAnswers
 }

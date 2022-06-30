@@ -68,7 +68,7 @@ class ProfileEditFragment : Fragment() {
             viewModel.setCurrentDino(dino)
             viewModel.setDinoSelected(selected)
         }
-        adapter.submitList(dinoData)
+        adapter.submitList(dinoData.filter { it.activated })
 
         binding.profileEditRecyclerView.adapter = adapter
 

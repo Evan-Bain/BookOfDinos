@@ -33,7 +33,7 @@ abstract class WidgetProvider : AppWidgetProvider() {
 
         //TESTING PURPOSES
         /*scope.launch {
-            database!!.deleteAll()
+            backgroundDatabase!!.deleteAll()
         }*/
         //TESTING PURPOSES
 

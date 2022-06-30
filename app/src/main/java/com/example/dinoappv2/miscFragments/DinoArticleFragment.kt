@@ -8,7 +8,6 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +31,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.dinoappv2.R
 import com.example.dinoappv2.bottomNav.MainActivity
 import com.example.dinoappv2.dataClasses.*
-import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.FragmentDinoArticleBinding
 import com.example.dinoappv2.viewModels.DinoArticleViewModel
 import com.example.dinoappv2.viewModels.DinoArticleViewModelFactory
@@ -40,6 +38,7 @@ import com.example.dinoappv2.viewModels.MainViewModel
 import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.coroutines.launch
 import java.util.*
+import kotlin.collections.HashMap
 
 
 class DinoArticleFragment : Fragment() {
@@ -76,7 +75,6 @@ class DinoArticleFragment : Fragment() {
 
         //creating viewModel
         val viewModelFactory = DinoArticleViewModelFactory(
-            DinosaurEncyclopediaDatabase.getInstance(requireContext()).dinosaurEncyclopediaDao,
             getCorrectAnswers(dinoSelected.position)
         )
         viewModel = ViewModelProvider(this, viewModelFactory)[DinoArticleViewModel::class.java]
@@ -86,18 +84,26 @@ class DinoArticleFragment : Fragment() {
         binding.sharedViewModel = sharedViewModel
 
         val dinoPosition = dinoSelected.position
+
+        //strings for layout
+        val livedFact = resources.getStringArray(R.array.years_facts_array)[dinoPosition]
+        val speedFact = resources.getStringArray(R.array.speed_facts_array)[dinoPosition]
+        val nameMeaningFact = resources.getStringArray(R.array.name_meanings_array)[dinoPosition]
+        val storyArticle = resources.getStringArray(R.array.story_articles_array)[dinoPosition]
+        val habitatArticle = resources.getStringArray(R.array.habitat_articles_array)[dinoPosition]
+        val evolutionArticle = resources.getStringArray(R.array.evolution_articles_array)[dinoPosition]
+        val fossilArticle = resources.getStringArray(R.array.fossil_articles_array)[dinoPosition]
+
         val quizStrings = getDinoStrings(dinoPosition)
 
         //NULL FOR TESTING ONLY
         binding.quizTitle.text = quizStrings?.get(-1)?.get(0) ?: "NULL Quiz"
         //NULL FOR TESTING ONLY
         //set spannable strings for each section of info to allow difficult words to be pressed
-        val habitatArticle =
-            SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[1]?.get(0))
-        val evolutionArticle =
-            SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[2]?.get(0))
-        val fossilArticle =
-            SpannableString(DinosaurArticleStrings(dinoPosition).getDinoStrings()[3]?.get(0))
+        val storyArticleSpan = SpannableString(storyArticle)
+        val habitatArticleSpan = SpannableString(habitatArticle)
+        val evolutionArticleSpan = SpannableString(evolutionArticle)
+        val fossilArticleSpan = SpannableString(fossilArticle)
 
         lifecycleScope.launch {
             DictionaryStrings.getDictionaryStrings()
@@ -107,7 +113,6 @@ class DinoArticleFragment : Fragment() {
                         val word = element.word.lowercase(Locale.getDefault())
                         val clickableSpan: ClickableSpan = object : ClickableSpan() {
                             override fun onClick(widget: View) {
-                                Log.i("DinoArticleFragment", "clicked")
                                 //navigate to the dictionary and display definition of the word
                                 exitTransition =
                                     MaterialSharedAxis(MaterialSharedAxis.X, false).apply {
@@ -136,12 +141,12 @@ class DinoArticleFragment : Fragment() {
                         }
 
                         //find words that are in the dictionary in the info section
-                        if (habitatArticle.contains(word)) {
-                            val first = habitatArticle.indexOf(word)
+                        if (storyArticleSpan.contains(word)) {
+                            val first = storyArticleSpan.indexOf(word)
                             var whileLoop = true
                             var iterator = 0
                             while (whileLoop) {
-                                val newWord = habitatArticle[first + iterator].toString()
+                                val newWord = storyArticleSpan[first + iterator].toString()
                                 if (newWord == " " || newWord == "." || newWord == ","
                                     || newWord == "!" || newWord == "?"
                                 ) {
@@ -150,7 +155,7 @@ class DinoArticleFragment : Fragment() {
                                     iterator++
                                 }
                             }
-                            habitatArticle.setSpan(
+                            storyArticleSpan.setSpan(
                                 clickableSpan,
                                 first,
                                 first + iterator,
@@ -159,12 +164,12 @@ class DinoArticleFragment : Fragment() {
                         }
 
                         //find words that are in the dictionary in the info section
-                        if (evolutionArticle.contains(word)) {
-                            val first = evolutionArticle.indexOf(word)
+                        if (habitatArticleSpan.contains(word)) {
+                            val first = habitatArticleSpan.indexOf(word)
                             var whileLoop = true
                             var iterator = 0
                             while (whileLoop) {
-                                val newWord = evolutionArticle[first + iterator].toString()
+                                val newWord = habitatArticleSpan[first + iterator].toString()
                                 if (newWord == " " || newWord == "." || newWord == ","
                                     || newWord == "!" || newWord == "?"
                                 ) {
@@ -173,7 +178,7 @@ class DinoArticleFragment : Fragment() {
                                     iterator++
                                 }
                             }
-                            evolutionArticle.setSpan(
+                            habitatArticleSpan.setSpan(
                                 clickableSpan,
                                 first,
                                 first + iterator,
@@ -182,12 +187,12 @@ class DinoArticleFragment : Fragment() {
                         }
 
                         //find words that are in the dictionary in the info section
-                        if (fossilArticle.contains(word)) {
-                            val first = fossilArticle.indexOf(word)
+                        if (evolutionArticleSpan.contains(word)) {
+                            val first = evolutionArticleSpan.indexOf(word)
                             var whileLoop = true
                             var iterator = 0
                             while (whileLoop) {
-                                val newWord = fossilArticle[first + iterator].toString()
+                                val newWord = evolutionArticleSpan[first + iterator].toString()
                                 if (newWord == " " || newWord == "." || newWord == ","
                                     || newWord == "!" || newWord == "?"
                                 ) {
@@ -196,7 +201,30 @@ class DinoArticleFragment : Fragment() {
                                     iterator++
                                 }
                             }
-                            fossilArticle.setSpan(
+                            evolutionArticleSpan.setSpan(
+                                clickableSpan,
+                                first,
+                                first + iterator,
+                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                            )
+                        }
+
+                        //find words that are in the dictionary in the info section
+                        if (fossilArticleSpan.contains(word)) {
+                            val first = fossilArticleSpan.indexOf(word)
+                            var whileLoop = true
+                            var iterator = 0
+                            while (whileLoop) {
+                                val newWord = fossilArticleSpan[first + iterator].toString()
+                                if (newWord == " " || newWord == "." || newWord == ","
+                                    || newWord == "!" || newWord == "?"
+                                ) {
+                                    whileLoop = false
+                                } else {
+                                    iterator++
+                                }
+                            }
+                            fossilArticleSpan.setSpan(
                                 clickableSpan,
                                 first,
                                 first + iterator,
@@ -205,9 +233,10 @@ class DinoArticleFragment : Fragment() {
                         }
                     }
                     with(binding) {
-                        habitatText.text = habitatArticle
-                        crazyEvolutionText.text = evolutionArticle
-                        fossilHistoryText.text = fossilArticle
+                        storyText.text = storyArticleSpan
+                        habitatText.text = habitatArticleSpan
+                        crazyEvolutionText.text = evolutionArticleSpan
+                        fossilHistoryText.text = fossilArticleSpan
                     }
                 }
         }
@@ -220,7 +249,7 @@ class DinoArticleFragment : Fragment() {
         }
 
         sharedViewModel.quizVisible.observe(viewLifecycleOwner) {
-            displayQuiz(it)
+            displayQuiz(it, quizStrings)
 
             //enables/disables up button if quiz is open or not
             (activity as MainActivity).binding.activityToolbar.navigationIcon = if (it) {
@@ -228,7 +257,6 @@ class DinoArticleFragment : Fragment() {
             } else {
                 AppCompatResources.getDrawable(requireContext(), R.drawable.back_button)
             }
-
         }
 
         viewModel.nextButtonEnabled.observe(viewLifecycleOwner) {
@@ -236,15 +264,13 @@ class DinoArticleFragment : Fragment() {
                 if (it) {
                     transitionToEnd()
                 } else {
-
                     if (viewModel.nextButtonClicked.value != 4) {
                         transitionToStart()
                     } else {
+                        //sharedViewModel.updateActivated(dinoPosition, viewModel.)
                         //if there are no more answers display result page
                         setTransition(R.id.result_transition)
                         transitionToEnd {
-
-                            //animate layout resize
                             setTransition(R.id.result_resize_transition)
                             transitionToEnd()
                         }
@@ -255,6 +281,7 @@ class DinoArticleFragment : Fragment() {
 
         viewModel.nextButtonClicked.observe(viewLifecycleOwner) {
             //make sure quiz is visible or main thread is stalled continuously
+            viewModel.setRadioButtonClicked(binding.quizRadioGroup.checkedRadioButtonId)
             binding.quizRadioGroup.clearCheck()
 
             //only set the text for quiz for how many questions there are
@@ -276,6 +303,11 @@ class DinoArticleFragment : Fragment() {
                     )
                 )
                 //NULL FOR TESTING ONLY
+            } else {
+                sharedViewModel.updateActivated(
+                       dinoPosition,
+                    viewModel.answersCorrect.value!! > 2
+                )
             }
         }
 
@@ -323,18 +355,34 @@ class DinoArticleFragment : Fragment() {
 
         //sets text in article
         with(binding) {
-            val dinosaurStrings = DinosaurArticleStrings(dinoPosition).getDinoStrings()
-            heightFactText.text = dinosaurStrings[0]!![0]
-            weightFactText.text = dinosaurStrings[0]!![1]
-            livedFactText.text = dinosaurStrings[0]!![2]
-            speedFactText.text = dinosaurStrings[0]!![3]
-            nameFactText.text = dinosaurStrings[0]!![4]
+            storyText.movementMethod =
+                LinkMovementMethod.getInstance()
+
+            livedFactText.text = livedFact
+            speedFactText.text = speedFact
+            nameFactText.text = nameMeaningFact
         }
 
         return binding.root
     }
 
-    private fun displayQuiz(visible: Boolean) {
+    private fun displayQuiz(visible: Boolean, quizStrings: HashMap<Int, List<String>>?) {
+
+        viewModel.setQuizStringAnswers(
+            listOf(
+                quizStrings?.get(0)?.get(0)
+                    ?: "If the question is NULL what is the answer?",
+                quizStrings?.get(1)?.get(0)
+                    ?: "answer is 1023",
+                quizStrings?.get(1)?.get(1)
+                    ?: "answer is 1023",
+                quizStrings?.get(1)?.get(2)
+                    ?: "answer is 1023",
+                quizStrings?.get(1)?.get(3)
+                    ?: "answer is 1023"
+            )
+        )
+
         val displayInfo = ObjectAnimator.ofFloat(
             binding.constraintArticleLayout, "alpha", if (visible) 0f else 1f
         )

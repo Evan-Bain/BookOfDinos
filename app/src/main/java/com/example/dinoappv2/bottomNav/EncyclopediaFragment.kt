@@ -1,23 +1,23 @@
 package com.example.dinoappv2.bottomNav
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.dinoappv2.BottomNavRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.EncyclopediaAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
-import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.FragmentEncyclopediaBinding
 import com.example.dinoappv2.viewModels.EncyclopediaViewModel
-import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
+import com.example.dinoappv2.viewModels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
@@ -27,22 +27,15 @@ class EncyclopediaFragment : Fragment() {
 
     private lateinit var binding: FragmentEncyclopediaBinding
 
-    private lateinit var adapter: EncyclopediaAdapter
-
     private lateinit var viewModel: EncyclopediaViewModel
+    private val sharedViewModel: MainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
 
-        //setting up viewModel
-        val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(requireContext())
-            .dinosaurEncyclopediaDao
-        val bottomNavRepository = BottomNavRepository(dinoDatasource)
-        val viewModelFactory = EncyclopediaViewModelFactory(bottomNavRepository)
-        viewModel =
-            ViewModelProvider(this, viewModelFactory)[EncyclopediaViewModel::class.java]
+        viewModel = ViewModelProvider(this)[EncyclopediaViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -65,20 +58,20 @@ class EncyclopediaFragment : Fragment() {
             exitTransition = MaterialFadeThrough()
         }
 
-        viewModel.allDinos.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
-
-        adapter = EncyclopediaAdapter { model ->
+        //setting up recyclerView
+        val adapter = EncyclopediaAdapter { model ->
             //pass click listener
             model.onBadgeClicked()
         }
-
-        setHasOptionsMenu(true)
-
-        //setting up recycler view
         binding.encyclopediaRecyclerView.adapter = adapter
         binding.encyclopediaRecyclerView.layoutManager = GridLayoutManager(context, 3)
+
+        viewModel.setDinoData(sharedViewModel.dinosaurData.value!!)
+        viewModel.filteredDinos.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+        setHasOptionsMenu(true)
 
         return binding.root
     }

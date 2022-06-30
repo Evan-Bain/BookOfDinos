@@ -2,13 +2,8 @@ package com.example.dinoappv2.viewModels
 
 import androidx.lifecycle.*
 import com.example.dinoappv2.R
-import com.example.dinoappv2.databases.DinosaurEncyclopediaDao
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class DinoArticleViewModel(
-    private val database: DinosaurEncyclopediaDao,
-    private val answers: List<Int>): ViewModel() {
+class DinoArticleViewModel(private val answers: List<Int>): ViewModel() {
 
     //holds value for whether or not the habitat info is displayed
     private val _habitatDroppedDown = MutableLiveData(false)
@@ -38,7 +33,7 @@ class DinoArticleViewModel(
     }
 
     //used in data binding to determine what radio button was clicked
-    private val radioButtonClicked = MutableLiveData<Int?>(null)
+    private val radioButtonClicked = MutableLiveData<Int>()
 
     fun setRadioButtonClicked(position: Int) {
         radioButtonClicked.value = when(position) {
@@ -46,16 +41,16 @@ class DinoArticleViewModel(
             R.id.quiz_radio_button_1 -> 1
             R.id.quiz_radio_button_2 -> 2
             R.id.quiz_radio_button_3 -> 3
-            else -> null
+            else -> -1
         }
     }
 
     val nextButtonEnabled: LiveData<Boolean> = Transformations.map(radioButtonClicked) {
-        return@map it != null
+        return@map it != -1
     }
 
     //determine what quiz question to display
-    private val _nextButtonClicked = MutableLiveData(0)
+    private val _nextButtonClicked = MutableLiveData<Int>()
     val nextButtonClicked: LiveData<Int>
         get() = _nextButtonClicked
 
@@ -63,18 +58,16 @@ class DinoArticleViewModel(
     /** sets logic for when the user has selected an answer **/
     fun nextButtonClicked() {
 
-        //removes what question was clicked to not appear on next question
-        radioButtonClicked.value = null
+        //if answer was correct
+        if(answers[nextButtonClicked.value ?: 0] == radioButtonClicked.value) {
+            _answersCorrect.value = _answersCorrect.value?.plus(1) ?: 1
+        }
 
-        _nextButtonClicked.value?.let {
-
-            //if answer was correct
-            if(answers[it] == radioButtonClicked.value) {
-                answersCorrect++
-            }
-
+        if(nextButtonClicked.value == null) {
+            _nextButtonClicked.value = 1
+        } else {
             //indicate user selected an answer
-            _nextButtonClicked.value = it + 1
+            _nextButtonClicked.value =  nextButtonClicked.value!! + 1
         }
     }
 
@@ -108,26 +101,36 @@ class DinoArticleViewModel(
     }
 
     //holds the value of how many questions are answered correctly
-    private var answersCorrect: Int = 0
+    private val _answersCorrect = MutableLiveData(0)
+    val answersCorrect: LiveData<Int>
+        get() = _answersCorrect
 
-    //calls database function to update activated value
-    fun updateActivated(activated: Boolean, position: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            database.updateActivated(
-                if(activated) 1 else 0,
-                position)
+    val resultMessageText = Transformations.map(_answersCorrect) {
+        setResultText("Congratulations", "Unfortunately")
+    }
+
+    val resultText = Transformations.map(_answersCorrect) {
+        setResultText("You Passed", "You Failed")
+    }
+
+    val percentText = Transformations.map(_answersCorrect) {
+        "${it*25}%"
+    }
+
+    private fun setResultText(passText: String, failText: String): String {
+        return if(_answersCorrect.value != null && _answersCorrect.value!! > 2) {
+            passText
+        } else {
+            failText
         }
     }
 }
 
-class DinoArticleViewModelFactory(
-    private val dataSource: DinosaurEncyclopediaDao,
-    private val answers: List<Int>
-) : ViewModelProvider.Factory {
+class DinoArticleViewModelFactory(private val answers: List<Int>) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DinoArticleViewModel::class.java)) {
-            return DinoArticleViewModel(dataSource, answers) as T
+            return DinoArticleViewModel(answers) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

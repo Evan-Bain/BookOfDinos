@@ -50,61 +50,16 @@
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent=".85" />
 
-                <!-- HEIGHT FACT -->
-                <TextView
-                    android:id="@+id/height_fact_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fredoka_one"
-                    android:text="@string/height_title"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/height_fact_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/height_fact_title"
-                    app:layout_constraintTop_toBottomOf="@id/height_fact_title"
-                    tools:text="5.6 feet" />
-                <!-- HEIGHT FACT -->
-
-
-                <!-- WEIGHT FACT -->
-                <TextView
-                    android:id="@+id/weight_fact_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/fredoka_one"
-                    android:text="@string/weight_title"
-                    android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/height_fact_text" />
-
-                <TextView
-                    android:id="@+id/weight_fact_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/weight_fact_title"
-                    app:layout_constraintTop_toBottomOf="@id/weight_fact_title"
-                    tools:text="18,000 pounds" />
-                <!-- WEIGHT FACT -->
-
                 <!-- YEARS AGO LIVED FACT -->
                 <TextView
                     android:id="@+id/lived_fact_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/fredoka_one"
                     android:text="@string/lived"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/weight_fact_text" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/lived_fact_text"
@@ -160,6 +115,54 @@
                     tools:text="Fused lizard" />
                 <!-- MEANING OF NAME FACT -->
 
+                <TextView
+                    android:id="@+id/story_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="Story"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_fact_text"
+                    app:layout_constraintBottom_toTopOf="@id/story_layout"/>
+
+                <!-- layout over scrollview to keep background/outline visible
+                     after scrolling past limit of Android 12-->
+                <FrameLayout
+                    android:id="@+id/story_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/thin_border"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/story_title">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:requiresFadingEdge="vertical"
+                    android:fadingEdgeLength="24dp">
+
+                    <TextView
+                        android:id="@+id/story_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        tools:text="A baby Ankylosaurus gets distracted from eating and starts following a bug without his mother noticing. Seconds later, the mother hears her baby cry for help after a Bambiraptor jumped out of hiding, and flipped him over. The mother starts charging over. Even though his mother can’t move fast, the Bambiraptor quickly runs away to find something else for dinner. This predator knows an adult Ankylosaurus could easily break its bones." />
+
+
+                </androidx.core.widget.NestedScrollView>
+                </FrameLayout>
+
+
                 <!-- Motion layout used to reveal the text of the article section with a top to bottom
                      expanding transition (Habitat) -->
                 <androidx.constraintlayout.motion.widget.MotionLayout
@@ -171,7 +174,7 @@
                     app:layout_constraintBottom_toTopOf="@id/evolution_motion_layout"
                     app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/name_fact_text">
+                    app:layout_constraintTop_toBottomOf="@id/story_layout">
 
                     <!-- Frame layout used to allow clicks to register on the title and drop down
                          button view -->
@@ -372,6 +375,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="16dp"
+            tools:visibility="gone"
             android:backgroundTint="@color/primaryLightColor"
             app:cardCornerRadius="16dp">
 
@@ -484,27 +488,27 @@
                 <!-- result layout -->
                 <!-- header word -->
                 <TextView
-                    android:id="@+id/quiz_congrats_text"
+                    android:id="@+id/quiz_result_message_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
                     android:paddingTop="16dp"
-                    android:text="Congratulations"
+                    android:text="@{viewModel.resultMessageText}"
                     android:textColor="#002517"
                     android:textSize="32sp"
                     android:visibility="gone"
-                    app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"
+                    app:layout_constraintBottom_toTopOf="@id/quiz_result_text"
                     app:layout_constraintStart_toEndOf="parent" />
 
                 <!-- statement -->
                 <TextView
-                    android:id="@+id/quiz_passed_text"
+                    android:id="@+id/quiz_result_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
-                    android:text="You Passed"
+                    android:text="@{viewModel.resultText}"
                     android:textColor="#002517"
                     android:textSize="32sp"
                     android:visibility="gone"
@@ -518,7 +522,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
-                    android:text="100%"
+                    android:text="@{viewModel.percentText}"
                     android:textColor="#002517"
                     android:textSize="32sp"
                     android:visibility="gone"

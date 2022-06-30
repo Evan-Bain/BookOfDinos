@@ -30,6 +30,35 @@
                     app:customIntegerValue="0"/>
             </KeyAttribute>
 
+            <KeyAttribute
+                app:framePosition="1"
+                app:motionTarget="@id/quiz_title">
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="1"
+                app:motionTarget="@id/quiz_question" >
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="1"
+                app:motionTarget="@id/quiz_radio_group" >
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0"/>
+            </KeyAttribute>
+            <KeyAttribute
+                app:framePosition="1"
+                app:motionTarget="@id/quiz_finish_button">
+                <CustomAttribute
+                    app:attributeName="visibility"
+                    app:customIntegerValue="0" />
+            </KeyAttribute>
+
         </KeyFrameSet>
 
     </Transition>
@@ -44,28 +73,28 @@
 
             <!-- set result layout visible -->
             <KeyAttribute
-                app:framePosition="0"
-                app:motionTarget="@id/quiz_congrats_text">
+                app:framePosition="1"
+                app:motionTarget="@id/quiz_result_message_text">
                 <CustomAttribute
                     app:attributeName="visibility"
                     app:customIntegerValue="0"/>
             </KeyAttribute>
             <KeyAttribute
-                app:framePosition="0"
-                app:motionTarget="@id/quiz_passed_text" >
+                app:framePosition="1"
+                app:motionTarget="@id/quiz_result_text" >
                 <CustomAttribute
                     app:attributeName="visibility"
                     app:customIntegerValue="0"/>
             </KeyAttribute>
             <KeyAttribute
-                app:framePosition="0"
+                app:framePosition="1"
                 app:motionTarget="@id/quiz_percent_text" >
                 <CustomAttribute
                     app:attributeName="visibility"
                     app:customIntegerValue="0"/>
             </KeyAttribute>
             <KeyAttribute
-                app:framePosition="0"
+                app:framePosition="1"
                 app:motionTarget="@id/quiz_done_button">
                 <CustomAttribute
                     app:attributeName="visibility"
@@ -76,20 +105,20 @@
                  (enables layout to reshape due to views being gone without user seeing views
                  fly off in next transition) -->
             <KeyAttribute
-                app:framePosition="100"
-                android:alpha="0"
+                app:framePosition="99"
+                android:alpha="1"
                 app:motionTarget="@id/quiz_title" />
             <KeyAttribute
-                app:framePosition="100"
-                android:alpha="0"
+                app:framePosition="99"
+                android:alpha="1"
                 app:motionTarget="@id/quiz_question" />
             <KeyAttribute
-                app:framePosition="100"
-                android:alpha="0"
+                app:framePosition="99"
+                android:alpha="1"
                 app:motionTarget="@id/quiz_radio_group" />
             <KeyAttribute
-                app:framePosition="100"
-                android:alpha="0"
+                app:framePosition="99"
+                android:alpha="1"
                 app:motionTarget="@id/quiz_finish_button" />
 
         </KeyFrameSet>
@@ -100,43 +129,7 @@
         app:constraintSetStart="@id/result_end"
         app:constraintSetEnd="@id/result_resize"
         app:duration="750"
-        app:motionInterpolator="@string/material_motion_easing_emphasized" >
-
-
-        <KeyFrameSet>
-
-            <!-- set quiz layout visibility to gone -->
-            <KeyAttribute
-                app:framePosition="0"
-                app:motionTarget="@id/quiz_title">
-                <CustomAttribute
-                    app:attributeName="visibility"
-                    app:customIntegerValue="8"/>
-            </KeyAttribute>
-            <KeyAttribute
-                app:framePosition="0"
-                app:motionTarget="@id/quiz_question" >
-                <CustomAttribute
-                    app:attributeName="visibility"
-                    app:customIntegerValue="8"/>
-            </KeyAttribute>
-            <KeyAttribute
-                app:framePosition="0"
-                app:motionTarget="@id/quiz_radio_group" >
-                <CustomAttribute
-                    app:attributeName="visibility"
-                    app:customIntegerValue="8"/>
-            </KeyAttribute>
-            <KeyAttribute
-                app:framePosition="0"
-                app:motionTarget="@id/quiz_finish_button">
-                <CustomAttribute
-                    app:attributeName="visibility"
-                    app:customIntegerValue="8" />
-            </KeyAttribute>
-
-        </KeyFrameSet>
-    </Transition>
+        app:motionInterpolator="@string/material_motion_easing_emphasized" />
 
     <!-- default start constraints -->
     <ConstraintSet android:id="@+id/start">
@@ -286,17 +279,19 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Constraint
-            android:id="@id/quiz_congrats_text"
+            android:id="@id/quiz_result_message_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
             android:layout_marginTop="16dp"
+            app:visibilityMode="ignore"
+            android:visibility="visible"
             android:layout_marginBottom="8dp"
             app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"/>
+            app:layout_constraintBottom_toTopOf="@id/quiz_result_text"/>
 
         <Constraint
-            android:id="@id/quiz_passed_text"
+            android:id="@id/quiz_result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You Passed!"
@@ -383,7 +378,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Constraint
-            android:id="@id/quiz_congrats_text"
+            android:id="@id/quiz_result_message_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
@@ -393,10 +388,10 @@
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"/>
+            app:layout_constraintBottom_toTopOf="@id/quiz_result_text"/>
 
         <Constraint
-            android:id="@id/quiz_passed_text"
+            android:id="@id/quiz_result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You Passed!"
@@ -486,7 +481,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Constraint
-            android:id="@id/quiz_congrats_text"
+            android:id="@id/quiz_result_message_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
@@ -494,10 +489,10 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/quiz_passed_text"/>
+            app:layout_constraintBottom_toTopOf="@id/quiz_result_text"/>
 
         <Constraint
-            android:id="@id/quiz_passed_text"
+            android:id="@id/quiz_result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You Passed!"

@@ -37,8 +37,8 @@ class SelectBackgroundFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[SelectBackgroundViewModel::class.java]
 
-        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true)
-        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
         exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
     }
 
@@ -60,42 +60,95 @@ class SelectBackgroundFragment : Fragment() {
             selectBackgroundImage(it)
         }
 
+        sharedViewModel.dinosaurData.observe(viewLifecycleOwner) { list ->
+            val level: Int = list.filter { dino ->
+                dino.activated
+            }.size / 5
+
+            when (level) {
+                0 -> levelZero()
+                1 -> levelOne()
+                2 -> levelTwo()
+                3 -> levelThree()
+            }
+        }
+
+
+        //changes background to selected background and navigates to ProfileFragment
+        binding.selectBackground.setOnClickListener {
+            with(sharedViewModel) {
+                //enables app to recreate, allowing a new style to be selected
+                setBackground(true)
+                saveBackground(viewModel.backgroundSelected.value ?: -1)
+                changeBackground(lastClicked ?: -1)
+            }
+            findNavController().navigateUp()
+        }
+
+
+        return binding.root
+    }
+
+    private fun levelZero() {
         with(binding) {
             defaultBackground.setOnClickListener {
                 viewModel.setBackgroundSelected(-1)
             }
+            jungleBackgroundLock.visibility = View.VISIBLE
+            oceanBackgroundLock.visibility = View.VISIBLE
+            skyBackgroundLock.visibility = View.VISIBLE
+        }
+    }
 
+    private fun levelOne() {
+        with(binding) {
+            defaultBackground.setOnClickListener {
+                viewModel.setBackgroundSelected(-1)
+            }
             jungleBackground.setOnClickListener {
                 viewModel.setBackgroundSelected(0)
             }
+            oceanBackgroundLock.visibility = View.VISIBLE
+            skyBackgroundLock.visibility = View.VISIBLE
+        }
+    }
 
+    private fun levelTwo() {
+        with(binding) {
+            defaultBackground.setOnClickListener {
+                viewModel.setBackgroundSelected(-1)
+            }
+            jungleBackground.setOnClickListener {
+                viewModel.setBackgroundSelected(0)
+            }
             oceanBackground.setOnClickListener {
                 viewModel.setBackgroundSelected(1)
             }
+            skyBackgroundLock.visibility = View.VISIBLE
+        }
+    }
 
+    private fun levelThree() {
+        with(binding) {
+            defaultBackground.setOnClickListener {
+                viewModel.setBackgroundSelected(-1)
+            }
+            jungleBackground.setOnClickListener {
+                viewModel.setBackgroundSelected(0)
+            }
+            oceanBackground.setOnClickListener {
+                viewModel.setBackgroundSelected(1)
+            }
             skyBackground.setOnClickListener {
                 viewModel.setBackgroundSelected(2)
             }
-
-            //changes background to selected background and navigates to ProfileFragment
-            selectBackground.setOnClickListener {
-                with(sharedViewModel) {
-                    //enables app to recreate, allowing a new style to be selected
-                    setBackground(true)
-                    saveBackground(viewModel.backgroundSelected.value ?: -1)
-                    changeBackground(lastClicked ?: -1)
-                }
-                findNavController().navigateUp()
-            }
         }
-
-        return binding.root
     }
 
     /**logic for determining what background is currently selected while also displaying
      * check mark over background that is selected**/
     private fun selectBackgroundImage(current: Int) {
-        if(lastClicked == null) {
+        if (lastClicked == null) {
             //if a background has not been selected yet or fragment refreshed
             lastClicked = current
 
@@ -103,7 +156,7 @@ class SelectBackgroundFragment : Fragment() {
             viewModel.setClickedAgain(!viewModel.clickedAgain)
         }
 
-        if(viewModel.clickedAgain && lastClicked != current) {
+        if (viewModel.clickedAgain && lastClicked != current) {
             //if clicked again is defined as true but logically is not true
             //make false
             viewModel.setClickedAgain(false)
@@ -111,14 +164,14 @@ class SelectBackgroundFragment : Fragment() {
 
         with(binding) {
 
-            if(lastClicked == current) {
+            if (lastClicked == current) {
                 //if the same background was clicked
 
                 //determines whether to disable button if the background is selected or not
                 selectBackground.animateFade(viewModel.clickedAgain)
                 selectBackground.isClickable = viewModel.clickedAgain
 
-                if(viewModel.clickedAgain) {
+                if (viewModel.clickedAgain) {
                     //if click is an odd number
                     when (current) {
                         //display check
@@ -129,7 +182,7 @@ class SelectBackgroundFragment : Fragment() {
                     }
                 } else {
                     //if click is an even number
-                    when(lastClicked) {
+                    when (lastClicked) {
                         //hide check
                         -1 -> defaultBackground.animateCheckOut(defaultBackgroundCheck)
                         0 -> jungleBackground.animateCheckOut(jungleBackgroundCheck)
@@ -141,7 +194,7 @@ class SelectBackgroundFragment : Fragment() {
                 //change clicked again from the previous value (opposite)
                 viewModel.setClickedAgain(!viewModel.clickedAgain)
             } else {
-                if(!selectBackground.isClickable) {
+                if (!selectBackground.isClickable) {
                     //if button cannot be clicked, make button clickable
                     selectBackground.isClickable = true
 
@@ -149,7 +202,7 @@ class SelectBackgroundFragment : Fragment() {
                     selectBackground.animateFade(true)
                 }
 
-                when(current) {
+                when (current) {
                     //make check appear on current background clicked
                     -1 -> defaultBackground.animateCheckIn(defaultBackgroundCheck)
                     0 -> jungleBackground.animateCheckIn(jungleBackgroundCheck)
@@ -157,7 +210,7 @@ class SelectBackgroundFragment : Fragment() {
                     2 -> skyBackground.animateCheckIn(skyBackgroundCheck)
                 }
 
-                when(lastClicked) {
+                when (lastClicked) {
                     //make check disappear on previous background clicked
                     -1 -> defaultBackground.animateCheckOut(defaultBackgroundCheck)
                     0 -> jungleBackground.animateCheckOut(jungleBackgroundCheck)
@@ -209,7 +262,7 @@ class SelectBackgroundFragment : Fragment() {
 
     /** fades in/out button **/
     private fun Button.animateFade(visible: Boolean) {
-        val alphaValue = if(visible) {
+        val alphaValue = if (visible) {
             1f
         } else {
             0f

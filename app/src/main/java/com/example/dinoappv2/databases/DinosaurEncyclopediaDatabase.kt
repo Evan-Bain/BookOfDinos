@@ -1,13 +1,17 @@
 package com.example.dinoappv2.databases
 
+import android.content.ContentValues
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopediaTable
 
 @Database(entities = [DinosaurEncyclopediaTable::class], version = 6, exportSchema = false)
-abstract class DinosaurEncyclopediaDatabase: RoomDatabase() {
+abstract class DinosaurEncyclopediaDatabase : RoomDatabase() {
 
     abstract val dinosaurEncyclopediaDao: DinosaurEncyclopediaDao
 
@@ -18,13 +22,27 @@ abstract class DinosaurEncyclopediaDatabase: RoomDatabase() {
         fun getInstance(context: Context): DinosaurEncyclopediaDatabase {
             synchronized(this) {
                 var instance = INSTANCE
-                if(instance == null) {
+                if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         DinosaurEncyclopediaDatabase::class.java,
                         "dinosaur_encyclopedia_database"
-                    ).createFromAsset("database/dinosaur_encyclopedia_table.db")
-                        .fallbackToDestructiveMigration().build()
+                    ).addCallback(object : RoomDatabase.Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+
+                            for(i in 0..14) {
+                                db.insert(
+                                    "dinosaur_encyclopedia_table",
+                                    SQLiteDatabase.CONFLICT_REPLACE,
+                                    ContentValues().apply {
+                                        put("position", i)
+                                        put("activated", 0)
+                                    }
+                                )
+                            }
+                        }
+                    }).fallbackToDestructiveMigration().build()
                     INSTANCE = instance
                 }
                 return instance

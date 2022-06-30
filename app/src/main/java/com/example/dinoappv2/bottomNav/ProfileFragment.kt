@@ -14,7 +14,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.dinoappv2.BottomNavRepository
+import com.example.dinoappv2.EncyclopediaRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.ProfileAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
@@ -42,15 +42,10 @@ class ProfileFragment : Fragment() {
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
 
-        //creating viewModelFactory
-        val dinoDatasource = DinosaurEncyclopediaDatabase.getInstance(requireContext())
-            .dinosaurEncyclopediaDao
-        val bottomNavRepository = BottomNavRepository(dinoDatasource)
         val profileDataSource = ProfileImageDatabase.getInstance(requireContext())
             .profileImageDao
         val widgetDataSource = WidgetDataDatabase.getInstance(requireContext()).widgetImageDao
-        val viewModelFactory = ProfileViewModelFactory(
-            bottomNavRepository, profileDataSource, widgetDataSource)
+        val viewModelFactory = ProfileViewModelFactory(profileDataSource, widgetDataSource)
 
         //initializing ProfileViewModel
         viewModel = ViewModelProvider(this, viewModelFactory)[ProfileViewModel::class.java]
@@ -73,6 +68,9 @@ class ProfileFragment : Fragment() {
         //recycleView is not altered (improves performance)
         binding.profileBadgesRecycler.setHasFixedSize(true)
 
+        sharedViewModel.dinosaurData.observe(viewLifecycleOwner) {
+            viewModel.setAllDinos(it)
+        }
 
         //re-enable normal transitions after navigating away from ProfileEditFragment
         if(findNavController().previousBackStackEntry?.destination?.id == R.id.profile_edit_fragment) {
@@ -110,9 +108,9 @@ class ProfileFragment : Fragment() {
         }
 
         with(viewModel) {
-            //when data is retrieved from database, add the data to the recyclerView
+            //when data is retrieved from backgroundDatabase, add the data to the recyclerView
             //SCREENSHOT MADE: consider switchMap
-            allDinos.observe(viewLifecycleOwner) {
+            sharedViewModel.dinosaurData.observe(viewLifecycleOwner) {
                 allWidgets.observe(viewLifecycleOwner) { widgetData ->
                     binding.profileBadgesRecycler.adapter = ProfileAdapter(
                         it,
@@ -122,7 +120,7 @@ class ProfileFragment : Fragment() {
             }
             //SCREENSHOT MADE: consider switchMap
 
-            //when data is retrieved from database, add the data to the profile image
+            //when data is retrieved from backgroundDatabase, add the data to the profile image
             profileImage.observe(viewLifecycleOwner) {
                 binding.profileImage.setImageResource(it)
             }
@@ -135,13 +133,14 @@ class ProfileFragment : Fragment() {
             reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
 
             //pass list of dinosaurs (plus default profile image) to ProfileEditFragment
-            //to prevent another creation and call from database
+            //to prevent another creation and call from backgroundDatabase
             val bundle = Bundle()
-            val allDinos = ArrayList(viewModel.allDinos.value!!)
+            val allDinos = ArrayList(sharedViewModel.dinosaurData.value!!)
             allDinos.add(0, DinosaurEncyclopedia(
                 -1,
                 "",
                 R.drawable.profile_icon,
+                0,
                 0,
                 0,
                 true)
@@ -150,17 +149,17 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.profile_edit_fragment, bundle)
         }
 
-        //ADDED
-
-
-        //ADDED
-
         return binding.root
     }
 }
 
 @BindingAdapter("nextLevel")
-fun TextView.nextLevel(value: LiveData<Int>?) {
-    text = value?.value?.plus(1).toString()
+fun TextView.nextLevel(value: LiveData<Int>) {
+    val level = value.value
+    text = if(level == 3) {
+        "3"
+    } else {
+        level?.plus(1).toString()
+    }
 }
 

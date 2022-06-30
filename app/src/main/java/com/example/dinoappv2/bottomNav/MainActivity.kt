@@ -14,9 +14,11 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.example.dinoappv2.EncyclopediaRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.BackgroundImageDatabase
+import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.ActivityMainBinding
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.example.dinoappv2.viewModels.MainViewModelFactory
@@ -105,8 +107,6 @@ class MainActivity : AppCompatActivity() {
         val behaviour = params.behavior as AppBarLayout.Behavior
 
         navController.addOnDestinationChangedListener { _, destination, bundle ->
-
-            Log.i("MainActivity", "${destination.label}")
 
             //sets the toolbar title for DinoArticle to the associated dinosaur
             binding.activityToolbarLayout.title =
@@ -236,8 +236,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getViewModelFactory(): MainViewModelFactory {
-        val database = BackgroundImageDatabase.getInstance(this).backgroundImageDao
-        return MainViewModelFactory(database)
+        val backgroundDataSource = BackgroundImageDatabase.getInstance(this).backgroundImageDao
+
+        val dinoDataSource = DinosaurEncyclopediaDatabase.getInstance(this)
+            .dinosaurEncyclopediaDao
+        val encyclopediaRepository = EncyclopediaRepository(dinoDataSource)
+
+        return MainViewModelFactory(encyclopediaRepository, backgroundDataSource)
     }
 
     override fun onBackPressed() {

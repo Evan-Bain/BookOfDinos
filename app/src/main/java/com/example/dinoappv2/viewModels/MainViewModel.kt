@@ -1,14 +1,21 @@
 package com.example.dinoappv2.viewModels
 
 import androidx.lifecycle.*
+import com.example.dinoappv2.EncyclopediaRepository
 import com.example.dinoappv2.dataClasses.BackgroundImage
+import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databases.BackgroundImageDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val database: BackgroundImageDao
+    private val encyclopediaDatabase: EncyclopediaRepository,
+    private val backgroundDatabase: BackgroundImageDao
 ) : ViewModel() {
+
+    private val _dinosaurData = MutableLiveData<List<DinosaurEncyclopedia>>()
+    val dinosaurData: LiveData<List<DinosaurEncyclopedia>>
+        get() = _dinosaurData
 
     //determines whether or not background should be set (to prevent app continuously being
     //recreated)
@@ -20,10 +27,10 @@ class MainViewModel(
         _backgroundSet = value
     }
 
-    //holds data for what current background selected is (stored in database and only
+    //holds data for what current background selected is (stored in backgroundDatabase and only
     //accessed when app launches)
     val backgroundImage: BackgroundImage?
-        get() = database.getBackground()
+        get() = backgroundDatabase.getBackground()
 
     //holds data for what current background selected is (stored during runtime for quicker access)
     private val _backgroundSelected = MutableLiveData<Int>()
@@ -38,7 +45,7 @@ class MainViewModel(
     /**saves corresponding integer for a background to the BackgroundImageDatabase**/
     fun saveBackground(background: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            database.insert(
+            backgroundDatabase.insert(
                 BackgroundImage(background)
             )
         }
@@ -61,15 +68,31 @@ class MainViewModel(
     fun setDictionaryWord(set: Boolean) {
         _dictionaryWordSelected = set
     }
+
+    /** calls backgroundDatabase function to update activated value **/
+    fun updateActivated(position: Int, activated: Boolean) {
+        viewModelScope.launch(Dispatchers.IO) {
+            encyclopediaDatabase.updateActivated(position, if(activated) 1 else 0)
+        }
+    }
+
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            encyclopediaDatabase.getDinosaurData().collect {
+                _dinosaurData.postValue(it)
+            }
+        }
+    }
 }
 
 class MainViewModelFactory(
-    private val database: BackgroundImageDao
+    private val encyclopediaDatabase: EncyclopediaRepository,
+    private val backgroundDatabase: BackgroundImageDao
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            return MainViewModel(database) as T
+            return MainViewModel(encyclopediaDatabase, backgroundDatabase) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

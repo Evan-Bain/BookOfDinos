@@ -7,20 +7,198 @@
     <string name="encyclopedia">Encyclopedia</string>
     <string name="test">test</string>
     <string name="search">Search</string>
-    <string name="TRexOverview">The Tyrannosaurus Rex, also more commonly known as T–Rex, is perhaps one of the most well known dinosaurs to walk the Earth. The first fossil found of the T–Rex was in 1902 within Hell Creek, Montana by the archaeologist Barnum Brown; by examining the fossil, it is believed the T–Rex lived during the late Cretaceous period (about 90 - 66 million years ago). During this period in time Western North America was an island continent called Laramidia, which is where the T-Rex roamed. On this island continent the T-Rex was an apex predator which may have preyed on other dinosaurs such as Edmontosaurus, Anatosaurus, and Triceratops; however, the T-Rex may have been a scavenger alongside being a carnivore. The T-Rex had many features which enabled it to be such a strong predator like its enormous size which could reach up to 40 feet in length and 13 feet in height (13 feet is more than two times the height of the average human male). Although the T-Rex was one of the largest dinosaurs, the real qualities of an apex predator were seen in its bone crushing skull. The skull of the T-Rex was massive reaching up to 6 feet long and 4 feet tall meaning that just the length of the skull could fit a whole human inside, and with a skull this big came the strongest bite force of an living thing to walk this earth: an astonishing bite force of 12,800 pounds. To put this bite force into perspective the animal with the highest bite force living today is the saltwater crocodile which reaches up to 3,700 pounds, that’s nowhere near the bite force of the T-Rex! Although the T-Rex has many features for an apex predator, this magnificent dinosaur lacked in its speed with a walking speed of 3 - 6 miles per hour and a max running speed of 10 miles per hour which means a human could easily outrun a T-Rex on a bad day. Due to this trait some archaeologists believe the T-Rex may have also been a scavenger, but most agree this dinosaur was both a top predator and a scavenger.</string>
 
-    <!--Dinosaur names-->
-    <string name="ankylosaurus">Ankylosaurus</string>
-    <string name="brontosaurus">Brontosaurus</string>
-    <string name="dilophosaurus">Dilophosaurus</string>
-    <string name="mosasaurus">Mosasaurus</string>
-    <string name="pterodactyl">Pterodactyl</string>
-    <string name="spinosaurus">Spinosaurus</string>
-    <string name="stegosaurus">Stegosaurus</string>
-    <string name="t_rex">T-Rex</string>
-    <string name="triceratops">Triceratops</string>
-    <string name="velociraptor">Velociraptor</string>
-    <!--Dinosaur names-->
+    <string-array name="dinosaur_names_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>Ankylosaurus</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>Argentinosaurus</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Brontosaurus</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>Dilophosaurus</item>
+
+        <!-- Giganotosaurus -->
+        <item>Giganotosaurus</item>
+
+        <!-- Leedsichthys -->
+        <item>Leedsichthys</item>
+
+        <!-- Mosasaurus -->
+        <item>Mosasaurus</item>
+
+        <!-- Pteranodon -->
+        <item>Pteranodon</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>Quetzalcoatlus</item>
+
+        <!-- Spinosaurus -->
+        <item>Spinosaurus</item>
+
+        <!-- Stegosaurus -->
+        <item>Stegosaurus</item>
+
+        <!-- Therizinosaurus -->
+        <item>Therizinosaurus</item>
+
+        <!-- Triceratops -->
+        <item>Triceratops</item>
+
+        <!-- T-Rex -->
+        <item>T-Rex</item>
+
+        <!-- Velociraptor -->
+        <item>Velociraptor</item>
+    </string-array>
+
+    <string-array name="years_facts_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>70 – 66 million years ago</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>97 – 93 million years ago</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>157 – 145 million years ago</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>201 – 174 million years ago</item>
+
+        <!-- Giganotosaurus -->
+        <item>99 – 97 million years ago</item>
+
+        <!-- Leedsichthys -->
+        <item>165 – 145 million years ago</item>
+
+        <!-- Mosasaurus -->
+        <item>82 – 66 million years ago</item>
+
+        <!-- Pteranodon -->
+        <item>100 – 90 million years ago</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>72 – 66 million years ago</item>
+
+        <!-- Spinosaurus -->
+        <item>100 – 95 million years ago</item>
+
+        <!-- Stegosaurus -->
+        <item>150 – 145 million years ago</item>
+
+        <!-- Therizinosaurus -->
+        <item>72 – 68 million years ago</item>
+
+        <!-- Triceratops -->
+        <item>69 – 66 million years ago</item>
+
+        <!-- T-Rex -->
+        <item>68 – 66 million years ago</item>
+
+        <!-- Velociraptor -->
+        <item>74 – 70 million years ago</item>
+    </string-array>
+
+    <string-array name="speed_facts_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>6 miles per hour</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>5 miles per hour</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>19 miles per hour</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>20 miles per hour</item>
+
+        <!-- Giganotosaurus -->
+        <item>31 miles per hour</item>
+
+        <!-- Leedsichthys -->
+        <item>11 miles per hour</item>
+
+        <!-- Mosasaurus -->
+        <item>30 miles per hour</item>
+
+        <!-- Pteranodon -->
+        <item>70 miles per hour</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>80 miles per hour</item>
+
+        <!-- Spinosaurus -->
+        <item>17 miles per hour</item>
+
+        <!-- Stegosaurus -->
+        <item>5 miles per hour</item>
+
+        <!-- Therizinosaurus -->
+        <item>15 miles per hour</item>
+
+        <!-- Triceratops -->
+        <item>20 miles per hour</item>
+
+        <!-- T-Rex -->
+        <item>20 miles per hour</item>
+
+        <!-- Velociraptor -->
+        <item>25 miles per hour</item>
+    </string-array>
+
+    <string-array name="name_meanings_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>Fused Lizard</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>Argentina Lizard</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Thunder Lizard</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>Two-Crested Lizard</item>
+
+        <!-- Giganotosaurus -->
+        <item>Giant Southern Lizard</item>
+
+        <!-- Leedsichthys -->
+        <item>Leed\'s Fish</item>
+
+        <!-- Mosasaurus -->
+        <item>Lizard of the Meuse River</item>
+
+        <!-- Pteranodon -->
+        <item>Winged and Toothless</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>Feathered Serpent</item>
+
+        <!-- Spinosaurus -->
+        <item>Spine Lizard</item>
+
+        <!-- Stegosaurus -->
+        <item>Roof Lizard</item>
+
+        <!-- Therizinosaurus -->
+        <item>Scythe Lizard</item>
+
+        <!-- Triceratops -->
+        <item>Three-Horned Lizard</item>
+
+        <!-- T-Rex -->
+        <item>King of the Tyrant Lizards</item>
+
+        <!-- Velociraptor -->
+        <item>Quick Plunderer</item>
+    </string-array>
 
     <string name="dinosaur_image">dinosaur image</string>
     <string name="answer">answer</string>
@@ -49,26 +227,198 @@
     <string name="dictionary_of_difficult_words">Dictionary of Difficult Words</string>
     <string name="background">Background:</string>
 
-    <string-array name="dinosaur_articles">
+    <string-array name="story_articles_array">
 
-        <item>Ankylosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Brontosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Dilophosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Mosasaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Pterodactyl fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Spinosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Stegosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Triceratops fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>T-Rex fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Velociraptor fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <!-- #1 Ankylosaurus-->
+        <item>A baby Ankylosaurus gets distracted from eating and starts following a bug without his mother noticing. Seconds later, the mother hears her baby cry for help after a Bambiraptor jumped out of hiding, and flipped him over. The mother starts charging over. Even though his mother can’t move fast, the Bambiraptor quickly runs away to find something else for dinner. This predator knows an adult Ankylosaurus could easily break its bones.</item>
 
+        <!-- #2 Argentinosaurus-->
+        <item>A small dinosaur is drinking from a pond when the water starts to shake, scaring it off. Almost half a mile away, a large herd of dinosaurs, each taller than a 3 story building, are moving their feet slowly, making the ground shake. These giant dinosaurs were Argentinosauruses, and they were very gentle giants.</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>A herd of huge dinosaurs named Brontosaurus walk across an open field towards a forest to eat. These dinosaurs keep their babies close to them as they make this journey. For predators like Allosaurus, it is common to try and kill baby Brontosauruses for dinner. Today, though, the herd made the journey safely. Maybe Allosaurus decided coming close to a herd of dinosaurs taller than a house wasn\'t a good idea.</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>After hunting for hours, the apex predator of the early Jurassic, Dilophosaurus, finds a pack of Ammosauruses. Most predators would wait for an Ammosaurus to get separated from the pack, but not Dilophosaurus. It charges at an Ammosaurus, biting its neck. The Ammosaurus fights to get free from Dilophosaurus, but it keeps its jaws shut tight on its prey’s neck. By the time the fight ends, all the other dinosaurs have run away, letting Dilophosaurus eat its breakfast in peace.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>A pack of Giganotosauruses runs in a field until they are only a couple hundred meters from a herd of Argentinosauruses, the largest dinosaurs. One member of the pack runs toward the herd and rips flesh off of an Argentinosaurus, then quickly returns. The ground starts shaking while the herd tries to run away. However, the attackers continue to take turns ripping flesh from the same dinosaur. Soon, the injured Argentinosaurus is too hurt to move and becomes dinner for the Giganotosauruses.</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>Deep in the oceans of the Jurassic, a giant fish is swimming with its mouth wide open. This fish has had its mouth open all day, but not because it\'s trying to talk. It is eating tiny plankton that fall into its mouth. This giant fish is the largest fish ever: Leedsichthys.</item>
+
+        <!-- #7 Mosasaurus -->
+        <item>BANG! The ocean’s apex predator, Mosasaurus, just caught and gobbled down a plesiosaur. It doesn\'t stop hunting, though, and continues into deeper water. The next prey it spots isn’t just another plesiosaur, but another Mosasaurus. It immediately starts charging forward, beginning a fight to the death. The final bite is landed by the first Mosasaurus when it gets under the other Mosasaurus and bites out its stomach. Nothing in the ocean was safe from Mosasaurus, not even another Mosasaurus. </item>
+
+        <!-- #8 Pteranodon -->
+        <item>A flock of Pteranodons nesting on a beach wake up. The larger male Pteranodons start flying off towards the ocean in search of food. The smaller female Pteranodons stay behind to protect the babies from predators. The male Pteranodons start catching food by flying just above the water and snatching fish with their beaks. After about an hour, the male Pteranodons come back from their hunt to share the fish stored in their beaks. All the Pteranodons in the flock must work together in order to survive in their dangerous world. </item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>A hungry T-Rex is looking for its next prey when it sees a flock of huge pterosaurs walking around a pond. The T-Rex starts running towards the flock, but before the T-Rex even gets close, they jump 8 feet into the air and start flapping their huge wings. As the pterosaurs reach the clouds, they stop flapping their wings and begin to glide while looking for the next safe spot to land. These pterosaurs are called Quetzalcoatluses, and they could continue flying for 12,000 miles.</item>
+
+        <!-- #10 Spinosaurus -->
+        <item>Deep in a river an apex predator is hunting for its prey. Above the water, only a large spine can be seen as it cuts its way through the water. However, below the water a dinosaur longer than two school buses swims forward. A lone shark is spotted by the hunter and within a split second the hunter thrusts forward using its tail to propel through the water. In a matter of seconds, the shark was caught by the largest dinosaur to ever roam planet Earth: Spinosaurus.</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>A hungry stegosaurus is chewing on moss when a just as hungry Allosaurus sprints towards the herbivore ready to chomp down on it. However, the stegosaurus quickly swings its spiked tail at the predator, landing a painful hit on its leg. Only one dinosaur will be eating today, and the other will never mess with a Stegosaurus again.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>As the day starts for a mother and baby Therizinosaurus, the two dinosaurs walk over to a pond. A carnivore bigger than a wolf is already at the pond, but walks off when the two dinosaurs approach. The giant size and claws of the mother scare off any smart dinosaur from trying to hurt her baby. A day in the life of Therizinosaurus was peaceful with almost no predators.</item>
+
+        <!-- #13 Triceratops -->
+        <item>A lonely Triceratops is slowly walking towards a pond when a loud roar is heard off in the distance. The Triceratops faces the roar instead of running away, even though a large T-Rex approaches. This Triceratops is not scared while the T-Rex tries to attack, thanks to a large, boney frill protecting its entire body. Eventually, the T-Rex has to give up and look for food somewhere else, because Triceratops is off the menu!</item>
+
+        <!-- #14 T-Rex -->
+        <item>A T-Rex is about to eat when a powerful roar is heard in the distance. Another T-Rex sees the tasty food on the ground and wants to steal it. The T-Rex that is feeding responds with a roar before the two tyrannosaurs run towards each other. The stealing T-Rex attacks first, but bites too early. The bite misses its target, which lets the other T-Rex bite its opponent\'s neck, killing it instantly. The dead T-Rex falls to the ground as the winning T-Rex roars over the body, showing that he is the apex predator.</item>
+
+        <!-- #15 Velociraptor -->
+        <item>A herd of Protoceratops is moving away from a river, but one dinosaur stays behind to drink more water. It hears a small sound in the ferns next to it, but sees nothing. Just as it is about to leave the river, a dinosaur covered in feathers jumps out of the ferns and lands on it. The Protoceratops tries to move, but the weight of this dinosaur and a large, sickle-shaped claw keep it on the ground. After a few quick bites at the neck, the Protoceratops stops moving. Velociraptor has just caught its food for the day.</item>
     </string-array>
 
-    <string-array name="quick_facts">
+    <string-array name="habitat_articles_array">
 
-        <item>5.6 feet\n<b>Weight: </b>18,000 pounds\n<b>Lived: </b> 66 million years ago\n<b>Speed: </b>6 miles an hour\n<b>Meaning of Name: </b>Fused lizard</item>
+        <!-- #1 Ankylosaurus-->
+        <item>Ankylosaurus lived during the late Cretaceous period in a warm, tropical habitat. Paleontologists guess that this dinosaur had very few predators, but if it did have any predators the mighty T-Rex could have been one. As scary as this dinosaur looked, it was actually an herbivore that ate small plants close to the ground.</item>
 
+        <!-- #2 Argentinosaurus-->
+        <item>Argentinosaurus is the largest land animal ever. This dinosaur may have had no predators, but if it did Giganotosaurus and Mapusaurus could have hunted down this giant when it was younger and smaller. However, it was dangerous and would have been rare to take down a fully grown Argentinosaurus.</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Brontosaurus was a very large dinosaur, which helped it reach leaves most dinosaurs couldn\'t. The plants this dinosaur ate were usually hard to swallow, so it ate rocks to help digest them. Even though Brontosaurus was very tall, it still had many predators. One of these predators may have been Allosaurus.</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>While Dilophosaurus walked the Earth, it was the largest land animal. Since it was taller than the average human and longer than the average car, it was the apex predator of its time. Dilophosaurus could be found hunting in rainforests and swamps. The food that it ate was most likely small dinosaurs and fish.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>Giganotosaurus was one of the largest carnivores to ever live. Since it was so big, it most likely hunted down large sauropods and maybe even a titanosaur called Argentinosaurus. Giganotosaurus may have hunted these large dinosaurs with a pack.</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>Leedsichthys swam the deep oceans of the late Jurassic with almost no predators. The only creature that may have attacked Leedsichthys was Liopleurodon. Liopleurodon was an apex predator with lots of teeth, but was still only half the size of Leedsichthys. Unfortunately, Leedsichthys didn\'t have any way to defend itself from predators other than scaring them off with its enormous size.</item>
+
+        <!-- #7 Mosasaurus -->
+        <item>Mosasaurus hunted almost anything, including sharks, plesiosaurs, and even other mosasaurs. It was the apex predator of the oceans, meaning that it would only be eaten by other mosasaurs. Even though Mosasaurus lived in the water, it would still have to come to the surface to breathe like whales.</item>
+
+        <!-- #8 Pteranodon -->
+        <item>Pteranodon lived and flew along an ocean channel called the Western Interior Seaway. It stayed around this ocean channel because one of the main things Pteranodon ate was fish. The Western Interior Seaway separated Laramidia from Appalachia. Paleontologists believe this pterosaur flew in the air similar to large birds today.</item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>Quetzalcoatlus lived in what is now North America. This pterosaur would fly long distances looking for dead bodies to scavenge. However, it wasn\'t only a scavenger. Quetzalcoatlus would also frequently land near ponds and wait for small animals, like crabs, so it could use its long neck to grab its prey.</item>
+
+        <!-- #10 Spinosaurus -->
+        <item>Spinosaurus is the only semi-aquatic dinosaur. This means it could be found swimming in the swamps of what is now the North Africa Sahara region. It hunted mainly fish but also occasionally snacked on land animals. Since Spinosaurus was the largest land carnivore, it may have fought other large carnivores that were foolish enough to enter its territory.</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>Stegosaurus was a bulky dinosaur that lived in what is now western North America. It ate plants, meaning it was a herbivore. Although it wasn\'t your normal, everyday herbivore, this dinosaur had developed cheeks, unlike many other herbivores. Most other dinosaurs at the time had to swallow their food whole, but due to Stegosaurus\' cheeks, this dinosaur could chew its food before swallowing.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>Therizinosaurus was a big, dangerous looking dinosaur. However, it was actually a herbivore and would only attack another animal for defense. One predator it had to protect itself from was a large tyrannosaur called Tarbosaurus. Thanks to the large claws on Therizinosaurus, it could protect itself easier than most herbivores.</item>
+
+        <!-- #13 Triceratops -->
+        <item>Triceratops was a successful herbivore because of its ability to eat thicker plants. It could eat thicker plants because of its sharp teeth and mouth being shaped like a beak. Unfortunately, it only lived for 3 million years due to an asteroid that hit Earth 66 million years ago. </item>
+
+        <!-- #14 T-Rex -->
+        <item>Tyrannosaurus Rex, or T-Rex for short, was a huge carnivore that was the apex predator of its time. Some paleontologists believe that it was just a scavenger, but more recent research shows that T-Rex was a predator. Its enormous size and strength made it a good hunter, along with its big brain and great sense of smell.</item>
+
+        <!-- #15 Velociraptor -->
+        <item>Velociraptor was a small, quick hunter that was about the size of a wolf. Paleontologists believe that it hunted smaller prey by itself, not with a pack. Even though Velociraptor was smaller than most dinosaurs, it was a deadly hunter. It could run very fast for its size and also had an amazing sense of smell, which helped it find its prey.</item>
     </string-array>
+
+    <string-array name="evolution_articles_array">
+
+        <!-- #1 Ankylosaurus-->
+        <item>The mighty club!\n\nThe club at the end of Ankylosaurus\' tail is definitely the craziest thing about this dinosaur. The club was so strong it could easily shatter the bones of another dinosaur. Unfortunately, today, there are no animals that have clubs on their tails.</item>
+
+        <!-- #2 Argentinosaurus-->
+        <item>The gigantic size!\n\nNo land animal has ever been larger than Argentinosaurus. The gigantic size of this dinosaur would have helped it scare away predators and reach leaves that other dinosaurs couldn\'t. Palaeontologists have tried to figure out how Argentinosaurus got so big, but it is still unknown. Maybe you could solve this mystery.</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>The long neck!\n\nBrontosaurus\' neck was so big that it also needed a long tail to help balance itself so it wouldn\'t fall over. Today, the animal with the longest neck is the giraffe, which has a neck size of up to 6 feet. 6 feet isn\'t even close to Brontosaurus\' neck size of 50 feet.</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>The crests on its head!\n\nThe crests on Dilophosaurus are a mystery to palaeontologists because it is unknown what the purpose of these crests were. However, some palaeontologists believe that the crests were used to attract females. They were also weak and could not be used in fighting.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>The teeth!\n\nGiganotosaurus had almost 80 teeth. Each tooth was serrated (curved sharply at the end) and 8 inches long. The teeth of this dinosaur were the main reason it could hunt dinosaurs over 3 stories high. It could take down its prey without even fighting by running up to its prey, ripping flesh off, and waiting until its prey lost too much blood and died.</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>The giant size!\n\nLeedsichthys is the largest fish ever, reaching sizes of up to 55 feet. It was able to get this big because it was a filter feeder. A filter feeder is an animal that leaves its mouth open while it swims so small animals, like plankton, can get trapped in the mouth and eaten. During the middle of the Jurassic, there was a lot of plankton which helped Leedsichthys get this big.</item>
+
+        <!-- #7 Mosasaurus -->
+        <item>The teeth layout!\n\nMosasaurus had two rows of teeth on the top jaw. This second row of teeth was further back in the long snout of Mosasaurus and had smaller teeth than the front. The first row of teeth was used to tear apart its prey. However, the second row of teeth was used to hold on to struggling prey.</item>
+
+        <!-- #8 Pteranodon -->
+        <item>The huge wing size!\n\nThe wing size, also called “wingspan,” could reach up to 23 feet long. Today, the bird with the longest wingspan is 12 feet. Pteranodon\'s wingspan is more than twice that size! Paleontologists believe that since its wingspan was so long, it would glide often instead of flapping its wings a lot.</item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>The huge size!\n\nQuetzalcoatlus is the largest flying animal ever. This pterosaur was the size of a giraffe and had a wingspan longer than a school bus. For a long time, paleontologists believed Quetzalcoatlus was too big to fly. However, in 2021, paleontologists found out that Quetzalcoatlus would launch itself 8 feet into the air to begin flying.</item>
+
+        <!-- #10 Spinosaurus -->
+        <item>The long tail!\n\nThe tail of Spinosaurus was different from all other dinosaur tails because it gave it the ability to propel itself through water. One way the tail was different was its strange paddle-shape. It wasn\'t just shaped differently but was also surprisingly long, reaching lengths of over 16 feet.</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>The spiked tail!\n\nThe spiked tail is also nicknamed the thagomizer. The name thagomizer was first used in a funny comic. Although the thagomizer was not funny to a certain Allosaurus fossil that was found with a hole created from a Stegosaurus\' thagomizer. Sadly, it most likely needed all the help it could get from its tail since it is considered one of the dumbest dinosaurs. Even though Stegosaurus weighed around 11,000 pounds, it had a brain the size of a walnut.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>The long claws!\n\nTherizinosaurus holds the record for the longest claws of any animal. These giant claws were over 3 feet in length. Even though the claws looked like they were used to kill prey, the claws were actually used to hold down branches so Therizinosaurus could eat leaves higher up. The claws could still be used to protect itself from predators if needed.</item>
+
+        <!-- #13 Triceratops -->
+        <item>The round frill!\n\nOne of the most interesting parts of Triceratops was the large frill made of bone. While most people believe the frill was used for defense, paleontologists believe it was used to help Triceratops attract a mate. Certain fossils also show evidence of Triceratops fighting each other with marks on the frill. This evidence may suggest the frill also provided protection from other dinosaurs like T-Rex.</item>
+
+        <!-- #14 T-Rex -->
+        <item>The powerful bite force!\n\nT-Rex\'s bite force of 12,800 pounds is the strongest bite force of any land animal. Today, the alligator has the strongest bite force with 2,980 pounds. That\'s 4 times less than T. Rex! Since its bite force was so strong, it would rarely have to take more than one bite to instantly kill its prey.</item>
+
+        <!-- #15 Velociraptor -->
+        <item>The sickle-shaped claw!\n\nVelociraptor had a larger, sickle-shaped claw on the second toe of each foot. This claw allowed it to hunt using a strategy called Raptor Prey Restraint. Using this strategy, it would first stalk its prey before jumping on top to keep its prey pinned to the ground with its sickle-shaped claw and weight. </item>
+    </string-array>
+
+    <string-array name="fossil_articles_array">
+
+        <!-- #1 Ankylosaurus-->
+        <item>The first fossil of Ankylosaurus was found in 1906 by a paleontologist named Barnum Brown. This fossil was found in Montana which would have been in the continent known as Larmidia. Only three fossils of Ankylosaurus have ever been found and not enough bones have been found to create a complete fossil.</item>
+
+        <!-- #2 Argentinosaurus-->
+        <item>The first fossil of Argentinosaurus was found on a farm in 1987. The farmer who found it thought the leg was a giant piece of wood. Palaeontologists first thought this dinosaur was over 130 feet long. Although, thanks to new technology, the size is believed to be around 100 feet long. No matter a length of 130 or 100 feet, Argentinosaurus is still the largest land animal ever!</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>The first fossil of Brontosaurus was found during the 1870s. Unfortunately, during the early 1900s, paleontologists thought that Brontosaurus was not a new dinosaur. It was believed to be an already discovered dinosaur called Apatosaurus. However, in 2015, a study proved that Brontosaurus and Apatosaurus were different dinosaurs. Still, some paleontologists aren\'t certain if Brontosaurus is a real dinosaur. This means that it\'s up to you to decide!</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>The first fossil of Dilophosaurus was found in 1942, by Sam Welles in Arizona. This fossil did not have the head of Dilophosaurus, so palaeontologists thought it belonged to a dinosaur called ‘Megalosaurus Wetherilli\'. However, in 1970, the head of Dilophosaurus was found, which led to the discovery that the fossil from 1942 was part of an unknown dinosaur that they eventually named Dilophosaurus.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>The first Giganotosaurus fossil was found in 1993 and is about 70% complete. A fossil this complete helps paleontologists find the correct size, which was over 40 feet long. This size makes Giganotosaurus the second biggest carnivorous dinosaur ever, bigger than T-Rex!</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>The first Leedsichthys fossil was found in the 1880s by Alfred Leeds. In 1889, the fossil was finally named Leedsichthys, after the person who had originally discovered the fossil. The actual size of this fish is still unknown because it had almost no bones. This means that no fossil has come close to being complete. </item>
+
+        <!-- #7 Mosasaurus -->
+        <item>The first fossil of Mosasaurus was found near the Meuse River in 1764. At the time, scientists did not believe an animal could go extinct, which meant the fossil was believed to be a whale. However, after extinction was proven to be real in 1796, scientists realised this fossil did not belong to a whale. Almost 60 years after the first fossil was found, Mosasaurus was finally named.</item>
+
+        <!-- #8 Pteranodon -->
+        <item>The first fossil of Pteranodon was found in 1871 by Othniel Charles Marsh in Kansas, but fossils have also been found in Europe. These fossils found of Pteranodon have shown paleontologists that it was actually not a dinosaur but instead a huge flying reptile called a pterosaur. </item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>The first Quetzalcoatlus fossil was found in 1971 in Big Bend, Texas. No one knew the fossil belonged to Quetzalcoatlus until 1975. It took 4 years for paleontologists to make this discovery because pterosaur fossils are hard to dig up. The hollow bones in pterosaurs made their fossils break easily. </item>
+
+        <!-- #10 Spinosaurus -->
+        <item>The first fossil of Spinosaurus was discovered in Egypt in 1912. Unfortunately, just 32 years later, this fossil was destroyed in World War II, during the bombing of a museum by the British. Another fossil was not found until 2008, almost a century later. For over a century, palaeontologists believed Spinosaurus lived on the land like all other dinosaurs. However, new fossils found in 2014 gave evidence that Spinosaurus was adapted to an aquatic lifestyle. This discovery made Spinosaurus the only semi-aquatic dinosaur ever!</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>The first fossil of Stegosaurus was found in 1876 in Colorado. This fossil was found during a period from 1877 to 1892 known as the Bone Wars or the Great Dinosaur Rush. During this time, palaeontologists did not know much about dinosaurs and made many crazy assumptions. One of these assumptions stated that since Stegosaurus\' brain was so small it probably had a brain in its butt to control the back legs. Unsurprisingly, Stegosaurus only has one brain making it one of the dumbest dinosaurs.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>The first Therizinosaurus fossil was found in 1948. This fossil was first thought to be a species of extinct turtle. However, in 1954, paleontologists discovered the fossil was from Therizinosaurus. Today, little is known about this dinosaur since very few fossils have been found. Even its skull has never been discovered!</item>
+
+        <!-- #13 Triceratops -->
+        <item>The first Triceratops fossil was found in 1887 in Denver, Colorado. The fossil was first believed to be from a bison until 1888, when the fossil was named as the first Triceratops. Triceratops are the most common dinosaur fossil, with 40% of all dinosaur fossils belonging to Triceratops. If you are interested in finding a Triceratops fossil, it may not be too difficult if you look in the Hell Creek Formation, Montana. At this location, more than 50 Triceratops fossils have been found!</item>
+
+        <!-- #14 T-Rex -->
+        <item>The first T-Rex fossil was found in 1902, but the most interesting T-Rex fossil, named Sue, was found in 1990. Sue was one of the largest and most complete T-Rex fossils found, being 90% complete. In 2020, Sue became the most expensive fossil after a museum purchased the fossil for $31.8 million. Currently, this museum is still being built, but in 2025 you can visit the museum and see Sue yourself!</item>
+
+        <!-- #15 Velociraptor -->
+        <item>For a while people believed Velociraptor hunted in packs. However, in 2020, scientists found that it hunted alone. Even though paleontologists agree that it hunted smaller animals, a famous fossil found in 1971, named Dueling Dinosaurs, showed a Velociraptor attacking a Protoceratops. This fossil is the only fossil that shows dinosaurs fighting.</item>
+    </string-array>
+
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="app_widget_description">Selected Dinosaur (select in app)</string>

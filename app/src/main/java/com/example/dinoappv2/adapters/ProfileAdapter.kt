@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
@@ -22,8 +23,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class ProfileAdapter(
     private val data: List<DinosaurEncyclopedia>,
     private val widgetData: List<WidgetData>,
-    private val context: Context) :
-    RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
+    private val context: Context) : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
     //traditional recyclerView for optimization
 
     inner class ViewHolder(val binding: ProfileRecyclerLayoutBinding) :
@@ -33,17 +33,11 @@ class ProfileAdapter(
 
             //sets image to grayscale if not unlocked
             //ADD FB IMAGES TOO FOR GRAYSCALE/COLOR
-            if(data.activated == true) {
-                binding.dinoBadgeProfile.setImageResource(data.badge)
-            } else {
-                //TESTING PURPOSES (ADD BLACKED OUT IF NOT UNLOCKED)
-                //binding.dinoBadgeProfile.setImageResource(data.blackBadge)
+            with(binding) {
+                dinoNameProfile.text =
+                    context.resources.getStringArray(R.array.dinosaur_names_array)[data.position]
 
-                //TESTING PURPOSES (ADD LOCKED IF NOT UNLOCKED)
-                with(binding) {
-                    //name/title of images & section shown below
-                    dinoNameProfile.text = data.name
-
+                if(data.activated) {
                     //dinoBadge image
                     dinoBadgeProfile.setImageResource(data.badge)
                     dinoBadgeProfileFab.setFab(data, true)
@@ -51,8 +45,15 @@ class ProfileAdapter(
                     //Fb image
                     dinoFbProfile.setImageResource(data.dinosaurFb)
                     dinoFbProfileFab.setFab(data, false)
+                } else {
+                    //dinoBadge image
+                    dinoBadgeProfile.setImageResource(data.blackBadge)
+                    dinoBadgeProfileFab.visibility = View.GONE
+
+                    //Fb image
+                    dinoFbProfile.setImageResource(data.blackDinosaurFb)
+                    dinoFbProfileFab.visibility = View.GONE
                 }
-                //TESTING PURPOSES (ADD LOCKED IF NOT UNLOCKED)
             }
         }
     }
@@ -77,6 +78,8 @@ class ProfileAdapter(
     private fun FloatingActionButton.setFab(
         specificData: DinosaurEncyclopedia,
         dinoBadge: Boolean) {
+        visibility = View.VISIBLE
+
         //determines if image is already added as a widget
         var associatedWidget: WidgetData? = null
 

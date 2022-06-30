@@ -99,15 +99,6 @@
                             app:layout_constraintStart_toEndOf="@id/level_number"
                             app:layout_constraintTop_toTopOf="@id/level_number" />
 
-                        <!-- displays how close user is to the next level -->
-                        <ImageView
-                            android:id="@+id/progress_bar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/test_progress_exp"
-                            app:layout_constraintBottom_toBottomOf="@id/profile_image"
-                            app:layout_constraintStart_toEndOf="@id/current_level_number" />
-
                         <!-- current level user is on -->
                         <TextView
                             android:id="@+id/current_level_number"
@@ -118,9 +109,22 @@
                             android:text="@{viewModel.currentLevel.toString()}"
                             android:textColor="@color/primaryColor"
                             app:layout_constraintBottom_toBottomOf="@id/progress_bar"
-                            app:layout_constraintStart_toEndOf="@id/profile_image"
+                            app:layout_constraintEnd_toStartOf="@id/progress_bar"
                             app:layout_constraintTop_toTopOf="@id/progress_bar"
                             tools:text="1" />
+
+                        <!-- displays how close user is to the next level -->
+                        <ProgressBar
+                            android:id="@+id/progress_bar"
+                            android:max="5"
+                            style="@style/Widget.Material3.LinearProgressIndicator"
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:progress="@{viewModel.levelProgress}"
+                            android:progressDrawable="@drawable/level_progress_bar"
+                            app:layout_constraintBottom_toBottomOf="@id/profile_image"
+                            app:layout_constraintEnd_toEndOf="@id/level_trophy_icon"
+                            app:layout_constraintStart_toStartOf="@id/level_number"/>
 
                         <!-- next level user will be on -->
                         <TextView
@@ -199,6 +203,7 @@
              and select widgets -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/profile_badges_recycler"
+            tools:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

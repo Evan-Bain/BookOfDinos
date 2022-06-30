@@ -1,11 +1,13 @@
 package com.example.dinoappv2.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.EncyclopediaRecyclerLayoutBinding
 
@@ -20,7 +22,7 @@ class EncyclopediaAdapter(
                 binding.dinoBadge.setImageResource(data.badge)
 
                 //add check next to dino image depending on if quiz is completed
-                binding.dinoBadgeCheck.visibility = if(data.activated == true) {
+                binding.dinoBadgeCheck.visibility = if(data.activated) {
                     View.VISIBLE
                 } else {
                     View.GONE

@@ -16,15 +16,20 @@ fun ProfileImage?.fromPosition(): Int {
 
     return when(this.profileImage) {
         0 -> R.drawable.dino_badge_ankylosaurus
-        1 -> R.drawable.dino_badge_brontosaurus
-        2 -> R.drawable.dino_badge_dilophosaurus
-        3 -> R.drawable.dino_badge_mosasaurus
-        4 -> R.drawable.dino_badge_pteranodon
-        5 -> R.drawable.dino_badge_spinosaurus
-        6 -> R.drawable.dino_badge_stegasaurus
-        7 -> R.drawable.dino_badge_triceratops
-        8 -> R.drawable.dino_badge_trex
-        9 -> R.drawable.dino_badge_velociraptor
+        1 -> R.drawable.dino_badge_argentinosaurus
+        2 -> R.drawable.dino_badge_brontosaurus
+        3 -> R.drawable.dino_badge_dilophosaurus
+        4 -> R.drawable.dino_badge_giganotosaurus
+        5 -> R.drawable.dino_badge_leedsichthys
+        6 -> R.drawable.dino_badge_mosasaurus
+        7 -> R.drawable.dino_badge_pteranodon
+        8 -> R.drawable.dino_badge_quetzalcoatlus
+        9 -> R.drawable.dino_badge_spinosaurus
+        10 -> R.drawable.dino_badge_stegasaurus
+        11 -> R.drawable.dino_badge_therizinosaurus
+        12 -> R.drawable.dino_badge_triceratops
+        13 -> R.drawable.dino_badge_trex
+        14 -> R.drawable.dino_badge_velociraptor
         else -> R.drawable.profile_icon
     }
 }

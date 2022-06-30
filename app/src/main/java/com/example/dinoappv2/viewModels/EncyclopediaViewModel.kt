@@ -1,58 +1,38 @@
 package com.example.dinoappv2.viewModels
 
+import android.util.Log
 import androidx.lifecycle.*
-import com.example.dinoappv2.BottomNavRepository
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class EncyclopediaViewModel (repository: BottomNavRepository): ViewModel() {
+class EncyclopediaViewModel : ViewModel() {
 
-    private lateinit var originalDinoList: List<DinosaurEncyclopedia>
+    private var originalDinoList = listOf<DinosaurEncyclopedia>()
 
-    private val _allDinos = MutableLiveData<List<DinosaurEncyclopedia>>()
-    val allDinos: LiveData<List<DinosaurEncyclopedia>>
-        get() = _allDinos
+    private val _filteredDinos = MutableLiveData<List<DinosaurEncyclopedia>>()
+    val filteredDinos: LiveData<List<DinosaurEncyclopedia>>
+        get() = _filteredDinos
+
+    fun setDinoData(dinos: List<DinosaurEncyclopedia>) {
+        originalDinoList = dinos
+        _filteredDinos.value = dinos
+    }
 
     /** lets the user search through the dinosaurs in the encyclopedia **/
     fun filterDinosaurData(text: String?): Boolean {
 
         //if there is nothing typed in display all the dinos
-        if(text == null || text == "") {
-            _allDinos.value = originalDinoList
+        if (text == null || text == "") {
+            _filteredDinos.value = originalDinoList
             return false
         }
 
         //return the dinos that match the start of the inputted text (not case sensitive)
         val length = text.length
-        _allDinos.postValue(
+        _filteredDinos.value =
             originalDinoList.filter { dino ->
                 dino.name.take(length).lowercase() == text
             }
-        )
+
         return true
-    }
-
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
-            //getting data from flow
-            repository.getDinosaurData().collect {
-                _allDinos.postValue(it)
-                originalDinoList = it
-            }
-        }
-    }
-
-}
-
-class EncyclopediaViewModelFactory(
-    private val repository: BottomNavRepository
-) : ViewModelProvider.Factory {
-    @Suppress("unchecked_cast")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(EncyclopediaViewModel::class.java)) {
-            return EncyclopediaViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

@@ -106,6 +106,15 @@
                 android:scaleType="centerCrop"/>
 
             <ImageView
+                android:id="@+id/jungle_background_lock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000"
+                android:visibility="gone"
+                android:clickable="true"
+                android:src="@drawable/lock_icon"/>
+
+            <ImageView
                 android:id="@+id/jungle_background_check"
                 android:layout_width="134dp"
                 android:layout_height="134dp"
@@ -150,6 +159,15 @@
                 android:layout_height="100dp"
                 android:src="@drawable/background_water"
                 android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/ocean_background_lock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000"
+                android:visibility="gone"
+                android:clickable="true"
+                android:src="@drawable/lock_icon"/>
 
             <ImageView
                 android:id="@+id/ocean_background_check"
@@ -197,6 +215,15 @@
                 android:layout_height="100dp"
                 android:src="@drawable/background_air"
                 android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/sky_background_lock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000"
+                android:visibility="gone"
+                android:clickable="true"
+                android:src="@drawable/lock_icon"/>
 
             <ImageView
                 android:id="@+id/sky_background_check"
