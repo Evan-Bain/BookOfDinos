@@ -1,17 +1,167 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
+    <style name="AppBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <item name="colorSecondary">@color/secondaryColor</item>
+
+        <item name="android:fontFamily">@font/fredoka_one</item>
+        <item name="fillerSquareOutlineColor">@color/primaryLightColor</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="DefaultStyle" parent="AppBaseTheme" >
+
         <item name="colorPrimary">@color/primaryLightColor</item>
         <item name="colorPrimaryVariant">@color/primaryColor</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/secondaryLightColor</item>
-        <item name="colorSecondaryVariant">@color/secondaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/primaryLightColor</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/open_sans_semibold</item>
+
+        <item name="buttonColor">@color/primaryLightColor</item>
+
+        <item name="bodyTextStyle">@style/BodyTextDefaultDarkStyle</item>
+        <item name="freeBodyTextStyle">@style/FreeBodyTextDefaultDarkStyle</item>
+        <item name="headerTextStyle">@style/HeaderTextDefaultDarkStyle</item>
+        <item name="infoTextStyle">@style/InfoTextDefaultDarkStyle</item>
+        <item name="quizTextStyle">@style/QuizTextDefaultDarkStyle</item>
+
+        <item name="homeOutlineColor">@color/primaryLightColor</item>
+        <item name="thinBorderSolidColor">#00000000</item>
+        <item name="thinBorderStrokeWidth">4dp</item>
+        <item name="thinBorderStrokeColor">@color/primaryLightColor</item>
+        <item name="toolbarStartGradientColor">@color/primaryLightColor</item>
+        <item name="toolbarCenterGradientColor">@color/primaryLightColor</item>
+        <item name="toolbarEndGradientColor">#5060ad5e</item>
+
+        <item name="quizBackgroundColor">#9560ad5e</item>
+        <item name="defaultProfileImageColor">#90FFFFFF</item>
+        <item name="progressBarBackgroundColor">#00000000</item>
+        <item name="checkCircleColor">@color/primaryLightColor</item>
     </style>
+
+    <style name="LandStyle" parent="AppBaseTheme">
+
+        <item name="colorPrimary">@color/primaryLightColor</item>
+        <item name="colorPrimaryVariant">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/secondaryLightColor</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="buttonColor">@color/primaryColor</item>
+
+        <item name="bottomNavigationStyle">@style/BottomNavStyle</item>
+
+        <item name="homeOutlineColor">@color/primaryLightColor</item>
+        <item name="bodyTextStyle">@style/BodyTextLandStyle</item>
+        <item name="freeBodyTextStyle">@style/FreeBodyTextLandStyle</item>
+        <item name="headerTextStyle">@style/HeaderTextLandStyle</item>
+        <item name="infoTextStyle">@style/InfoTextLandStyle</item>
+        <item name="quizTextStyle">@style/QuizTextLandStyle</item>
+
+        <item name="thinBorderSolidColor">@color/primaryLightColor</item>
+        <item name="thinBorderStrokeColor">@color/secondaryLightColor</item>
+        <item name="thinBorderStrokeWidth">4dp</item>
+        <item name="toolbarStartGradientColor">@color/primaryLightColor</item>
+        <item name="toolbarCenterGradientColor">@color/primaryLightColor</item>
+        <item name="toolbarEndGradientColor">#5060ad5e</item>
+
+        <item name="quizBackgroundColor">@color/primaryLightColor</item>
+        <item name="defaultProfileImageColor">#90000000</item>
+        <item name="progressBarBackgroundColor">@color/secondaryLightColor</item>
+        <item name="checkCircleColor">#ffff52</item>
+
+        <item name="android:windowBackground">@drawable/background_land</item>
+    </style>
+
+    <style name="WaterStyle" parent="AppBaseTheme">
+
+        <item name="colorPrimary">#29b6f6</item>
+        <item name="colorPrimaryVariant">#4fc3f7</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">#9575cd</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="buttonColor">?attr/colorPrimary</item>
+
+        <item name="bottomNavigationStyle">@style/BottomNavStyle</item>
+
+        <item name="homeOutlineColor">?attr/colorPrimary</item>
+        <item name="bodyTextStyle">@style/BodyTextWaterStyle</item>
+        <item name="freeBodyTextStyle">@style/FreeBodyTextWaterStyle</item>
+        <item name="headerTextStyle">@style/HeaderTextWaterStyle</item>
+        <item name="infoTextStyle">@style/InfoTextWaterStyle</item>
+        <item name="quizTextStyle">@style/QuizTextWaterStyle</item>
+
+        <item name="thinBorderSolidColor">?attr/colorPrimaryVariant</item>
+        <item name="thinBorderStrokeColor">?attr/colorSecondary</item>
+        <item name="thinBorderStrokeWidth">4dp</item>
+        <item name="toolbarStartGradientColor">?attr/colorPrimaryVariant</item>
+        <item name="toolbarCenterGradientColor">?attr/colorPrimaryVariant</item>
+        <item name="toolbarEndGradientColor">#504fc3f7</item>
+
+        <item name="quizBackgroundColor">?attr/colorPrimaryVariant</item>
+        <item name="defaultProfileImageColor">#90000000</item>
+        <item name="progressBarBackgroundColor">?attr/colorSecondary</item>
+        <item name="checkCircleColor">?attr/colorSecondary</item>
+
+        <item name="android:windowBackground">@drawable/background_water</item>
+    </style>
+
+    <style name="SkyStyle" parent="AppBaseTheme">
+
+        <item name="colorPrimary">#4fc3f7</item>
+        <item name="colorPrimaryVariant">#80d8ff</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">#b39ddb</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="buttonColor">?attr/colorPrimary</item>
+
+        <item name="bottomNavigationStyle">@style/BottomNavStyle</item>
+
+        <item name="bodyTextStyle">@style/BodyTextSkyStyle</item>
+        <item name="freeBodyTextStyle">@style/FreeBodyTextSkyStyle</item>
+        <item name="headerTextStyle">@style/HeaderTextSkyStyle</item>
+        <item name="infoTextStyle">@style/InfoTextSkyStyle</item>
+        <item name="quizTextStyle">@style/QuizTextSkyStyle</item>
+
+        <item name="homeOutlineColor">?attr/colorPrimary</item>
+        <item name="thinBorderSolidColor">?attr/colorPrimaryVariant</item>
+        <item name="thinBorderStrokeColor">?attr/colorSecondary</item>
+        <item name="thinBorderStrokeWidth">4dp</item>
+        <item name="toolbarStartGradientColor">?attr/colorPrimaryVariant</item>
+        <item name="toolbarCenterGradientColor">?attr/colorPrimaryVariant</item>
+        <item name="toolbarEndGradientColor">#504fc3f7</item>
+
+        <item name="quizBackgroundColor">?attr/colorPrimaryVariant</item>
+        <item name="defaultProfileImageColor">#90000000</item>
+        <item name="progressBarBackgroundColor">?attr/colorSecondary</item>
+        <item name="checkCircleColor">?attr/colorSecondary</item>
+
+        <item name="android:windowBackground">@drawable/background_sky</item>
+    </style>
+
+    <style name="SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/dino_badge_trex</item>
+    </style>
+
+    <style name="SplashScreen.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="SplashScreen.AppWidgetContainer" parent="SplashScreen.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
+    </style>
+
 </resources>

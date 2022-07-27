@@ -14,11 +14,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.dinoappv2.EncyclopediaRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.ProfileAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
-import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databases.ProfileImageDatabase
 import com.example.dinoappv2.databases.WidgetDataDatabase
 import com.example.dinoappv2.databinding.FragmentProfileBinding
@@ -41,6 +39,7 @@ class ProfileFragment : Fragment() {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
 
         val profileDataSource = ProfileImageDatabase.getInstance(requireContext())
             .profileImageDao
@@ -76,6 +75,7 @@ class ProfileFragment : Fragment() {
         if(findNavController().previousBackStackEntry?.destination?.id == R.id.profile_edit_fragment) {
             enterTransition = MaterialFadeThrough()
             exitTransition = MaterialFadeThrough()
+            reenterTransition = MaterialFadeThrough()
         }
 
         lifecycleScope.launch {
@@ -87,7 +87,7 @@ class ProfileFragment : Fragment() {
                         when(backgroundImage) {
                             0 -> R.drawable.background_land
                             1 -> R.drawable.background_water
-                            2 -> R.drawable.background_air
+                            2 -> R.drawable.background_sky
                             else -> {
                                 binding.backgroundImage.visibility = View.GONE
                                 0
@@ -104,6 +104,11 @@ class ProfileFragment : Fragment() {
 
         //navigates to SelectBackgroundImage when background image preview is selected
         binding.backgroundImagePreview.setOnClickListener {
+
+            //change transition from MaterialFade
+            exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true)
+            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
+
             findNavController().navigate(R.id.select_background_fragment)
         }
 
@@ -138,7 +143,6 @@ class ProfileFragment : Fragment() {
             val allDinos = ArrayList(sharedViewModel.dinosaurData.value!!)
             allDinos.add(0, DinosaurEncyclopedia(
                 -1,
-                "",
                 R.drawable.profile_icon,
                 0,
                 0,

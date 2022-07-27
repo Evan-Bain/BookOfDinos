@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionGroup="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/mesozoic_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?attr/headerTextStyle"
+                android:textSize="32sp"
+                android:text="@string/mesozoic_era"
+                android:textAlignment="center"
+                android:layout_marginTop="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="@drawable/thick_border">
+
+                <TextView
+                    android:id="@+id/mesozoic_period_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?attr/headerTextStyle"
+                    android:textSize="24sp"
+                    android:textAlignment="center"
+                    android:text="@string/time_period" />
+
+                <TextView
+                    android:id="@+id/mesozoic_period_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    style="?attr/freeBodyTextStyle"
+                    android:textAlignment="center"
+                    android:text="@string/_252to66_million_years_ago" />
+
+                <TextView
+                    android:id="@+id/mesozoic_meaning_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?attr/headerTextStyle"
+                    android:textSize="24sp"
+                    android:textAlignment="center"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/meaning" />
+
+                <TextView
+                    android:id="@+id/mesozoic_meaning_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    style="?attr/freeBodyTextStyle"
+                    android:textAlignment="center"
+                    android:text="@string/middle_life" />
+
+                <TextView
+                    android:id="@+id/mesozoic_nickname_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?attr/headerTextStyle"
+                    android:textSize="24sp"
+                    android:textAlignment="center"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/nickname" />
+
+                <TextView
+                    android:id="@+id/mesozoic_nickname_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    style="?attr/freeBodyTextStyle"
+                    android:textAlignment="center"
+                    android:text="@string/age_of_dinosaurs" />
+
+                <TextView
+                    android:id="@+id/mesozoic_periods_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fredoka_one"
+                    android:textSize="24sp"
+                    style="?attr/headerTextStyle"
+                    android:textAlignment="center"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/periods" />
+
+                <TextView
+                    android:id="@+id/mesozoic_periods_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    style="?attr/freeBodyTextStyle"
+                    android:textAlignment="center"
+                    android:text="@string/triassic_jurassic_cretaceous" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mesozoic_text"
+                style="?attr/bodyTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/thin_border"
+                android:paddingStart="32dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="32dp"
+                android:paddingBottom="16dp"
+                android:text="@string/mesozoic_info_text"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                tools:ignore="TextContrastCheck" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/dinosaur_eras_card"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/age_of_dinosaurs_image_desc"
+                    android:src="@drawable/dinosaur_eras" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_card_outline"/>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                style="?attr/headerTextStyle"
+                android:text="@string/triassic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                style="?attr/headerTextStyle"
+                android:text="@string/_252to201_million_years_ago"/>
+
+            <TextView
+                android:id="@+id/triassic_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/thin_border"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="32dp"
+                style="?attr/bodyTextStyle"
+                android:fontFamily="@font/open_sans_semibold"
+                android:paddingEnd="32dp"
+                android:textAlignment="center"
+                android:text="@string/triassic_info_text"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                style="?attr/headerTextStyle"
+                android:text="@string/jurassic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                style="?attr/headerTextStyle"
+                android:text="@string/_201to145_million_years_ago"/>
+
+            <TextView
+                android:id="@+id/jurassic_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/thin_border"
+                android:paddingTop="16dp"
+                style="?attr/bodyTextStyle"
+                android:paddingBottom="16dp"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:textAlignment="center"
+                android:text="@string/jurassic_info_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                style="?attr/headerTextStyle"
+                android:text="@string/cretaceous"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                style="?attr/headerTextStyle"
+                android:text="@string/_145to66_million_years_ago"/>
+
+            <TextView
+                android:id="@+id/cretaceous_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/thin_border"
+                android:paddingTop="16dp"
+                style="?attr/bodyTextStyle"
+                android:paddingBottom="16dp"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:textAlignment="center"
+                android:text="@string/cretaceous_info_text"/>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

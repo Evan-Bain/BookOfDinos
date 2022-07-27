@@ -793,8 +793,11 @@
       android:strokeAlpha="0.29"
       android:fillColor="#1a1a1a"
       android:fillAlpha="0.29"/>
-  <path
+    <path
+        android:pathData="M500,0C223.86,0 0,223.86 0,500s223.86,500 500,500 500,-223.86 500,-500S776.14,0 500,0ZM500,921.05c-232.54,0 -421,-188.51 -421,-421S267.46,79 500,79 921.05,267.46 921.05,500 732.54,921.05 500,921.05Z"
+        android:fillColor="@color/secondaryColor"/>
+    <path
       android:pathData="M500,0C223.9,0 0,223.9 0,500s223.9,500 500,500 500,-223.9 500,-500S776.1,0 500,0ZM500,921c-232.5,0 -421,-188.5 -421,-421S267.5,78.9 500,78.9s421,188.5 421,421 -188.5,421 -421,421Z"
-      android:fillColor="#ffd600"/>
+      android:fillColor="?attr/colorSecondary"/>
   </group>
 </vector>

@@ -58,16 +58,19 @@
                     android:fontFamily="@font/fredoka_one"
                     android:text="@string/lived"
                     android:textSize="22sp"
+                    style="?headerTextStyle"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/lived_fact_text"
+                    style="?freeBodyTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@id/lived_fact_title"
                     app:layout_constraintTop_toBottomOf="@id/lived_fact_title"
+                    tools:ignore="TextContrastCheck"
                     tools:text="66 million years ago" />
                 <!-- YEARS AGO LIVED FACT -->
 
@@ -77,19 +80,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/fredoka_one"
                     android:text="@string/speed_title"
+                    android:fontFamily="@font/fredoka_one"
+                    style="?headerTextStyle"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
                     app:layout_constraintTop_toBottomOf="@id/lived_fact_text" />
 
                 <TextView
                     android:id="@+id/speed_fact_text"
+                    style="?freeBodyTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@id/speed_fact_title"
                     app:layout_constraintTop_toBottomOf="@id/speed_fact_title"
+                    tools:ignore="TextContrastCheck"
                     tools:text="6 miles per hour" />
                 <!-- SPEED FACT -->
 
@@ -99,7 +105,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/fredoka_one"
+                    tools:fontFamily="@font/fredoka_one"
+                    style="?headerTextStyle"
                     android:text="@string/meaning_of_name"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
@@ -107,11 +114,13 @@
 
                 <TextView
                     android:id="@+id/name_fact_text"
+                    style="?freeBodyTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@id/name_fact_title"
                     app:layout_constraintTop_toBottomOf="@id/name_fact_title"
+                    tools:ignore="TextContrastCheck"
                     tools:text="Fused lizard" />
                 <!-- MEANING OF NAME FACT -->
 
@@ -121,7 +130,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/fredoka_one"
-                    android:text="Story"
+                    style="?headerTextStyle"
+                    android:text="@string/story"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -135,6 +145,7 @@
                     android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:layout_marginTop="16dp"
+                    android:padding="4dp"
                     android:background="@drawable/thin_border"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
                     app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
@@ -151,6 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textAlignment="center"
+                        style="?attr/bodyTextStyle"
                         android:textSize="20sp"
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
@@ -193,6 +205,7 @@
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="16dp"
                             android:fontFamily="@font/fredoka_one"
+                            style="?headerTextStyle"
                             android:text="@string/habitat"
                             android:textSize="20sp" />
 
@@ -200,6 +213,7 @@
                             android:id="@+id/habitat_drop_button"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
+                            android:contentDescription="@string/habitat_drop_down_image_desc"
                             android:layout_gravity="center|end"
                             android:src="@drawable/drop_down_arrow_down" />
 
@@ -217,6 +231,7 @@
                             android:id="@+id/habitat_text"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            style="?attr/bodyTextStyle"
                             android:background="@drawable/thin_border"
                             android:padding="16dp"
                             android:textSize="16sp" />
@@ -252,6 +267,7 @@
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="16dp"
                             android:fontFamily="@font/fredoka_one"
+                            style="?headerTextStyle"
                             android:text="@string/crazy_evolution"
                             android:textSize="20sp" />
 
@@ -259,6 +275,7 @@
                             android:id="@+id/crazy_evolution_drop_button"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
+                            android:contentDescription="@string/evolution_drop_down_image_desc"
                             android:layout_gravity="center|end"
                             android:src="@drawable/drop_down_arrow_down" />
 
@@ -276,23 +293,13 @@
                             android:id="@+id/crazy_evolution_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            style="?attr/bodyTextStyle"
                             android:background="@drawable/thin_border"
                             android:padding="16dp"
                             android:textSize="16sp" />
                     </FrameLayout>
 
                 </androidx.constraintlayout.motion.widget.MotionLayout>
-
-                <View
-                    android:id="@+id/background_mask"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:clickable="true"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!-- Motion layout used to reveal the text of the article section with a top to bottom
                      expanding transition (Fossil History) -->
@@ -323,6 +330,7 @@
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="16dp"
                             android:fontFamily="@font/fredoka_one"
+                            style="?headerTextStyle"
                             android:text="@string/fossil_history"
                             android:textSize="20sp" />
 
@@ -331,6 +339,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center|end"
+                            android:contentDescription="@string/fossil_drop_down_image_desc"
                             android:src="@drawable/drop_down_arrow_down" />
 
                     </FrameLayout>
@@ -347,13 +356,14 @@
                             android:id="@+id/fossil_history_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            style="?attr/bodyTextStyle"
                             android:background="@drawable/thin_border"
                             android:padding="16dp"
                             android:textSize="16sp" />
                     </FrameLayout>
                 </androidx.constraintlayout.motion.widget.MotionLayout>
 
-                <!-- Button used to activate quiz for the app (CURRENTLY DOES NOTHING) -->
+                <!-- Button used to activate quiz for the app -->
                 <Button
                     android:id="@+id/quiz_button"
                     style="@style/classicButton"
@@ -365,6 +375,18 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
                     app:layout_constraintTop_toBottomOf="@id/fossil_motion_layout" />
+
+                <View
+                    android:id="@+id/background_mask"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -374,29 +396,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:layout_margin="16dp"
-            tools:visibility="gone"
-            android:backgroundTint="@color/primaryLightColor"
+            android:backgroundTint="?attr/quizBackgroundColor"
             app:cardCornerRadius="16dp">
 
             <!-- motion layout for quiz -->
             <androidx.constraintlayout.motion.widget.MotionLayout
                 android:id="@+id/quiz_motion_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:layoutDescription="@xml/fragment_dino_article_scene">
 
                 <!-- title of quiz (dino name + Quiz) -->
                 <TextView
                     android:id="@+id/quiz_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/fredoka_one"
-                    android:textColor="#002517"
+                    style="?attr/quizTextStyle"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@id/quiz_question"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="T-Rex Quiz" />
@@ -405,15 +426,14 @@
                 <TextView
                     android:id="@+id/quiz_question"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
                     android:fontFamily="@font/fredoka_one"
                     android:text="@{viewModel.quizQuestion}"
-                    android:textColor="#002517"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toTopOf="@id/quiz_radio_group"
+                    style="?attr/quizTextStyle"
                     app:layout_constraintStart_toStartOf="@id/quiz_title"
                     app:layout_constraintTop_toBottomOf="@id/quiz_title"
                     tools:text="How strong is the T-Rex's bite force?" />
@@ -422,12 +442,11 @@
                 <RadioGroup
                     android:id="@+id/quiz_radio_group"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:onCheckedChanged="@{(v, i) -> viewModel.setRadioButtonClicked(i)}"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@id/quiz_question"
                     app:layout_constraintTop_toBottomOf="@id/quiz_question">
 
@@ -435,53 +454,49 @@
                         android:id="@+id/quiz_radio_button_0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/fredoka_one"
                         android:text="@{viewModel.firstAnswer}"
-                        android:textColor="#002517"
+                        style="?attr/quizTextStyle"
                         tools:text="900 pounds" />
 
                     <RadioButton
                         android:id="@+id/quiz_radio_button_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/fredoka_one"
                         android:text="@{viewModel.secondAnswer}"
-                        android:textColor="#002517"
+                        style="?attr/quizTextStyle"
                         tools:text="12,800 pounds" />
 
                     <RadioButton
                         android:id="@+id/quiz_radio_button_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/fredoka_one"
                         android:text="@{viewModel.thirdAnswer}"
-                        android:textColor="#002517"
+                        style="?attr/quizTextStyle"
                         tools:text="100,000 pounds" />
 
                     <RadioButton
                         android:id="@+id/quiz_radio_button_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/fredoka_one"
                         android:text="@{viewModel.fourthAnswer}"
-                        android:textColor="#002517"
+                        style="?attr/quizTextStyle"
                         tools:text="55,600 pounds" />
                 </RadioGroup>
 
                 <!-- button to submit answer -->
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/quiz_finish_button"
                     style="@style/classicButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:enabled="@{viewModel.nextButtonEnabled}"
                     android:fontFamily="@font/fredoka_one"
-                    android:onClick="@{() -> viewModel.nextButtonClicked()}"
+                    android:onClick="@{() -> viewModel.nextButtonClicked(-1)}"
                     android:text="@string/next"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/quiz_radio_group"
                     app:layout_constraintEnd_toEndOf="parent" />
                 <!-- quiz layout -->
 
@@ -495,7 +510,7 @@
                     android:fontFamily="@font/fredoka_one"
                     android:paddingTop="16dp"
                     android:text="@{viewModel.resultMessageText}"
-                    android:textColor="#002517"
+                    style="?attr/quizTextStyle"
                     android:textSize="32sp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@id/quiz_result_text"
@@ -509,7 +524,7 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
                     android:text="@{viewModel.resultText}"
-                    android:textColor="#002517"
+                    style="?attr/quizTextStyle"
                     android:textSize="32sp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@id/quiz_percent_text"
@@ -523,7 +538,7 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
                     android:text="@{viewModel.percentText}"
-                    android:textColor="#002517"
+                    style="?attr/quizTextStyle"
                     android:textSize="32sp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -537,8 +552,9 @@
                     android:layout_height="0dp"
                     android:layout_margin="16dp"
                     android:onClick="@{() -> sharedViewModel.setQuizVisible(false)}"
-                    android:text="Continue"
+                    android:text="@string/continue_quiz_button"
                     android:visibility="gone"
+                    style="@style/classicButton"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/quiz_percent_text" />

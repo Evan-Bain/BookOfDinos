@@ -3,13 +3,12 @@ package com.example.dinoappv2.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.ViewModelProvider
 import com.example.dinoappv2.dataClasses.DictionaryStrings
-import kotlinx.coroutines.launch
 
-class DictionaryViewModel : ViewModel() {
-
-    private lateinit var originalWordList: List<DictionaryStrings>
+class DictionaryViewModel(
+    val originalWordList: List<DictionaryStrings>
+) : ViewModel() {
 
     private val _allWords = MutableLiveData<List<DictionaryStrings>>()
     val allWords: LiveData<List<DictionaryStrings>>
@@ -34,13 +33,16 @@ class DictionaryViewModel : ViewModel() {
 
         return true
     }
+}
 
-    init {
-        viewModelScope.launch {
-            DictionaryStrings.getDictionaryStrings().collect {
-                _allWords.postValue(it)
-                originalWordList = it
-            }
+class DictionaryViewModelFactory(
+    private val originalWordList: List<DictionaryStrings>,
+) : ViewModelProvider.Factory {
+    @Suppress("unchecked_cast")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(DictionaryViewModel::class.java)) {
+            return DictionaryViewModel(originalWordList) as T
         }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="classicButton" parent="Theme.MaterialComponents">
-
-        <item name="cornerRadius">20dp</item>
-        <item name="textAllCaps">true</item>
-        <item name="android:letterSpacing">.1</item>
-
-    </style>
-
     <style name="Widget.DinoAppv2.AppWidget.Container" parent="android:Widget">
         <item name="android:id">@android:id/background</item>
         <item name="android:background">?android:attr/colorBackground</item>
@@ -18,5 +10,159 @@
         <item name="android:background">?android:attr/colorBackground</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
+
+    <style name="classicButton" parent="Theme.MaterialComponents">
+        <item name="fontFamily">@font/fredoka_one</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="textAllCaps">true</item>
+        <item name="backgroundTint">?attr/buttonColor</item>
+        <item name="android:letterSpacing">.1</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="ToolbarStyle" parent="Widget.Design.CollapsingToolbar" >
+        <item name="expandedTitleTextAppearance">@style/ToolbarFontStyle</item>
+        <item name="collapsedTitleTextAppearance">@style/ToolbarFontStyle</item>
+    </style>
+
+    <style name="ToolbarFontStyle" >
+        <item name="fontFamily">@font/fredoka_one</item>
+    </style>
+    <!-- Toolbar -->
+
+    <!-- Body Text -->
+    <style name="BodyTextStyle" parent="android:style/Widget.TextView">
+        <item name="fontFamily">@font/open_sans_semibold</item>
+    </style>
+
+    <style name="BodyTextDefaultStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#98002517</item>
+    </style>
+
+    <style name="BodyTextDefaultDarkStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#98FFFFFF</item>
+    </style>
+
+    <style name="BodyTextLandStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#99FFFFFF</item>
+    </style>
+
+    <style name="BodyTextWaterStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#99FFFFFF</item>
+    </style>
+
+    <style name="BodyTextSkyStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#99FFFFFF</item>
+    </style>
+    <!-- Body Text -->
+
+    <!-- Free Body Text -->
+    <style name="FreeBodyTextDefaultStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#98002517</item>
+    </style>
+
+    <style name="FreeBodyTextDefaultDarkStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#95FFFFFF</item>
+    </style>
+
+    <style name="FreeBodyTextLandStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="FreeBodyTextWaterStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="FreeBodyTextSkyStyle" parent="@style/BodyTextStyle">
+        <item name="android:textColor">#000000</item>
+    </style>
+    <!-- Free Body Text -->
+
+    <!-- Header Text -->
+    <style name="HeaderTextStyle" parent="android:style/Widget.TextView" >
+        <item name="android:fontFamily">@font/fredoka_one</item>
+    </style>
+
+    <style name="HeaderTextDefaultStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#99005005</item>
+    </style>
+
+    <style name="HeaderTextDefaultDarkStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#90FFFFFF</item>
+    </style>
+
+    <style name="HeaderTextLandStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="HeaderTextWaterStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="HeaderTextSkyStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#2A7AB0</item>
+    </style>
+    <!-- Header Text -->
+
+    <!-- Quiz Text -->
+    <style name="QuizTextStyle" parent="android:style/Widget.TextView" >
+        <item name="android:fontFamily">@font/fredoka_one</item>
+    </style>
+
+    <style name="QuizTextDefaultStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#005005</item>
+    </style>
+
+    <style name="QuizTextDefaultDarkStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#90FFFFFF</item>
+    </style>
+
+    <style name="QuizTextLandStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#005005</item>
+    </style>
+
+    <style name="QuizTextWaterStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="QuizTextSkyStyle" parent="@style/HeaderTextStyle" >
+        <item name="android:textColor">#2A7AB0</item>
+    </style>
+    <!-- Quiz Text -->
+
+
+    <!-- Profile Info Text -->
+    <style name="InfoTextStyle" parent="android:style/Widget.TextView" >
+        <item name="android:fontFamily">@font/fredoka_one</item>
+    </style>
+    <!-- Quiz Radio Button -->
+
+    <style name="InfoTextDefaultStyle" parent="@style/InfoTextStyle" >
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="InfoTextDefaultDarkStyle" parent="@style/InfoTextStyle" >
+        <item name="android:textColor">#95FFFFFF</item>
+    </style>
+
+    <style name="InfoTextLandStyle" parent="@style/InfoTextStyle" >
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="InfoTextWaterStyle" parent="@style/InfoTextStyle" >
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="InfoTextSkyStyle" parent="@style/InfoTextStyle" >
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!-- Profile Info Text -->
+
+
+    <!-- BottomNavView -->
+    <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored" >
+        <item name="fontFamily">@font/fredoka_one</item>
+    </style>
+    <!-- BottomNavView -->
 
 </resources>

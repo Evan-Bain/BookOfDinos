@@ -55,7 +55,7 @@ fun Int.toResourceId(dinoBadge: Boolean): Int {
             R.drawable.fb_spinosaurus
         }
         10 -> {
-            if(dinoBadge) return R.drawable.dino_badge_stegasaurus
+            if(dinoBadge) return R.drawable.dino_badge_stegosaurus
             R.drawable.fb_stegosaurus
         }
         11 -> {
@@ -63,12 +63,12 @@ fun Int.toResourceId(dinoBadge: Boolean): Int {
             R.drawable.fb_therizinosaurus
         }
         12 -> {
-            if(dinoBadge) return R.drawable.dino_badge_trex
-            R.drawable.fb_t_rex
-        }
-        13 -> {
             if(dinoBadge) return R.drawable.dino_badge_triceratops
             R.drawable.fb_triceratops
+        }
+        13 -> {
+            if(dinoBadge) return R.drawable.dino_badge_trex
+            R.drawable.fb_trex
         }
         14 -> {
             if(dinoBadge) return R.drawable.dino_badge_velociraptor

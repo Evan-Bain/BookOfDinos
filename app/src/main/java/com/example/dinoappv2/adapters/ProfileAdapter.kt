@@ -34,8 +34,14 @@ class ProfileAdapter(
             //sets image to grayscale if not unlocked
             //ADD FB IMAGES TOO FOR GRAYSCALE/COLOR
             with(binding) {
-                dinoNameProfile.text =
+                val dinoName =
                     context.resources.getStringArray(R.array.dinosaur_names_array)[data.position]
+                val dinoBadgeName =
+                    context.resources.getStringArray(R.array.dinosaur_badge_names_array)[data.position]
+
+                dinoNameProfile.text = dinoName
+                dinoFbProfile.contentDescription = dinoName
+                dinoBadgeProfile.contentDescription = dinoBadgeName
 
                 if(data.activated) {
                     //dinoBadge image
@@ -92,10 +98,8 @@ class ProfileAdapter(
         }
 
         if(associatedWidget != null) {
-            //image is already a widget (add: check mark, green background, & non-clickable)
 
-            backgroundTintList =
-                AppCompatResources.getColorStateList(context, R.color.primaryLightColor)
+            //image is already a widget (add: check mark & non-clickable)
             setImageResource(R.drawable.check_icon)
             isClickable = false
         } else {

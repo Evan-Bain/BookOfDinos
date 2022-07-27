@@ -1,23 +1,300 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="home">Book of Dinos</string>
+
+    <string name="app_name">Book of Dinos</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="encyclopedia">Encyclopedia</string>
     <string name="test">test</string>
     <string name="search">Search</string>
 
-    <!--Dinosaur names-->
-    <string name="ankylosaurus">Ankylosaurus</string>
-    <string name="brontosaurus">Brontosaurus</string>
-    <string name="dilophosaurus">Dilophosaurus</string>
-    <string name="mosasaurus">Mosasaurus</string>
-    <string name="pterodactyl">Pterodactyl</string>
-    <string name="spinosaurus">Spinosaurus</string>
-    <string name="stegosaurus">Stegosaurus</string>
-    <string name="t_rex">T-Rex</string>
-    <string name="triceratops">Triceratops</string>
-    <string name="velociraptor">Velociraptor</string>
-    <!--Dinosaur names-->
+    <string-array name="dinosaur_names_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>Ankylosaurus</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>Argentinosaurus</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Brontosaurus</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>Dilophosaurus</item>
+
+        <!-- Giganotosaurus -->
+        <item>Giganotosaurus</item>
+
+        <!-- Leedsichthys -->
+        <item>Leedsichthys</item>
+
+        <!-- Mosasaurus -->
+        <item>Mosasaurus</item>
+
+        <!-- Pteranodon -->
+        <item>Pteranodon</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>Quetzalcoatlus</item>
+
+        <!-- Spinosaurus -->
+        <item>Spinosaurus</item>
+
+        <!-- Stegosaurus -->
+        <item>Stegosaurus</item>
+
+        <!-- Therizinosaurus -->
+        <item>Therizinosaurus</item>
+
+        <!-- Triceratops -->
+        <item>Triceratops</item>
+
+        <!-- T-Rex -->
+        <item>T-Rex</item>
+
+        <!-- Velociraptor -->
+        <item>Velociraptor</item>
+    </string-array>
+
+    <string-array name="dinosaur_badge_names_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>Ankylosaurus Badge</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>Argentinosaurus Badge</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Brontosaurus Badge</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>Dilophosaurus Badge</item>
+
+        <!-- Giganotosaurus -->
+        <item>Giganotosaurus Badge</item>
+
+        <!-- Leedsichthys -->
+        <item>Leedsichthys Badge</item>
+
+        <!-- Mosasaurus -->
+        <item>Mosasaurus Badge</item>
+
+        <!-- Pteranodon -->
+        <item>Pteranodon Badge</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>Quetzalcoatlus Badge</item>
+
+        <!-- Spinosaurus -->
+        <item>Spinosaurus Badge</item>
+
+        <!-- Stegosaurus -->
+        <item>Stegosaurus Badge</item>
+
+        <!-- Therizinosaurus -->
+        <item>Therizinosaurus Badge</item>
+
+        <!-- Triceratops -->
+        <item>Triceratops Badge</item>
+
+        <!-- T-Rex -->
+        <item>T-Rex Badge</item>
+
+        <!-- Velociraptor -->
+        <item>Velociraptor Badge</item>
+    </string-array>
+
+    <string-array name="quiz_names_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>Ankylosaurus Quiz</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>Argentinosaurus Quiz</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Brontosaurus Quiz</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>Dilophosaurus Quiz</item>
+
+        <!-- Giganotosaurus -->
+        <item>Giganotosaurus QUiz</item>
+
+        <!-- Leedsichthys -->
+        <item>Leedsichthys Quiz</item>
+
+        <!-- Mosasaurus -->
+        <item>Mosasaurus Quiz</item>
+
+        <!-- Pteranodon -->
+        <item>Pteranodon Quiz</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>Quetzalcoatlus Quiz</item>
+
+        <!-- Spinosaurus -->
+        <item>Spinosaurus Quiz</item>
+
+        <!-- Stegosaurus -->
+        <item>Stegosaurus Quiz</item>
+
+        <!-- Therizinosaurus -->
+        <item>Therizinosaurus Quiz</item>
+
+        <!-- Triceratops -->
+        <item>Triceratops Quiz</item>
+
+        <!-- T-Rex -->
+        <item>T-Rex Quiz</item>
+
+        <!-- Velociraptor -->
+        <item>Velociraptor Quiz</item>
+    </string-array>
+
+    <string-array name="years_facts_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>70 – 66 million years ago</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>97 – 93 million years ago</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>157 – 145 million years ago</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>201 – 174 million years ago</item>
+
+        <!-- Giganotosaurus -->
+        <item>99 – 97 million years ago</item>
+
+        <!-- Leedsichthys -->
+        <item>165 – 145 million years ago</item>
+
+        <!-- Mosasaurus -->
+        <item>82 – 66 million years ago</item>
+
+        <!-- Pteranodon -->
+        <item>100 – 90 million years ago</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>72 – 66 million years ago</item>
+
+        <!-- Spinosaurus -->
+        <item>100 – 95 million years ago</item>
+
+        <!-- Stegosaurus -->
+        <item>150 – 145 million years ago</item>
+
+        <!-- Therizinosaurus -->
+        <item>72 – 68 million years ago</item>
+
+        <!-- Triceratops -->
+        <item>69 – 66 million years ago</item>
+
+        <!-- T-Rex -->
+        <item>68 – 66 million years ago</item>
+
+        <!-- Velociraptor -->
+        <item>74 – 70 million years ago</item>
+    </string-array>
+
+    <string-array name="speed_facts_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>6 miles per hour</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>5 miles per hour</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>19 miles per hour</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>20 miles per hour</item>
+
+        <!-- Giganotosaurus -->
+        <item>31 miles per hour</item>
+
+        <!-- Leedsichthys -->
+        <item>11 miles per hour</item>
+
+        <!-- Mosasaurus -->
+        <item>30 miles per hour</item>
+
+        <!-- Pteranodon -->
+        <item>70 miles per hour</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>80 miles per hour</item>
+
+        <!-- Spinosaurus -->
+        <item>17 miles per hour</item>
+
+        <!-- Stegosaurus -->
+        <item>5 miles per hour</item>
+
+        <!-- Therizinosaurus -->
+        <item>15 miles per hour</item>
+
+        <!-- Triceratops -->
+        <item>20 miles per hour</item>
+
+        <!-- T-Rex -->
+        <item>20 miles per hour</item>
+
+        <!-- Velociraptor -->
+        <item>25 miles per hour</item>
+    </string-array>
+
+    <string-array name="name_meanings_array">
+
+        <!-- #1 Ankylosaurus -->
+        <item>Fused Lizard</item>
+
+        <!-- #2 Argentinosaurus -->
+        <item>Argentina Lizard</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Thunder Lizard</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>Two-Crested Lizard</item>
+
+        <!-- Giganotosaurus -->
+        <item>Giant Southern Lizard</item>
+
+        <!-- Leedsichthys -->
+        <item>Leed\'s Fish</item>
+
+        <!-- Mosasaurus -->
+        <item>Lizard of the Meuse River</item>
+
+        <!-- Pteranodon -->
+        <item>Winged and Toothless</item>
+
+        <!-- Quetzalcoatlus -->
+        <item>Feathered Serpent</item>
+
+        <!-- Spinosaurus -->
+        <item>Spine Lizard</item>
+
+        <!-- Stegosaurus -->
+        <item>Roof Lizard</item>
+
+        <!-- Therizinosaurus -->
+        <item>Scythe Lizard</item>
+
+        <!-- Triceratops -->
+        <item>Three-Horned Lizard</item>
+
+        <!-- T-Rex -->
+        <item>King of the Tyrant Lizards</item>
+
+        <!-- Velociraptor -->
+        <item>Quick Plunderer</item>
+    </string-array>
 
     <string name="dinosaur_image">dinosaur image</string>
     <string name="answer">answer</string>
@@ -30,6 +307,7 @@
     <string name="profile_default">Default</string>
     <string name="select">Select</string>
     <string name="experience_fraction">%1$d/100</string>
+    <string name="dino_badge_position_transition">dino_badge_transition%1$d</string>
     <string name="back_button">back button</string>
     <string name="search_button">search button</string>
     <string name="overflow_menu">overflow menu</string>
@@ -45,20 +323,1473 @@
     <string name="dictionary_of_difficult_words">Dictionary of Difficult Words</string>
     <string name="background">Background:</string>
 
+    <string-array name="story_articles_array">
 
-    <string-array name="dinosaur_articles">
+        <!-- #1 Ankylosaurus-->
+        <item>A baby Ankylosaurus gets distracted from eating and starts following a bug without his mother noticing. Seconds later, the mother hears her baby cry for help after a Bambiraptor jumped out of hiding, and flipped him over. The mother starts charging over. Even though his mother can\'t move fast, the Bambiraptor quickly runs away to find something else for dinner. This predator knows an adult Ankylosaurus could easily break its bones.</item>
 
-        <item>Ankylosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Brontosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Dilophosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Mosasaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Pterodactyl fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Spinosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Stegosaurus fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>T-Rex fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Triceratops fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
-        <item>Velociraptor fasdfasfasdfasdfasdfasfdasfdasfdafsadfasfadsfafdasfadfsadfasfdasdfasdfasfdasdfasfdasdfgdsgfsjghsdgabfhasvafbashbcaghsvascashbcasav asdvasbvaiuvbsdavbuiasdviasdv</item>
+        <!-- #2 Argentinosaurus-->
+        <item>A small dinosaur is drinking from a pond when the water starts to shake, scaring it off. Almost half a mile away, a large herd of dinosaurs, each taller than a 3 story building, are moving their feet slowly, making the ground shake. These giant dinosaurs were Argentinosauruses, and they were very gentle giants.</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>A herd of huge dinosaurs named Brontosaurus walk across an open field towards a forest to eat. These dinosaurs keep their babies close to them as they make this journey. For predators like Allosaurus, it is common to try and kill baby Brontosauruses for dinner. Today, though, the herd made the journey safely. Maybe Allosaurus decided coming close to a herd of dinosaurs taller than a house wasn\'t a good idea.</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>After hunting for hours, the apex predator of the early Jurassic, Dilophosaurus, finds a pack of Ammosauruses. Most predators would wait for an Ammosaurus to get separated from the pack, but not Dilophosaurus. It charges at an Ammosaurus, biting its neck. The Ammosaurus fights to get free from Dilophosaurus, but it keeps its jaws shut tight on its prey\'s neck. By the time the fight ends, all the other dinosaurs have run away, letting Dilophosaurus eat its breakfast in peace.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>A pack of Giganotosauruses runs in a field until they are only a couple hundred meters from a herd of Argentinosauruses, the largest dinosaurs. One member of the pack runs toward the herd and rips flesh off of an Argentinosaurus, then quickly returns. The ground starts shaking while the herd tries to run away. However, the attackers continue to take turns ripping flesh from the same dinosaur. Soon, the injured Argentinosaurus is too hurt to move and becomes dinner for the Giganotosauruses.</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>Deep in the oceans of the Jurassic, a giant fish is swimming with its mouth wide open. This fish has had its mouth open all day, but not because it\'s trying to talk. It is eating tiny plankton that fall into its mouth. This giant fish is the largest fish ever: Leedsichthys.</item>
+
+        <!-- #7 Mosasaurus -->
+        <item>BANG! The ocean\'s apex predator, Mosasaurus, just caught and gobbled down a plesiosaur. It doesn\'t stop hunting, though, and continues into deeper water. The next prey it spots isn\'t just another plesiosaur, but another Mosasaurus. It immediately starts charging forward, beginning a fight to the death. The final bite is landed by the first Mosasaurus when it gets under the other Mosasaurus and bites out its stomach. Nothing in the ocean was safe from Mosasaurus, not even another Mosasaurus. </item>
+
+        <!-- #8 Pteranodon -->
+        <item>A flock of Pteranodons nesting on a beach wake up. The larger male Pteranodons start flying off towards the ocean in search of food. The smaller female Pteranodons stay behind to protect the babies from predators. The male Pteranodons start catching food by flying just above the water and snatching fish with their beaks. After about an hour, the male Pteranodons come back from their hunt to share the fish stored in their beaks. All the Pteranodons in the flock must work together in order to survive in their dangerous world. </item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>A hungry T-Rex is looking for its next prey when it sees a flock of huge pterosaurs walking around a pond. The T-Rex starts running towards the flock, but before the T-Rex even gets close, they jump 8 feet into the air and start flapping their huge wings. As the pterosaurs reach the clouds, they stop flapping their wings and begin to glide while looking for the next safe spot to land. These pterosaurs are called Quetzalcoatluses, and they could continue flying for 12,000 miles.</item>
+
+        <!-- #10 Spinosaurus -->
+        <item>Deep in a river an apex predator is hunting for its prey. Above the water, only a large spine can be seen as it cuts its way through the water. However, below the water a dinosaur longer than two school buses swims forward. A lone shark is spotted by the hunter and within a split second the hunter thrusts forward using its tail to propel through the water. In a matter of seconds, the shark was caught by the largest dinosaur to ever roam planet Earth: Spinosaurus.</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>A hungry stegosaurus is chewing on moss when a just as hungry Allosaurus sprints towards the herbivore ready to chomp down on it. However, the stegosaurus quickly swings its spiked tail at the predator, landing a painful hit on its leg. Only one dinosaur will be eating today, and the other will never mess with a Stegosaurus again.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>As the day starts for a mother and baby Therizinosaurus, the two dinosaurs walk over to a pond. A carnivore bigger than a wolf is already at the pond, but walks off when the two dinosaurs approach. The giant size and claws of the mother scare off any smart dinosaur from trying to hurt her baby. A day in the life of Therizinosaurus was peaceful with almost no predators.</item>
+
+        <!-- #13 Triceratops -->
+        <item>A lonely Triceratops is slowly walking towards a pond when a loud roar is heard off in the distance. The Triceratops faces the roar instead of running away, even though a large T-Rex approaches. This Triceratops is not scared while the T-Rex tries to attack, thanks to a large, boney frill protecting its entire body. Eventually, the T-Rex has to give up and look for food somewhere else, because Triceratops is off the menu!</item>
+
+        <!-- #14 T-Rex -->
+        <item>A T-Rex is about to eat when a powerful roar is heard in the distance. Another T-Rex sees the tasty food on the ground and wants to steal it. The T-Rex that is feeding responds with a roar before the two tyrannosaurs run towards each other. The stealing T-Rex attacks first, but bites too early. The bite misses its target, which lets the other T-Rex bite its opponent\'s neck, killing it instantly. The dead T-Rex falls to the ground as the winning T-Rex roars over the body, showing that he is the apex predator.</item>
+
+        <!-- #15 Velociraptor -->
+        <item>A herd of Protoceratops is moving away from a river, but one dinosaur stays behind to drink more water. It hears a small sound in the ferns next to it, but sees nothing. Just as it is about to leave the river, a dinosaur covered in feathers jumps out of the ferns and lands on it. The Protoceratops tries to move, but the weight of this dinosaur and a large, sickle-shaped claw keep it on the ground. After a few quick bites at the neck, the Protoceratops stops moving. Velociraptor has just caught its food for the day.</item>
+    </string-array>
+
+    <string-array name="habitat_articles_array">
+
+        <!-- #1 Ankylosaurus-->
+        <item>Ankylosaurus lived during the late Cretaceous period in a warm, tropical habitat. Paleontologists guess that this dinosaur had very few predators, but if it did have any predators the mighty T-Rex could have been one. As scary as this dinosaur looked, it was actually an herbivore that ate small plants close to the ground.</item>
+
+        <!-- #2 Argentinosaurus-->
+        <item>Argentinosaurus is the largest land animal ever. This dinosaur may have had no predators, but if it did Giganotosaurus and Mapusaurus could have hunted down this giant when it was younger and smaller. However, it was dangerous and would have been rare to take down a fully grown Argentinosaurus.</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>Brontosaurus was a very large dinosaur, which helped it reach leaves most dinosaurs couldn\'t. The plants this dinosaur ate were usually hard to swallow, so it ate rocks to help digest them. Even though Brontosaurus was very tall, it still had many predators. One of these predators may have been Allosaurus.</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>While Dilophosaurus walked the Earth, it was the largest land animal. Since it was taller than the average human and longer than the average car, it was the apex predator of its time. Dilophosaurus could be found hunting in rainforests and swamps. The food that it ate was most likely small dinosaurs and fish.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>Giganotosaurus was one of the largest carnivores to ever live. Since it was so big, it most likely hunted down large sauropods and maybe even a titanosaur called Argentinosaurus. Giganotosaurus may have hunted these large dinosaurs with a pack.</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>Leedsichthys swam the deep oceans of the late Jurassic with almost no predators. The only creature that may have attacked Leedsichthys was Liopleurodon. Liopleurodon was an apex predator with lots of teeth, but was still only half the size of Leedsichthys. Unfortunately, Leedsichthys didn\'t have any way to defend itself from predators other than scaring them off with its enormous size.</item>
+
+        <!-- #7 Mosasaurus -->
+        <item>Mosasaurus hunted almost anything, including sharks, plesiosaurs, and even other mosasaurs. It was the apex predator of the oceans, meaning that it would only be eaten by other mosasaurs. Even though Mosasaurus lived in the water, it would still have to come to the surface to breathe like whales.</item>
+
+        <!-- #8 Pteranodon -->
+        <item>Pteranodon lived and flew along an ocean channel called the Western Interior Seaway. It stayed around this ocean channel because one of the main things Pteranodon ate was fish. The Western Interior Seaway separated Laramidia from Appalachia. Paleontologists believe this pterosaur flew in the air similar to large birds today.</item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>Quetzalcoatlus lived in what is now North America. This pterosaur would fly long distances looking for dead bodies to scavenge. However, it wasn\'t only a scavenger. Quetzalcoatlus would also frequently land near ponds and wait for small animals, like crabs, so it could use its long neck to grab its prey.</item>
+
+        <!-- #10 Spinosaurus -->
+        <item>Spinosaurus is the only semi-aquatic dinosaur. This means it could be found swimming in the swamps of what is now the North Africa Sahara region. It hunted mainly fish but also occasionally snacked on land animals. Since Spinosaurus was the largest land carnivore, it may have fought other large carnivores that were foolish enough to enter its territory.</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>Stegosaurus was a bulky dinosaur that lived in what is now western North America. It ate plants, meaning it was a herbivore. Although it wasn\'t your normal, everyday herbivore, this dinosaur had developed cheeks, unlike many other herbivores. Most other dinosaurs at the time had to swallow their food whole, but due to Stegosaurus\' cheeks, this dinosaur could chew its food before swallowing.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>Therizinosaurus was a big, dangerous looking dinosaur. However, it was actually a herbivore and would only attack another animal for defense. One predator it had to protect itself from was a large tyrannosaur called Tarbosaurus. Thanks to the large claws on Therizinosaurus, it could protect itself easier than most herbivores.</item>
+
+        <!-- #13 Triceratops -->
+        <item>Triceratops was a successful herbivore because of its ability to eat thicker plants. It could eat thicker plants because of its sharp teeth and mouth being shaped like a beak. Unfortunately, it only lived for 3 million years due to an asteroid that hit Earth 66 million years ago. </item>
+
+        <!-- #14 T-Rex -->
+        <item>Tyrannosaurus Rex, or T-Rex for short, was a huge carnivore that was the apex predator of its time. Some paleontologists believe that it was just a scavenger, but more recent research shows that T-Rex was a predator. Its enormous size and strength made it a good hunter, along with its big brain and great sense of smell.</item>
+
+        <!-- #15 Velociraptor -->
+        <item>Velociraptor was a small, quick hunter that was about the size of a wolf. Paleontologists believe that it hunted smaller prey by itself, not with a pack. Even though Velociraptor was smaller than most dinosaurs, it was a deadly hunter. It could run very fast for its size and also had an amazing sense of smell, which helped it find its prey.</item>
+    </string-array>
+
+    <string-array name="evolution_articles_array">
+
+        <!-- #1 Ankylosaurus-->
+        <item>The mighty club!\n\nThe club at the end of Ankylosaurus\' tail is definitely the craziest thing about this dinosaur. The club was so strong it could easily shatter the bones of another dinosaur. Unfortunately, today, there are no animals that have clubs on their tails.</item>
+
+        <!-- #2 Argentinosaurus-->
+        <item>The gigantic size!\n\nNo land animal has ever been larger than Argentinosaurus. The gigantic size of this dinosaur would have helped it scare away predators and reach leaves that other dinosaurs couldn\'t. Palaeontologists have tried to figure out how Argentinosaurus got so big, but it is still unknown. Maybe you could solve this mystery.</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>The long neck!\n\nBrontosaurus\' neck was so big that it also needed a long tail to help balance itself so it wouldn\'t fall over. Today, the animal with the longest neck is the giraffe, which has a neck size of up to 6 feet. 6 feet isn\'t even close to Brontosaurus\' neck size of 50 feet.</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>The crests on its head!\n\nThe crests on Dilophosaurus are a mystery to palaeontologists because it is unknown what the purpose of these crests were. However, some palaeontologists believe that the crests were used to attract females. They were also weak and could not be used in fighting.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>The teeth!\n\nGiganotosaurus had almost 80 teeth. Each tooth was serrated (curved sharply at the end) and 8 inches long. The teeth of this dinosaur were the main reason it could hunt dinosaurs over 3 stories high. It could take down its prey without even fighting by running up to its prey, ripping flesh off, and waiting until its prey lost too much blood and died.</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>The giant size!\n\nLeedsichthys is the largest fish ever, reaching sizes of up to 55 feet. It was able to get this big because it was a filter feeder. A filter feeder is an animal that leaves its mouth open while it swims so small animals, like plankton, can get trapped in the mouth and eaten. During the middle of the Jurassic, there was a lot of plankton which helped Leedsichthys get this big.</item>
+
+        <!-- #7 Mosasaurus -->
+        <item>The teeth layout!\n\nMosasaurus had two rows of teeth on the top jaw. This second row of teeth was further back in the long snout of Mosasaurus and had smaller teeth than the front. The first row of teeth was used to tear apart its prey. However, the second row of teeth was used to hold on to struggling prey.</item>
+
+        <!-- #8 Pteranodon -->
+        <item>The huge wing size!\n\nThe wing size, also called “wingspan,” could reach up to 23 feet long. Today, the bird with the longest wingspan is 12 feet. Pteranodon\'s wingspan is more than twice that size! Paleontologists believe that since its wingspan was so long, it would glide often instead of flapping its wings a lot.</item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>The huge size!\n\nQuetzalcoatlus is the largest flying animal ever. This pterosaur was the size of a giraffe and had a wingspan longer than a school bus. For a long time, paleontologists believed Quetzalcoatlus was too big to fly. However, in 2021, paleontologists found out that Quetzalcoatlus would launch itself 8 feet into the air to begin flying.</item>
+
+        <!-- #10 Spinosaurus -->
+        <item>The long tail!\n\nThe tail of Spinosaurus was different from all other dinosaur tails because it gave it the ability to propel itself through water. One way the tail was different was its strange paddle-shape. It wasn\'t just shaped differently but was also surprisingly long, reaching lengths of over 16 feet.</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>The spiked tail!\n\nThe spiked tail is also nicknamed the thagomizer. The name thagomizer was first used in a funny comic. Although the thagomizer was not funny to a certain Allosaurus fossil that was found with a hole created from a Stegosaurus\' thagomizer. Sadly, it most likely needed all the help it could get from its tail since it is considered one of the dumbest dinosaurs. Even though Stegosaurus weighed around 11,000 pounds, it had a brain the size of a walnut.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>The long claws!\n\nTherizinosaurus holds the record for the longest claws of any animal. These giant claws were over 3 feet in length. Even though the claws looked like they were used to kill prey, the claws were actually used to hold down branches so Therizinosaurus could eat leaves higher up. The claws could still be used to protect itself from predators if needed.</item>
+
+        <!-- #13 Triceratops -->
+        <item>The round frill!\n\nOne of the most interesting parts of Triceratops was the large frill made of bone. While most people believe the frill was used for defense, paleontologists believe it was used to help Triceratops attract a mate. Certain fossils also show evidence of Triceratops fighting each other with marks on the frill. This evidence may suggest the frill also provided protection from other dinosaurs like T-Rex.</item>
+
+        <!-- #14 T-Rex -->
+        <item>The powerful bite force!\n\nT-Rex\'s bite force of 12,800 pounds is the strongest bite force of any land animal. Today, the alligator has the strongest bite force with 2,980 pounds. That\'s 4 times less than T. Rex! Since its bite force was so strong, it would rarely have to take more than one bite to instantly kill its prey.</item>
+
+        <!-- #15 Velociraptor -->
+        <item>The sickle-shaped claw!\n\nVelociraptor had a larger, sickle-shaped claw on the second toe of each foot. This claw allowed it to hunt using a strategy called Raptor Prey Restraint. Using this strategy, it would first stalk its prey before jumping on top to keep its prey pinned to the ground with its sickle-shaped claw and weight. </item>
+    </string-array>
+
+    <string-array name="fossil_articles_array">
+
+        <!-- #1 Ankylosaurus-->
+        <item>The first fossil of Ankylosaurus was found in 1906 by a paleontologist named Barnum Brown. This fossil was found in Montana which would have been in the continent known as Larmidia. Only three fossils of Ankylosaurus have ever been found and not enough bones have been found to create a complete fossil.</item>
+
+        <!-- #2 Argentinosaurus-->
+        <item>The first fossil of Argentinosaurus was found on a farm in 1987. The farmer who found it thought the leg was a giant piece of wood. Palaeontologists first thought this dinosaur was over 130 feet long. Although, thanks to new technology, the size is believed to be around 100 feet long. No matter a length of 130 or 100 feet, Argentinosaurus is still the largest land animal ever!</item>
+
+        <!-- #3 Brontosaurus -->
+        <item>The first fossil of Brontosaurus was found during the 1870s. Unfortunately, during the early 1900s, paleontologists thought that Brontosaurus was not a new dinosaur. It was believed to be an already discovered dinosaur called Apatosaurus. However, in 2015, a study proved that Brontosaurus and Apatosaurus were different dinosaurs. Still, some paleontologists aren\'t certain if Brontosaurus is a real dinosaur. This means that it\'s up to you to decide!</item>
+
+        <!-- #4 Dilophosaurus -->
+        <item>The first fossil of Dilophosaurus was found in 1942, by Sam Welles in Arizona. This fossil did not have the head of Dilophosaurus, so palaeontologists thought it belonged to a dinosaur called \'Megalosaurus Wetherilli\'. However, in 1970, the head of Dilophosaurus was found, which led to the discovery that the fossil from 1942 was part of an unknown dinosaur that they eventually named Dilophosaurus.</item>
+
+        <!-- #5 Giganotosaurus -->
+        <item>The first Giganotosaurus fossil was found in 1993 and is about 70% complete. A fossil this complete helps paleontologists find the correct size, which was over 40 feet long. This size makes Giganotosaurus the second biggest carnivorous dinosaur ever, bigger than T-Rex!</item>
+
+        <!-- #6 Leedsichthys -->
+        <item>The first Leedsichthys fossil was found in the 1880s by Alfred Leeds. In 1889, the fossil was finally named Leedsichthys, after the person who had originally discovered the fossil. The actual size of this fish is still unknown because it had almost no bones. This means that no fossil has come close to being complete. </item>
+
+        <!-- #7 Mosasaurus -->
+        <item>The first fossil of Mosasaurus was found near the Meuse River in 1764. At the time, scientists did not believe an animal could go extinct, which meant the fossil was believed to be a whale. However, after extinction was proven to be real in 1796, scientists realised this fossil did not belong to a whale. Almost 60 years after the first fossil was found, Mosasaurus was finally named.</item>
+
+        <!-- #8 Pteranodon -->
+        <item>The first fossil of Pteranodon was found in 1871 by Othniel Charles Marsh in Kansas, but fossils have also been found in Europe. These fossils found of Pteranodon have shown paleontologists that it was actually not a dinosaur but instead a huge flying reptile called a pterosaur. </item>
+
+        <!-- #9 Quetzalcoatlus -->
+        <item>The first Quetzalcoatlus fossil was found in 1971 in Big Bend, Texas. No one knew the fossil belonged to Quetzalcoatlus until 1975. It took 4 years for paleontologists to make this discovery because pterosaur fossils are hard to dig up. The hollow bones in pterosaurs made their fossils break easily. </item>
+
+        <!-- #10 Spinosaurus -->
+        <item>The first fossil of Spinosaurus was discovered in Egypt in 1912. Unfortunately, just 32 years later, this fossil was destroyed in World War II, during the bombing of a museum by the British. Another fossil was not found until 2008, almost a century later. For over a century, paleontologists believed Spinosaurus lived on the land like all other dinosaurs. However, new fossils found in 2014 gave evidence that Spinosaurus was adapted to an aquatic lifestyle. This discovery made Spinosaurus the only semi-aquatic dinosaur ever!</item>
+
+        <!-- #11 Stegosaurus -->
+        <item>The first fossil of Stegosaurus was found in 1876 in Colorado. This fossil was found during a period from 1877 to 1892 known as the Bone Wars or the Great Dinosaur Rush. During this time, paleontologists did not know much about dinosaurs and made many crazy assumptions. One of these assumptions stated that since Stegosaurus\' brain was so small it probably had a brain in its butt to control the back legs. Unsurprisingly, Stegosaurus only has one brain making it one of the dumbest dinosaurs.</item>
+
+        <!-- #12 Therizinosaurus -->
+        <item>The first Therizinosaurus fossil was found in 1948. This fossil was first thought to be a species of extinct turtle. However, in 1954, paleontologists discovered the fossil was from Therizinosaurus. Today, little is known about this dinosaur since very few fossils have been found. Even its skull has never been discovered!</item>
+
+        <!-- #13 Triceratops -->
+        <item>The first Triceratops fossil was found in 1887 in Denver, Colorado. The fossil was first believed to be from a bison until 1888, when the fossil was named as the first Triceratops. Triceratops are the most common dinosaur fossil, with 40% of all dinosaur fossils belonging to Triceratops. If you are interested in finding a Triceratops fossil, it may not be too difficult if you look in the Hell Creek Formation, Montana. At this location, more than 50 Triceratops fossils have been found!</item>
+
+        <!-- #14 T-Rex -->
+        <item>The first T-Rex fossil was found in 1902, but the most interesting T-Rex fossil, named Sue, was found in 1990. Sue was one of the largest and most complete T-Rex fossils found, being 90% complete. In 2020, Sue became the most expensive fossil after a museum purchased the fossil for $31.8 million. Currently, this museum is still being built, but in 2025 you can visit the museum and see Sue yourself!</item>
+
+        <!-- #15 Velociraptor -->
+        <item>For a while people believed Velociraptor hunted in packs. However, in 2020, scientists found that it hunted alone. Even though paleontologists agree that it hunted smaller animals, a famous fossil found in 1971, named Dueling Dinosaurs, showed a Velociraptor attacking a Protoceratops. This fossil is the only fossil that shows dinosaurs fighting.</item>
+    </string-array>
+
+    <string-array name="ankylosaurus_questions_array">
+        <item>What period did Ankylosaurus live in?</item>
+        <item>How many Ankylosaurus fossils have been found?</item>
+        <item>Where was the first Ankylosaurus fossil found?</item>
+        <item>What did Ankylosaurus eat?</item>
+        <item>How did Ankylosaurus defend itself?</item>
+        <item>When was the first Ankylosaurus fossil found?</item>
+        <item>What does Ankylosaurus mean?</item>
+        <item>What was at the end of Ankylosaurus\' tail?</item>
+        <item>Who found the first Ankylosaurus fossil?</item>
+        <item>What dinosaur hunted Ankylosaurus?</item>
+    </string-array>
+
+    <string-array name="argentinosaurus_questions_array">
+        <item>How big was Argentinosaurus?</item>
+        <item>What land animal is bigger than Argentinosaurus?</item>
+        <item>How did Argentinosaurus get so big?</item>
+        <item>How fast was Argentinosaurus?</item>
+        <item>How did Argentinosaurus defend itself?</item>
+        <item>Where was the first Argentinosaurus fossil found?</item>
+        <item>What does Argentinosaurus mean?</item>
+        <item>What did Argentinosaurus eat?</item>
+        <item>When was the first Argentinosaurus fossil found?</item>
+        <item>What dinosaur hunted Argentinosaurus?</item>
+    </string-array>
+
+    <string-array name="brontosaurus_questions_array">
+        <item>What did Brontosaurus eat?</item>
+        <item>What did Brontosaurus eat to help digest food?</item>
+        <item>What hunted Brontosaurus?</item>
+        <item>How fast was Brontosaurus?</item>
+        <item>How did Brontosaurus defend itself?</item>
+        <item>What dinosaurs was Brontosaurus mistaken for?</item>
+        <item>What does Brontosaurus mean?</item>
+        <item>When was Brontosaurus proven to be real?</item>
+        <item>When was the first Brontosaurus fossil found?</item>
+        <item>How long is Brontosaurus\' neck?</item>
+    </string-array>
+
+    <string-array name="dilophosaurus_questions_array">
+        <item>What did Dilophosaurus eat?</item>
+        <item>What was another name for Dilophosaurus?</item>
+        <item>Where did Dilophosaurus live?</item>
+        <item>What was on Dilophosaurus\' head?</item>
+        <item>Who found the first Dilophosaurus fossil?</item>
+        <item>Where was the first Dilophosaurus fossil found?</item>
+        <item>What does Dilophosaurus mean?</item>
+        <item>When was the first Dilophosaurus fossil found?</item>
+        <item>What were the crests on Dilophosaurus used for?</item>
+        <item>What dinosaur was the first Dilophosaurus fossil mistaken for?</item>
+    </string-array>
+
+    <string-array name="giganotosaurus_questions_array">
+        <item>How big was Giganotosaurus?</item>
+        <item>How long were Giganotosaurus\' teeth?</item>
+        <item>How did Giganotosaurus hunt?</item>
+        <item>What dinosaur did Giganotosaurus hunt?</item>
+        <item>How complete is the fossil of Giganotosaurus?</item>
+        <item>How many teeth did Giganotosaurus have?</item>
+        <item>What does Giganotosaurus mean?</item>
+        <item>When was the first Giganotosaurus fossil found?</item>
+        <item>How did Giganotosaurus hunt large dinosaurs?</item>
+        <item>How big was Giganotosaurus?</item>
+    </string-array>
+
+    <string-array name="leedsichthys_questions_array">
+        <item>What period did Leedsichthys live in?</item>
+        <item>What did Leedsichthys eat?</item>
+        <item>How big do palaeontologists guess Leedsichthys is?</item>
+        <item>What type of animal was Leedsichthys?</item>
+        <item>What predator hunted Leedsichthys?</item>
+        <item>When did Leedsichthys die?</item>
+        <item>What does Leedsichthys mean?</item>
+        <item>When was the first Leedsichthys fossil found?</item>
+        <item>How fast was Leedsichthys?</item>
+        <item>How big was Leedsichthys?</item>
+    </string-array>
+
+    <string-array name="mosasaurus_questions_array">
+        <item>How many rows of teeth did Mosasaurus have on the top jaw?</item>
+        <item>What did Mosasaurus eat?</item>
+        <item>What river was the first Mosasaurus fossil found next to?</item>
+        <item>What hunted Mosasaurus?</item>
+        <item>When was the first Mosasaurus fossil found?</item>
+        <item>What did the first Mosasaurus fossil help prove to be real?</item>
+        <item>What does Mosasaurus mean?</item>
+        <item>What animal was the first Mosasaurus fossil mistaken for?</item>
+        <item>How fast was Mosasaurus?</item>
+        <item>What was another name for Mosasaurus?</item>
+    </string-array>
+
+    <string-array name="pteranodon_questions_array">
+        <item>What is a group of Pteranodons called?</item>
+        <item>What did Pteranodon eat?</item>
+        <item>Where was the first Pteranodon fossil found?</item>
+        <item>What is another name for wing size?</item>
+        <item>When was the first Pteranodon fossil found?</item>
+        <item>Who found the first Pteranodon fossil?</item>
+        <item>What does Pteranodon mean?</item>
+        <item>Where did Pteranodon live?</item>
+        <item>How fast was Pteranodon?</item>
+        <item>Where did Pteranodon make nests?</item>
+    </string-array>
+
+    <string-array name="quetzalcoatlus_questions_array">
+        <item>What is a group of Quetzalcoatluses called?</item>
+        <item>When did Quetzalcoatlus die?</item>
+        <item>Where was the first Quetzalcoatlus fossil found?</item>
+        <item>How far could Quetzalcoatlus fly?</item>
+        <item>Why did Paleontologists think Quetzalcoatlus couldn\'t fly?</item>
+        <item>What kind of bones did Quetzalcoatlus have?</item>
+        <item>What does Quetzalcoatlus mean?</item>
+        <item>When did paleontologists find out Quetzalcoatlus could fly?</item>
+        <item>How high could Quetzalcoatlus jump?</item>
+        <item>What hunted Quetzalcoatlus?</item>
+    </string-array>
+
+    <string-array name="spinosaurus_questions_array">
+        <item>Where did Spinosaurus hunt?</item>
+        <item>What kind of dinosaur was Spinosaurus?</item>
+        <item>What happened to the first Spinosaurus fossil?</item>
+        <item>What shape was Spinosaurus\' tail?</item>
+        <item>Where was the first Spinosaurus fossil found?</item>
+        <item>How long was Spinosaurus\' tail?</item>
+        <item>What does Spinosaurus mean?</item>
+        <item>What was the main reason Spinosaurus could swim?</item>
+        <item>When did paleontologists discover Spinosaurus could swim?</item>
+        <item>How big was Spinosaurus?</item>
+    </string-array>
+
+    <string-array name="stegosaurus_questions_array">
+        <item>When did Stegosaurus die?</item>
+        <item>What helped Stegosaurus eat plants?</item>
+        <item>What is another name for Stegosaurus\' tail?</item>
+        <item>How many brains did Stegosaurus have?</item>
+        <item>What did Stegosaurus use for defense?</item>
+        <item>How much did Stegosaurus weigh?</item>
+        <item>What does Stegosaurus mean?</item>
+        <item>What period was the first Stegosaurus fossil found in?</item>
+        <item>Where was the first Stegosaurus fossil found?</item>
+        <item>How big was Stegosaurus\' brain?</item>
+    </string-array>
+
+    <string-array name="therizinosaurus_questions_array">
+        <item>How fast was Therizinosaurus?</item>
+        <item>What did Therizinosaurus eat?</item>
+        <item>How long were Therizinosaurus\' claws?</item>
+        <item>What was the main purpose of Therizinosaurus\' claws?</item>
+        <item>What part of Therizinosaurus has never been found?</item>
+        <item>What does Therizinosaurus mean?</item>
+        <item>When was the first Therizinosaurus fossil found?</item>
+        <item>How long were Therizinosaurus\' claws</item>
+        <item>Where was the first Therizinosaurus fossil mistaken for?</item>
+        <item>What dinosaur would hunt Therizinosaurus?</item>
+    </string-array>
+
+    <string-array name="triceratops_questions_array">
+        <item>How many years were Triceratops on Earth?</item>
+        <item>How did Triceratops die?</item>
+        <item>What was the name for Triceratops\' large circular bone on the head?</item>
+        <item>What was Triceratops\' frill used for?</item>
+        <item>How many Triceratops fossils have been found in Hell Creek?</item>
+        <item>How common are Triceratops fossils?</item>
+        <item>When was the first Triceratops fossil found?</item>
+        <item>What hunted Triceratops?</item>
+        <item>Where was the first Triceratops fossil mistaken for?</item>
+        <item>What helped Triceratops eat thick plants?</item>
+    </string-array>
+
+    <string-array name="trex_questions_array">
+        <item>How strong was T-Rex\'s bite force?</item>
+        <item>How much did the most expensive T-Rex fossil sell for?</item>
+        <item>What is the name of the most expensive fossil?</item>
+        <item>How complete is the most complete T-Rex fossil</item>
+        <item>What is the full name for T-Rex?</item>
+        <item>What is the meaning of T-Rex?</item>
+        <item>When was the first T-Rex fossil found?</item>
+        <item>How fast was T-Rex?</item>
+        <item>When can you see the fossil named \'Sue\'?</item>
+        <item>When did T-Rex die?</item>
+    </string-array>
+
+    <string-array name="velociraptor_questions_array">
+        <item>What is the meaning of Velociraptor?</item>
+        <item>How fast was Velociraptor?</item>
+        <item>What helped Velociraptor find prey?</item>
+        <item>What strategy did Velociraptor use to hunt prey?</item>
+        <item>How big was Velociraptor</item>
+        <item>What is the shape of Velociraptor\'s special claw?</item>
+        <item>When did scientists discover Velociraptor hunted alone?</item>
+        <item>What is the name of the famous fossil with a Velociraptor fighting?</item>
+        <item>When did Velociraptor die?</item>
+        <item>What did Velociraptor hunt?</item>
+    </string-array>
+
+    <string-array name="ankylosaurus_answers_array">
+        <item>Cretaceous</item>
+        <item>Triassic</item>
+        <item>Jurassic</item>
+        <item>Neogene</item>
+
+        <item>3</item>
+        <item>10</item>
+        <item>1</item>
+        <item>34</item>
+
+        <item>Montana</item>
+        <item>Texas</item>
+        <item>Antarctica</item>
+        <item>New York</item>
+
+        <item>Small plants</item>
+        <item>Large plants</item>
+        <item>Meat</item>
+        <item>Anything</item>
+
+        <item>Club</item>
+        <item>Teeth</item>
+        <item>Claws</item>
+        <item>Hiding</item>
+
+        <item>1904</item>
+        <item>2010</item>
+        <item>1876</item>
+        <item>1956</item>
+
+        <item>Fused Lizard</item>
+        <item>Friendly Lizard</item>
+        <item>Club Lizard</item>
+        <item>Scary Lizard</item>
+
+        <item>Club</item>
+        <item>Spikes</item>
+        <item>Nothing</item>
+        <item>Fur</item>
+
+        <item>Barnum Brown</item>
+        <item>Evan Bain</item>
+        <item>Brett Taylor</item>
+        <item>Owen Grady</item>
+
+        <item>T-Rex</item>
+        <item>Velociraptor</item>
+        <item>Brontosaurus</item>
+        <item>Allosaurus</item>
+    </string-array>
+
+    <string-array name="argentinosaurus_answers_array">
+        <item>100 feet long</item>
+        <item>80 feet long</item>
+        <item>50 feet long</item>
+        <item>160 feet long</item>
+
+        <item>Nothing</item>
+        <item>Brontosaurus</item>
+        <item>T-Rex</item>
+        <item>Giraffe</item>
+
+        <item>Unknown</item>
+        <item>More oxygen</item>
+        <item>Less gravity</item>
+        <item>It wasn\'t big</item>
+
+        <item>5 miles per hour</item>
+        <item>20 miles per hour</item>
+        <item>11 miles per hour</item>
+        <item>2 miles per hour</item>
+
+        <item>Huge size</item>
+        <item>Claws</item>
+        <item>Club</item>
+        <item>Hiding</item>
+
+        <item>On a farm</item>
+        <item>In the desert</item>
+        <item>In the ocean</item>
+        <item>On a mountain</item>
+
+        <item>Argentina Lizard</item>
+        <item>Big Lizard</item>
+        <item>Small Lizard</item>
+        <item>Fat Lizard</item>
+
+        <item>Plants</item>
+        <item>Meat</item>
+        <item>Anything</item>
+        <item>Wood</item>
+
+        <item>1987</item>
+        <item>1954</item>
+        <item>1876</item>
+        <item>2013</item>
+
+        <item>Giganotosaurus</item>
+        <item>Spinosaurus</item>
+        <item>Dilophosaurus</item>
+        <item>Pteranodon</item>
+    </string-array>
+
+
+    <string-array name="brontosaurus_answers_array">
+        <item>Plants</item>
+        <item>Meat</item>
+        <item>Eggs</item>
+        <item>Anything</item>
+
+        <item>Rocks</item>
+        <item>Grass</item>
+        <item>Dinosaurs</item>
+        <item>Water</item>
+
+        <item>Allosaurus</item>
+        <item>T-Rex</item>
+        <item>Giganotosaurus</item>
+        <item>Velociraptor</item>
+
+        <item>19 miles per hour</item>
+        <item>5 miles per hour</item>
+        <item>64 miles per hour</item>
+        <item>24 miles per hour</item>
+
+        <item>Huge size</item>
+        <item>Claws</item>
+        <item>Club</item>
+        <item>Hiding</item>
+
+        <item>Apatosaurus</item>
+        <item>Argentinosaurus</item>
+        <item>Stegosaurus</item>
+        <item>Ankylosaurus</item>
+
+        <item>Thunder Lizard</item>
+        <item>Big Lizard</item>
+        <item>Small Lizard</item>
+        <item>Fat Lizard</item>
+
+        <item>2015</item>
+        <item>1970</item>
+        <item>1950</item>
+        <item>1865</item>
+
+        <item>1870s</item>
+        <item>1910s</item>
+        <item>2010s</item>
+        <item>1950s</item>
+
+        <item>50 feet</item>
+        <item>30 feet</item>
+        <item>25 feet</item>
+        <item>75 feet</item>
+    </string-array>
+
+    <string-array name="dilophosaurus_answers_array">
+        <item>Meat</item>
+        <item>Plants</item>
+        <item>Eggs</item>
+        <item>Seeds</item>
+
+        <item>Apex predator</item>
+        <item>Herbivore</item>
+        <item>Prey</item>
+        <item>Titanosaur</item>
+
+        <item>Forests and swamps</item>
+        <item>Deserts and forests</item>
+        <item>Fields and swamps</item>
+        <item>Only deserts</item>
+
+        <item>Crests</item>
+        <item>Fur</item>
+        <item>Spikes</item>
+        <item>Long ears</item>
+
+        <item>Sam Welles</item>
+        <item>Ayden Pettiette</item>
+        <item>Evan Bain</item>
+        <item>Sydney Barnes</item>
+
+        <item>Arizona</item>
+        <item>Germany</item>
+        <item>Egypt</item>
+        <item>Mexico</item>
+
+        <item>Two-Crested Lizard</item>
+        <item>Apex Predator Lizard</item>
+        <item>King of the Dinosaurs Lizard</item>
+        <item>Terrifying Lizard</item>
+
+        <item>1942</item>
+        <item>1970</item>
+        <item>1931</item>
+        <item>2011</item>
+
+        <item>Attracting females</item>
+        <item>Fighting</item>
+        <item>Swimming</item>
+        <item>Hearing</item>
+
+        <item>Megalosaurus Wetherilli</item>
+        <item>Tyrannosaurus Rex</item>
+        <item>Kunbarrasaurus</item>
+        <item>Euoplocephalus</item>
+    </string-array>
+
+    <string-array name="giganotosaurus_answers_array">
+        <item>40 feet long</item>
+        <item>25 feet long</item>
+        <item>80 feet long</item>
+        <item>32 feet long</item>
+
+        <item>8 inches</item>
+        <item>12 inches</item>
+        <item>3 inches</item>
+        <item>9 inches</item>
+
+        <item>Ripping flesh off dinosaurs</item>
+        <item>Crushing bones from dinosaurs</item>
+        <item>Hiding from dinosaurs</item>
+        <item>Jumping on dinosaurs</item>
+
+        <item>Argentinosaurus</item>
+        <item>T-Rex</item>
+        <item>Ankylosaurus</item>
+        <item>Brontosaurus</item>
+
+        <item>70%</item>
+        <item>50%</item>
+        <item>87%</item>
+        <item>45%</item>
+
+        <item>Almost 80</item>
+        <item>Over 80</item>
+        <item>80</item>
+        <item>56</item>
+
+        <item>Giant Southern Lizard</item>
+        <item>Giant Eastern Lizard</item>
+        <item>Giant Northern Lizard</item>
+        <item>Giant Western Lizard</item>
+
+        <item>1993</item>
+        <item>1987</item>
+        <item>1896</item>
+        <item>2019</item>
+
+        <item>With a pack</item>
+        <item>Alone</item>
+        <item>With a T-Rex</item>
+        <item>It only hunted smaller dinosaurs</item>
+
+        <item>2nd largest carnivore dinosaur</item>
+        <item>Largest carnivore dinosaur</item>
+        <item>3rd largest carnivore dinosaur</item>
+        <item>4th largest carnivore dinosaur</item>
+    </string-array>
+
+    <string-array name="leedsichthys_answers_array">
+        <item>Jurassic</item>
+        <item>Cretaceous</item>
+        <item>Triassic</item>
+        <item>Dinosauric</item>
+
+        <item>Plankton</item>
+        <item>Mosasaurs</item>
+        <item>Fish</item>
+        <item>Plants</item>
+
+        <item>55 feet</item>
+        <item>47 feet</item>
+        <item>20 feet</item>
+        <item>18 feet</item>
+
+        <item>Filter feeder</item>
+        <item>Mosasaur</item>
+        <item>Dinosaur</item>
+        <item>Herbivore</item>
+
+        <item>Liopleurodon</item>
+        <item>Mosasaurus</item>
+        <item>Swordfish</item>
+        <item>Barracuda</item>
+
+        <item>145 million years ago</item>
+        <item>165 million years ago</item>
+        <item>140 million years ago</item>
+        <item>150 million years ago</item>
+
+        <item>Leed\'s Fish</item>
+        <item>Quick Footed Fish</item>
+        <item>Huge Lizard</item>
+        <item>Large Fish</item>
+
+        <item>1880s</item>
+        <item>1900s</item>
+        <item>2000s</item>
+        <item>1940s</item>
+
+        <item>11 miles per hour</item>
+        <item>5 miles per hour</item>
+        <item>20 miles per hour</item>
+        <item>15 miles per hour</item>
+
+        <item>Largest fish</item>
+        <item>largest carnivore</item>
+        <item>Largest filter feeder</item>
+        <item>Largest whale</item>
+    </string-array>
+
+    <string-array name="mosasaurus_answers_array">
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+        <item>3</item>
+
+        <item>Anything</item>
+        <item>Mosasaurus</item>
+        <item>Fish</item>
+        <item>Plants</item>
+
+        <item>Meuse River</item>
+        <item>Rio Grande River</item>
+        <item>Amazon River</item>
+        <item>Nile River</item>
+
+        <item>Mosasaurus</item>
+        <item>Sharks</item>
+        <item>Plesiosaurs</item>
+        <item>Alligators</item>
+
+        <item>1764</item>
+        <item>1880</item>
+        <item>1924</item>
+        <item>1785</item>
+
+        <item>Extinction</item>
+        <item>Evolution</item>
+        <item>Dinosaurs</item>
+        <item>Atoms</item>
+
+        <item>Lizard of the Meuse River</item>
+        <item>Lizard of the Nile River</item>
+        <item>Dangerous Water Lizard</item>
+        <item>Water Lizard</item>
+
+        <item>Whale</item>
+        <item>Fish</item>
+        <item>Shark</item>
+        <item>Penguin</item>
+
+        <item>30 miles per hour</item>
+        <item>18 miles per hour</item>
+        <item>20 miles per hour</item>
+        <item>35 miles per hour</item>
+
+        <item>Apex predator</item>
+        <item>Largest carnivore</item>
+        <item>Largest fish</item>
+        <item>Whale</item>
+    </string-array>
+
+    <string-array name="pteranodon_answers_array">
+        <item>Flock</item>
+        <item>Pack</item>
+        <item>Party</item>
+        <item>Herd</item>
+
+        <item>Fish</item>
+        <item>Anything</item>
+        <item>Plants</item>
+        <item>Dinosaurs</item>
+
+        <item>Kansas</item>
+        <item>Texas</item>
+        <item>Washington</item>
+        <item>California</item>
+
+        <item>Wingspan</item>
+        <item>Wing area</item>
+        <item>Wing difference</item>
+        <item>Circumference</item>
+
+        <item>1871</item>
+        <item>1885</item>
+        <item>1955</item>
+        <item>2000</item>
+
+        <item>Othniel Marsh</item>
+        <item>Evan Bain</item>
+        <item>Eli Harrison</item>
+        <item>Mallory Klein</item>
+
+        <item>Winged and Toothless</item>
+        <item>Flying Lizard</item>
+        <item>Big and Scary</item>
+        <item>Sky Lizard</item>
+
+        <item>Western Interior Seaway</item>
+        <item>Eastern Interior Seaway</item>
+        <item>Northern Interior Seaway</item>
+        <item>Southern Interior Seaway</item>
+
+        <item>70 miles per hour</item>
+        <item>40 miles per hour</item>
+        <item>90 miles per hour</item>
+        <item>35 miles per hour</item>
+
+        <item>On the beach</item>
+        <item>On cliffs</item>
+        <item>On trees</item>
+        <item>On the water</item>
+    </string-array>
+
+    <string-array name="quetzalcoatlus_answers_array">
+        <item>Flock</item>
+        <item>Pack</item>
+        <item>Party</item>
+        <item>Herd</item>
+
+        <item>66 million years ago</item>
+        <item>80 million years ago</item>
+        <item>75 million years ago</item>
+        <item>72 million years ago</item>
+
+        <item>Texas</item>
+        <item>Kansas</item>
+        <item>Washington</item>
+        <item>California</item>
+
+        <item>12,000 miles</item>
+        <item>18,000 miles</item>
+        <item>5,000 miles</item>
+        <item>20,000 miles</item>
+
+        <item>Too big</item>
+        <item>Wings were too short</item>
+        <item>Bones were too heavy</item>
+        <item>It didn\'t have feathers</item>
+
+        <item>Hollow</item>
+        <item>Strong</item>
+        <item>No bones</item>
+        <item>Dense</item>
+
+        <item>Feathered Serpent</item>
+        <item>Scavenging Bird</item>
+        <item>Big Flying Lizard</item>
+        <item>Sky Lizard</item>
+
+        <item>2021</item>
+        <item>2011</item>
+        <item>1975</item>
+        <item>1911</item>
+
+        <item>8 feet</item>
+        <item>18 feet</item>
+        <item>10 feet</item>
+        <item>6 feet</item>
+
+        <item>T-Rex</item>
+        <item>Pteranodon</item>
+        <item>Allosaurus</item>
+        <item>Argentinosaurus</item>
+    </string-array>
+
+    <string-array name="spinosaurus_answers_array">
+        <item>Swamp</item>
+        <item>Ocean</item>
+        <item>Land</item>
+        <item>Forest</item>
+
+        <item>Semi-aquatic</item>
+        <item>Terrestrial</item>
+        <item>Aquatic</item>
+        <item>Herbivore</item>
+
+        <item>Destroyed in WWII</item>
+        <item>Sold in an auction</item>
+        <item>Fell in a volcano</item>
+        <item>Ran over by a car</item>
+
+        <item>Paddle shaped</item>
+        <item>Oval shaped</item>
+        <item>Rectangle shaped</item>
+        <item>Circle shaped</item>
+
+        <item>Egypt</item>
+        <item>Kansas</item>
+        <item>Britain</item>
+        <item>Russia</item>
+
+        <item>Over 16 feet</item>
+        <item>Under 4 feet</item>
+        <item>Over 20 feet</item>
+        <item>Under 16 feet</item>
+
+        <item>Spine Lizard</item>
+        <item>Spiny Lizard</item>
+        <item>Largest Lizard</item>
+        <item>Water Lizard</item>
+
+        <item>Tail</item>
+        <item>Webbed feet</item>
+        <item>Spine</item>
+        <item>Gills</item>
+
+        <item>2014</item>
+        <item>1996</item>
+        <item>2021</item>
+        <item>2006</item>
+
+        <item>Largest carnivore dinosaur</item>
+        <item>2nd largest carnivore dinosaur</item>
+        <item>3rd largest carnivore dinosaur</item>
+        <item>4th largest carnivore dinosaur</item>
+    </string-array>
+
+    <string-array name="stegosaurus_answers_array">
+        <item>145 million years ago</item>
+        <item>66 million years ago</item>
+        <item>140 million years ago</item>
+        <item>80 million years ago</item>
+
+        <item>Cheeks</item>
+        <item>The tail</item>
+        <item>It didn\'t eat plants</item>
+        <item>Rocks</item>
+
+        <item>Thagomizer</item>
+        <item>Tangler</item>
+        <item>Tarnished</item>
+        <item>Maidenless</item>
+
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+        <item>3</item>
+
+        <item>It\'s tail</item>
+        <item>It\'s teeth</item>
+        <item>The plates on its back</item>
+        <item>It\'s claws</item>
+
+        <item>11,000 pounds</item>
+        <item>18,000 pounds</item>
+        <item>8,000 pounds</item>
+        <item>6,000 pounds</item>
+
+        <item>Roof Lizard</item>
+        <item>Cheeky Lizard</item>
+        <item>Spiny Tail Lizard</item>
+        <item>Thagomizer Lizard</item>
+
+        <item>Great Dinosaur Rush</item>
+        <item>Gold Rush</item>
+        <item>Jurassic</item>
+        <item>Industrial Revolution</item>
+
+        <item>Colorado</item>
+        <item>Wyoming</item>
+        <item>Texas</item>
+        <item>Canada</item>
+
+        <item>Size of a walnut</item>
+        <item>Size of a human\'s brain</item>
+        <item>Size of an almond</item>
+        <item>Larger than a human\'s brain</item>
+    </string-array>
+
+    <string-array name="therizinosaurus_answers_array">
+        <item>15 miles per hour</item>
+        <item>25 miles per hour</item>
+        <item>18 miles per hour</item>
+        <item>10 miles per hour</item>
+
+        <item>Plants</item>
+        <item>Dinosaurs</item>
+        <item>Fish</item>
+        <item>Anything</item>
+
+        <item>Over 3 feet</item>
+        <item>Under 3 feet</item>
+        <item>2 feet</item>
+        <item>Over 4 feet</item>
+
+        <item>Hold down branches</item>
+        <item>Defend from predators</item>
+        <item>Grab plants</item>
+        <item>Hunt dinosaurs</item>
+
+        <item>The skull</item>
+        <item>The claws</item>
+        <item>The arms</item>
+        <item>The chest</item>
+
+        <item>Scythe Lizard</item>
+        <item>Claw Lizard</item>
+        <item>Friendly Lizard</item>
+        <item>King of all Lizards</item>
+
+        <item>1948</item>
+        <item>1976</item>
+        <item>1876</item>
+        <item>2019</item>
+
+        <item>Longest claws of any animal</item>
+        <item>2nd longest claws of any animal</item>
+        <item>3rd longest claws of any animal</item>
+        <item>4th longest claws of any animal</item>
+
+        <item>A turtle</item>
+        <item>T-Rex</item>
+        <item>A lizard</item>
+        <item>Stegosaurus</item>
+
+        <item>Tarbosaurus</item>
+        <item>T-Rex</item>
+        <item>Giganotosaurus</item>
+        <item>Therizinosaurus</item>
+    </string-array>
+
+    <string-array name="triceratops_answers_array">
+        <item>3 million years</item>
+        <item>10 million years</item>
+        <item>2 million years</item>
+        <item>100,000 years</item>
+
+        <item>Giant asteroid</item>
+        <item>Giant flood</item>
+        <item>Global warming</item>
+        <item>Large volcano explosion</item>
+
+        <item>Frill</item>
+        <item>Shield</item>
+        <item>Circle bone</item>
+        <item>Disk</item>
+
+        <item>Protection</item>
+        <item>Swimming</item>
+        <item>Running faster</item>
+        <item>Keeping body cold</item>
+
+        <item>Over 50</item>
+        <item>Over 60</item>
+        <item>Under 30</item>
+        <item>Over 100</item>
+
+        <item>Most common dinosaur fossil</item>
+        <item>2nd most common dinosaur fossil</item>
+        <item>3rd most common dinosaur fossil</item>
+        <item>4th most common dinosaur fossil</item>
+
+        <item>1887</item>
+        <item>1976</item>
+        <item>1910</item>
+        <item>1899</item>
+
+        <item>T-Rex</item>
+        <item>Stegosaurus</item>
+        <item>Giganotosaurus</item>
+        <item>Therizinosaurus</item>
+
+        <item>A bison</item>
+        <item>A deer</item>
+        <item>Ankylosaurus</item>
+        <item>Stegosaurus</item>
+
+        <item>Teeth and a beak</item>
+        <item>Cheeks and teeth</item>
+        <item>A beak and cheeks</item>
+        <item>A snout and cheeks</item>
+    </string-array>
+
+    <string-array name="trex_answers_array">
+        <item>12,800 pounds</item>
+        <item>10,200 pounds</item>
+        <item>8,000 pounds</item>
+        <item>12,200 pounds</item>
+
+        <item>$31.8 million</item>
+        <item>$10.2 million</item>
+        <item>$100,000</item>
+        <item>$1 billion</item>
+
+        <item>Sue</item>
+        <item>Jerry</item>
+        <item>Cutie</item>
+        <item>Larry</item>
+
+        <item>90%</item>
+        <item>80%</item>
+        <item>70%</item>
+        <item>100%</item>
+
+        <item>Tyrannosaurus Rex</item>
+        <item>Terrifying Rex</item>
+        <item>Tyrant Rex</item>
+        <item>Terriblesaurus Rex</item>
+
+        <item>King of the Tyrant Lizards</item>
+        <item>Tyrant Lizard</item>
+        <item>King of the Tyrannosaur Lizards</item>
+        <item>Largest Lizard</item>
+
+        <item>1902</item>
+        <item>1911</item>
+        <item>1910</item>
+        <item>1905</item>
+
+        <item>20 miles per hour</item>
+        <item>5 miles per hour</item>
+        <item>15 miles per hour</item>
+        <item>34 miles per hour</item>
+
+        <item>2025</item>
+        <item>Right now</item>
+        <item>2027</item>
+        <item>2024</item>
+
+        <item>66 million years ago</item>
+        <item>68 million years ago</item>
+        <item>65 million years ago</item>
+        <item>70 million years ago</item>
+    </string-array>
+
+    <string-array name="velociraptor_answers_array">
+        <item>Quick Plunderer</item>
+        <item>Deadly Lizard</item>
+        <item>Dangerous Plunderer</item>
+        <item>Small Plunderer</item>
+
+        <item>25 miles per hour</item>
+        <item>10 miles per hour</item>
+        <item>40 miles per hour</item>
+        <item>20 miles per hour</item>
+
+        <item>Good sense of smell</item>
+        <item>Good eyes</item>
+        <item>Night vision</item>
+        <item>Heat vision</item>
+
+        <item>Raptor Prey Restraint</item>
+        <item>Raptor Jumping Restraint</item>
+        <item>Raptor Restraint</item>
+        <item>Raptor Predator Restraint</item>
+
+        <item>Same size as a wolf</item>
+        <item>Same size as a cat</item>
+        <item>Same size as an elephant</item>
+        <item>Same size as a horse</item>
+
+        <item>Sickle shaped</item>
+        <item>Knife shaped</item>
+        <item>Circle shaped</item>
+        <item>Oval shaped</item>
+
+        <item>2020</item>
+        <item>It hunts in packs</item>
+        <item>1985</item>
+        <item>2015</item>
+
+        <item>Dueling Dinosaurs</item>
+        <item>Fighting Dinosaurs</item>
+        <item>Deadly Dinosaur</item>
+        <item>Dinosaurs in Time</item>
+
+        <item>70 million years ago</item>
+        <item>66 million years ago</item>
+        <item>75 million years ago</item>
+        <item>68 million years ago</item>
+
+        <item>Small dinosaurs</item>
+        <item>Large dinosaurs</item>
+        <item>Anything</item>
+        <item>It only ate plants</item>
+    </string-array>
+
+    <string-array name="dictionary_words" >
+
+        <item>Ability</item>
+        <item>Adapt</item>
+        <item>Alligator</item>
+        <item>Apex</item>
+        <item>Appalachia</item>
+        <item>Approach</item>
+        <item>Aquatic</item>
+        <item>Arizona</item>
+        <item>Assumption</item>
+        <item>Asteroid</item>
+        <item>Attract</item>
+        <item>Beach</item>
+        <item>Beak</item>
+        <item>Bison</item>
+        <item>Branch</item>
+        <item>Bulky</item>
+        <item>Carnivore</item>
+        <item>Carnivorous</item>
+        <item>Century</item>
+        <item>Channel</item>
+        <item>Charge</item>
+        <item>Cheek</item>
+        <item>Chomp</item>
+        <item>Claw</item>
+        <item>Club</item>
+        <item>Colorado</item>
+        <item>Comic</item>
+        <item>Crab</item>
+        <item>Creature</item>
+        <item>Crest</item>
+        <item>Cretaceous</item>
+        <item>Dangerous</item>
+        <item>Decide</item>
+        <item>Defense</item>
+        <item>Develop</item>
+        <item>Digest</item>
+        <item>Discover</item>
+        <item>Distract</item>
+        <item>Duel</item>
+        <item>Earth</item>
+        <item>Egypt</item>
+        <item>Enormous</item>
+        <item>Europe</item>
+        <item>Extinct</item>
+        <item>Extinction</item>
+        <item>Famous</item>
+        <item>Farm</item>
+        <item>Feather</item>
+        <item>Fern</item>
+        <item>Field</item>
+        <item>Flap</item>
+        <item>Flesh</item>
+        <item>Flock</item>
+        <item>Foolish</item>
+        <item>Fossil</item>
+        <item>Giraffe</item>
+        <item>Glide</item>
+        <item>Gobble</item>
+        <item>Habitat</item>
+        <item>Herbivore</item>
+        <item>Herd</item>
+        <item>Hollow</item>
+        <item>Hunt</item>
+        <item>Hunter</item>
+        <item>Injured</item>
+        <item>Instant</item>
+        <item>Jaw</item>
+        <item>Journey</item>
+        <item>Jurassic</item>
+        <item>Kansas</item>
+        <item>Laramidia</item>
+        <item>Launch</item>
+        <item>Length</item>
+        <item>Lifestyle</item>
+        <item>Member</item>
+        <item>Meter</item>
+        <item>Montana</item>
+        <item>Moss</item>
+        <item>Mystery</item>
+        <item>Nesting</item>
+        <item>Nickname</item>
+        <item>Ocean</item>
+        <item>Opponent</item>
+        <item>Pack</item>
+        <item>Paddle</item>
+        <item>Paleontologist</item>
+        <item>Peace</item>
+        <item>Period</item>
+        <item>Pin</item>
+        <item>Plankton</item>
+        <item>Pond</item>
+        <item>Predator</item>
+        <item>Prey</item>
+        <item>Propel</item>
+        <item>Protect</item>
+        <item>Provide</item>
+        <item>Pterosaur</item>
+        <item>Purpose</item>
+        <item>Rare</item>
+        <item>Reptile</item>
+        <item>Roam</item>
+        <item>Roar</item>
+        <item>Scavenger</item>
+        <item>Shark</item>
+        <item>Sickle</item>
+        <item>Snatch</item>
+        <item>Snout</item>
+        <item>Species</item>
+        <item>Spine</item>
+        <item>Stalk</item>
+        <item>Study</item>
+        <item>Struggle</item>
+        <item>Technology</item>
+        <item>Territory</item>
+        <item>Texas</item>
+        <item>Thrust</item>
+        <item>Triassic</item>
+        <item>Tropical</item>
+        <item>Wingspan</item>
+        <item>Wolf</item>
+        <item>World War II</item>
 
     </string-array>
+
+    <string-array name="dictionary_definitions" >
+
+        <item>To be able to do something.</item>
+        <item>To learn how to do something.</item>
+        <item>A type of animal that lives in the water and is covered with scales. An alligator is a reptile and very dangerous.</item>
+        <item>The very best.</item>
+        <item>A giant island continent that existed during the Late Cretaceous period. Today, Appalachia would be the Eastern part of North America.</item>
+        <item>To come close to something.</item>
+        <item>Something that lives in the water.</item>
+        <item>A state in America above Mexico and to the left of New Mexico.</item>
+        <item>A guess.</item>
+        <item>A rock that is from outer space.</item>
+        <item>To cause something to come towards something else.</item>
+        <item>Land that is right by the ocean</item>
+        <item>A type of mouth that is sharp at the end.</item>
+        <item>A type of animal that looks like a furry, big cow.</item>
+        <item>A part of a tree that is attached to the main part.</item>
+        <item>Large and shaped weirdly.</item>
+        <item>An animal that eats other animals.</item>
+        <item>Something that eats meat to live.</item>
+        <item>100 years.</item>
+        <item>A large area of water that connects two larger areas of water.</item>
+        <item>To move very fast.</item>
+        <item>The part of the body that is on the outside of the mouth on the left and right.</item>
+        <item>To eat something.</item>
+        <item>A sharp part of the body at the end of the hands or feet.</item>
+        <item>A round and bony object at the end of the tail.</item>
+        <item>A state in the United States.</item>
+        <item>A story that is written on paper with lots of pictures.</item>
+        <item>A type of animal that has two large claws and lives by or in the water.</item>
+        <item>Another name for animal.</item>
+        <item>A circle shaped object on the head.</item>
+        <item>The name of the time period on Earth between 145 to 66 million years ago.</item>
+        <item>Not safe.</item>
+        <item>To tell if something is right or wrong.</item>
+        <item>To protect something.</item>
+        <item>To grow something complicated over a long period of time.</item>
+        <item>To break down food in the stomach.</item>
+        <item>To find something new.</item>
+        <item>To stop focusing on what is happening.</item>
+        <item>Two animals fighting each other.</item>
+        <item>The planet that we live on.</item>
+        <item>A country that is located at the top of Africa.</item>
+        <item>Very big.</item>
+        <item>One of the seven continents that exists today. Europe is to the left of another continent called Asia.</item>
+        <item>All animals of certain type are dead.</item>
+        <item>When a species dies out completely.</item>
+        <item>To be very well known.</item>
+        <item>A place with a house that grows food to eat.</item>
+        <item>A material that is usually found on birds.</item>
+        <item>A type of plant.</item>
+        <item>A flat and open area outside.</item>
+        <item>To move wings up and down.</item>
+        <item>The meat below skin on an animal.</item>
+        <item>A group of winged animals.</item>
+        <item>Very stupid.</item>
+        <item>The left over parts of a dead animal, like bones and shells, after many years.</item>
+        <item>To stay still while flying in the air.</item>
+        <item>A type of animal that has a very long neck and is the tallest land animal alive today.</item>
+        <item>To eat very fast.</item>
+        <item>The place and environment where an animal lives.</item>
+        <item>An animal that does not eat meat. An herbivore will mainly eat plants.</item>
+        <item>A large group of herbivore animals.</item>
+        <item>A type of material that has nothing on the inside of it.</item>
+        <item>To search for something to eat.</item>
+        <item>An animal that looks for other animals to kill and eat.</item>
+        <item>Hurt very badly.</item>
+        <item>Very, very fast.</item>
+        <item>The part of the mouth that moves up and down. The teeth are connected to this.</item>
+        <item>A long walk or trip.</item>
+        <item>The name of the time period on Earth between 201 to 145 million years ago.</item>
+        <item>A state in the United States.</item>
+        <item>A giant island continent that existed during the Late Cretaceous period. Today, Laramidia would stretch from Alaska to New Mexico.</item>
+        <item>To quickly rise in the air.</item>
+        <item>The measurement of something from the one to the other. An animal\'s length is measured from the start of the head to the end of the tail.</item>
+        <item>How something lives its life.</item>
+        <item>A single animal that is part of a larger group of animals.</item>
+        <item>A unit of measurement that is used for determining distance.</item>
+        <item>An unimportant state that is located in the United States.</item>
+        <item>A plant that is small but can stretch across very large areas. Moss usually grows in wet or damp places.</item>
+        <item>Something that is unknown.</item>
+        <item>A flying animal sitting in a nest.</item>
+        <item>Another name for something.</item>
+        <item>A large place that is covered in water.</item>
+        <item>The enemy of something else.</item>
+        <item>A large group of predators.</item>
+        <item>A tool that is used to help move a boat in the water. A paddle is shaped like a stretched circle, or an oval with a handle at the end.</item>
+        <item>A scientist that studies the history of the Earth with the helps of fossils.</item>
+        <item>Calm and not violent.</item>
+        <item>A part of time in a larger part of time.</item>
+        <item>Stuck between two things.</item>
+        <item>Very, very small animals floating in the water.</item>
+        <item>A small area with water.</item>
+        <item>An animal that lives by killing and eating other animals.</item>
+        <item>An animal that is hunted.</item>
+        <item>To move in a certain direction.</item>
+        <item>To keep something safe from something else.</item>
+        <item>To give something.</item>
+        <item>A species of extinct, flying reptiles.</item>
+        <item>A task that needs to be done.</item>
+        <item>Not common.</item>
+        <item>A species of animal that usually has scales and lays soft eggs.</item>
+        <item>To move without going in certain direction.</item>
+        <item>To scream loudly with a deep voice.</item>
+        <item>An animal that gets food by eating dead animals.</item>
+        <item>A type of animal that lives in the water. A shark looks like a very large fish with lots of teeth.</item>
+        <item>A sharp curved object.</item>
+        <item>To take something very fast.</item>
+        <item>A nose and mouth that is very long.</item>
+        <item>A type of group of animals that are very similar to another.</item>
+        <item>A large, thin part of the body that is on top of the back.</item>
+        <item>To closely follow an animal without the animal knowing.</item>
+        <item>To look at something closely to figure out a problem.</item>
+        <item>To try to get away from something.</item>
+        <item>A machine that works with electricity.</item>
+        <item>An area that is controlled by something.</item>
+        <item>The best state in the United States. Texas is right above Mexico.</item>
+        <item>To move very fast.</item>
+        <item>The name of the time period on Earth between 252 to 201 million years ago.</item>
+        <item>An area that is usually humid, hot, and full of plants.</item>
+        <item>How long the wings are of a flying animal.</item>
+        <item>A type of animal that looks like a dog but is bigger and more dangerous.</item>
+        <item>The second war on Earth that had almost every country fighting.</item>
+
+    </string-array>
+
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">Selected Dinosaur (select in app)</string>
+    <string name="remove_app_widget_description">Remove Widget</string>
+    <string name="continue_quiz_button">Continue</string>
+    <string name="mesozoic_era">Mesozoic Era</string>
+    <string name="time_period">Time Period</string>
+    <string name="_252to66_million_years_ago">252 – 66 million years ago</string>
+    <string name="meaning">Meaning</string>
+    <string name="middle_life">Middle Life</string>
+    <string name="nickname">Nickname</string>
+    <string name="age_of_dinosaurs">Age of Dinosaurs</string>
+    <string name="periods">Periods</string>
+    <string name="triassic_jurassic_cretaceous">Triassic / Jurassic / Cretaceous</string>
+    <string name="mesozoic_info_text">Earth has had three eras: the Paleozoic Era, the Mesozoic Era, and the Cenozoic Era. The Mesozoic Era is the only era where dinosaurs were alive. In this era three mass extinctions happened. The Earth has only had five mass extinctions.</string>
+    <string name="triassic">Triassic</string>
+    <string name="_252to201_million_years_ago">252 – 201 million years ago</string>
+    <string name="triassic_info_text">The Triassic is the first period in the Mesozoic Era. This period began after Earth’s worst mass extinction. The extinction killed almost 90% of all life. However, life recovered during the Triassic. The first dinosaurs appeared during this period. These dinosaurs were smaller than most dinosaurs.</string>
+    <string name="jurassic">Jurassic</string>
+    <string name="_201to145_million_years_ago">201 – 145 million years ago</string>
+    <string name="jurassic_info_text">The Jurassic is the second period in the Mesozoic Era. This period began after a mass extinction. The extinction killed 76% of life in the water and 20% of life on the land. During this time, dinosaurs began to get bigger and more dangerous.</string>
+    <string name="cretaceous">Cretaceous</string>
+    <string name="_145to66_million_years_ago">145 – 66 million years ago</string>
+    <string name="cretaceous_info_text">The Cretaceous is the third and last period in the Mesozoic Era. During this time, dinosaurs became the main species. Dinosaurs also got the biggest they ever were. However, the Cretaceous ended with an asteroid hitting Earth. This asteroid created a mass extinction that killed all the dinosaurs.</string>
+    <string name="age_of_dinosaurs_image_desc">A beautiful forest during the Mesozoic Era.</string>
+    <string name="coming_soon">Coming Soon…</string>
+    <string name="dino_extinction_image_desc">Asteroid about to hit a forest in the Mesozoic Era</string>
+    <string name="dinos_today_image_desc">Two Paleontologists discovering a dinosaur fossil</string>
+    <string name="story">Story</string>
+    <string name="habitat_drop_down_image_desc">Reveal text for habitat section.</string>
+    <string name="evolution_drop_down_image_desc">Reveal text for evolution section.</string>
+    <string name="fossil_drop_down_image_desc">Reveal text for fossil section.</string>
+    <string name="edit_profile_image_fab_image_desc">Edit profile image</string>
+    <string name="level">Level:</string>
+    <string name="icon_of_a_trophy">Icon of a trophy</string>
+    <string name="change_app_background_selected">Change app background selected</string>
+    <string name="profile_image">Profile image</string>
+    <string name="add_widget_to_home_screen">Add widget to home screen</string>
+    <string name="default_background">Default Background</string>
+    <string name="level_0">Level 0</string>
+    <string name="jungle_background">Jungle Background</string>
+    <string name="level_1">Level 1</string>
+    <string name="ocean_background">Ocean Background</string>
+    <string name="level_2">Level 2</string>
+    <string name="sky_background">Sky Background</string>
+    <string name="level_3">Level 3</string>
+    <string name="select_to_navigate_to_article_for_this_dino">select to navigate to article for this dino</string>
+    <style name="default_profile">Default</style>
 
 </resources>

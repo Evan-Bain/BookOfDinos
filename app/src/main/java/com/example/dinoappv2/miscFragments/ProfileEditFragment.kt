@@ -64,7 +64,7 @@ class ProfileEditFragment : Fragment() {
         @Suppress("UNCHECKED_CAST")
         val dinoData = arguments?.get("activatedDinos") as ArrayList<DinosaurEncyclopedia>
 
-        adapter = ProfileEditAdapter { dino, selected ->
+        adapter = ProfileEditAdapter(requireContext()) { dino, selected ->
             viewModel.setCurrentDino(dino)
             viewModel.setDinoSelected(selected)
         }

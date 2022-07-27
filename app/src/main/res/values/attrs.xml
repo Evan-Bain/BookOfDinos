@@ -4,4 +4,27 @@
         <attr name="appWidgetInnerRadius" format="dimension" />
         <attr name="appWidgetRadius" format="dimension" />
     </declare-styleable>
+
+    <attr name="buttonColor" format="color"/>
+
+    <attr name="bodyTextStyle" format="reference"/>
+    <attr name="freeBodyTextStyle" format="reference" />
+    <attr name="headerTextStyle" format="reference" />
+    <attr name="infoTextStyle" format="reference" />
+    <attr name="quizTextStyle" format="reference" />
+    <attr name="quizRadioButtonTextColor" format="color" />
+
+    <attr name="toolbarStartGradientColor" format="color" />
+    <attr name="toolbarCenterGradientColor" format="color" />
+    <attr name="toolbarEndGradientColor" format="color" />
+    <attr name="thinBorderSolidColor" format="color" />
+    <attr name="thinBorderStrokeWidth" format="dimension" />
+    <attr name="thinBorderStrokeColor" format="color" />
+
+    <attr name="homeOutlineColor" format="color" />
+    <attr name="fillerSquareOutlineColor" format="color"/>
+    <attr name="quizBackgroundColor" format="color" />
+    <attr name="defaultProfileImageColor" format="color" />
+    <attr name="progressBarBackgroundColor" format="color"/>
+    <attr name="checkCircleColor" format="color" />
 </resources>

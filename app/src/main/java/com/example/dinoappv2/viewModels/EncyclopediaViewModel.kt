@@ -1,10 +1,14 @@
 package com.example.dinoappv2.viewModels
 
-import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 
-class EncyclopediaViewModel : ViewModel() {
+class EncyclopediaViewModel(
+    private val dinoNames: Array<String>
+) : ViewModel() {
 
     private var originalDinoList = listOf<DinosaurEncyclopedia>()
 
@@ -30,9 +34,21 @@ class EncyclopediaViewModel : ViewModel() {
         val length = text.length
         _filteredDinos.value =
             originalDinoList.filter { dino ->
-                dino.name.take(length).lowercase() == text
+                dinoNames[dino.position].take(length).lowercase() == text
             }
 
         return true
+    }
+}
+
+class EncyclopediaViewModelFactory(
+    private val dinoNames: Array<String>,
+) : ViewModelProvider.Factory {
+    @Suppress("unchecked_cast")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(EncyclopediaViewModel::class.java)) {
+            return EncyclopediaViewModel(dinoNames) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

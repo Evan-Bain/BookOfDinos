@@ -1,7 +1,6 @@
 package com.example.dinoappv2.viewModels
 
 import androidx.lifecycle.*
-import com.example.dinoappv2.EncyclopediaRepository
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.dataClasses.WidgetData
 import com.example.dinoappv2.dataClasses.fromPosition

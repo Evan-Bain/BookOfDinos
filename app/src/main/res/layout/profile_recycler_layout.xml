@@ -15,7 +15,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/fredoka_one"
+            tools:fontFamily="@font/fredoka_one"
+            style="?attr/headerTextStyle"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,7 +39,8 @@
                 app:layout_constraintEnd_toStartOf="@id/dino_fb_profile"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/dino_badge_ankylosaurus" />
+                tools:src="@drawable/dino_badge_ankylosaurus"
+                tools:ignore="ContentDescription" />
 
             <!-- mini fab on top right displaying if widget can be added or already is -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -47,6 +49,7 @@
                 android:layout_height="wrap_content"
                 app:fabSize="mini"
                 android:visibility="gone"
+                android:contentDescription="@string/add_widget_to_home_screen"
                 app:layout_constraintEnd_toEndOf="@id/dino_badge_profile"
                 app:layout_constraintTop_toTopOf="@id/dino_badge_profile" />
 
@@ -61,7 +64,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/dino_badge_profile"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/fb_ankylosaurus" />
+                tools:src="@drawable/fb_ankylosaurus"
+                tools:ignore="ContentDescription" />
 
             <!-- mini fab (horizontally aligned with other fab) on top right
                  displaying if widget can be added or already is -->
@@ -71,6 +75,7 @@
                 android:layout_height="wrap_content"
                 app:fabSize="mini"
                 android:visibility="gone"
+                android:contentDescription="@string/add_widget_to_home_screen"
                 app:layout_constraintEnd_toEndOf="@id/dino_fb_profile"
                 app:layout_constraintTop_toTopOf="@id/dino_badge_profile_fab" />
         </androidx.constraintlayout.widget.ConstraintLayout>

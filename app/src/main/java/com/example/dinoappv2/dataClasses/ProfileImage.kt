@@ -25,7 +25,7 @@ fun ProfileImage?.fromPosition(): Int {
         7 -> R.drawable.dino_badge_pteranodon
         8 -> R.drawable.dino_badge_quetzalcoatlus
         9 -> R.drawable.dino_badge_spinosaurus
-        10 -> R.drawable.dino_badge_stegasaurus
+        10 -> R.drawable.dino_badge_stegosaurus
         11 -> R.drawable.dino_badge_therizinosaurus
         12 -> R.drawable.dino_badge_triceratops
         13 -> R.drawable.dino_badge_trex

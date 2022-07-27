@@ -27,19 +27,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/fredoka_one"
-            android:textColor="@color/secondaryColor"
+            android:textColor="?attr/colorSecondary"
             android:textSize="24sp"
-            android:text="Default Background"/>
+            android:text="@string/default_background"/>
 
         <TextView
+            style="?attr/infoTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:text="@string/level_0"
             android:textSize="16sp"
-            android:textColor="@color/primaryColor"
-            android:fontFamily="@font/fredoka_one"
-            android:text="Level 0"/>
+            tools:ignore="TextContrastCheck" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/default_background"
@@ -47,6 +47,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="8dp"
+            android:contentDescription="@string/default_background"
             android:focusable="true"
             android:elevation="8dp"
             android:clickable="true"
@@ -57,13 +58,15 @@
                 android:layout_width="164dp"
                 android:layout_height="164dp"
                 android:layout_gravity="center"
-                android:src="@drawable/filler_square_icon" />
+                android:src="@drawable/filler_square_icon"
+                tools:ignore="contentDescription,ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/default_background_check"
                 android:layout_width="134dp"
                 android:layout_height="134dp"
                 android:alpha="0"
+                tools:ignore="contentDescription"
                 android:layout_gravity="center"
                 android:src="@drawable/check_box_gray" />
         </androidx.cardview.widget.CardView>
@@ -72,20 +75,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/fredoka_one"
-            android:textColor="@color/secondaryColor"
+            android:textColor="?attr/colorSecondary"
             android:textSize="24sp"
             android:layout_marginTop="16dp"
-            android:text="Jungle Background"/>
+            android:text="@string/jungle_background"/>
 
         <TextView
+            style="?attr/infoTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:text="@string/level_1"
             android:textSize="16sp"
-            android:textColor="@color/primaryColor"
-            android:fontFamily="@font/fredoka_one"
-            android:text="Level 1"/>
+            tools:ignore="TextContrastCheck" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/jungle_background"
@@ -102,8 +105,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 android:src="@drawable/background_land"
-                android:scaleType="centerCrop"/>
+                tools:ignore="contentDescription,ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/jungle_background_lock"
@@ -112,6 +116,7 @@
                 android:background="#80000000"
                 android:visibility="gone"
                 android:clickable="true"
+                tools:ignore="contentDescription"
                 android:src="@drawable/lock_icon"/>
 
             <ImageView
@@ -119,6 +124,7 @@
                 android:layout_width="134dp"
                 android:layout_height="134dp"
                 android:alpha="0"
+                tools:ignore="contentDescription"
                 android:layout_gravity="center"
                 android:src="@drawable/check_box_gray" />
         </androidx.cardview.widget.CardView>
@@ -127,20 +133,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/fredoka_one"
-            android:textColor="@color/secondaryColor"
+            android:textColor="?attr/colorSecondary"
             android:textSize="24sp"
             android:layout_marginTop="16dp"
-            android:text="Ocean Background"/>
+            android:text="@string/ocean_background"/>
 
         <TextView
+            style="?attr/infoTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:text="@string/level_2"
             android:textSize="16sp"
-            android:textColor="@color/primaryColor"
-            android:fontFamily="@font/fredoka_one"
-            android:text="Level 2"/>
+            tools:ignore="TextContrastCheck" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/ocean_background"
@@ -151,14 +157,16 @@
             android:focusable="true"
             android:clickable="true"
             android:elevation="8dp"
+            android:contentDescription="@string/jungle_background"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginStart="20dp">
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/background_water"
-                android:scaleType="centerCrop"/>
+                tools:ignore="contentDescription,ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/ocean_background_lock"
@@ -167,6 +175,7 @@
                 android:background="#80000000"
                 android:visibility="gone"
                 android:clickable="true"
+                tools:ignore="contentDescription"
                 android:src="@drawable/lock_icon"/>
 
             <ImageView
@@ -174,6 +183,7 @@
                 android:layout_width="134dp"
                 android:layout_height="134dp"
                 android:layout_gravity="center"
+                tools:ignore="contentDescription"
                 android:alpha="0"
                 android:src="@drawable/check_box_gray" />
         </androidx.cardview.widget.CardView>
@@ -182,20 +192,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/fredoka_one"
-            android:textColor="@color/secondaryColor"
+            android:textColor="?attr/colorSecondary"
             android:textSize="24sp"
             android:layout_marginTop="16dp"
-            android:text="Sky Background"/>
+            android:text="@string/sky_background"/>
 
         <TextView
+            style="?attr/infoTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:text="@string/level_3"
             android:textSize="16sp"
-            android:textColor="@color/primaryColor"
-            android:fontFamily="@font/fredoka_one"
-            android:text="Level 3"/>
+            tools:ignore="TextContrastCheck" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/sky_background"
@@ -206,6 +216,7 @@
             android:focusable="true"
             android:clickable="true"
             android:elevation="8dp"
+            android:contentDescription="@string/sky_background"
             android:layout_marginBottom="8dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginStart="20dp">
@@ -213,8 +224,9 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/background_air"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/background_sky"
+                tools:ignore="contentDescription,ImageContrastCheck" />
 
             <ImageView
                 android:id="@+id/sky_background_lock"
@@ -223,12 +235,14 @@
                 android:background="#80000000"
                 android:visibility="gone"
                 android:clickable="true"
+                tools:ignore="contentDescription"
                 android:src="@drawable/lock_icon"/>
 
             <ImageView
                 android:id="@+id/sky_background_check"
                 android:layout_width="134dp"
                 android:layout_height="134dp"
+                tools:ignore="contentDescription"
                 android:layout_gravity="center"
                 android:alpha="0"
                 android:src="@drawable/check_box_gray" />

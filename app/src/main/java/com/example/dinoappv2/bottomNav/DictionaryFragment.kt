@@ -7,13 +7,15 @@ import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoappv2.R
 import com.example.dinoappv2.adapters.DictionaryAdapter
+import com.example.dinoappv2.dataClasses.DictionaryStrings
 import com.example.dinoappv2.databinding.FragmentDictionaryBinding
 import com.example.dinoappv2.viewModels.DictionaryViewModel
+import com.example.dinoappv2.viewModels.DictionaryViewModelFactory
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
@@ -23,7 +25,7 @@ class DictionaryFragment : Fragment() {
 
     private lateinit var binding: FragmentDictionaryBinding
 
-    private val viewModel: DictionaryViewModel by viewModels()
+    private lateinit var viewModel: DictionaryViewModel
     private val sharedViewModel: MainViewModel by activityViewModels()
 
     private val adapter = DictionaryAdapter()
@@ -41,6 +43,20 @@ class DictionaryFragment : Fragment() {
             enterTransition = MaterialFadeThrough()
         }
         exitTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
+
+        val dictionaryList = mutableListOf<DictionaryStrings>()
+        for((i, word) in resources.getStringArray(R.array.dictionary_words).withIndex()) {
+            dictionaryList.add(
+                DictionaryStrings(
+                    word,
+                    resources.getStringArray(R.array.dictionary_definitions)[i]
+                )
+            )
+        }
+
+        val viewModelFactory = DictionaryViewModelFactory(dictionaryList)
+        viewModel = ViewModelProvider(this, viewModelFactory)[DictionaryViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -60,6 +76,7 @@ class DictionaryFragment : Fragment() {
         //setting up recycler view
         binding.recyclerViewDictionary.adapter = adapter
         binding.recyclerViewDictionary.layoutManager = LinearLayoutManager(requireContext())
+        adapter.submitList(viewModel.originalWordList)
 
         //Disable automatic ListAdapter animations if transitioned from DinoArticle to avoid
         //unnecessary motion

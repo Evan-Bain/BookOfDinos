@@ -11,7 +11,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class DinosaurEncyclopedia(
     val position: Int,
-    val name: String,
     val badge: Int,
     val blackBadge: Int,
     val dinosaurFb: Int,
@@ -25,7 +24,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
         listOf(
             DinosaurEncyclopedia(
                 0,
-                "Ankylosaurus",
                 R.drawable.dino_badge_ankylosaurus,
                 R.drawable.dino_badge_ankylosaurus_black,
                 R.drawable.fb_ankylosaurus,
@@ -35,7 +33,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#2
             DinosaurEncyclopedia(
                 1,
-                "Argentinosaurus",
                 R.drawable.dino_badge_argentinosaurus,
                 R.drawable.dino_badge_argentinosaurus_black,
                 R.drawable.fb_argentinosaurus,
@@ -45,7 +42,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#3
             DinosaurEncyclopedia(
                 2,
-                "Brontosaurus",
                 R.drawable.dino_badge_brontosaurus,
                 R.drawable.dino_badge_brontosaurus_black,
                 R.drawable.fb_brontosaurus,
@@ -55,7 +51,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#4
             DinosaurEncyclopedia(
                 3,
-                "Dilophosaurus",
                 R.drawable.dino_badge_dilophosaurus,
                 R.drawable.dino_badge_dilophosaurus_black,
                 R.drawable.fb_dilophosaurus,
@@ -65,7 +60,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#5
             DinosaurEncyclopedia(
                 4,
-                "Giganotosaurus",
                 R.drawable.dino_badge_giganotosaurus,
                 R.drawable.dino_badge_giganotosaurus_black,
                 R.drawable.fb_giganotosaurus,
@@ -75,7 +69,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#6
             DinosaurEncyclopedia(
                 5,
-                "Leedsichthys",
                 R.drawable.dino_badge_leedsichthys,
                 R.drawable.dino_badge_leedsichthys_black,
                 R.drawable.fb_leedsichthys,
@@ -85,7 +78,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#7
             DinosaurEncyclopedia(
                 6,
-                "Mosasaurus",
                 R.drawable.dino_badge_mosasaurus,
                 R.drawable.dino_badge_mosasaurus_black,
                 R.drawable.fb_mosasaurus,
@@ -95,7 +87,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#8
             DinosaurEncyclopedia(
                 7,
-                "Pteranodon",
                 R.drawable.dino_badge_pteranodon,
                 R.drawable.dino_badge_pteranodon_black,
                 R.drawable.fb_pteranodon,
@@ -105,7 +96,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#9
             DinosaurEncyclopedia(
                 8,
-                "Quetzalcoatlus",
                 R.drawable.dino_badge_quetzalcoatlus,
                 R.drawable.dino_badge_quetzalcoatlus_black,
                 R.drawable.fb_quetzalcoatlus,
@@ -115,7 +105,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#10
             DinosaurEncyclopedia(
                 9,
-                "Spinosaurus",
                 R.drawable.dino_badge_spinosaurus,
                 R.drawable.dino_badge_spinosaurus_black,
                 R.drawable.fb_spinosaurus,
@@ -125,9 +114,8 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#11
             DinosaurEncyclopedia(
                 10,
-                "Stegosaurus",
-                R.drawable.dino_badge_stegasaurus,
-                R.drawable.dino_badge_stegasaurus_black,
+                R.drawable.dino_badge_stegosaurus,
+                R.drawable.dino_badge_stegosaurus_black,
                 R.drawable.fb_stegosaurus,
                 R.drawable.fb_stegosaurus_black,
                 value[10].activated != 0
@@ -135,7 +123,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#12
             DinosaurEncyclopedia(
                 11,
-                "Therizinosaurus",
                 R.drawable.dino_badge_therizinosaurus,
                 R.drawable.dino_badge_therizinosaurus_black,
                 R.drawable.fb_therizinosaurus,
@@ -145,7 +132,6 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#13
             DinosaurEncyclopedia(
                 12,
-                "Triceratops",
                 R.drawable.dino_badge_triceratops,
                 R.drawable.dino_badge_triceratops_black,
                 R.drawable.fb_triceratops,
@@ -155,17 +141,15 @@ fun Flow<List<DinosaurEncyclopediaTable>>.getDinosaurEncyclopedia(): Flow<List<D
             //#14
             DinosaurEncyclopedia(
                 13,
-                "T-Rex",
                 R.drawable.dino_badge_trex,
                 R.drawable.dino_badge_trex_black,
-                R.drawable.fb_t_rex,
-                R.drawable.fb_t_rex_black,
+                R.drawable.fb_trex,
+                R.drawable.fb_trex_black,
                 value[13].activated != 0
             ),
             //#15
             DinosaurEncyclopedia(
                 14,
-                "Velociraptor",
                 R.drawable.dino_badge_velociraptor,
                 R.drawable.dino_badge_velociraptor_black,
                 R.drawable.fb_velociraptor,

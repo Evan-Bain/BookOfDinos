@@ -1,6 +1,5 @@
 package com.example.dinoappv2.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +7,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dinoappv2.R
+import com.example.dinoappv2.bottomNav.EncyclopediaFragment
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.EncyclopediaRecyclerLayoutBinding
 
 class EncyclopediaAdapter(
+    private val context: EncyclopediaFragment,
     private val onBadgeClicked: (DinosaurEncyclopedia) -> Unit) : ListAdapter<DinosaurEncyclopedia,
             EncyclopediaAdapter.ViewHolder>(AllDinosDiffCallback()) {
 
@@ -28,7 +29,8 @@ class EncyclopediaAdapter(
                     View.GONE
                 }
 
-                binding.dinoName.text = data.name
+                binding.dinoName.text =
+                    context.resources.getStringArray(R.array.dinosaur_names_array)[data.position]
 
                 //sets click listener on the dinosaur badge
                 binding.dinoBadge.setOnClickListener {

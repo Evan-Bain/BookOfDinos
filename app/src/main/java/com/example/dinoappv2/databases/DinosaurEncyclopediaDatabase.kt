@@ -3,7 +3,6 @@ package com.example.dinoappv2.databases
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -28,9 +27,10 @@ abstract class DinosaurEncyclopediaDatabase : RoomDatabase() {
                         DinosaurEncyclopediaDatabase::class.java,
                         "dinosaur_encyclopedia_database"
                     ).addCallback(object : RoomDatabase.Callback() {
+
+                        //import the initial data into the database
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
-
                             for(i in 0..14) {
                                 db.insert(
                                     "dinosaur_encyclopedia_table",
@@ -42,6 +42,7 @@ abstract class DinosaurEncyclopediaDatabase : RoomDatabase() {
                                 )
                             }
                         }
+
                     }).fallbackToDestructiveMigration().build()
                     INSTANCE = instance
                 }

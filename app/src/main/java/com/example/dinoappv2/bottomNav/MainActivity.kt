@@ -2,7 +2,6 @@ package com.example.dinoappv2.bottomNav
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.activity.viewModels
@@ -97,6 +96,10 @@ class MainActivity : AppCompatActivity() {
             setupWithNavController(navController, appBarConfiguration)
         }
 
+        //apply font to toolbar text
+        binding.activityToolbarLayout.setCollapsedTitleTextAppearance(R.style.ToolbarFontStyle)
+        binding.activityToolbarLayout.setExpandedTitleTextAppearance(R.style.ToolbarFontStyle)
+
         //automatically collapse toolbar
         binding.appBarLayout.setExpanded(false)
 
@@ -111,7 +114,9 @@ class MainActivity : AppCompatActivity() {
             //sets the toolbar title for DinoArticle to the associated dinosaur
             binding.activityToolbarLayout.title =
                 if (destination.id == R.id.dino_article_fragment) {
-                    (bundle?.get("dinoSelected") as DinosaurEncyclopedia).name
+                    this.resources.getStringArray(R.array.dinosaur_names_array)[
+                            (bundle?.get("dinoSelected") as DinosaurEncyclopedia).position
+                    ]
                 } else {
                     mainViewModel.quizVisible.removeObservers(this)
                     disableAppBarDrag(behaviour, draggable =  false)
@@ -138,6 +143,10 @@ class MainActivity : AppCompatActivity() {
                     View.GONE
                 }
                 R.id.select_background_fragment -> {
+                    binding.bottomNavHost.setMarginBottomNav(false)
+                    View.GONE
+                }
+                R.id.dinoErasFragment -> {
                     binding.bottomNavHost.setMarginBottomNav(false)
                     View.GONE
                 }
@@ -170,9 +179,12 @@ class MainActivity : AppCompatActivity() {
         //sets dinosaur image in collapsable toolbar if selected fragment is
         //DinoArticleFragment, otherwise no image is selected
         if (draggable) {
+            val selectedDino = (bundle?.get("dinoSelected") as DinosaurEncyclopedia)
             binding.toolbarImage.setImageResource(
-                (bundle?.get("dinoSelected") as DinosaurEncyclopedia).dinosaurFb
+                selectedDino.dinosaurFb
             )
+            binding.toolbarImage.contentDescription =
+                resources.getStringArray(R.array.dinosaur_badge_names_array)[selectedDino.position]
         } else {
             binding.toolbarImage.setImageResource(0)
         }

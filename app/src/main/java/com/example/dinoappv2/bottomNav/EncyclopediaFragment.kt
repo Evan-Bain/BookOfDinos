@@ -1,7 +1,6 @@
 package com.example.dinoappv2.bottomNav
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
@@ -17,6 +16,7 @@ import com.example.dinoappv2.adapters.EncyclopediaAdapter
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.FragmentEncyclopediaBinding
 import com.example.dinoappv2.viewModels.EncyclopediaViewModel
+import com.example.dinoappv2.viewModels.EncyclopediaViewModelFactory
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialFadeThrough
@@ -34,8 +34,12 @@ class EncyclopediaFragment : Fragment() {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
         exitTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
 
-        viewModel = ViewModelProvider(this)[EncyclopediaViewModel::class.java]
+        val viewModelFactory =
+            EncyclopediaViewModelFactory(resources.getStringArray(R.array.dinosaur_names_array))
+        viewModel = ViewModelProvider(this, viewModelFactory)[
+                EncyclopediaViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -56,10 +60,11 @@ class EncyclopediaFragment : Fragment() {
         if(findNavController().previousBackStackEntry?.destination?.id == R.id.dino_article_fragment) {
             enterTransition = MaterialFadeThrough()
             exitTransition = MaterialFadeThrough()
+            reenterTransition = MaterialFadeThrough()
         }
 
         //setting up recyclerView
-        val adapter = EncyclopediaAdapter { model ->
+        val adapter = EncyclopediaAdapter(this) { model ->
             //pass click listener
             model.onBadgeClicked()
         }

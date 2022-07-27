@@ -707,15 +707,19 @@
       android:strokeWidth="10.39"
       android:fillColor="#00000000"
       android:strokeColor="#000"/>
-  <path
+    <path
+        android:pathData="M500,0C223.86,0 0,223.86 0,500s223.86,500 500,500 500,-223.86 500,-500S776.14,0 500,0ZM500,921.05c-232.54,0 -421,-188.51 -421,-421S267.46,79 500,79 921.05,267.46 921.05,500 732.54,921.05 500,921.05Z"
+        android:fillColor="@color/secondaryColor"/>
+
+    <path
       android:pathData="M500,0C223.86,0 0,223.86 0,500s223.86,500 500,500 500,-223.86 500,-500S776.14,0 500,0ZM500,921.05c-232.54,0 -421,-188.51 -421,-421S267.46,79 500,79 921.05,267.46 921.05,500 732.54,921.05 500,921.05Z"
-      android:fillColor="#ffd600"/>
+      android:fillColor="?attr/colorSecondary"/>
   <path
       android:pathData="M228.79,493.17a50,50 0,1 1,50 -50A50.1,50.1 0,0 1,228.79 493.17ZM228.79,401.09a42,42 0,1 0,42 42A42.09,42.09 0,0 0,228.79 401.09Z"
       android:strokeAlpha="1"
       android:fillAlpha="1">
     <aapt:attr name="android:fillColor">
-      <gradient 
+      <gradient
           android:startY="394.87"
           android:startX="229.29"
           android:endY="487.51"

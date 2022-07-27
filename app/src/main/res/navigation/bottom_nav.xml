@@ -10,6 +10,9 @@
         android:name="com.example.dinoappv2.bottomNav.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_bottom_nav_to_dinoErasFragment"
+            app:destination="@id/dinoErasFragment" />
     </fragment>
     <fragment
         android:id="@+id/profile_bottom_nav"
@@ -60,4 +63,9 @@
         android:name="com.example.dinoappv2.miscFragments.SelectBackgroundFragment"
         android:label="Background"
         tools:layout="@layout/select_background_fragment"/>
+    <fragment
+        android:id="@+id/dinoErasFragment"
+        android:name="com.example.dinoappv2.miscFragments.DinoErasFragment"
+        android:label="Age of Dinosaurs"
+        tools:layout="@layout/fragment_dino_eras"/>
 </navigation>

@@ -6,8 +6,7 @@
         android:id="@+id/evolution_transition"
         app:constraintSetEnd="@id/end_evolution"
         app:constraintSetStart="@id/start_evolution"
-        app:duration="1000"
-        app:layoutDuringTransition="honorRequest" />
+        app:duration="1000" />
 
     <ConstraintSet android:id="@+id/start_evolution">
 

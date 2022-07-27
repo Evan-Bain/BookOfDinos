@@ -48,32 +48,35 @@
                             android:id="@+id/profile_image"
                             android:layout_width="125dp"
                             android:layout_height="125dp"
+                            android:contentDescription="@string/profile_image"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/profile_icon" />
+                            app:srcCompat="@drawable/profile_icon"
+                            tools:ignore="ImageContrastCheck" />
 
                         <!-- in top left of profile image to signify profile image can be edited -->
                         <com.google.android.material.floatingactionbutton.FloatingActionButton
                             android:id="@+id/edit_profile_image_fab"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:contentDescription="@string/edit_profile_image_fab_image_desc"
                             android:src="@drawable/edit_icon"
                             app:fabSize="mini"
                             app:layout_constraintEnd_toEndOf="@id/profile_image"
-                            app:layout_constraintTop_toTopOf="@id/profile_image" />
+                            app:layout_constraintTop_toTopOf="@id/profile_image"
+                            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
 
                         <!-- defines concept of layout below (level) -->
                         <TextView
                             android:id="@+id/level_text"
+                            style="?attr/infoTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
-                            android:layout_marginBottom="-8dp"
-                            android:fontFamily="@font/fredoka_one"
-                            android:text="Level:"
-                            android:textColor="@color/primaryColor"
+                            android:text="@string/level"
                             app:layout_constraintBottom_toTopOf="@id/level_number"
-                            app:layout_constraintStart_toEndOf="@id/profile_image" />
+                            app:layout_constraintStart_toEndOf="@id/profile_image"
+                            tools:ignore="TextContrastCheck" />
 
                         <!-- current level (lowest at 0 & max at 3) -->
                         <TextView
@@ -83,7 +86,7 @@
                             android:layout_marginStart="16dp"
                             android:fontFamily="@font/fredoka_one"
                             android:text="@{viewModel.currentLevel.toString()}"
-                            android:textColor="@color/secondaryColor"
+                            android:textColor="?attr/colorSecondary"
                             android:textSize="64sp"
                             app:layout_constraintBottom_toTopOf="@id/progress_bar"
                             app:layout_constraintStart_toEndOf="@id/profile_image"
@@ -94,23 +97,25 @@
                             android:id="@+id/level_trophy_icon"
                             android:layout_width="64dp"
                             android:layout_height="0dp"
+                            android:contentDescription="@string/icon_of_a_trophy"
                             android:src="@drawable/trophy_icon"
                             app:layout_constraintBottom_toBottomOf="@id/level_number"
                             app:layout_constraintStart_toEndOf="@id/level_number"
-                            app:layout_constraintTop_toTopOf="@id/level_number" />
+                            app:layout_constraintTop_toTopOf="@id/level_number"
+                            tools:ignore="ImageContrastCheck" />
 
                         <!-- current level user is on -->
                         <TextView
                             android:id="@+id/current_level_number"
+                            style="?attr/infoTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/fredoka_one"
                             android:padding="4dp"
                             android:text="@{viewModel.currentLevel.toString()}"
-                            android:textColor="@color/primaryColor"
                             app:layout_constraintBottom_toBottomOf="@id/progress_bar"
                             app:layout_constraintEnd_toStartOf="@id/progress_bar"
                             app:layout_constraintTop_toTopOf="@id/progress_bar"
+                            tools:ignore="TextContrastCheck"
                             tools:text="1" />
 
                         <!-- displays how close user is to the next level -->
@@ -129,15 +134,15 @@
                         <!-- next level user will be on -->
                         <TextView
                             android:id="@+id/next_level_number"
+                            style="?attr/infoTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/fredoka_one"
                             android:padding="4dp"
-                            android:textColor="@color/primaryColor"
                             app:layout_constraintBottom_toBottomOf="@id/progress_bar"
                             app:layout_constraintStart_toEndOf="@id/progress_bar"
                             app:layout_constraintTop_toTopOf="@id/progress_bar"
                             app:nextLevel="@{viewModel.currentLevel}"
+                            tools:ignore="TextContrastCheck"
                             tools:text="2" />
 
                         <!-- defines concept of layout below (background) -->
@@ -145,9 +150,8 @@
                             android:id="@+id/background_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/fredoka_one"
                             android:text="@string/background"
-                            android:textColor="@color/primaryColor"
+                            style="?attr/infoTextStyle"
                             app:layout_constraintBottom_toBottomOf="@id/level_text"
                             app:layout_constraintStart_toEndOf="@id/level_trophy_icon"
                             app:layout_constraintTop_toTopOf="@id/level_text" />
@@ -161,13 +165,15 @@
                             android:layout_marginStart="32dp"
                             android:layout_marginTop="8dp"
                             android:clickable="true"
+                            android:contentDescription="@string/change_app_background_selected"
                             android:elevation="8dp"
                             android:focusable="true"
                             android:foreground="?android:attr/selectableItemBackground"
                             app:cardCornerRadius="8dp"
                             app:layout_constraintBottom_toBottomOf="@id/level_trophy_icon"
                             app:layout_constraintStart_toEndOf="@id/level_trophy_icon"
-                            app:layout_constraintTop_toBottomOf="@id/background_text">
+                            app:layout_constraintTop_toBottomOf="@id/background_text"
+                            tools:ignore="RedundantDescriptionCheck">
 
                             <!-- default 'background preview'
                                  (separate imageView to adjust for icon's default padding) -->
@@ -176,7 +182,8 @@
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/filler_square_icon" />
+                                android:src="@drawable/filler_square_icon"
+                                tools:ignore="contentDescription,ImageContrastCheck" />
 
                             <!-- image of background that is currently selected -->
                             <ImageView
@@ -184,14 +191,16 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/background_land" />
+                                android:src="@drawable/background_land"
+                                tools:ignore="contentDescription,ImageContrastCheck" />
 
                             <!-- signifies that cardView is selectable/editable -->
                             <ImageView
                                 android:layout_width="48dp"
                                 android:layout_height="48dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/edit_icon" />
+                                android:src="@drawable/edit_icon"
+                                tools:ignore="contentDescription,ImageContrastCheck" />
                         </androidx.cardview.widget.CardView>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,19 @@
 package com.example.dinoappv2.adapters
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
 import com.example.dinoappv2.databinding.ProfileEditRecyclerLayoutBinding
 
 class ProfileEditAdapter(
+    private val context: Context,
     private val onBadgeClicked: (DinosaurEncyclopedia, Boolean) -> Unit
 ) : ListAdapter<DinosaurEncyclopedia, ProfileEditAdapter.ViewHolder>(AllDinosDiffCallback()) {
 
@@ -23,7 +26,13 @@ class ProfileEditAdapter(
             fun bind(data: DinosaurEncyclopedia) {
                 with(binding.profileEditBadge) {
                     setImageResource(data.badge)
-                    setOnClickListener {
+                    contentDescription = if(data.position == -1) {
+                        context.resources.getString(R.string.profile_default)
+                    } else {
+                        context.resources.getStringArray(
+                            R.array.dinosaur_badge_names_array)[data.position]
+                    }
+                   setOnClickListener {
                         onBadgeClicked(data, addCheck(binding.profileEditCheck))
                     }
                 }

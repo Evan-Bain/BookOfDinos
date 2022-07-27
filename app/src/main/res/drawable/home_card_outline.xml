@@ -5,7 +5,7 @@
         <shape>
             <stroke
                 android:width="8dp"
-                android:color="#60ad5e"/>
+                android:color="?attr/homeOutlineColor"/>
 
             <corners
                 android:radius="16dp" />
@@ -16,7 +16,7 @@
         <shape>
             <stroke
                 android:width="8dp"
-                android:color="#60ad5e"/>
+                android:color="?attr/homeOutlineColor"/>
         </shape>
     </item>
 

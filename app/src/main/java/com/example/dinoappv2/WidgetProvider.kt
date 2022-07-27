@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 abstract class WidgetProvider : AppWidgetProvider() {
 
     var database: WidgetDataDao? = null
-    val scope = CoroutineScope(Job() + Dispatchers.IO)
+    private val scope = CoroutineScope(Job() + Dispatchers.IO)
 
     override fun onUpdate(
         context: Context,

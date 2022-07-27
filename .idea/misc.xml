@@ -3,38 +3,68 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/add_icon.xml" value="0.1" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/back_button.xml" value="0.1665" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/background_air.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/background_land.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/background_sky.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/background_water.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/check_box_gray.xml" value="0.153" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/check_circle_icon.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/check_circle_yellow.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/check_icon.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/circle_icon.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/classic_button_background.xml" value="0.153" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_ankylosaurus.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_ankylosaurus_black.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_argentinosaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_argentinosaurus_black.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_brontosaurus.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_brontosaurus_black.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_dilophosaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_dilophosaurus_black.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_giganotosaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_giganotosaurus_black.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_leedsichthys.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_leedsichthys_black.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_mosasaurus.xml" value="0.242" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_mosasaurus_black.xml" value="0.1665" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_pteranodon.xml" value="0.153" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_quetzalcoatlus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_quetzalcoatlus_black.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_raptor.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_raptor_black.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_spinosaurus.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_stegasaurus.xml" value="0.153" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_stegasaurus_black.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_stegosaurus.xml" value="0.153" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_therizinosaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_therizinosaurus_black.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_trex.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_trex_black.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_triceratops.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_velociraptor.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_velociraptor_black.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dino_badge_velociraptor_optimized.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dinosaur_species.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/dno_badge_leedsichthys.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/drop_down_arrow_down.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/drop_down_arrow_up.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/edit_icon.xml" value="0.1" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_ankylosaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_argentinosaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_brontosaurus.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_dilophosarus_black.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_dilophosaurus.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_dilophosaurus_black.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_mosasaurus.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_mosasaurus_black.xml" value="0.1" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_pteranodon.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_pteranodon_black.xml" value="0.1425" />
-        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_quetzalcoatlus.xml" value="0.1425" />
-        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_spinosaurus.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_quetzalcoatlus.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_quetzalcoatlus_black.xml" value="0.25" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_spinosaurus.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_spinosaurus_black.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_t_rex.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_t_rex_black.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_trex.xml" value="0.1425" />
@@ -44,23 +74,66 @@
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_triceratops.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_velociraptor.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/fb_velociraptor2.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/filler_square_icon.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/home_card_outline.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/home_text_background.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_another1.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_blacklol.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_fb_quetzalcoatlus_black.xml" value="0.1665" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_quetzal_back1.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_quetzal_black1.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_queztal_back.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_sky1.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/ic_trexbadge.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/land_toolbar_background.xml" value="0.153" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/level_progress_background.xml" value="0.1765" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/level_progress_bar.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/lock_icon.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/open_book_icon.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/profile_icon.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/profile_icon_full.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/quiz_shape.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/remove_icon.xml" value="0.1" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/search_icon.xml" value="0.153" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/t_rex_rastered.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/test_progress_exp.xml" value="0.189" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/thick_border.xml" value="0.1765" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/thin_border.xml" value="0.1665" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/trophy_icon.xml" value="0.153" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino1.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino1b.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino2.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino2b.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino3.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino3b.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino4.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino4b.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino5.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino5b.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino6.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino6b.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino7.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino7b.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino8.xml" value="0.1425" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/drawable/z_spino8b.xml" value="0.1425" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/activity_main.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/badge_widget.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/dictionary_recycler_layout.xml" value="0.1" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/encyclopedia_recycler_layout.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fb_widget.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_dictionary.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_dino_article.xml" value="0.3" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_dino_eras.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_dinosaur_extinction.xml" value="0.3" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_encyclopedia.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_home.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_profile.xml" value="0.4883227176220807" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_profile_edit.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/fragment_quiz.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/profile_edit_recycler_layout.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/profile_recycler_layout.xml" value="0.24166666666666667" />
-        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/select_background_fragment.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/layout/select_background_fragment.xml" value="0.1" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/evanj/AndroidStudioProjects/DinoAppv2/app/src/main/res/menu/search_options_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/evanj/UdacityProjects/DinoAppv2/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.1805" />

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,6 +28,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:visibility="gone"
+                android:contentDescription="@string/select_to_navigate_to_article_for_this_dino"
                 android:layout_margin="8dp"
                 app:srcCompat="@drawable/check_circle_icon"
                 app:layout_constraintTop_toTopOf="@id/dino_badge"
@@ -44,7 +46,8 @@
                 app:autoSizeMaxTextSize="16sp"
                 app:autoSizeStepGranularity="2sp"
                 android:padding="4dp"
-                android:fontFamily="@font/fredoka_one"
+                tools:fontFamily="@font/fredoka_one"
+                style="?attr/headerTextStyle"
                 android:text="@string/test"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/dino_badge"
