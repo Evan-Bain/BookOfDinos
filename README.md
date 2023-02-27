@@ -1,6 +1,3 @@
-The idea that originally sparked my interest in programming.
+Book of Dinos is an educational app geared towards inspiring kids to learn about dinosaurs.
 
-While this repository is archived, development of this idea still continues as BookOfDinos.
-
-Due to being one of my first large programming projects, poor and rushed development practices led to the descion of completely ambadoning this app. 
-After obtaining a greater understanding of Android development, the idea was continued as "BookOfDinos."
+Available on the Google Play Store.
