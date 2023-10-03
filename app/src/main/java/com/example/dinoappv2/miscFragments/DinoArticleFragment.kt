@@ -280,10 +280,10 @@ class DinoArticleFragment : Fragment() {
         //create list of all audios used for reading sections
         mediaPlayerList = createMediaPlayers()
 
-        mediaPlayerList[0].setTimedText(binding.storyText.text as Spannable, storyArticle)
+        /*mediaPlayerList[0].setTimedText(binding.storyText.text as Spannable, storyArticle)
         mediaPlayerList[1].setTimedText(binding.habitatText.text as Spannable, habitatArticle)
         mediaPlayerList[2].setTimedText(binding.crazyEvolutionText.text as Spannable, evolutionArticle)
-        mediaPlayerList[3].setTimedText(binding.fossilHistoryText.text as Spannable, fossilArticle)
+        mediaPlayerList[3].setTimedText(binding.fossilHistoryText.text as Spannable, fossilArticle)*/
 
         binding.activateAudioStory.setOnClickListener {
             activateAudioAnimation(viewModel.currentAudio, 0)

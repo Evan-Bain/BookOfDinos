@@ -144,7 +144,7 @@ fun DinosaurEncyclopedia.getDinosaurSubtitle(section: Int): Int {
         }
 
         //tyrannosaurusrex
-        1 -> {
+        13 -> {
             when(section) {
                 0 -> R.raw.subtitle_tyrannosaurusrex_story
                 1 -> R.raw.subtitle_tyrannosaurusrex_habitat
