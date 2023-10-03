@@ -1,6 +1,8 @@
 package com.example.dinoappv2.bottomNav
 
 import android.animation.ObjectAnimator
+import android.graphics.drawable.AnimationDrawable
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -16,6 +18,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.dinoappv2.EncyclopediaRepository
 import com.example.dinoappv2.R
 import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
+import com.example.dinoappv2.dataClasses.getDinosaurAudio
 import com.example.dinoappv2.databases.BackgroundImageDatabase
 import com.example.dinoappv2.databases.DinosaurEncyclopediaDatabase
 import com.example.dinoappv2.databinding.ActivityMainBinding
@@ -114,14 +117,21 @@ class MainActivity : AppCompatActivity() {
             //sets the toolbar title for DinoArticle to the associated dinosaur
             binding.activityToolbarLayout.title =
                 if (destination.id == R.id.dino_article_fragment) {
-                    this.resources.getStringArray(R.array.dinosaur_names_array)[
-                            (bundle?.get("dinoSelected") as DinosaurEncyclopedia).position
+                    resources.getStringArray(R.array.dinosaur_names_array)[
+                        (bundle?.get("dinoSelected") as DinosaurEncyclopedia).position
                     ]
                 } else {
                     mainViewModel.quizVisible.removeObservers(this)
                     disableAppBarDrag(behaviour, draggable =  false)
                     destination.label
                 }
+
+            //stop audio icon animating if DinoArticle exited before audio finished
+            val audioAnimation = (binding.activateAudioPronunciation.drawable as AnimationDrawable)
+            if(audioAnimation.isRunning) {
+                audioAnimation.stop()
+                audioAnimation.selectDrawable(0)
+            }
 
             //disables bottomNav and padding on fragments not connected to bottomNav layout
             binding.bottomNav.visibility = when (destination.id) {
@@ -137,6 +147,25 @@ class MainActivity : AppCompatActivity() {
                             disableAppBarDrag(behaviour, draggable = false)
                         } else {
                             disableAppBarDrag(behaviour, bundle, true)
+                        }
+                    }
+
+                    val dinoSelected = (bundle?.get("dinoSelected") as DinosaurEncyclopedia)
+                    //Read name of dinosaur to the user
+                    binding.activateAudioPronunciation.setOnClickListener {
+                        val mediaPlayer = MediaPlayer.create(
+                            this,
+                            dinoSelected.getDinosaurAudio(4)
+                        )
+
+                        val animatedAudio = (binding.activateAudioPronunciation.drawable as AnimationDrawable)
+                        if(!animatedAudio.isRunning) {
+                            animatedAudio.start()
+                        }
+                        mediaPlayer.start()
+                        mediaPlayer.setOnCompletionListener {
+                            animatedAudio.stop()
+                            animatedAudio.selectDrawable(0)
                         }
                     }
 

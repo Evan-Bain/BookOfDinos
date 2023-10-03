@@ -81,7 +81,7 @@ class DictionaryFragment : Fragment() {
         //Disable automatic ListAdapter animations if transitioned from DinoArticle to avoid
         //unnecessary motion
         val argWord = arguments?.get("selectedWord")
-        if(argWord != null) {
+        if(argWord != null && sharedViewModel.dictionaryWordSelected) {
             viewModel.filterDictionaryData(argWord as String)
             binding.recyclerViewDictionary.itemAnimator = null
             sharedViewModel.setDictionaryWord(false)

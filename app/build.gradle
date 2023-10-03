@@ -23,6 +23,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    aaptOptions {
+        noCompress "srt"
+    }
+
     buildTypes {
         release {
             minifyEnabled false

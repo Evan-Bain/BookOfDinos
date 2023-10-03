@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_home_bottom_nav_to_dinoErasFragment"
             app:destination="@id/dinoErasFragment" />
+        <action
+            android:id="@+id/action_home_bottom_nav_to_dinoExtinctionFragment"
+            app:destination="@id/dinoExtinctionFragment" />
     </fragment>
     <fragment
         android:id="@+id/profile_bottom_nav"
@@ -66,6 +69,11 @@
     <fragment
         android:id="@+id/dinoErasFragment"
         android:name="com.example.dinoappv2.miscFragments.DinoErasFragment"
-        android:label="Age of Dinosaurs"
+        android:label="Age Of Dinosaurs"
         tools:layout="@layout/fragment_dino_eras"/>
+    <fragment
+        android:id="@+id/dinoExtinctionFragment"
+        android:name="com.example.dinoappv2.miscFragments.DinoExtinctionFragment"
+        android:label="Dino Extinction"
+        tools:layout="@layout/fragment_dino_extinction"/>
 </navigation>

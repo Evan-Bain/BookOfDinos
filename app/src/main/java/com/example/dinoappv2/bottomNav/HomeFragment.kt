@@ -32,7 +32,9 @@ class HomeFragment : Fragment() {
             false)
 
         //re-enable normal transitions after navigating away from ProfileEditFragment
-        if(findNavController().previousBackStackEntry?.destination?.id == R.id.dinoErasFragment) {
+        val prevDestination = findNavController().previousBackStackEntry?.destination?.id
+        if(prevDestination == R.id.dinoErasFragment ||
+            prevDestination == R.id.dinoExtinctionFragment) {
             enterTransition = MaterialFadeThrough()
             exitTransition = MaterialFadeThrough()
             reenterTransition = MaterialFadeThrough()
@@ -45,6 +47,15 @@ class HomeFragment : Fragment() {
             reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
 
             findNavController().navigate(R.id.dinoErasFragment)
+        }
+
+        binding.dinosaurExtinctionCard.setOnClickListener {
+
+            //change transition from MaterialFade
+            exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z,true)
+            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z,false)
+
+            findNavController().navigate(R.id.dinoExtinctionFragment)
         }
 
         return binding.root

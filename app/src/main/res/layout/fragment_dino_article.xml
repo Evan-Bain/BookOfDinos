@@ -53,12 +53,12 @@
                 <!-- YEARS AGO LIVED FACT -->
                 <TextView
                     android:id="@+id/lived_fact_title"
+                    style="?headerTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/fredoka_one"
                     android:text="@string/lived"
                     android:textSize="22sp"
-                    style="?headerTextStyle"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,12 +77,12 @@
                 <!-- SPEED FACT -->
                 <TextView
                     android:id="@+id/speed_fact_title"
+                    style="?headerTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/speed_title"
                     android:fontFamily="@font/fredoka_one"
-                    style="?headerTextStyle"
+                    android:text="@string/speed_title"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
                     app:layout_constraintTop_toBottomOf="@id/lived_fact_text" />
@@ -102,15 +102,15 @@
                 <!-- MEANING OF NAME FACT -->
                 <TextView
                     android:id="@+id/name_fact_title"
+                    style="?headerTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    tools:fontFamily="@font/fredoka_one"
-                    style="?headerTextStyle"
                     android:text="@string/meaning_of_name"
                     android:textSize="22sp"
                     app:layout_constraintStart_toStartOf="@id/article_start_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/speed_fact_text" />
+                    app:layout_constraintTop_toBottomOf="@id/speed_fact_text"
+                    tools:fontFamily="@font/fredoka_one" />
 
                 <TextView
                     android:id="@+id/name_fact_text"
@@ -126,17 +126,27 @@
 
                 <TextView
                     android:id="@+id/story_title"
+                    style="?headerTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/fredoka_one"
-                    style="?headerTextStyle"
                     android:text="@string/story"
                     android:textSize="22sp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/story_layout"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/name_fact_text"
-                    app:layout_constraintBottom_toTopOf="@id/story_layout"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name_fact_text" />
+
+                <ImageView
+                    android:id="@+id/activate_audio_story"
+                    android:src="@drawable/audio_icon_playing_animation"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@id/story_title"
+                    app:layout_constraintTop_toTopOf="@id/story_title"
+                    app:layout_constraintBottom_toBottomOf="@id/story_title"/>
 
                 <!-- layout over scrollview to keep background/outline visible
                      after scrolling past limit of Android 12-->
@@ -145,33 +155,32 @@
                     android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:layout_marginTop="16dp"
-                    android:padding="4dp"
                     android:background="@drawable/thin_border"
-                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
+                    android:padding="4dp"
                     app:layout_constraintEnd_toEndOf="@id/article_end_guideline"
+                    app:layout_constraintStart_toStartOf="@id/article_start_guideline"
                     app:layout_constraintTop_toBottomOf="@id/story_title">
 
-                <androidx.core.widget.NestedScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:requiresFadingEdge="vertical"
-                    android:fadingEdgeLength="24dp">
-
-                    <TextView
-                        android:id="@+id/story_text"
+                    <androidx.core.widget.NestedScrollView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        style="?attr/bodyTextStyle"
-                        android:textSize="20sp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        tools:text="A baby Ankylosaurus gets distracted from eating and starts following a bug without his mother noticing. Seconds later, the mother hears her baby cry for help after a Bambiraptor jumped out of hiding, and flipped him over. The mother starts charging over. Even though his mother can’t move fast, the Bambiraptor quickly runs away to find something else for dinner. This predator knows an adult Ankylosaurus could easily break its bones." />
+                        android:fadingEdgeLength="24dp"
+                        android:requiresFadingEdge="vertical">
 
+                        <TextView
+                            android:id="@+id/story_text"
+                            style="?attr/bodyTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingStart="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="8dp"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            tools:text="A baby Ankylosaurus gets distracted from eating and starts following a bug without his mother noticing. Seconds later, the mother hears her baby cry for help after a Bambiraptor jumped out of hiding, and flipped him over. The mother starts charging over. Even though his mother can’t move fast, the Bambiraptor quickly runs away to find something else for dinner. This predator knows an adult Ankylosaurus could easily break its bones." />
+                    </androidx.core.widget.NestedScrollView>
 
-                </androidx.core.widget.NestedScrollView>
                 </FrameLayout>
 
 
@@ -190,7 +199,7 @@
 
                     <!-- Frame layout used to allow clicks to register on the title and drop down
                          button view -->
-                    <FrameLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/habitat_constraint_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -199,25 +208,38 @@
 
                         <TextView
                             android:id="@+id/habitat_title"
+                            style="?headerTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
                             android:fontFamily="@font/fredoka_one"
-                            style="?headerTextStyle"
                             android:text="@string/habitat"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <ImageView
+                            android:id="@+id/activate_audio_habitat"
+                            android:src="@drawable/audio_icon_playing_animation"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            app:layout_constraintStart_toEndOf="@id/habitat_title"
+                            app:layout_constraintTop_toTopOf="@id/habitat_title"
+                            app:layout_constraintBottom_toBottomOf="@id/habitat_title"/>
 
                         <ImageView
                             android:id="@+id/habitat_drop_button"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:contentDescription="@string/habitat_drop_down_image_desc"
-                            android:layout_gravity="center|end"
-                            android:src="@drawable/drop_down_arrow_down" />
+                            android:src="@drawable/drop_down_arrow_down"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
 
-                    </FrameLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
                          drop down animation played (previously cut off) -->
@@ -229,9 +251,9 @@
 
                         <TextView
                             android:id="@+id/habitat_text"
+                            style="?attr/bodyTextStyle"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            style="?attr/bodyTextStyle"
                             android:background="@drawable/thin_border"
                             android:padding="16dp"
                             android:textSize="16sp" />
@@ -252,7 +274,7 @@
 
                     <!-- Frame layout used to allow clicks to register on the title and drop down
                          button view -->
-                    <FrameLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/evolution_constraint_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -261,25 +283,39 @@
 
                         <TextView
                             android:id="@+id/crazy_evolution_title"
+                            style="?headerTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
                             android:fontFamily="@font/fredoka_one"
-                            style="?headerTextStyle"
                             android:text="@string/crazy_evolution"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <ImageView
+                            android:id="@+id/activate_audio_evolution"
+                            android:src="@drawable/audio_icon_playing_animation"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            app:layout_constraintStart_toEndOf="@id/crazy_evolution_title"
+                            app:layout_constraintTop_toTopOf="@id/crazy_evolution_title"
+                            app:layout_constraintBottom_toBottomOf="@id/crazy_evolution_title"/>
 
                         <ImageView
                             android:id="@+id/crazy_evolution_drop_button"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:contentDescription="@string/evolution_drop_down_image_desc"
-                            android:layout_gravity="center|end"
-                            android:src="@drawable/drop_down_arrow_down" />
+                            android:src="@drawable/drop_down_arrow_down"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
 
-                    </FrameLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
                          drop down animation played (previously cut off) -->
@@ -291,9 +327,9 @@
 
                         <TextView
                             android:id="@+id/crazy_evolution_text"
+                            style="?attr/bodyTextStyle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            style="?attr/bodyTextStyle"
                             android:background="@drawable/thin_border"
                             android:padding="16dp"
                             android:textSize="16sp" />
@@ -315,7 +351,7 @@
 
                     <!-- Frame layout used to allow clicks to register on the title and drop down
                          button view -->
-                    <FrameLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/fossil_constraint_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -324,25 +360,40 @@
 
                         <TextView
                             android:id="@+id/fossil_history_title"
+                            style="?headerTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
                             android:fontFamily="@font/fredoka_one"
-                            style="?headerTextStyle"
                             android:text="@string/fossil_history"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <ImageView
+                            android:id="@+id/activate_audio_fossil"
+                            android:src="@drawable/audio_icon_playing_animation"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            app:layout_constraintStart_toEndOf="@id/fossil_history_title"
+                            app:layout_constraintTop_toTopOf="@id/fossil_history_title"
+                            app:layout_constraintBottom_toBottomOf="@id/fossil_history_title"/>
 
                         <ImageView
                             android:id="@+id/fossil_history_drop_button"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:layout_gravity="center|end"
                             android:contentDescription="@string/fossil_drop_down_image_desc"
-                            android:src="@drawable/drop_down_arrow_down" />
+                            android:src="@drawable/drop_down_arrow_down"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
 
-                    </FrameLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <!-- Frame layout used so bottom border of TextView is shown (padding 16dp) after
                          drop down animation played (previously cut off) -->
@@ -354,9 +405,9 @@
 
                         <TextView
                             android:id="@+id/fossil_history_text"
+                            style="?attr/bodyTextStyle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            style="?attr/bodyTextStyle"
                             android:background="@drawable/thin_border"
                             android:padding="16dp"
                             android:textSize="16sp" />
@@ -396,9 +447,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"
             android:layout_margin="16dp"
             android:backgroundTint="?attr/quizBackgroundColor"
+            android:visibility="gone"
             app:cardCornerRadius="16dp">
 
             <!-- motion layout for quiz -->
@@ -411,12 +462,12 @@
                 <!-- title of quiz (dino name + Quiz) -->
                 <TextView
                     android:id="@+id/quiz_title"
+                    style="?attr/quizTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/fredoka_one"
-                    style="?attr/quizTextStyle"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -425,6 +476,7 @@
                 <!-- quiz question -->
                 <TextView
                     android:id="@+id/quiz_question"
+                    style="?attr/quizTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="16dp"
@@ -433,7 +485,6 @@
                     android:fontFamily="@font/fredoka_one"
                     android:text="@{viewModel.quizQuestion}"
                     android:textSize="14sp"
-                    style="?attr/quizTextStyle"
                     app:layout_constraintStart_toStartOf="@id/quiz_title"
                     app:layout_constraintTop_toBottomOf="@id/quiz_title"
                     tools:text="How strong is the T-Rex's bite force?" />
@@ -452,34 +503,34 @@
 
                     <RadioButton
                         android:id="@+id/quiz_radio_button_0"
+                        style="?attr/quizTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.firstAnswer}"
-                        style="?attr/quizTextStyle"
                         tools:text="900 pounds" />
 
                     <RadioButton
                         android:id="@+id/quiz_radio_button_1"
+                        style="?attr/quizTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.secondAnswer}"
-                        style="?attr/quizTextStyle"
                         tools:text="12,800 pounds" />
 
                     <RadioButton
                         android:id="@+id/quiz_radio_button_2"
+                        style="?attr/quizTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.thirdAnswer}"
-                        style="?attr/quizTextStyle"
                         tools:text="100,000 pounds" />
 
                     <RadioButton
                         android:id="@+id/quiz_radio_button_3"
+                        style="?attr/quizTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.fourthAnswer}"
-                        style="?attr/quizTextStyle"
                         tools:text="55,600 pounds" />
                 </RadioGroup>
 
@@ -496,21 +547,21 @@
                     android:fontFamily="@font/fredoka_one"
                     android:onClick="@{() -> viewModel.nextButtonClicked(-1)}"
                     android:text="@string/next"
-                    app:layout_constraintTop_toBottomOf="@id/quiz_radio_group"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/quiz_radio_group" />
                 <!-- quiz layout -->
 
                 <!-- result layout -->
                 <!-- header word -->
                 <TextView
                     android:id="@+id/quiz_result_message_text"
+                    style="?attr/quizTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
                     android:paddingTop="16dp"
                     android:text="@{viewModel.resultMessageText}"
-                    style="?attr/quizTextStyle"
                     android:textSize="32sp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@id/quiz_result_text"
@@ -519,12 +570,12 @@
                 <!-- statement -->
                 <TextView
                     android:id="@+id/quiz_result_text"
+                    style="?attr/quizTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
                     android:text="@{viewModel.resultText}"
-                    style="?attr/quizTextStyle"
                     android:textSize="32sp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@id/quiz_percent_text"
@@ -533,12 +584,12 @@
                 <!-- percent -->
                 <TextView
                     android:id="@+id/quiz_percent_text"
+                    style="?attr/quizTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/fredoka_one"
                     android:text="@{viewModel.percentText}"
-                    style="?attr/quizTextStyle"
                     android:textSize="32sp"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -548,13 +599,13 @@
                 <!-- button to close quiz -->
                 <Button
                     android:id="@+id/quiz_done_button"
+                    style="@style/classicButton"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="16dp"
                     android:onClick="@{() -> sharedViewModel.setQuizVisible(false)}"
                     android:text="@string/continue_quiz_button"
                     android:visibility="gone"
-                    style="@style/classicButton"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/quiz_percent_text" />

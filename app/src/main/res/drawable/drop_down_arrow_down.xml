@@ -1,10 +1,17 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24"
-    android:tint="?attr/colorSecondary">
-  <path
-      android:fillColor="@android:color/white"
-      android:pathData="M7.41,8.59L12,13.17l4.59,-4.58L18,10l-6,6 -6,-6 1.41,-1.41z"/>
-</vector>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+  <aapt:attr name="android:drawable">
+    <vector
+        android:name="drop_down_arrow_down"
+        android:tint="?attr/colorSecondary"
+        android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24">
+      <group android:name="drop_down_arrow_down_group" android:pivotX="12" android:pivotY="12">
+        <path android:name="path" android:pathData="M 8.12 9.29 L 12 13.17 L 15.88 9.29 C 16.27 8.9 16.9 8.9 17.29 9.29 C 17.68 9.68 17.68 10.31 17.29 10.7 L 12.7 15.29 C 12.31 15.68 11.68 15.68 11.29 15.29 L 6.7 10.7 C 6.31 10.31 6.31 9.68 6.7 9.29 C 7.09 8.91 7.73 8.9 8.12 9.29 Z" android:fillColor="#000000"/>
+      </group>
+    </vector>
+  </aapt:attr>
+  <target android:name="drop_down_arrow_down_group">
+    <aapt:attr name="android:animation">
+      <objectAnimator android:propertyName="rotation" android:duration="1000" android:valueFrom="0" android:valueTo="-180" android:valueType="floatType" android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
+    </aapt:attr>
+  </target>
+</animated-vector>
