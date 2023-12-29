@@ -89,13 +89,13 @@ class EncyclopediaFragment : Fragment() {
         searchView.queryHint = "Search dinosaurs"
 
         searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
-            override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
+            override fun onMenuItemActionExpand(p0: MenuItem): Boolean {
                 //disable bottomNav if search is being performed
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.GONE
                 return true
             }
 
-            override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
+            override fun onMenuItemActionCollapse(p0: MenuItem): Boolean {
                 //enable bottomNav if search is done being performed
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
                 return true

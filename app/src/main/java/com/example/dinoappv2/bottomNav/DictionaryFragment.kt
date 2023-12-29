@@ -81,7 +81,7 @@ class DictionaryFragment : Fragment() {
         //Disable automatic ListAdapter animations if transitioned from DinoArticle to avoid
         //unnecessary motion
         val argWord = arguments?.get("selectedWord")
-        if(argWord != null) {
+        if(argWord != null && sharedViewModel.dictionaryWordSelected) {
             viewModel.filterDictionaryData(argWord as String)
             binding.recyclerViewDictionary.itemAnimator = null
             sharedViewModel.setDictionaryWord(false)
@@ -105,7 +105,7 @@ class DictionaryFragment : Fragment() {
         searchView.queryHint = "Search words"
 
         searchItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
-            override fun onMenuItemActionExpand(p0: MenuItem?): Boolean {
+            override fun onMenuItemActionExpand(p0: MenuItem): Boolean {
                 //if animations are off turn on
                 if(binding.recyclerViewDictionary.itemAnimator == null) {
                     binding.recyclerViewDictionary.itemAnimator = DefaultItemAnimator()
@@ -115,7 +115,7 @@ class DictionaryFragment : Fragment() {
                 return true
             }
 
-            override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
+            override fun onMenuItemActionCollapse(p0: MenuItem): Boolean {
                 //makes bottom nav visible again if done searching for a word
                 activity?.findViewById<BottomNavigationView>(R.id.bottom_nav)?.visibility = View.VISIBLE
                 return true

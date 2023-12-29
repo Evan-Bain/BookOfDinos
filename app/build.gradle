@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.bookofdinos.dinoapp"
@@ -16,11 +16,15 @@ android {
         minSdk 26
         //NOT SDK 21 TOO PROGRAMMATICALLY SET WIDGET
 
-        targetSdk 32
+        targetSdk 34
         versionCode 2
         versionName "1.01"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    aaptOptions {
+        noCompress "srt"
     }
 
     buildTypes {
@@ -98,4 +102,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    testImplementation "androidx.test:core-ktx:1.5.0"
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation "org.hamcrest:hamcrest:2.2"
 }

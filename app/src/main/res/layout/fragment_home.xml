@@ -81,7 +81,7 @@
                 android:fontFamily="@font/fredoka_one"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/coming_soon"
+                android:text="@string/dinosaur_extinction"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </androidx.cardview.widget.CardView>

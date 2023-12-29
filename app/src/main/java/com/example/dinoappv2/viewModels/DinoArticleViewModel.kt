@@ -25,30 +25,47 @@ class DinoArticleViewModel : ViewModel() {
     }
 
     //holds value for whether or not the habitat info is displayed
-    private val _habitatDroppedDown = MutableLiveData(false)
+    private val _habitatDroppedDown = MutableLiveData<Boolean>()
     val habitatDroppedDown: LiveData<Boolean>
         get() = _habitatDroppedDown
 
     fun habitatDropDownClicked() {
-        _habitatDroppedDown.value = !_habitatDroppedDown.value!!
+        _habitatDroppedDown.value = !(_habitatDroppedDown.value ?: false)
     }
 
     //holds value for whether or not the evolution info is displayed
-    private val _evolutionDroppedDown = MutableLiveData(false)
+    private val _evolutionDroppedDown = MutableLiveData<Boolean>()
     val evolutionDroppedDown: LiveData<Boolean>
         get() = _evolutionDroppedDown
 
     fun evolutionDropDownClicked() {
-        _evolutionDroppedDown.value = !_evolutionDroppedDown.value!!
+        _evolutionDroppedDown.value = !(_evolutionDroppedDown.value ?: false)
     }
 
     //holds value for whether or not the fossil info is displayed
-    private val _fossilDroppedDown = MutableLiveData(false)
+    private val _fossilDroppedDown = MutableLiveData<Boolean>()
     val fossilDroppedDown: LiveData<Boolean>
         get() = _fossilDroppedDown
 
     fun fossilDropDownClicked() {
-        _fossilDroppedDown.value = !_fossilDroppedDown.value!!
+        _fossilDroppedDown.value = !(_fossilDroppedDown.value ?: false)
+    }
+
+    //reading section that is being listened to
+    //-1 = none
+    //null = audio has not been initialized
+    private var _currentAudio: Int? = null
+    val currentAudio: Int?
+        get() = _currentAudio
+
+    //calls fragment to reset subtitle position to 0
+    private val _resetSubtitles = MutableLiveData<Boolean>()
+    val resetSubtitles: LiveData<Boolean>
+        get() = _resetSubtitles
+
+    fun setCurrentAudio(value: Int?) {
+        _resetSubtitles.value = !(_resetSubtitles.value ?: false)
+        _currentAudio = value
     }
 
     //used in data binding to determine what radio button was clicked

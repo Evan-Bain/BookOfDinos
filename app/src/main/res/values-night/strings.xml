@@ -326,7 +326,7 @@
     <string-array name="story_articles_array">
 
         <!-- #1 Ankylosaurus-->
-        <item>A baby Ankylosaurus gets distracted from eating and starts following a bug without his mother noticing. Seconds later, the mother hears her baby cry for help after a Bambiraptor jumped out of hiding, and flipped him over. The mother starts charging over. Even though his mother can\'t move fast, the Bambiraptor quickly runs away to find something else for dinner. This predator knows an adult Ankylosaurus could easily break its bones.</item>
+        <item>A baby Ankylosaurus gets distracted from eating and starts following a bug without his mother noticing. Seconds later, the mother hears her baby cry for help after a Bambiraptor jumps out of hiding and flips him over. The mother immediately starts charging over. Even though his mother isn\'t moving fast, the Bambiraptor gets scared and quickly runs away to find something else for dinner. This predator knows an adult Ankylosaurus could easily break its bones.</item>
 
         <!-- #2 Argentinosaurus-->
         <item>A small dinosaur is drinking from a pond when the water starts to shake, scaring it off. Almost half a mile away, a large herd of dinosaurs, each taller than a 3 story building, are moving their feet slowly, making the ground shake. These giant dinosaurs were Argentinosauruses, and they were very gentle giants.</item>
@@ -353,7 +353,7 @@
         <item>A hungry T-Rex is looking for its next prey when it sees a flock of huge pterosaurs walking around a pond. The T-Rex starts running towards the flock, but before the T-Rex even gets close, they jump 8 feet into the air and start flapping their huge wings. As the pterosaurs reach the clouds, they stop flapping their wings and begin to glide while looking for the next safe spot to land. These pterosaurs are called Quetzalcoatluses, and they could continue flying for 12,000 miles.</item>
 
         <!-- #10 Spinosaurus -->
-        <item>Deep in a river an apex predator is hunting for its prey. Above the water, only a large spine can be seen as it cuts its way through the water. However, below the water a dinosaur longer than two school buses swims forward. A lone shark is spotted by the hunter and within a split second the hunter thrusts forward using its tail to propel through the water. In a matter of seconds, the shark was caught by the largest dinosaur to ever roam planet Earth: Spinosaurus.</item>
+        <item>Deep in a river, an apex predator is hunting for its prey. Above the water, only a large spine can be seen as it cuts its way through the water. However, below the water, a dinosaur longer than two school buses swims forward. A lone shark is spotted by the hunter and within a split second the hunter thrusts forward, using its tail to propel through the water. In a matter of seconds, the shark is caught by the largest dinosaur to ever roam planet Earth: Spinosaurus.</item>
 
         <!-- #11 Stegosaurus -->
         <item>A hungry stegosaurus is chewing on moss when a just as hungry Allosaurus sprints towards the herbivore ready to chomp down on it. However, the stegosaurus quickly swings its spiked tail at the predator, landing a painful hit on its leg. Only one dinosaur will be eating today, and the other will never mess with a Stegosaurus again.</item>
@@ -374,10 +374,10 @@
     <string-array name="habitat_articles_array">
 
         <!-- #1 Ankylosaurus-->
-        <item>Ankylosaurus lived during the late Cretaceous period in a warm, tropical habitat. Paleontologists guess that this dinosaur had very few predators, but if it did have any predators the mighty T-Rex could have been one. As scary as this dinosaur looked, it was actually an herbivore that ate small plants close to the ground.</item>
+        <item>Ankylosaurus lived during the late Cretaceous period in a warm, tropical habitat. Paleontologists guess that this dinosaur had very few predators, but if it did have any predators the mighty T-Rex could have been one. As scary as this dinosaur looked, it was actually a herbivore that ate small plants close to the ground.</item>
 
         <!-- #2 Argentinosaurus-->
-        <item>Argentinosaurus is the largest land animal ever. This dinosaur may have had no predators, but if it did Giganotosaurus and Mapusaurus could have hunted down this giant when it was younger and smaller. However, it was dangerous and would have been rare to take down a fully grown Argentinosaurus.</item>
+        <item>Argentinosaurus is the largest land animal ever. This dinosaur may have had no predators, but if it did, Giganotosaurus and Mapusaurus could have hunted down this giant when it was younger and smaller. However, it was dangerous and would have been rare to take down a fully grown Argentinosaurus.</item>
 
         <!-- #3 Brontosaurus -->
         <item>Brontosaurus was a very large dinosaur, which helped it reach leaves most dinosaurs couldn\'t. The plants this dinosaur ate were usually hard to swallow, so it ate rocks to help digest them. Even though Brontosaurus was very tall, it still had many predators. One of these predators may have been Allosaurus.</item>
@@ -395,7 +395,7 @@
         <item>Mosasaurus hunted almost anything, including sharks, plesiosaurs, and even other mosasaurs. It was the apex predator of the oceans, meaning that it would only be eaten by other mosasaurs. Even though Mosasaurus lived in the water, it would still have to come to the surface to breathe like whales.</item>
 
         <!-- #8 Pteranodon -->
-        <item>Pteranodon lived and flew along an ocean channel called the Western Interior Seaway. It stayed around this ocean channel because one of the main things Pteranodon ate was fish. The Western Interior Seaway separated Laramidia from Appalachia. Paleontologists believe this pterosaur flew in the air similar to large birds today.</item>
+        <item>Pteranodon lived and flew along an ocean channel called the Western Interior Seaway. It stayed around this ocean channel because one of the main things Pteranodon ate was fish. The Western Interior Seaway separated Laramidia from Appalachia. Paleontologists believe this pterosaur flew in the air, similar to large birds today.</item>
 
         <!-- #9 Quetzalcoatlus -->
         <item>Quetzalcoatlus lived in what is now North America. This pterosaur would fly long distances looking for dead bodies to scavenge. However, it wasn\'t only a scavenger. Quetzalcoatlus would also frequently land near ponds and wait for small animals, like crabs, so it could use its long neck to grab its prey.</item>
@@ -410,7 +410,7 @@
         <item>Therizinosaurus was a big, dangerous looking dinosaur. However, it was actually a herbivore and would only attack another animal for defense. One predator it had to protect itself from was a large tyrannosaur called Tarbosaurus. Thanks to the large claws on Therizinosaurus, it could protect itself easier than most herbivores.</item>
 
         <!-- #13 Triceratops -->
-        <item>Triceratops was a successful herbivore because of its ability to eat thicker plants. It could eat thicker plants because of its sharp teeth and mouth being shaped like a beak. Unfortunately, it only lived for 3 million years due to an asteroid that hit Earth 66 million years ago. </item>
+        <item>Triceratops was a successful herbivore because of its ability to eat thicker plants. It could eat thicker plants because of its sharp teeth and a mouth that was shaped like a beak. Unfortunately, it only lived for 3 million years due to an asteroid that hit Earth 66 million years ago. </item>
 
         <!-- #14 T-Rex -->
         <item>Tyrannosaurus Rex, or T-Rex for short, was a huge carnivore that was the apex predator of its time. Some paleontologists believe that it was just a scavenger, but more recent research shows that T-Rex was a predator. Its enormous size and strength made it a good hunter, along with its big brain and great sense of smell.</item>
@@ -422,28 +422,28 @@
     <string-array name="evolution_articles_array">
 
         <!-- #1 Ankylosaurus-->
-        <item>The mighty club!\n\nThe club at the end of Ankylosaurus\' tail is definitely the craziest thing about this dinosaur. The club was so strong it could easily shatter the bones of another dinosaur. Unfortunately, today, there are no animals that have clubs on their tails.</item>
+        <item>The mighty club!\n\nThe club at the end of Ankylosaurus\' tail is definitely the craziest thing about this dinosaur. The club was so strong that it could easily shatter the bones of another dinosaur. Unfortunately, today, there are no animals that have clubs on their tails.</item>
 
         <!-- #2 Argentinosaurus-->
-        <item>The gigantic size!\n\nNo land animal has ever been larger than Argentinosaurus. The gigantic size of this dinosaur would have helped it scare away predators and reach leaves that other dinosaurs couldn\'t. Palaeontologists have tried to figure out how Argentinosaurus got so big, but it is still unknown. Maybe you could solve this mystery.</item>
+        <item>The gigantic size!\n\nNo land animal has ever been larger than Argentinosaurus. The gigantic size of this dinosaur would have helped it scare away predators and reach leaves that other dinosaurs couldn\'t. Paleontologists have tried to figure out how Argentinosaurus got so big, but it is still unknown. Maybe you could solve this mystery.</item>
 
         <!-- #3 Brontosaurus -->
         <item>The long neck!\n\nBrontosaurus\' neck was so big that it also needed a long tail to help balance itself so it wouldn\'t fall over. Today, the animal with the longest neck is the giraffe, which has a neck size of up to 6 feet. 6 feet isn\'t even close to Brontosaurus\' neck size of 50 feet.</item>
 
         <!-- #4 Dilophosaurus -->
-        <item>The crests on its head!\n\nThe crests on Dilophosaurus are a mystery to palaeontologists because it is unknown what the purpose of these crests were. However, some palaeontologists believe that the crests were used to attract females. They were also weak and could not be used in fighting.</item>
+        <item>The crests on its head!\n\nThe crests on Dilophosaurus are a mystery to paleontologists because it is unknown what the purpose of these crests were. However, some paleontologists believe that the crests were used to attract females. They were also weak and could not be used in fighting.</item>
 
         <!-- #5 Giganotosaurus -->
         <item>The teeth!\n\nGiganotosaurus had almost 80 teeth. Each tooth was serrated (curved sharply at the end) and 8 inches long. The teeth of this dinosaur were the main reason it could hunt dinosaurs over 3 stories high. It could take down its prey without even fighting by running up to its prey, ripping flesh off, and waiting until its prey lost too much blood and died.</item>
 
         <!-- #6 Leedsichthys -->
-        <item>The giant size!\n\nLeedsichthys is the largest fish ever, reaching sizes of up to 55 feet. It was able to get this big because it was a filter feeder. A filter feeder is an animal that leaves its mouth open while it swims so small animals, like plankton, can get trapped in the mouth and eaten. During the middle of the Jurassic, there was a lot of plankton which helped Leedsichthys get this big.</item>
+        <item>The giant size!\n\nLeedsichthys is the largest fish ever, reaching sizes of up to 55 feet. It was able to get this big because it was a filter feeder. A filter feeder is an animal that leaves its mouth open while it swims, so small animals, like plankton, can get trapped in the mouth and eaten. During the middle of the Jurassic, there was a lot of plankton which helped Leedsichthys get this big.</item>
 
         <!-- #7 Mosasaurus -->
         <item>The teeth layout!\n\nMosasaurus had two rows of teeth on the top jaw. This second row of teeth was further back in the long snout of Mosasaurus and had smaller teeth than the front. The first row of teeth was used to tear apart its prey. However, the second row of teeth was used to hold on to struggling prey.</item>
 
         <!-- #8 Pteranodon -->
-        <item>The huge wing size!\n\nThe wing size, also called “wingspan,” could reach up to 23 feet long. Today, the bird with the longest wingspan is 12 feet. Pteranodon\'s wingspan is more than twice that size! Paleontologists believe that since its wingspan was so long, it would glide often instead of flapping its wings a lot.</item>
+        <item>The huge wing size!\n\nThe wing size, also called “wingspan,” could reach up to 23 feet long. Today, the bird with the longest wingspan is 12 feet. Pteranodon\'s wingspan is more than twice that size! Paleontologists believe that since its wingspan was so long, it would often glide instead of flapping its wings a lot.</item>
 
         <!-- #9 Quetzalcoatlus -->
         <item>The huge size!\n\nQuetzalcoatlus is the largest flying animal ever. This pterosaur was the size of a giraffe and had a wingspan longer than a school bus. For a long time, paleontologists believed Quetzalcoatlus was too big to fly. However, in 2021, paleontologists found out that Quetzalcoatlus would launch itself 8 feet into the air to begin flying.</item>
@@ -461,7 +461,7 @@
         <item>The round frill!\n\nOne of the most interesting parts of Triceratops was the large frill made of bone. While most people believe the frill was used for defense, paleontologists believe it was used to help Triceratops attract a mate. Certain fossils also show evidence of Triceratops fighting each other with marks on the frill. This evidence may suggest the frill also provided protection from other dinosaurs like T-Rex.</item>
 
         <!-- #14 T-Rex -->
-        <item>The powerful bite force!\n\nT-Rex\'s bite force of 12,800 pounds is the strongest bite force of any land animal. Today, the alligator has the strongest bite force with 2,980 pounds. That\'s 4 times less than T. Rex! Since its bite force was so strong, it would rarely have to take more than one bite to instantly kill its prey.</item>
+        <item>The powerful bite force!\n\nT-Rex\'s bite force of 12,800 pounds is the strongest bite force of any land animal. Today, the alligator has the strongest bite force with 2,980 pounds. That\'s 4 times less than T-Rex! Since its bite force was so strong, it would rarely have to take more than one bite to instantly kill its prey.</item>
 
         <!-- #15 Velociraptor -->
         <item>The sickle-shaped claw!\n\nVelociraptor had a larger, sickle-shaped claw on the second toe of each foot. This claw allowed it to hunt using a strategy called Raptor Prey Restraint. Using this strategy, it would first stalk its prey before jumping on top to keep its prey pinned to the ground with its sickle-shaped claw and weight. </item>
@@ -470,16 +470,16 @@
     <string-array name="fossil_articles_array">
 
         <!-- #1 Ankylosaurus-->
-        <item>The first fossil of Ankylosaurus was found in 1906 by a paleontologist named Barnum Brown. This fossil was found in Montana which would have been in the continent known as Larmidia. Only three fossils of Ankylosaurus have ever been found and not enough bones have been found to create a complete fossil.</item>
+        <item>The first fossil of Ankylosaurus was found in 1906 by a paleontologist named Barnum Brown. This fossil was found in Montana which would have been in the continent known as Laramidia. Only three fossils of Ankylosaurus have ever been found and not enough bones have been found to create a complete fossil.</item>
 
         <!-- #2 Argentinosaurus-->
-        <item>The first fossil of Argentinosaurus was found on a farm in 1987. The farmer who found it thought the leg was a giant piece of wood. Palaeontologists first thought this dinosaur was over 130 feet long. Although, thanks to new technology, the size is believed to be around 100 feet long. No matter a length of 130 or 100 feet, Argentinosaurus is still the largest land animal ever!</item>
+        <item>The first fossil of Argentinosaurus was found on a farm in 1987. The farmer who found it thought the leg was a giant piece of wood. Paleontologists first thought this dinosaur was over 130 feet long. Although, thanks to new technology, the size is believed to be around 100 feet long. No matter the length of 130 or 100 feet, Argentinosaurus is still the largest land animal ever!</item>
 
         <!-- #3 Brontosaurus -->
         <item>The first fossil of Brontosaurus was found during the 1870s. Unfortunately, during the early 1900s, paleontologists thought that Brontosaurus was not a new dinosaur. It was believed to be an already discovered dinosaur called Apatosaurus. However, in 2015, a study proved that Brontosaurus and Apatosaurus were different dinosaurs. Still, some paleontologists aren\'t certain if Brontosaurus is a real dinosaur. This means that it\'s up to you to decide!</item>
 
         <!-- #4 Dilophosaurus -->
-        <item>The first fossil of Dilophosaurus was found in 1942, by Sam Welles in Arizona. This fossil did not have the head of Dilophosaurus, so palaeontologists thought it belonged to a dinosaur called \'Megalosaurus Wetherilli\'. However, in 1970, the head of Dilophosaurus was found, which led to the discovery that the fossil from 1942 was part of an unknown dinosaur that they eventually named Dilophosaurus.</item>
+        <item>The first fossil of Dilophosaurus was found in 1942, by Sam Welles in Arizona. This fossil did not have the head of Dilophosaurus, so paleontologists thought it belonged to a dinosaur called \'Megalosaurus Wetherilli.\' However, in 1970, the head of Dilophosaurus was found, which led to the discovery that the fossil from 1942 was part of an unknown dinosaur that they eventually named Dilophosaurus.</item>
 
         <!-- #5 Giganotosaurus -->
         <item>The first Giganotosaurus fossil was found in 1993 and is about 70% complete. A fossil this complete helps paleontologists find the correct size, which was over 40 feet long. This size makes Giganotosaurus the second biggest carnivorous dinosaur ever, bigger than T-Rex!</item>
@@ -488,13 +488,13 @@
         <item>The first Leedsichthys fossil was found in the 1880s by Alfred Leeds. In 1889, the fossil was finally named Leedsichthys, after the person who had originally discovered the fossil. The actual size of this fish is still unknown because it had almost no bones. This means that no fossil has come close to being complete. </item>
 
         <!-- #7 Mosasaurus -->
-        <item>The first fossil of Mosasaurus was found near the Meuse River in 1764. At the time, scientists did not believe an animal could go extinct, which meant the fossil was believed to be a whale. However, after extinction was proven to be real in 1796, scientists realised this fossil did not belong to a whale. Almost 60 years after the first fossil was found, Mosasaurus was finally named.</item>
+        <item>The first fossil of Mosasaurus was found near the Meuse River in 1764. At the time, scientists did not believe an animal could go extinct, which meant the fossil was believed to be a whale. However, after extinction was proven to be real in 1796, scientists realized this fossil did not belong to a whale. Almost 60 years after the first fossil was found, Mosasaurus was finally named.</item>
 
         <!-- #8 Pteranodon -->
-        <item>The first fossil of Pteranodon was found in 1871 by Othniel Charles Marsh in Kansas, but fossils have also been found in Europe. These fossils found of Pteranodon have shown paleontologists that it was actually not a dinosaur but instead a huge flying reptile called a pterosaur. </item>
+        <item>The first fossil of Pteranodon was found in 1871 by Othniel Charles Marsh in Kansas, but fossils have also been found in Europe. These fossils found of Pteranodon have shown paleontologists that it was actually not a dinosaur, but instead, a huge flying reptile called a pterosaur. </item>
 
         <!-- #9 Quetzalcoatlus -->
-        <item>The first Quetzalcoatlus fossil was found in 1971 in Big Bend, Texas. No one knew the fossil belonged to Quetzalcoatlus until 1975. It took 4 years for paleontologists to make this discovery because pterosaur fossils are hard to dig up. The hollow bones in pterosaurs made their fossils break easily. </item>
+        <item>The first Quetzalcoatlus fossil was found in 1971 in Big Bend, Texas. No one knew the fossil belonged to Quetzalcoatlus until 1975. It took 4 years for paleontologists to make this discovery because pterosaur fossils are hard to dig up. The hollow bones in pterosaurs make their fossils break easily. </item>
 
         <!-- #10 Spinosaurus -->
         <item>The first fossil of Spinosaurus was discovered in Egypt in 1912. Unfortunately, just 32 years later, this fossil was destroyed in World War II, during the bombing of a museum by the British. Another fossil was not found until 2008, almost a century later. For over a century, paleontologists believed Spinosaurus lived on the land like all other dinosaurs. However, new fossils found in 2014 gave evidence that Spinosaurus was adapted to an aquatic lifestyle. This discovery made Spinosaurus the only semi-aquatic dinosaur ever!</item>
@@ -512,7 +512,7 @@
         <item>The first T-Rex fossil was found in 1902, but the most interesting T-Rex fossil, named Sue, was found in 1990. Sue was one of the largest and most complete T-Rex fossils found, being 90% complete. In 2020, Sue became the most expensive fossil after a museum purchased the fossil for $31.8 million. Currently, this museum is still being built, but in 2025 you can visit the museum and see Sue yourself!</item>
 
         <!-- #15 Velociraptor -->
-        <item>For a while people believed Velociraptor hunted in packs. However, in 2020, scientists found that it hunted alone. Even though paleontologists agree that it hunted smaller animals, a famous fossil found in 1971, named Dueling Dinosaurs, showed a Velociraptor attacking a Protoceratops. This fossil is the only fossil that shows dinosaurs fighting.</item>
+        <item>For a while, people believed Velociraptor hunted in packs. However, in 2020, scientists found that it hunted alone. Even though paleontologists agree that it hunted smaller animals, a famous fossil found in 1971, named Dueling Dinosaurs, showed a Velociraptor attacking a Protoceratops. This fossil is the only fossil that shows dinosaurs fighting.</item>
     </string-array>
 
     <string-array name="ankylosaurus_questions_array">
@@ -583,7 +583,7 @@
     <string-array name="leedsichthys_questions_array">
         <item>What period did Leedsichthys live in?</item>
         <item>What did Leedsichthys eat?</item>
-        <item>How big do palaeontologists guess Leedsichthys is?</item>
+        <item>How big do paleontologists guess Leedsichthys is?</item>
         <item>What type of animal was Leedsichthys?</item>
         <item>What predator hunted Leedsichthys?</item>
         <item>When did Leedsichthys die?</item>
@@ -1790,6 +1790,25 @@
     <string name="sky_background">Sky Background</string>
     <string name="level_3">Level 3</string>
     <string name="select_to_navigate_to_article_for_this_dino">select to navigate to article for this dino</string>
+    <string name="dinosaur_extinction">Dinosaur Extinction</string>
+    <string name="cretaceous_paleogene_extinction">Cretaceous-Paleogene Extinction</string>
+    <string name="cause">Cause</string>
+    <string name="when">When</string>
+    <string name="_66_million_years_ago">66 million years ago</string>
+    <string name="killed">Killed</string>
+    <string name="_75_of_all_species">75% of all species</string>
+    <string name="chicxulub_impactor">Chicxulub Impactor</string>
+    <string name="landed">Landed</string>
+    <string name="yucatan_peninsula">Yucatan Peninsula</string>
+    <string name="extinction_general_text">66 million years ago, during the Mesozoic Era, a bright light appears in the sky as an asteroid larger than Mount Everest races toward Earth at around 20 miles a second (THAT\'S AROUND 70,000 MILES AN HOUR). Seconds later, the asteroid hits the shallow waters near the Yucatan Peninsula. Any living thing, plant or animal, around 100 miles away from the Yucatan Peninsula dies instantly. The dinosaurs that weren’t killed instantly from the impact eventually die from a devastating winter that lasted two decades.</string>
+    <string name="extinction_image_desc">Asteroid in the sky moving towards a forest</string>
+    <string name="fast_chaos">Fast Chaos</string>
+    <string name="fast_chaos_text">Chicxulub Impactor lights up brighter than the Sun as it plummets towards Earth with a top speed 150 times faster than a plane today. A bright ball of light reaching the clouds is seen as Chichxulub Impactor hits Earth with the power of 10 billion atomic bombs. A ring of extreme heat is sent over 1,000 miles in every direction, disintegrating any living thing it touches. All water nearby is pushed away or evaporated, revealing the ocean’s floor for 100s of miles. An earthquake almost 50 times more powerful than the strongest earthquake in human history is immediately sent out, with even the other side of Earth experiencing the ground shake. However, the worst has not yet happened until a shockwave of extreme heat traveling 600 miles an hour is sent across the whole world. The shockwave burns anything it touches for thousands of miles and even heats up the opposite side of the world to deadly temperatures. All animals that were unable to find shelter die almost immediately.</string>
+    <string name="slow_chaos">Slow Chaos</string>
+    <string name="slow_chaos_text">The temperature of Earth eventually starts to cool down as a large cloud of ash surrounds the entire planet in a cold darkness. The cloud blocks all light from the Sun for weeks, eventually killing all plant life and almost all plankton. Since plankton was the main source of food in the ocean, all large ocean predators die from starvation. Not only does most life in the ocean die off, but all remaining large animals, including dinosaurs, that survived the asteroid impact eventually die off from starvation as a harsh winter covers the entire Earth for decades.</string>
+    <string name="life_finds_text">Over 20 years after Chicxulub Impactor struck the Earth, the world begins to warm up and slowly return to normal conditions. Small species that could eat very small amounts of food survived the harsh conditions and start to re-populate the Earth. Surviving seeds in the ground start to grow into beautiful plants providing food for all remaining animals. The dominant species on the planet is no longer large, magnificent dinosaurs but, instead, small mammals like rats that were able to find shelter underground from the initial heat and the harsh winter that followed. However, dinosaurs weren’t completely dead. A direct descendant of the magnificent dinosaurs survived. This surviving descendant of the dinosaurs is known as a bird and is still living today. While this event was one the most tragic extinctions in history, it led to both you and me walking the Earth as the apex predator of today.</string>
+    <string name="life_always_finds_a_way">Life Always Finds A Way</string>
+
     <style name="default_profile">Default</style>
 
 </resources>
