@@ -1,5 +1,6 @@
 package com.example.dinoappv2.viewModels
 
+import androidx.compose.ui.text.toLowerCase
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +28,7 @@ class DictionaryViewModel(
         val length = text.length
         _allWords.postValue(
             originalWordList.filter { word ->
-                word.word.take(length).lowercase() == text
+                word.word.take(length).lowercase() == text.lowercase()
             }
         )
 
