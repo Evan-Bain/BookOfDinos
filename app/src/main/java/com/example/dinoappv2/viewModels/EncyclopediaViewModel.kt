@@ -1,5 +1,6 @@
 package com.example.dinoappv2.viewModels
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +11,8 @@ class EncyclopediaViewModel(
     private val dinoNames: Array<String>
 ) : ViewModel() {
 
-    private var originalDinoList = listOf<DinosaurEncyclopedia>()
+    @VisibleForTesting
+    var originalDinoList = listOf<DinosaurEncyclopedia>()
 
     private val _filteredDinos = MutableLiveData<List<DinosaurEncyclopedia>>()
     val filteredDinos: LiveData<List<DinosaurEncyclopedia>>
@@ -34,7 +36,7 @@ class EncyclopediaViewModel(
         val length = text.length
         _filteredDinos.value =
             originalDinoList.filter { dino ->
-                dinoNames[dino.position].take(length).lowercase() == text
+                dinoNames[dino.position].take(length).lowercase() == text.lowercase()
             }
 
         return true
