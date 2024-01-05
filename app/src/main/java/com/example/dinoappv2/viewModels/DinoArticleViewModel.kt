@@ -96,6 +96,12 @@ class DinoArticleViewModel : ViewModel() {
 
     /** indicate what page of quiz is displayed  **/
     fun nextButtonClicked(value: Int) {
+        /*
+        parameters:
+        -1: passed when R.id.quiz_finish_button is clicked (data binding)
+        0: passed at the of animation for exiting the quiz
+        5: passed when user opens quiz of a previously passed quiz
+        */
         _nextButtonClicked.value = when(value) {
             -1 -> (nextButtonClicked.value ?: 0) + 1
             0 -> null
