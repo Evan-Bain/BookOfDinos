@@ -46,7 +46,7 @@ class DictionaryAdapter :
         //check if this is the first position or not
         try {
             holder.bind(getItem(position), getItem(position-1))
-        } catch(e: ArrayIndexOutOfBoundsException) {
+        } catch(e: IndexOutOfBoundsException) {
             holder.bind(getItem(position), null)
         }
     }

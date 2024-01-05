@@ -545,6 +545,7 @@ class DinoArticleFragment : Fragment() {
             if (visible) {
                 doOnStart {
                     if (dinoSelected.activated || viewModel.quizPassed) {
+                        // display quiz already passed screen
                         viewModel.nextButtonClicked(5)
                     }
                     ViewCompat.setNestedScrollingEnabled(binding.scrollArticleLayout, false)
