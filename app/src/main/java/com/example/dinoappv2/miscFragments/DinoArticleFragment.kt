@@ -4,17 +4,13 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.graphics.drawable.AnimationDrawable
-import android.media.MediaFormat
 import android.media.MediaPlayer
-import android.media.MediaPlayer.TrackInfo
-import android.os.Build
 import android.os.Bundle
-import android.text.*
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
 import android.text.method.LinkMovementMethod
-import android.text.style.CharacterStyle
 import android.text.style.ClickableSpan
-import android.util.Log
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,15 +31,15 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.dinoappv2.R
 import com.example.dinoappv2.bottomNav.MainActivity
-import com.example.dinoappv2.dataClasses.*
+import com.example.dinoappv2.dataClasses.DictionaryStrings
+import com.example.dinoappv2.dataClasses.DinosaurEncyclopedia
+import com.example.dinoappv2.dataClasses.DinosaurQuizStrings
+import com.example.dinoappv2.dataClasses.getDinosaurAudio
 import com.example.dinoappv2.databinding.FragmentDinoArticleBinding
 import com.example.dinoappv2.viewModels.DinoArticleViewModel
 import com.example.dinoappv2.viewModels.MainViewModel
 import com.google.android.material.transition.MaterialSharedAxis
-import java.io.*
-import java.util.*
-
-const val TAG = "DinoArticleFragment"
+import java.util.Locale
 
 class DinoArticleFragment : Fragment() {
 
@@ -266,24 +262,8 @@ class DinoArticleFragment : Fragment() {
             fossilConstraintLayout.setTransitionListeners(fossilMotionLayout, 2)
         }
 
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-
         //create list of all audios used for reading sections
         mediaPlayerList = createMediaPlayers()
-
-        /*mediaPlayerList[0].setTimedText(binding.storyText.text as Spannable, storyArticle)
-        mediaPlayerList[1].setTimedText(binding.habitatText.text as Spannable, habitatArticle)
-        mediaPlayerList[2].setTimedText(binding.crazyEvolutionText.text as Spannable, evolutionArticle)
-        mediaPlayerList[3].setTimedText(binding.fossilHistoryText.text as Spannable, fossilArticle)*/
 
         binding.activateAudioStory.setOnClickListener {
             activateAudioAnimation(viewModel.currentAudio, 0)
@@ -316,17 +296,6 @@ class DinoArticleFragment : Fragment() {
                 3,
             )
         }
-
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
-        //DEVELOPING
 
         sharedViewModel.quizVisible.observe(viewLifecycleOwner) {
             if (viewModel.initialized) {
@@ -636,7 +605,6 @@ class DinoArticleFragment : Fragment() {
                 setOnPreparedListener {
                     it.start()
                 }
-                createTimedText(this, i)
             }
         }
 
@@ -723,101 +691,6 @@ class DinoArticleFragment : Fragment() {
         return false
     }
 
-    /** create timedText for MediaPlayer to allow user to read along with audio **/
-    @Suppress("DEPRECATION")
-    private fun createTimedText(mediaPlayer: MediaPlayer, section: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            mediaPlayer.addTimedTextSource(
-                getSubtitleFile(section),
-                MediaFormat.MIMETYPE_TEXT_SUBRIP
-            )
-        } else {
-            mediaPlayer.addTimedTextSource(
-                getSubtitleFile(section),
-                MediaPlayer.MEDIA_MIMETYPE_TEXT_SUBRIP
-            )
-        }
-
-        val textTrackIndex = findTrackIndexFor(
-            TrackInfo.MEDIA_TRACK_TYPE_TIMEDTEXT, mediaPlayer.trackInfo
-        )
-
-        if (textTrackIndex >= 0) {
-            mediaPlayer.selectTrack(textTrackIndex)
-        }
-    }
-
-    private fun MediaPlayer.setTimedText(spannable: Spannable, article: String) {
-
-        Log.i(TAG, "Spannable: $spannable")
-        Log.i(TAG, "Article: $article")
-
-        var subtitleStoryProgress = 0
-        var lastSpan: CharacterStyle? = null
-
-        viewModel.resetSubtitles.observe(viewLifecycleOwner) {
-            spannable.removeSpan(lastSpan)
-            subtitleStoryProgress = 0
-        }
-
-        setOnTimedTextListener { _, timedText ->
-
-            Log.i(TAG, "lastSpan: ${timedText.text}")
-
-            val timedTextLength = timedText.text.length
-
-            val styledSpan: CharacterStyle = object : android.text.style.CharacterStyle() {
-                override fun updateDrawState(textPaint: TextPaint) {
-                    textPaint.isFakeBoldText = true
-
-                    val typedValue = object : TypedValue() {}
-                    requireActivity().theme.resolveAttribute(R.attr.colorSecondary, typedValue, true)
-                    textPaint.color = typedValue.data
-                }
-
-            }
-
-            if(subtitleStoryProgress == 0) {
-                var matchedLength = 0
-
-                var index = 0
-                while(matchedLength != timedTextLength - 1 && matchedLength < timedTextLength) {
-
-                    if(timedText.text[matchedLength] == article[index]) {
-                        matchedLength++
-                    }
-
-                    index++
-                }
-
-                spannable.setSpan(
-                    styledSpan,
-                    0,
-                    index,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
-
-                lastSpan = styledSpan
-                subtitleStoryProgress += index
-
-                return@setOnTimedTextListener
-            }
-
-            spannable.removeSpan(lastSpan)
-
-
-            spannable.setSpan(
-                styledSpan,
-                subtitleStoryProgress,
-                subtitleStoryProgress + timedTextLength,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-
-            lastSpan = styledSpan
-            subtitleStoryProgress += timedTextLength
-        }
-    }
-
     private fun stopMediaPlayers(release: Boolean) {
         if(release) {
             for(i in mediaPlayerList) {
@@ -831,64 +704,6 @@ class DinoArticleFragment : Fragment() {
                     viewModel.setCurrentAudio(-1)
                     i.stop()
                 }
-            }
-        }
-    }
-
-    private fun findTrackIndexFor(mediaTrackType: Int, trackInfo: Array<TrackInfo>): Int {
-        val index = -1
-        for (i in trackInfo.indices) {
-            if (trackInfo[i].trackType == mediaTrackType) {
-                return i
-            }
-        }
-        return index
-    }
-
-    private fun getSubtitleFile(section: Int): String {
-        val rawResource = dinoSelected.getDinosaurSubtitle(section)
-        val fileName = resources.getResourceEntryName(rawResource)
-        Log.i(TAG, "Subtitle File: $fileName")
-        val subtitleFile: File = requireActivity().getFileStreamPath(fileName)
-        if (subtitleFile.exists()) {
-            Log.i(TAG, "Subtitle File Exists: ${subtitleFile.absoluteFile.readText()}")
-            return subtitleFile.absolutePath
-        }
-
-        // Copy the file from the res/raw folder to your app folder on the
-        // device
-        var inputStream: InputStream? = null
-        var outputStream: OutputStream? = null
-        try {
-            inputStream = resources.openRawResource(rawResource)
-            outputStream = FileOutputStream(subtitleFile, false)
-            copyFile(inputStream, outputStream)
-            return subtitleFile.absolutePath
-        } catch (e: Exception) {
-            e.printStackTrace()
-        } finally {
-            closeStreams(inputStream, outputStream)
-        }
-        return ""
-    }
-
-    @Throws(IOException::class)
-    private fun copyFile(inputStream: InputStream, outputStream: OutputStream?) {
-        val bufferSize = 1024
-        val buffer = ByteArray(bufferSize)
-        var length: Int
-        while (inputStream.read(buffer).also { length = it } != -1) {
-            outputStream!!.write(buffer, 0, length)
-        }
-    }
-
-    // A handy method I use to close all the streams
-    private fun closeStreams(vararg closeables: Closeable?) {
-        for (stream in closeables) {
-            try {
-                stream?.close()
-            } catch (e: IOException) {
-                e.printStackTrace()
             }
         }
     }

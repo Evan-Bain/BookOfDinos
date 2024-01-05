@@ -1,6 +1,5 @@
 package com.example.dinoappv2.viewModels
 
-import androidx.compose.ui.text.toLowerCase
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
