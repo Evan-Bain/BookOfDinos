@@ -7,11 +7,11 @@
 
         <variable
             name="sharedViewModel"
-            type="com.example.dinoappv2.viewModels.MainViewModel" />
+            type="com.example.dinoappv2.main.viewModel.MainViewModel" />
 
         <variable
             name="viewModel"
-            type="com.example.dinoappv2.viewModels.DinoArticleViewModel" />
+            type="com.example.dinoappv2.encyclopedia.dinoArticle.viewModel.DinoArticleViewModel" />
 
     </data>
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="32dp"
-                tools:context=".miscFragments.DinoArticleFragment">
+                tools:context=".encyclopedia.dinoArticle.DinoArticleFragment">
 
                 <!-- Guidelines used to support smaller screen sizes -->
                 <androidx.constraintlayout.widget.Guideline

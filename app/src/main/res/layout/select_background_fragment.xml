@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="32dp"
-        tools:context=".miscFragments.SelectBackgroundFragment">
+        tools:context=".profile.selectBackground.SelectBackgroundFragment">
 
         <TextView
             android:layout_width="match_parent"

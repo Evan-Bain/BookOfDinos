@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.dinoappv2.viewModels.ProfileViewModel" />
+            type="com.example.dinoappv2.profile.viewModel.ProfileViewModel" />
 
     </data>
 

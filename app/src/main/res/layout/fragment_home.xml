@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".bottomNav.HomeFragment">
+    tools:context=".home.HomeFragment">
 
     <!-- home layout (divided into 4 sections - weight) -->
     <LinearLayout
